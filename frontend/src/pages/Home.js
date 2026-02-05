@@ -63,9 +63,9 @@ const Home = () => {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Le Foyer Tidiane
+            <span className="text-[#D4AF37]">L'empreinte de Tivaouane</span>
             <br />
-            <span className="text-[#D4AF37]">l'empreinte de Tivaouane !</span>
+            dans la Tariqa Tidiane
           </h1>
 
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
