@@ -18,7 +18,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Mansour Sy 'Balkhawmi'",
       title: "Le Savant Multidimensionnel",
-      period: "1957 - 1980",
+      period: "1957 - 1957",
       icon: BookOpen,
       description: "Érudit exceptionnel, poète mystique et juriste, il incarnait la fusion parfaite entre science et spiritualité. Ses cours magistraux attiraient des centaines d'étudiants venus de toute l'Afrique de l'Ouest.",
       contributions: [
