@@ -260,11 +260,11 @@ const OuvragesReference = () => {
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
             <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
-              Téléchargez gratuitement les ouvrages numérisés
+              Accédez aux œuvres numérisées et ressources en ligne
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {bibliothequeNumerique.map((doc, index) => (
               <div
                 key={index}
@@ -279,22 +279,25 @@ const OuvragesReference = () => {
                       {doc.titre}
                     </h3>
                     <div className="space-y-1 text-sm text-[#888888]">
-                      <p>Taille : {doc.taille}</p>
+                      <p>Format : {doc.taille}</p>
                       <p>Langue : {doc.langue}</p>
                     </div>
                   </div>
                 </div>
 
-                <button
-                  className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                <a
+                  href={doc.lien}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
                     doc.disponible
                       ? "bg-[#004D33] hover:bg-[#003d29] text-white"
                       : "bg-gray-200 text-gray-500 cursor-not-allowed"
                   }`}
-                  disabled={!doc.disponible}
                 >
-                  {doc.disponible ? "Télécharger" : "Bientôt disponible"}
-                </button>
+                  <ExternalLink className="w-4 h-4" />
+                  Accéder à la ressource
+                </a>
               </div>
             ))}
           </div>
