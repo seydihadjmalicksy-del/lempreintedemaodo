@@ -117,7 +117,7 @@ async def get_video(video_id: str):
     
     return video
 
-@api_router.post("/videos", response_model=Video)
+@api_router.post("/videos", response_model=Video, status_code=201)
 async def create_video(input: VideoCreate):
     video_dict = input.model_dump()
     video_obj = Video(**video_dict)
