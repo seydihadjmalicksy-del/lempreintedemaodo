@@ -1,9 +1,9 @@
-import { MapPin, Home, Mosque, Heart } from "lucide-react";
+import { MapPin, Home, Church, Heart } from "lucide-react";
 
 const GeographieSacree = () => {
   const lieux = [
     {
-      icon: Mosque,
+      icon: Church,
       title: "La Grande Mosquée",
       description: "Cœur spirituel de Tivaouane, édifiée progressivement depuis 1902. Ses dômes dorés dominent la ville et accueillent des millions de fidèles lors du Gamou.",
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
