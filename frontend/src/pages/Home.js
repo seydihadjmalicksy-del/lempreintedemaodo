@@ -197,7 +197,7 @@ const Home = () => {
           
           <div className="border-t border-[#D4AF37]/30 pt-6">
             <p className="text-white/60 text-sm">
-              © 2024 Tariqa Tidiane Tivaouane. Tous droits réservés.
+              © 2024 Foyer Tidiane Tivaouane. Tous droits réservés.
             </p>
           </div>
         </div>
