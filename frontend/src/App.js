@@ -7,7 +7,10 @@ import Archives from "./pages/Archives";
 import ComingSoon from "./pages/ComingSoon";
 import ElHadjiMalickSy from "./pages/histoire/ElHadjiMalickSy";
 import LigneeKhalifes from "./pages/histoire/LigneeKhalifes";
+import Origines from "./pages/histoire/Origines";
+import GeographieSacree from "./pages/histoire/GeographieSacree";
 import Gamou from "./pages/evenements/Gamou";
+import PiliersTariqa from "./pages/enseignements/PiliersTariqa";
 import Navbar from "./components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import "@/App.css";
@@ -25,13 +28,13 @@ function App() {
           <Route path="/archives" element={<Archives />} />
           
           {/* Histoire Routes */}
-          <Route path="/histoire/origines" element={<ComingSoon title="Les Origines" />} />
+          <Route path="/histoire/origines" element={<Origines />} />
           <Route path="/histoire/el-hadji-malick-sy" element={<ElHadjiMalickSy />} />
           <Route path="/histoire/khalifes" element={<LigneeKhalifes />} />
-          <Route path="/histoire/geographie" element={<ComingSoon title="Géographie Sacrée" />} />
+          <Route path="/histoire/geographie" element={<GeographieSacree />} />
           
           {/* Enseignements Routes */}
-          <Route path="/enseignements/piliers" element={<ComingSoon title="Piliers de la Tariqa" />} />
+          <Route path="/enseignements/piliers" element={<PiliersTariqa />} />
           <Route path="/enseignements/ecole" element={<ComingSoon title="L'École de Tivaouane" />} />
           <Route path="/enseignements/ouvrages" element={<ComingSoon title="Ouvrages de Référence" />} />
           
