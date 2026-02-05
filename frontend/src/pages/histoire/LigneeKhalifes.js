@@ -5,7 +5,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Babacar Sy",
       title: "Le Premier Khalife",
-      period: "1922 - 1957",
+      period: "1885 - 1957",
       icon: Crown,
       description: "Fils aîné de Maodo, il fut le premier successeur. Homme de rigueur et d'organisation, il structura la Tariqa en créant le système des Dahiras (cercles d'études et de dhikr) qui allait assurer le rayonnement de Tivaouane à travers le Sénégal.",
       contributions: [
@@ -18,7 +18,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Mansour Sy 'Balkhawmi'",
       title: "Le Savant Multidimensionnel",
-      period: "1957 - 1957",
+      period: "1900 - 1957",
       icon: BookOpen,
       description: "Érudit exceptionnel, poète mystique et juriste, il incarnait la fusion parfaite entre science et spiritualité. Ses cours magistraux attiraient des centaines d'étudiants venus de toute l'Afrique de l'Ouest.",
       contributions: [
@@ -31,7 +31,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Abdoul Aziz Sy 'Dabakh'",
       title: "Le Régulateur Social",
-      period: "1957 - 1997",
+      period: "1904 - 1997",
       icon: Scale,
       description: "Figure de l'unité nationale, il a joué un rôle médiateur crucial dans les crises politiques et sociales du Sénégal. Son charisme et sa sagesse ont fait de lui un interlocuteur respecté de tous.",
       contributions: [
@@ -56,9 +56,9 @@ const LigneeKhalifes = () => {
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
     },
     {
-      name: "Serigne Mansour Sy 'Borom Darayi'",
+      name: "Serigne Mansour Sy 'Borom Daradji'",
       title: "Le Protecteur du Savoir",
-      period: "1997 - 2012",
+      period: "1925 - 2012",
       icon: Shield,
       description: "Gardien de l'orthodoxie et défenseur des valeurs islamiques, il a veillé à la préservation de l'enseignement authentique de Maodo face aux dérives modernes.",
       contributions: [
@@ -71,7 +71,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Abdoul Aziz Sy Al Amine",
       title: "Le Bâtisseur et Diplomate",
-      period: "2012 - 2017",
+      period: "1928 - 2017",
       icon: Building,
       description: "Homme de projets et de vision, il a lancé de grands chantiers d'infrastructure à Tivaouane tout en renforçant les liens avec la communauté tidiane internationale.",
       contributions: [
@@ -84,7 +84,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Babacar Sy Mansour",
       title: "Le Guide Actuel",
-      period: "2017 - Aujourd'hui",
+      period: "1932 - Aujourd'hui",
       icon: Users,
       description: "L'actuel Khalife, garant de l'orthodoxie et de la continuité. Il poursuit l'œuvre de ses prédécesseurs en adaptant l'enseignement aux défis contemporains tout en préservant l'authenticité de la Tariqa.",
       contributions: [
