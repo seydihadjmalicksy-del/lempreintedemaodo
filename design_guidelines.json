@@ -1,0 +1,128 @@
+{
+  "identity": {
+    "name": "E1",
+    "role": "Creative Designer",
+    "vibe": "Spiritual Modernism",
+    "principles": [
+      "Fusion: Islamic Tradition x Modern SaaS Cleanliness",
+      "Emotion: Serenity (Sakinah) and Light (Nur)",
+      "Content: The Message is the Hero",
+      "Detail: Gold accents as spiritual metaphors",
+      "Space: Breathable layouts for reflection"
+    ]
+  },
+  "palette": {
+    "primary": {
+      "name": "Tidiane Emerald",
+      "hex": "#004D33",
+      "usage": "Primary buttons, active states, strong headers"
+    },
+    "secondary": {
+      "name": "Divine Gold",
+      "hex": "#D4AF37",
+      "usage": "Borders, icons, highlights, spiritual accents"
+    },
+    "background": {
+      "name": "Parchment Cream",
+      "hex": "#F9F7F2",
+      "usage": "Main background (Light Mode)"
+    },
+    "surface": {
+      "name": "Pure White",
+      "hex": "#FFFFFF",
+      "usage": "Cards, video containers"
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#4A4A4A",
+      "muted": "#888888"
+    },
+    "accent": {
+      "name": "Soft Sage",
+      "hex": "#E8F5E9",
+      "usage": "Hover states, subtle backgrounds"
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "Playfair Display, serif",
+      "weights": ["600", "700"],
+      "usage": "Section titles, hero text (Evokes tradition & authority)"
+    },
+    "body": {
+      "family": "Lato, sans-serif",
+      "weights": ["400", "500"],
+      "usage": "UI text, descriptions, metadata"
+    },
+    "accent": {
+      "family": "Amiri, serif",
+      "usage": "Bismillah, Quranic verses, Calligraphic touches"
+    }
+  },
+  "layout": {
+    "grid_system": "Bento Grid (Asymmetric)",
+    "spacing": "Generous (Tailwind p-8, p-12, p-16)",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "radius": "rounded-xl"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#004D33] text-white hover:bg-[#003d29] rounded-full px-8 py-3 font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+      "secondary": "border-2 border-[#004D33] text-[#004D33] hover:bg-[#004D33] hover:text-white rounded-full px-8 py-3 transition-all",
+      "ghost": "text-[#004D33] hover:bg-[#E8F5E9] rounded-lg px-4 py-2"
+    },
+    "cards": {
+      "style": "bg-white border border-[#E2E8F0] hover:border-[#D4AF37] transition-colors duration-300 shadow-sm hover:shadow-md rounded-xl overflow-hidden",
+      "video_card": "group relative aspect-video bg-gray-100 overflow-hidden rounded-lg"
+    },
+    "inputs": {
+      "style": "bg-white border-gray-200 focus:border-[#004D33] focus:ring-[#004D33] rounded-lg"
+    }
+  },
+  "visual_enhancers": {
+    "textures": "Subtle grain overlay on backgrounds to mimic paper",
+    "patterns": "Islamic geometric patterns (SVG) as section dividers or subtle background watermarks (opacity 0.05)",
+    "shadows": "Soft, diffuse shadows (shadow-lg) for floating elements",
+    "gradients": "Subtle gold-to-transparent gradients on hero overlays"
+  },
+  "assets": {
+    "hero_images": [
+      {
+        "url": "https://images.unsplash.com/photo-1643522058235-6530723ce22b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxncmFuZCUyMG1vc3F1ZSUyMHRpdmFvdWFuZSUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3NzAzMDgwMjd8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "Grand Mosque Architecture (Stylistic Placeholder)",
+        "category": "hero"
+      }
+    ],
+    "textures": [
+      {
+        "url": "https://images.unsplash.com/photo-1676607185077-f6f289c669e9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTJ8MHwxfHNlYXJjaHwxfHxpc2xhbWljJTIwZ2VvbWV0cmljJTIwcGF0dGVybiUyMGdvbGQlMjBncmVlbiUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcwMzA4MDMyfDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Golden Geometric Pattern",
+        "category": "texture"
+      }
+    ],
+    "content_images": [
+      {
+        "url": "https://images.unsplash.com/photo-1769805495744-d11b35e50b89?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzcGlyaXR1YWwlMjByZWFkaW5nJTIwcXVyYW4lMjBwZWFjZWZ1bHxlbnwwfHx8fDE3NzAzMDgwMzR8MA&ixlib=rb-4.1.0&q=85",
+        "alt": "Spiritual Reading/Reflection",
+        "category": "about"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. THEME SETUP: Implement the 'Parchment Cream' background globally. Use 'Tidiane Emerald' for all primary actions.",
+    "2. FONTS: Import 'Playfair Display' and 'Lato' from Google Fonts immediately.",
+    "3. HERO SECTION: Create a 'Cinematic Spiritual' hero. Use the mosque image with a dark green gradient overlay (opacity 60%) so white text pops. Add a subtle 'Gold' border-bottom.",
+    "4. VIDEO GALLERY: Do NOT use a basic grid. Use a 'Bento' layout for the 'Featured' section (one large video on left, two smaller stacked on right). Use a standard responsive grid for the full list.",
+    "5. PLAYER: The video player page must feel like a cinema. Darken the background to #0a0a0a for this page only to focus on the content.",
+    "6. ISLAMIC TOUCHES: Add a 'Bismillah' (in Arabic calligraphy SVG or text) at the very top of the site, small and elegant.",
+    "7. SHADCN: Customize all Shadcn components to use rounded-xl and the Emerald/Gold palette. No default black/white borders.",
+    "8. DATA-TESTID: Add data-testid to all interactive elements (e.g., 'video-card-1', 'search-input', 'category-filter-gamou')."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Avoid generic 'AI slop' designs. No default Tailwind blue.",
+    "Use 2-3x more spacing than usual. Spiritual design needs breathing room.",
+    "Micro-animations are mandatory. Hovering a video card should gently lift it and glow gold.",
+    "Never use transparent backgrounds for dropdowns or overlays without a blur/solid backing.",
+    "Use 'sonner' for all toast notifications."
+  ]
+}
