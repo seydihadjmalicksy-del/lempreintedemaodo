@@ -1,9 +1,9 @@
-import { Clock, Users, Mosque, Sun } from "lucide-react";
+import { Clock, Users, Church, Sun } from "lucide-react";
 
 const CeremoniesReligieuses = () => {
   const ceremonies = [
     {
-      icon: Mosque,
+      icon: Church,
       titre: "La Prière du Vendredi",
       frequence: "Hebdomadaire",
       description: "Le vendredi est le jour le plus important de la semaine pour les musulmans. À Tivaouane, la Grande Mosquée accueille des milliers de fidèles pour la prière du Jumu'ah.",
