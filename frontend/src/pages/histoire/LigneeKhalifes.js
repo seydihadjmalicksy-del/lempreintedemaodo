@@ -83,6 +83,20 @@ const LigneeKhalifes = () => {
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
     },
     {
+      name: "Serigne Cheikh Ahmed Tidiane Sy 'Al Maktoum'",
+      title: "Le Visionnaire Multidimensionnel",
+      period: "1925 - 2017",
+      icon: Star,
+      description: "Né à Saint-Louis, petit-fils d'El Hadji Malick Sy et fils de Serigne Babacar Sy. Reconnu pour sa précocité intellectuelle, il fonda le dahira Moustarchidine Wal Moustarchidati. En 1950, il créa la première association culturelle islamique du Sénégal 'Causerie Musulmane Instructive' et le journal 'L'Islam Éternel'. Il prônait un islam inclusif, acceptant les différences tout en préservant l'authenticité.",
+      contributions: [
+        "Fondation du dahira Moustarchidine Wal Moustarchidati",
+        "Création de la première association culturelle islamique du Sénégal (1950)",
+        "Initiation du COSKAS pour l'organisation du Gamou (1968)",
+        "Engagement politique et économique pour le développement du Sénégal"
+      ],
+      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+    },
+    {
       name: "Serigne Abdoul Aziz Sy Al Amine",
       title: "Le Bâtisseur et Diplomate",
       period: "1928 - 2017",
