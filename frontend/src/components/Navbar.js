@@ -1,17 +1,44 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
 
   const navLinks = [
     { path: "/", label: "Accueil" },
-    { path: "/gallery", label: "Galerie" },
-    { path: "/about", label: "À Propos" },
+    { 
+      label: "Histoire", 
+      dropdown: [
+        { path: "/histoire/origines", label: "Les Origines" },
+        { path: "/histoire/el-hadji-malick-sy", label: "El Hadji Malick Sy" },
+        { path: "/histoire/khalifes", label: "Lignée des Khalifes" },
+        { path: "/histoire/geographie", label: "Géographie Sacrée" }
+      ]
+    },
+    { 
+      label: "Enseignements",
+      dropdown: [
+        { path: "/enseignements/piliers", label: "Piliers de la Tariqa" },
+        { path: "/enseignements/ecole", label: "L'École de Tivaouane" },
+        { path: "/enseignements/ouvrages", label: "Ouvrages de Référence" }
+      ]
+    },
+    { 
+      label: "Événements",
+      dropdown: [
+        { path: "/evenements/gamou", label: "Le Gamou" },
+        { path: "/evenements/ziarra", label: "Ziarra Annuelles" },
+        { path: "/evenements/ceremonies", label: "Cérémonies Religieuses" }
+      ]
+    },
+    { path: "/archives", label: "Archives" },
+    { path: "/mediatheque", label: "Médiathèque" },
+    { path: "/contact", label: "Contact" }
   ];
 
   return (
@@ -43,27 +70,59 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  data-testid={`nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                  className={`text-base font-medium transition-colors duration-200 ${
-                    isActive(link.path)
-                      ? "text-[#004D33] border-b-2 border-[#D4AF37]"
-                      : "text-[#4A4A4A] hover:text-[#004D33]"
-                  } pb-1`}
-                >
-                  {link.label}
-                </Link>
+            <div className="hidden lg:flex space-x-6">
+              {navLinks.map((link, index) => (
+                link.dropdown ? (
+                  <div 
+                    key={index}
+                    className="relative"
+                    onMouseEnter={() => setOpenDropdown(link.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      className="flex items-center gap-1 text-base font-medium text-[#4A4A4A] hover:text-[#004D33] py-2 transition-colors"
+                      data-testid={`nav-dropdown-${link.label.toLowerCase()}`}
+                    >
+                      {link.label}
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                    
+                    {openDropdown === link.label && (
+                      <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
+                        {link.dropdown.map((subLink) => (
+                          <Link
+                            key={subLink.path}
+                            to={subLink.path}
+                            className="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
+                            data-testid={`nav-sublink-${subLink.label.toLowerCase().replace(/\s+/g, '-')}`}
+                          >
+                            {subLink.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    data-testid={`nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    className={`text-base font-medium transition-colors duration-200 ${
+                      isActive(link.path)
+                        ? "text-[#004D33] border-b-2 border-[#D4AF37]"
+                        : "text-[#4A4A4A] hover:text-[#004D33]"
+                    } pb-1`}
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
             </div>
 
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-[#E8F5E9] transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-[#E8F5E9] transition-colors"
               data-testid="mobile-menu-button"
               aria-label="Toggle menu"
             >
@@ -79,24 +138,50 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div 
-            className="md:hidden bg-white border-t border-gray-200"
+            className="lg:hidden bg-white border-t border-gray-200 max-h-[80vh] overflow-y-auto"
             data-testid="mobile-menu"
           >
-            <div className="px-4 py-4 space-y-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                  className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
-                    isActive(link.path)
-                      ? "bg-[#004D33] text-white"
-                      : "text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+            <div className="px-4 py-4 space-y-2">
+              {navLinks.map((link, index) => (
+                link.dropdown ? (
+                  <div key={index}>
+                    <button
+                      onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
+                    >
+                      {link.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+                    </button>
+                    {openDropdown === link.label && (
+                      <div className="ml-4 mt-1 space-y-1">
+                        {link.dropdown.map((subLink) => (
+                          <Link
+                            key={subLink.path}
+                            to={subLink.path}
+                            onClick={() => setIsOpen(false)}
+                            className="block px-4 py-2 rounded-lg text-sm text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
+                          >
+                            {subLink.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                      isActive(link.path)
+                        ? "bg-[#004D33] text-white"
+                        : "text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33]"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
               ))}
             </div>
           </div>
