@@ -1,82 +1,116 @@
-import { Book, FileText, Scroll, Download } from "lucide-react";
+import { Book, FileText, Scroll, Download, ExternalLink } from "lucide-react";
 
 const OuvragesReference = () => {
   const ouvragesMajeurs = [
+    {
+      icon: Scroll,
+      titre: "Khilâçu-Dhahab (L'Or Décanté)",
+      sousTitre: "خلاص الذهب",
+      auteur: "El Hadji Malick Sy",
+      date: "Début du XXe siècle",
+      description: "Chef-d'œuvre poétique composé de trente tableaux dédiés à la célébration de la vie du Prophète Muhammad (PSL). Tous les vers se terminent par la lettre 'M', d'où son nom populaire 'Mi-Mi-Ya'. Considéré comme un monument littéraire inégalé dans l'évocation de la vie du Prophète et les louanges qu'il lui adresse.",
+      themes: ["Éloge du Prophète", "Poésie soufie", "Sira (Biographie prophétique)"],
+      importance: "Chanté, traduit et commenté lors des Gamous à travers tout le Sénégal. Traduit en français par El Hadji Idrissa Mbengue Salif et Maodo Mbengue."
+    },
+    {
+      icon: Book,
+      titre: "Fâkihat at-Tullâb",
+      sousTitre: "فاكهة الطلاب",
+      auteur: "El Hadji Malick Sy",
+      date: "Début du XXe siècle",
+      description: "L'œuvre la plus célèbre de Maodo. Ce traité aborde les principes généraux de la Tariqa Tijaniyya et la discipline requise du murid (aspirant spirituel). L'ouvrage se conclut par une section sur 'La Divergence parmi les Saints de Dieu', reflétant l'ouverture d'esprit caractéristique de Maodo envers les différentes voies spirituelles.",
+      themes: ["Principes de la Tariqa", "Conduite du murid", "Tolérance spirituelle"],
+      importance: "Texte fondamental étudié dans toutes les daaras tidjanes, guide pratique pour tout aspirant spirituel"
+    },
     {
       icon: Book,
       titre: "Kifâyat ar-Râghibîn",
       sousTitre: "كفاية الراغبين",
       auteur: "El Hadji Malick Sy",
       date: "Début du XXe siècle",
-      description: "Ouvrage majeur sur la jurisprudence islamique selon l'école maliki et les fondements de la Tariqa Tidiane. C'est une encyclopédie qui traite de la purification, de la prière, du jeûne, de la zakat et du pèlerinage.",
-      themes: ["Fiqh Maliki", "Pratiques rituelles", "Fondements de la Tariqa"],
-      importance: "Texte de référence pour tous les disciples tidiane, étudié dans toutes les daaras"
-    },
-    {
-      icon: Scroll,
-      titre: "Khilâsatoul Madhâhib",
-      sousTitre: "خلاصة المذاهب",
-      auteur: "El Hadji Malick Sy",
-      date: "1920",
-      description: "Résumé des différentes écoles juridiques islamiques. Ouvrage comparatif qui présente les avis des quatre écoles sunnites sur les questions de jurisprudence.",
-      themes: ["Droit comparé", "Écoles juridiques", "Ijtihad"],
-      importance: "Démontre l'érudition de Maodo et sa capacité à naviguer entre les différentes écoles"
+      description: "Traité essentiel couvrant un large éventail de thèmes soufis incluant l'ascétisme (Zuhd), les relations sociales (Mu'âmalât) et la relation avec Dieu. Maodo y emploie fréquemment le vers poétique à des fins pédagogiques pour faciliter la mémorisation.",
+      themes: ["Ascétisme (Zuhd)", "Relations sociales", "Spiritualité"],
+      importance: "Encyclopédie spirituelle servant de référence pour la formation des disciples"
     },
     {
       icon: FileText,
-      titre: "Recueil de Poèmes Mystiques",
-      sousTitre: "قصائد في مدح النبي",
+      titre: "Ifhâm al-Munkir al-Jânî",
+      sousTitre: "إفهام المنكر الجاني",
       auteur: "El Hadji Malick Sy",
-      date: "1900-1922",
-      description: "Collection de qasidas (poèmes) en l'honneur du Prophète Muhammad (PSL). Ces poèmes expriment un amour profond et une connexion spirituelle intense avec le Bien-Aimé.",
-      themes: ["Poésie soufie", "Éloge du Prophète", "Mystique"],
-      importance: "Récités lors du Gamou et des cérémonies religieuses, ils nourrissent la ferveur spirituelle"
+      date: "Début du XXe siècle",
+      description: "Traité en arabe défendant la Tariqa Tijaniyya et le soufisme sunnite (tasawwuf as-sunnî) contre ses détracteurs. L'ouvrage commente la Jawharat al-Kamal pour mettre en lumière le soufisme orthodoxe et sa base textuelle, positionnant la Tijaniyya comme une voie légitime.",
+      themes: ["Défense de la Tariqa", "Soufisme orthodoxe", "Réfutation"],
+      importance: "Démonstration de l'érudition de Maodo et de sa maîtrise des sciences islamiques"
     },
     {
-      icon: Book,
-      titre: "Tanbîhoul Ikhwân",
-      sousTitre: "تنبيه الإخوان",
+      icon: Scroll,
+      titre: "Wassilatoul Mouna (Tayssir)",
+      sousTitre: "وسيلة المنى (التيسير)",
       auteur: "El Hadji Malick Sy",
-      date: "1910",
-      description: "Exhortation aux frères disciples. Traité sur les comportements à adopter et les attitudes à éviter pour le disciple tidiane.",
-      themes: ["Adab (bienséance)", "Éthique soufie", "Conduite du disciple"],
-      importance: "Guide pratique de vie pour le tidiane sincère"
+      date: "Début du XXe siècle",
+      description: "Khassida (poème panégyrique soufi) visant à obtenir la réalisation des vœux par l'invocation des Beaux Noms d'Allah. Ce poème exprime la soumission totale à Dieu et la quête spirituelle du croyant.",
+      themes: ["Invocation divine", "Noms d'Allah", "Supplication"],
+      importance: "Récité régulièrement par les fidèles, disponible avec transcription et traduction française"
+    },
+    {
+      icon: FileText,
+      titre: "Zajrul Qulûb",
+      sousTitre: "زجر القلوب",
+      auteur: "El Hadji Malick Sy",
+      date: "Début du XXe siècle",
+      description: "Exhortation des cœurs. Traité spirituel sur la purification de l'âme et l'éveil des cœurs à la réalité divine.",
+      themes: ["Purification spirituelle", "Éveil du cœur", "Rappel"],
+      importance: "Guide pour la transformation intérieure du disciple"
     }
   ];
 
   const autresOuvrages = [
     {
-      titre: "Commentaires sur le Coran",
-      description: "Notes de tafsir dictées par Maodo lors de ses cours"
+      titre: "Dîwân El Hadji Malick Sy",
+      description: "Recueil complet des poésies de Maodo, incluant des poèmes sur le Prophète, Cheikh Ahmed Tijani et El Hadji Oumar Foutiyou Tall. Nouvelle édition en sept tomes publiée au Maroc en 2022 pour le centenaire de sa disparition."
     },
     {
-      titre: "Correspondances",
-      description: "Lettres échangées avec d'autres érudits et disciples"
+      titre: "Abada Buruq",
+      description: "Ouvrage disponible en traduction française, faisant partie du corpus littéraire de Maodo."
     },
     {
-      titre: "Fatwas et Avis Juridiques",
-      description: "Réponses aux questions de jurisprudence posées par les fidèles"
+      titre: "Khutbatul Jumu'a",
+      description: "Sermons du vendredi prononcés par Maodo, préservés et transmis à travers les générations."
+    },
+    {
+      titre: "Doua-oul Wazifa",
+      description: "Invocations et prières de la Wazifa, pratique quotidienne des disciples tidjanes."
     }
   ];
 
   const bibliothequeNumerique = [
     {
-      titre: "Kifâyat ar-Râghibîn (Version PDF)",
-      taille: "15 MB",
-      langue: "Arabe",
-      disponible: true
+      titre: "Wassilatoul Mouna (Tayssir) - PDF Complet",
+      taille: "PDF",
+      langue: "Arabe, Translittération et Français",
+      disponible: true,
+      lien: "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf"
     },
     {
-      titre: "Recueil de Qasidas (Texte et Audio)",
-      taille: "50 MB",
+      titre: "Khilâçu-Dhahab - Version numérique",
+      taille: "PDF",
       langue: "Arabe avec traduction française",
-      disponible: true
+      disponible: true,
+      lien: "https://www.calameo.com/books/0022411818a800b8305c6"
     },
     {
-      titre: "Biographie de Maodo (Français)",
-      taille: "5 MB",
+      titre: "Ifhâm al-Munkir - Thèse universitaire",
+      taille: "PDF",
+      langue: "Arabe et Français",
+      disponible: true,
+      lien: "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye"
+    },
+    {
+      titre: "Présentation du Nouveau Dîwân (7 tomes)",
+      taille: "Livre",
       langue: "Français",
-      disponible: true
+      disponible: true,
+      lien: "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html"
     }
   ];
 
