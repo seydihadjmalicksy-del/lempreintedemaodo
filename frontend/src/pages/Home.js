@@ -49,8 +49,8 @@ const Home = () => {
       >
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1643522058235-6530723ce22b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTV8MHwxfHNlYXJjaHwxfHxncmFuZCUyMG1vc3F1ZSUyMHRpdmFvdWFuZSUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3NzAzMDgwMjd8MA&ixlib=rb-4.1.0&q=85"
-            alt="Grande Mosquée"
+            src="https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
+            alt="Grande Mosquée de Tivaouane"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#004D33] via-[#004D33]/80 to-[#004D33]/60"></div>
