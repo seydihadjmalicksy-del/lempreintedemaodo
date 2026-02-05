@@ -33,9 +33,9 @@ const About = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-[#004D33] mb-6">
-              Le Foyer Tidiane
+              <span className="text-[#D4AF37]">L'empreinte de Tivaouane</span>
               <br />
-              <span className="text-[#D4AF37]">l'empreinte de Tivaouane !</span>
+              dans la Tariqa Tidiane
             </h1>
             <p className="text-xl text-[#4A4A4A] max-w-3xl mx-auto">
               Une voie soufie authentique fondée sur les enseignements du Prophète Muhammad (PSL) 
