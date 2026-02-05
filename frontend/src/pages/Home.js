@@ -154,7 +154,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-6">
-                Le Foyer Tidiane
+                L'empreinte de Tivaouane dans la Tariqa Tidiane
               </h2>
               <p className="text-lg text-[#4A4A4A] mb-6 leading-relaxed">
                 Le Foyer Tidiane de Tivaouane est une confrérie soufie fondée par 
