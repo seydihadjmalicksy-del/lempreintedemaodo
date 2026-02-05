@@ -37,7 +37,7 @@ const SearchResults = () => {
     },
     {
       id: "histoire-khalifes",
-      title: "La Lignée des Khalifes",
+      title: "La Lignée des Héritiers",
       path: "/histoire/khalifes",
       category: "Histoire",
       description: "Les 6 successeurs d'El Hadji Malick Sy, gardiens de l'héritage spirituel.",
