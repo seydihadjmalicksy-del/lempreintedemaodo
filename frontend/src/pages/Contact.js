@@ -51,7 +51,7 @@ const Contact = () => {
   ];
 
   const raisonsDon = [
-    "Entretien et rénovation de la Grande Mosquée",
+    "CRAT (Cadre de Réflexion et d'Action Tidiane)",
     "Soutien aux écoles coraniques (daaras)",
     "Aide aux pèlerins démunis lors du Gamou",
     "Numérisation des archives et manuscrits",
