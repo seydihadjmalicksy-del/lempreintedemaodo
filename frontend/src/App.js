@@ -5,6 +5,9 @@ import VideoPlayer from "./pages/VideoPlayer";
 import About from "./pages/About";
 import Archives from "./pages/Archives";
 import ComingSoon from "./pages/ComingSoon";
+import ElHadjiMalickSy from "./pages/histoire/ElHadjiMalickSy";
+import LigneeKhalifes from "./pages/histoire/LigneeKhalifes";
+import Gamou from "./pages/evenements/Gamou";
 import Navbar from "./components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import "@/App.css";
@@ -23,8 +26,8 @@ function App() {
           
           {/* Histoire Routes */}
           <Route path="/histoire/origines" element={<ComingSoon title="Les Origines" />} />
-          <Route path="/histoire/el-hadji-malick-sy" element={<ComingSoon title="El Hadji Malick Sy" />} />
-          <Route path="/histoire/khalifes" element={<ComingSoon title="Lignée des Khalifes" />} />
+          <Route path="/histoire/el-hadji-malick-sy" element={<ElHadjiMalickSy />} />
+          <Route path="/histoire/khalifes" element={<LigneeKhalifes />} />
           <Route path="/histoire/geographie" element={<ComingSoon title="Géographie Sacrée" />} />
           
           {/* Enseignements Routes */}
@@ -33,7 +36,7 @@ function App() {
           <Route path="/enseignements/ouvrages" element={<ComingSoon title="Ouvrages de Référence" />} />
           
           {/* Événements Routes */}
-          <Route path="/evenements/gamou" element={<ComingSoon title="Le Gamou" />} />
+          <Route path="/evenements/gamou" element={<Gamou />} />
           <Route path="/evenements/ziarra" element={<ComingSoon title="Ziarra Annuelles" />} />
           <Route path="/evenements/ceremonies" element={<ComingSoon title="Cérémonies Religieuses" />} />
           
