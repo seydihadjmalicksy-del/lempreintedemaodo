@@ -191,7 +191,7 @@ const Home = () => {
       <footer className="bg-[#004D33] text-white py-12" data-testid="footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6">
-            <h3 className="text-2xl font-bold mb-2">Tariqa Tidiane de Tivaouane</h3>
+            <h3 className="text-2xl font-bold mb-2">Le Foyer Tidiane de Tivaouane</h3>
             <p className="text-white/70">Sur la voie de la purification spirituelle</p>
           </div>
           
