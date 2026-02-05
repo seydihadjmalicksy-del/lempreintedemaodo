@@ -241,7 +241,7 @@ const Contact = () => {
               <div className="space-y-4 mb-8">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
                   <p className="text-sm text-white/70 mb-1">Bénéficiaire</p>
-                  <p className="font-semibold">Zawiya El Hadji Malick Sy</p>
+                  <p className="font-semibold">Cadre de Réflexion d'action Tidiane</p>
                 </div>
                 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
