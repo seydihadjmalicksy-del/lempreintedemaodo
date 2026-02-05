@@ -5,13 +5,18 @@ import VideoPlayer from "./pages/VideoPlayer";
 import About from "./pages/About";
 import Archives from "./pages/Archives";
 import SearchResults from "./pages/SearchResults";
-import ComingSoon from "./pages/ComingSoon";
+import Mediatheque from "./pages/Mediatheque";
+import Contact from "./pages/Contact";
 import ElHadjiMalickSy from "./pages/histoire/ElHadjiMalickSy";
 import LigneeKhalifes from "./pages/histoire/LigneeKhalifes";
 import Origines from "./pages/histoire/Origines";
 import GeographieSacree from "./pages/histoire/GeographieSacree";
 import Gamou from "./pages/evenements/Gamou";
+import ZiarraAnnuelles from "./pages/evenements/ZiarraAnnuelles";
+import CeremoniesReligieuses from "./pages/evenements/CeremoniesReligieuses";
 import PiliersTariqa from "./pages/enseignements/PiliersTariqa";
+import EcoleTivaouane from "./pages/enseignements/EcoleTivaouane";
+import OuvragesReference from "./pages/enseignements/OuvragesReference";
 import Navbar from "./components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
 import "@/App.css";
@@ -28,6 +33,8 @@ function App() {
           <Route path="/video/:id" element={<VideoPlayer />} />
           <Route path="/about" element={<About />} />
           <Route path="/archives" element={<Archives />} />
+          <Route path="/mediatheque" element={<Mediatheque />} />
+          <Route path="/contact" element={<Contact />} />
           
           {/* Histoire Routes */}
           <Route path="/histoire/origines" element={<Origines />} />
@@ -37,17 +44,13 @@ function App() {
           
           {/* Enseignements Routes */}
           <Route path="/enseignements/piliers" element={<PiliersTariqa />} />
-          <Route path="/enseignements/ecole" element={<ComingSoon title="L'École de Tivaouane" />} />
-          <Route path="/enseignements/ouvrages" element={<ComingSoon title="Ouvrages de Référence" />} />
+          <Route path="/enseignements/ecole" element={<EcoleTivaouane />} />
+          <Route path="/enseignements/ouvrages" element={<OuvragesReference />} />
           
           {/* Événements Routes */}
           <Route path="/evenements/gamou" element={<Gamou />} />
-          <Route path="/evenements/ziarra" element={<ComingSoon title="Ziarra Annuelles" />} />
-          <Route path="/evenements/ceremonies" element={<ComingSoon title="Cérémonies Religieuses" />} />
-          
-          {/* Autres Routes */}
-          <Route path="/mediatheque" element={<ComingSoon title="Médiathèque" />} />
-          <Route path="/contact" element={<ComingSoon title="Contact" />} />
+          <Route path="/evenements/ziarra" element={<ZiarraAnnuelles />} />
+          <Route path="/evenements/ceremonies" element={<CeremoniesReligieuses />} />
         </Routes>
         <Toaster />
       </BrowserRouter>
