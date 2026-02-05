@@ -42,6 +42,20 @@ const LigneeKhalifes = () => {
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     },
     {
+      name: "Serigne Mouhammadoul Habib Sy",
+      title: "L'Infatigable Serviteur",
+      period: "1906 - 1992",
+      icon: Star,
+      description: "Fils cadet d'El Hadji Malick Sy et de Sokhna Safiétou Niang, il reçut sa formation islamique auprès de son père, puis de Serigne Saer Gueye et Mouhamadou Hady Touré. Après le décès de Maodo en 1922, il poursuivit ses études sous Serigne Babacar Sy et Serigne Mansour Sy Balkhawmi, avec qui il entretenait des liens étroits.",
+      contributions: [
+        "Premier président du comité de suivi des travaux de la Grande Mosquée de Tivaouane (1976)",
+        "Engagement dans l'agriculture et la gestion des daaras à Diacksao",
+        "Direction de nombreux Gamous et transmission de l'islam tidjane",
+        "Liens fraternels avec les communautés Lébous, Layènes et Médina Baye"
+      ],
+      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+    },
+    {
       name: "Serigne Moustapha Sy Djamil",
       title: "L'Ascète de Fass - Borom Fass",
       period: "1916 - 1993",
