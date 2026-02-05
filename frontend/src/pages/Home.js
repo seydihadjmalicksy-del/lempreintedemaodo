@@ -157,7 +157,7 @@ const Home = () => {
                 La Tariqa Tidiane
               </h2>
               <p className="text-lg text-[#4A4A4A] mb-6 leading-relaxed">
-                La Tariqa Tidiane de Tivaouane est une confrérie soufie fondée par 
+                Le Foyer Tidiane de Tivaouane est une confrérie soufie fondée par 
                 Cheikh El Hadj Malick Sy, un grand érudit et guide spirituel. 
                 Elle représente une voie de purification spirituelle et d'élévation 
                 de l'âme à travers le dhikr et les enseignements prophétiques.
