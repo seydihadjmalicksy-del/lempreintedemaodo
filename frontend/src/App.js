@@ -4,6 +4,7 @@ import Gallery from "./pages/Gallery";
 import VideoPlayer from "./pages/VideoPlayer";
 import About from "./pages/About";
 import Archives from "./pages/Archives";
+import SearchResults from "./pages/SearchResults";
 import ComingSoon from "./pages/ComingSoon";
 import ElHadjiMalickSy from "./pages/histoire/ElHadjiMalickSy";
 import LigneeKhalifes from "./pages/histoire/LigneeKhalifes";
@@ -22,6 +23,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchResults />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/video/:id" element={<VideoPlayer />} />
           <Route path="/about" element={<About />} />
