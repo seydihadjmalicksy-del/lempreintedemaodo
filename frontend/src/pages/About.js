@@ -73,8 +73,8 @@ const About = () => {
                 </p>
                 
                 <p>
-                  À <strong className="text-[#004D33]">Tivaouane</strong>, au Sénégal, la Tariqa Tidiane 
-                  a été établie par <strong className="text-[#004D33]">Cheikh El Hadj Malick Sy</strong> 
+                  À <strong className="text-[#004D33]">Tivaouane</strong>, au Sénégal, le Foyer Tidiane 
+                  a été établi par <strong className="text-[#004D33]">Cheikh El Hadj Malick Sy</strong> 
                   (1855-1922), un érudit exceptionnel qui a consacré sa vie à l'enseignement de l'islam 
                   et à la guidance spirituelle.
                 </p>
