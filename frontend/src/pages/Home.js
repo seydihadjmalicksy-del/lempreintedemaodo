@@ -175,8 +175,8 @@ const Home = () => {
             <div className="relative">
               <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1769805495744-d11b35e50b89?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxzcGlyaXR1YWwlMjByZWFkaW5nJTIwcXVyYW4lMjBwZWFjZWZ1bHxlbnwwfHx8fDE3NzAzMDgwMzR8MA&ixlib=rb-4.1.0&q=85"
-                  alt="Lecture spirituelle"
+                  src="https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
+                  alt="Grande Mosquée de Tivaouane"
                   className="w-full h-full object-cover"
                 />
               </div>
