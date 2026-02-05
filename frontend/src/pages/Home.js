@@ -63,14 +63,14 @@ const Home = () => {
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            La Tariqa Tidiane
+            Le Foyer Tidiane
             <br />
             <span className="text-[#D4AF37]">l'empreinte de Tivaouane !</span>
           </h1>
 
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
             Découvrez les enseignements spirituels, les conférences et les cérémonies 
-            de la Tariqa Tidiane à travers notre collection de vidéos
+            du Foyer Tidiane à travers notre collection de vidéos
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
