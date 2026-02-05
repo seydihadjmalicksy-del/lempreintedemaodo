@@ -31,7 +31,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Abdoul Aziz Sy 'Dabakh'",
       title: "Le Régulateur Social",
-      period: "1980 - 1997",
+      period: "1957 - 1997",
       icon: Scale,
       description: "Figure de l'unité nationale, il a joué un rôle médiateur crucial dans les crises politiques et sociales du Sénégal. Son charisme et sa sagesse ont fait de lui un interlocuteur respecté de tous.",
       contributions: [
