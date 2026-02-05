@@ -1,4 +1,4 @@
-import { Crown, BookOpen, Building, Scale, Shield, Users } from "lucide-react";
+import { Crown, BookOpen, Building, Scale, Shield, Users, Heart, Star } from "lucide-react";
 
 const LigneeKhalifes = () => {
   const khalifes = [
@@ -12,6 +12,20 @@ const LigneeKhalifes = () => {
         "Création du système des Dahiras",
         "Organisation de la première Ziarra Générale en 1930",
         "Consolidation de l'unité des disciples après le décès de Maodo"
+      ],
+      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+    },
+    {
+      name: "Serigne Moustapha Sy Djamil",
+      title: "L'Ascète de Fass - Borom Fass",
+      period: "1916 - 1993",
+      icon: Heart,
+      description: "Né le 16 juin 1916 à Louga, petit-fils aîné de Maodo et fils aîné de Serigne Babacar Sy. Surnommé 'Djamil' (le Beau) par Serigne Abdou Aziz Sy Dabakh pour sa beauté physique et morale. Lors de son baptême, son doigt s'accrocha au chapelet de Maodo qui dit : « Il ne veut pas lâcher mon chapelet ». Son père déclara : « Moustapha est le domaine réservé de Dieu ; nous en avons seulement la garde ».",
+      contributions: [
+        "Fondateur du quartier Fass à Dakar (en référence à Fez et au Prophète)",
+        "Vie d'ascète et de retraite spirituelle pendant 40 ans",
+        "Enseignement et éducation des enfants dans la voie de Maodo",
+        "Préservation du legs spirituel de son grand-père"
       ],
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
     },
