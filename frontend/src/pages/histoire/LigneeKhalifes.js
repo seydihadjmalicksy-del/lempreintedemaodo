@@ -16,20 +16,6 @@ const LigneeKhalifes = () => {
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
     },
     {
-      name: "Serigne Moustapha Sy Djamil",
-      title: "L'Ascète de Fass - Borom Fass",
-      period: "1916 - 1993",
-      icon: Heart,
-      description: "Né le 16 juin 1916 à Louga, petit-fils aîné de Maodo et fils aîné de Serigne Babacar Sy. Surnommé 'Djamil' (le Beau) par Serigne Abdou Aziz Sy Dabakh pour sa beauté physique et morale. Lors de son baptême, son doigt s'accrocha au chapelet de Maodo qui dit : « Il ne veut pas lâcher mon chapelet ». Son père déclara : « Moustapha est le domaine réservé de Dieu ; nous en avons seulement la garde ».",
-      contributions: [
-        "Fondateur du quartier Fass à Dakar (en référence à Fez et au Prophète)",
-        "Vie d'ascète et de retraite spirituelle pendant 40 ans",
-        "Enseignement et éducation des enfants dans la voie de Maodo",
-        "Préservation du legs spirituel de son grand-père"
-      ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
-    },
-    {
       name: "Serigne Mansour Sy 'Balkhawmi'",
       title: "Le Savant Multidimensionnel",
       period: "1957 - 1957",
@@ -54,6 +40,20 @@ const LigneeKhalifes = () => {
         "Modernisation des infrastructures de Tivaouane"
       ],
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
+    },
+    {
+      name: "Serigne Moustapha Sy Djamil",
+      title: "L'Ascète de Fass - Borom Fass",
+      period: "1916 - 1993",
+      icon: Heart,
+      description: "Né le 16 juin 1916 à Louga, petit-fils aîné de Maodo et fils aîné de Serigne Babacar Sy. Surnommé 'Djamil' (le Beau) par Serigne Abdou Aziz Sy Dabakh pour sa beauté physique et morale. Lors de son baptême, son doigt s'accrocha au chapelet de Maodo qui dit : « Il ne veut pas lâcher mon chapelet ». Son père déclara : « Moustapha est le domaine réservé de Dieu ; nous en avons seulement la garde ».",
+      contributions: [
+        "Fondateur du quartier Fass à Dakar (en référence à Fez et au Prophète)",
+        "Vie d'ascète et de retraite spirituelle pendant 40 ans",
+        "Enseignement et éducation des enfants dans la voie de Maodo",
+        "Préservation du legs spirituel de son grand-père"
+      ],
+      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
     },
     {
       name: "Serigne Mansour Sy 'Borom Darayi'",
