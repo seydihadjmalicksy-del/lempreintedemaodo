@@ -1,13 +1,23 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Search } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path) => location.pathname === path;
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchQuery("");
+    }
+  };
 
   const navLinks = [
     { path: "/", label: "Accueil" },
@@ -70,7 +80,7 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex space-x-6">
+            <div className="hidden lg:flex items-center space-x-6">
               {navLinks.map((link, index) => (
                 link.dropdown ? (
                   <div 
@@ -117,6 +127,19 @@ const Navbar = () => {
                   </Link>
                 )
               ))}
+
+              {/* Search Bar Desktop */}
+              <form onSubmit={handleSearch} className="relative">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Rechercher..."
+                  data-testid="search-input-desktop"
+                  className="w-48 px-4 py-2 pl-10 border border-gray-300 rounded-full focus:outline-none focus:border-[#004D33] focus:ring-1 focus:ring-[#004D33] text-sm"
+                />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
+              </form>
             </div>
 
             {/* Mobile menu button */}
@@ -142,6 +165,19 @@ const Navbar = () => {
             data-testid="mobile-menu"
           >
             <div className="px-4 py-4 space-y-2">
+              {/* Mobile Search */}
+              <form onSubmit={handleSearch} className="relative mb-4">
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Rechercher..."
+                  data-testid="search-input-mobile"
+                  className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:border-[#004D33] focus:ring-1 focus:ring-[#004D33]"
+                />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#888888]" />
+              </form>
+
               {navLinks.map((link, index) => (
                 link.dropdown ? (
                   <div key={index}>
