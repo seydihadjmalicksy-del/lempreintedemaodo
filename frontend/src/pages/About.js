@@ -177,7 +177,7 @@ const About = () => {
             </h2>
             
             <p className="text-xl text-white/90 leading-relaxed mb-8">
-              Aujourd'hui, la Tariqa Tidiane de Tivaouane continue de rayonner à travers le monde, 
+              Aujourd'hui, le Foyer Tidiane de Tivaouane continue de rayonner à travers le monde, 
               guidant des millions de disciples sur le chemin de la purification spirituelle et de 
               la proximité divine. Les enseignements de Cheikh Malick Sy continuent d'inspirer et 
               d'éclairer les cœurs des croyants.
