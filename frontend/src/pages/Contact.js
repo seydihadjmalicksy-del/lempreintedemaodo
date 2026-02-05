@@ -41,12 +41,12 @@ const Contact = () => {
     {
       icon: Phone,
       titre: "Téléphone",
-      contenu: "+221 33 955 XX XX\n(Accueil 8h-18h)"
+      contenu: "+221 77 338 90 95\n(Disponible 8h-20h)"
     },
     {
       icon: Mail,
       titre: "Email",
-      contenu: "contact@tivaouane.sn\narchives@tivaouane.sn"
+      contenu: "seydihadjmalicksy@gmail.com"
     }
   ];
 
