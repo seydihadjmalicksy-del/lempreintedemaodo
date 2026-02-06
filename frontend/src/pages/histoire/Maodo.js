@@ -198,6 +198,62 @@ const Maodo = () => {
         </div>
       </section>
 
+      {/* Galerie Photos */}
+      <section className="py-16 bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 rounded-full px-6 py-3 mb-4">
+              <Image className="w-5 h-5 text-[#D4AF37]" />
+              <span className="text-white font-semibold">Photos Historiques</span>
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Portraits de Maodo
+            </h2>
+            <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+            {/* Photo principale */}
+            <div className="lg:col-span-3">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={photos[selectedPhoto].url}
+                  alt={photos[selectedPhoto].caption}
+                  className="w-full h-auto max-h-[500px] object-contain bg-black"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                  <p className="text-white text-lg">{photos[selectedPhoto].caption}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Vignettes */}
+            <div className="lg:col-span-2 grid grid-cols-2 gap-4">
+              {photos.map((photo, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedPhoto(index)}
+                  className={`relative rounded-xl overflow-hidden aspect-square transition-all ${
+                    selectedPhoto === index 
+                      ? 'ring-4 ring-[#D4AF37] scale-95' 
+                      : 'hover:ring-2 ring-white/50'
+                  }`}
+                >
+                  <img
+                    src={photo.url}
+                    alt={photo.caption}
+                    className="w-full h-full object-cover"
+                  />
+                  {selectedPhoto === index && (
+                    <div className="absolute inset-0 bg-[#D4AF37]/20"></div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Timeline */}
       <section className="py-16 bg-[#F9F7F2]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
