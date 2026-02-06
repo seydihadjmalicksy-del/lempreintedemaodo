@@ -1382,9 +1382,36 @@ const translations = {
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
+  // Detect browser language and map to supported languages
+  const detectBrowserLanguage = () => {
+    const browserLang = navigator.language || navigator.userLanguage || 'fr';
+    const langCode = browserLang.split('-')[0].toLowerCase();
+    
+    // Map browser language codes to our supported languages
+    const languageMap = {
+      'fr': 'fr',  // French
+      'en': 'en',  // English
+      'ar': 'ar',  // Arabic
+      'wo': 'wo',  // Wolof
+      // Additional mappings for related languages
+      'de': 'en',  // German -> English
+      'es': 'fr',  // Spanish -> French (Latin-based)
+      'pt': 'fr',  // Portuguese -> French (Latin-based)
+      'it': 'fr',  // Italian -> French (Latin-based)
+    };
+    
+    return languageMap[langCode] || 'fr'; // Default to French
+  };
+
   const [language, setLanguage] = useState(() => {
     const saved = localStorage.getItem('language');
-    return saved || 'fr';
+    if (saved) {
+      return saved; // Use saved preference
+    }
+    // First visit: detect browser language
+    const detected = detectBrowserLanguage();
+    localStorage.setItem('language', detected);
+    return detected;
   });
 
   useEffect(() => {
