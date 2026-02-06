@@ -109,18 +109,17 @@ const Home = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 backdrop-blur-sm border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-8">
             <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-sm font-medium">Bienvenue dans la lumière spirituelle</span>
+            <span className="text-[#D4AF37] text-sm font-medium">{t('welcomeMessage')}</span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="text-[#D4AF37]">L'empreinte de Tivaouane</span>
+            <span className="text-[#D4AF37]">{t('heroTitle')}</span>
             <br />
-            dans la Tariqa Tidiane
+            {t('heroSubtitle')}
           </h1>
 
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-            Découvrez les enseignements spirituels, les conférences et les cérémonies 
-            du Foyer Tidiane à travers notre collection de vidéos
+            {t('heroDescription')}
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
@@ -129,7 +128,7 @@ const Home = () => {
               data-testid="hero-cta-gallery"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Explorer la Galerie
+              {language === 'en' ? 'Explore Gallery' : language === 'ar' ? 'استكشف المعرض' : language === 'wo' ? 'Seetlu galerie bi' : 'Explorer la Galerie'}
               <ArrowRight className="w-5 h-5" />
             </Link>
             
@@ -138,7 +137,7 @@ const Home = () => {
               data-testid="hero-cta-about"
               className="btn-secondary"
             >
-              En Savoir Plus
+              {t('learnMore')}
             </Link>
           </div>
         </div>
