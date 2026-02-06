@@ -40,7 +40,14 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - **Support RTL**: Direction droite-à-gauche automatique pour l'arabe
 - **Persistance**: Choix de langue sauvegardé dans localStorage
 - **Éléments traduits**: Navigation, Hero section, Citations, Événements, Newsletter, Statistiques, Footer
-- **Composants mis à jour**: Navbar, Home, Newsletter, StatsCounter
+- **Pages entièrement traduites**:
+  - ✅ Page Maodo (biographie, chronologie, contributions, citations, oeuvres)
+  - ✅ Page Lignée des Héritiers (9 khalifes avec titres, descriptions, contributions)
+  - ✅ Page Arbre Généalogique (titres, légende, instructions)
+  - ✅ Page d'Accueil (toutes les sections)
+  - ✅ Composants Newsletter et StatsCounter
+  - ✅ Navigation et barre de recherche
+- **Composants mis à jour**: Navbar, Home, Newsletter, StatsCounter, Maodo, LigneeKhalifes, ArbreGenealogique
 
 ### Composants Créés
 - `Newsletter.js` - Formulaire d'inscription (2 variantes: default, compact) - **Multilingue**
