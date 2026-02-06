@@ -38,6 +38,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 ### Support Multilingue ✅ COMPLÉTÉ (Février 2025)
 - **4 langues supportées**: Français (FR), English (EN), العربية (AR), Wolof (WO)
 - **Support RTL**: Direction droite-à-gauche automatique pour l'arabe
+- **Détection automatique**: ⭐ Langue du navigateur détectée automatiquement à la première visite
 - **Persistance**: Choix de langue sauvegardé dans localStorage
 - **Éléments traduits**: Navigation, Hero section, Citations, Événements, Newsletter, Statistiques, Footer
 - **Pages entièrement traduites**:
