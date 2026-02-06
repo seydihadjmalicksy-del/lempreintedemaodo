@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Video, Image, BookOpen, Headphones, Play, Eye } from "lucide-react";
+import { Video, Image, BookOpen, Headphones, Play, Eye, ExternalLink, Download } from "lucide-react";
 
 const Mediatheque = () => {
   const categories = [
     {
       icon: Video,
       titre: "Vidéos",
-      nombre: "8",
+      nombre: "100+",
       description: "Conférences, enseignements et événements de Tivaouane",
       lien: "/gallery"
     },
@@ -20,7 +20,7 @@ const Mediatheque = () => {
     {
       icon: BookOpen,
       titre: "Manuscrits",
-      nombre: "25",
+      nombre: "25+",
       description: "Ouvrages numérisés d'El Hadji Malick Sy et autres érudits",
       lien: "/enseignements/ouvrages"
     },
@@ -33,24 +33,66 @@ const Mediatheque = () => {
     }
   ];
 
+  const chainesYoutube = [
+    {
+      nom: "HABIBBA TV TIVAOUANE",
+      description: "Chaîne officielle de diffusion des événements de Tivaouane",
+      lien: "https://www.youtube.com/@HABIBBATV"
+    },
+    {
+      nom: "TIVAOUANE 24 TV",
+      description: "Actualités et programmes religieux en direct",
+      lien: "https://www.youtube.com/@Tivaouane24TV"
+    },
+    {
+      nom: "Malikiya TV",
+      description: "Documentaires et archives sur les guides de Tivaouane",
+      lien: "https://www.youtube.com/@MalikiyaTV"
+    }
+  ];
+
   const videosRecentes = [
     {
-      titre: "Khoutba du Vendredi",
-      duree: "45:30",
-      vues: 1250,
-      thumbnail: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      titre: "Gamou 2024 - Nuit du Mawlid",
+      duree: "3:45:00",
+      vues: 125000,
+      youtubeId: "BOxANuUYGbk",
+      thumbnail: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
     },
     {
-      titre: "Gamou 2024",
+      titre: "Bourda 2024 - 10 Nuits",
       duree: "2:15:00",
-      vues: 5430,
-      thumbnail: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      vues: 54300,
+      youtubeId: "Gef2Tml5ea8",
+      thumbnail: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
     },
     {
-      titre: "Récitation du Wird",
+      titre: "Hadratoul Joumah - Zawiya",
       duree: "1:20:00",
-      vues: 2340,
-      thumbnail: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      vues: 23400,
+      youtubeId: "tXNSmVriybU",
+      thumbnail: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+    }
+  ];
+
+  const ressourcesTelechargement = [
+    {
+      titre: "Khilâçu-Dhahab (L'Or Décanté)",
+      type: "PDF",
+      taille: "2.5 MB",
+      lien: "https://www.calameo.com/books/0022411818a800b8305c6"
+    },
+    {
+      titre: "Wassilatoul Mouna (Tayssir)",
+      type: "PDF",
+      taille: "1.8 MB",
+      lien: "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf"
+    },
+    {
+      titre: "Ifhâm al-Munkir - Thèse",
+      type: "PDF",
+      taille: "5.2 MB",
+      lien: "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye"
     }
   ];
 
