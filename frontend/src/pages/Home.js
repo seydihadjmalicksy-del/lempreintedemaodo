@@ -312,13 +312,18 @@ const Home = () => {
       <footer className="bg-[#004D33] text-white py-12" data-testid="footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6">
-            <h3 className="text-2xl font-bold mb-2">L'empreinte de Tivaouane dans la Tariqa Tidiane</h3>
-            <p className="text-white/70">Sur la voie de la purification spirituelle</p>
+            <h3 className="text-2xl font-bold mb-2">{t('heroTitle')} {t('heroSubtitle')}</h3>
+            <p className="text-white/70">
+              {language === 'en' ? 'On the path of spiritual purification' : 
+               language === 'ar' ? 'على طريق التزكية الروحية' :
+               language === 'wo' ? 'Ci yoon wu sell' :
+               'Sur la voie de la purification spirituelle'}
+            </p>
           </div>
           
           <div className="border-t border-[#D4AF37]/30 pt-6">
             <p className="text-white/60 text-sm">
-              © 2025 Tariqa Tidiane de Tivaouane. Tous droits réservés.
+              © 2025 Tariqa Tidiane de Tivaouane. {t('allRightsReserved')}.
             </p>
           </div>
         </div>
