@@ -199,7 +199,7 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Sidy Ahmed Sy ibn Serigne Babacar",
       title: { fr: "Le Gardien de l'Héritage Paternel", en: "The Guardian of Paternal Heritage", ar: "حارس الإرث الأبوي", wo: "Sàmm warisaay baay" },
-      period: "1910 - 1998",
+      period: "1933 - 2019",
       icon: Heart,
       description: {
         fr: "Fils de Serigne Babacar Sy, premier Khalife, Serigne Sidy Ahmed Sy incarna la continuité spirituelle de la lignée. Formé directement par son père dans les sciences religieuses et la gestion de la confrérie, il fut un pilier silencieux mais essentiel de la Tariqa. Sa piété profonde, sa discrétion exemplaire et son dévouement absolu aux enseignements de Maodo firent de lui un modèle pour les disciples.",
