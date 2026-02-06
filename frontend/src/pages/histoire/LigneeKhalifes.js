@@ -67,7 +67,7 @@ const LigneeKhalifes = () => {
         "Enseignement et éducation des enfants dans la voie de Maodo",
         "Préservation du legs spirituel de son grand-père"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/p7vxoses_FB_IMG_1770340283848.jpg"
     },
     {
       name: "Serigne Mansour Sy 'Borom Daradji'",
