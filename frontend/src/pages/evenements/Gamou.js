@@ -2,9 +2,13 @@ import { Calendar, MapPin, Users, Heart, Book, Music } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
 import ShareButtons from "../../components/ShareButtons";
 import AddToCalendar from "../../components/AddToCalendar";
+import { usePageContent, getContentText } from "../../hooks/usePageContent";
 
 const Gamou = () => {
   const { t, language } = useLanguage();
+  
+  // Fetch dynamic content from MongoDB
+  const { content, loading: contentLoading } = usePageContent("gamou", language);
 
   const phases = [
     {
