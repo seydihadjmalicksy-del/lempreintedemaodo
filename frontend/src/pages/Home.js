@@ -212,10 +212,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
-              Vidéos en Vedette
+              {t('featuredVideos')}
             </h2>
             <p className="text-lg text-[#4A4A4A] max-w-2xl mx-auto">
-              Découvrez nos contenus les plus populaires et inspirants
+              {language === 'en' ? 'Discover our most popular and inspiring content' : 
+               language === 'ar' ? 'اكتشف محتوانا الأكثر شعبية وإلهاماً' :
+               language === 'wo' ? 'Gis njàmbaar yi ci kow' :
+               'Découvrez nos contenus les plus populaires et inspirants'}
             </p>
           </div>
 
@@ -245,14 +248,19 @@ const Home = () => {
                   data-testid="view-all-videos-btn"
                   className="inline-flex items-center gap-2 bg-white border-2 border-[#004D33] text-[#004D33] hover:bg-[#004D33] hover:text-white rounded-full px-8 py-3 font-medium transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  Voir toutes les vidéos
+                  {t('seeAll')}
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="text-[#888888]">Aucune vidéo en vedette disponible</p>
+              <p className="text-[#888888]">
+                {language === 'en' ? 'No featured videos available' : 
+                 language === 'ar' ? 'لا تتوفر فيديوهات مميزة' :
+                 language === 'wo' ? 'Amul bidiyo rafet' :
+                 'Aucune vidéo en vedette disponible'}
+              </p>
             </div>
           )}
         </div>
