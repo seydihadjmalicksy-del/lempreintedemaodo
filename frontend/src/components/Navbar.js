@@ -179,12 +179,17 @@ const Navbar = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Rechercher..."
+                  placeholder={t('search')}
                   data-testid="search-input-mobile"
                   className="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:border-[#004D33] focus:ring-1 focus:ring-[#004D33]"
                 />
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#888888]" />
               </form>
+
+              {/* Mobile Language Selector */}
+              <div className="mb-4 px-4">
+                <LanguageSelector variant="default" />
+              </div>
 
               {navLinks.map((link, index) => (
                 link.dropdown ? (
