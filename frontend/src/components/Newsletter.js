@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Mail, Send, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
+import axios from "axios";
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Newsletter = ({ variant = "default" }) => {
   const [email, setEmail] = useState("");
@@ -21,18 +24,27 @@ const Newsletter = ({ variant = "default" }) => {
 
     setIsLoading(true);
     
-    // Simulation d'inscription (à remplacer par une vraie API)
-    setTimeout(() => {
-      setIsLoading(false);
+    try {
+      const response = await axios.post(`${BACKEND_URL}/api/newsletter/subscribe`, {
+        email: email,
+        language: language
+      });
+      
       setIsSubscribed(true);
-      toast.success(language === 'en' ? "Successfully subscribed! You will receive our news." : 
-                    language === 'ar' ? "تم الاشتراك بنجاح! ستتلقى أخبارنا." :
-                    "Inscription réussie ! Vous recevrez nos actualités.");
+      toast.success(response.data.message || t('thankYou'));
       setEmail("");
       
       // Reset après 5 secondes
       setTimeout(() => setIsSubscribed(false), 5000);
-    }, 1500);
+    } catch (error) {
+      const errorMessage = error.response?.data?.detail || 
+        (language === 'en' ? "Subscription failed. Please try again." : 
+         language === 'ar' ? "فشل الاشتراك. حاول مرة أخرى." :
+         "Échec de l'inscription. Veuillez réessayer.");
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   if (variant === "compact") {
