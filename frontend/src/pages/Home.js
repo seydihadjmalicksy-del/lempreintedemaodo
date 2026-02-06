@@ -157,12 +157,20 @@ const Home = () => {
                 <Quote className="w-8 h-8 text-[#D4AF37]" />
                 <h3 className="text-xl font-bold">{t('quoteOfDay')}</h3>
               </div>
-              <blockquote className="text-2xl font-light italic leading-relaxed mb-6">
-                "{citations[Math.floor(Date.now() / 86400000) % citations.length].texte}"
-              </blockquote>
-              <p className="text-[#D4AF37] font-semibold">
-                — {citations[Math.floor(Date.now() / 86400000) % citations.length].source}
-              </p>
+              {dailyQuote ? (
+                <>
+                  <blockquote className="text-2xl font-light italic leading-relaxed mb-6">
+                    "{getQuoteText()}"
+                  </blockquote>
+                  <p className="text-[#D4AF37] font-semibold">
+                    — {dailyQuote.author}
+                  </p>
+                </>
+              ) : (
+                <blockquote className="text-2xl font-light italic leading-relaxed mb-6">
+                  "{t('quote1')}"
+                </blockquote>
+              )}
             </div>
 
             {/* Calendrier des Événements */}
@@ -172,29 +180,31 @@ const Home = () => {
                 <h3 className="text-xl font-bold text-[#004D33]">{t('upcomingEvents')}</h3>
               </div>
               <div className="space-y-4">
-                {evenementsAVenir.map((event, index) => (
+                {upcomingEvents.length > 0 ? upcomingEvents.slice(0, 3).map((event, index) => (
                   <div 
-                    key={index}
+                    key={event.id || index}
                     className={`flex items-start gap-4 p-4 rounded-xl bg-white ${
-                      event.type === 'gamou' ? 'border-l-4 border-[#D4AF37]' : 
-                      event.type === 'ziarra' ? 'border-l-4 border-[#004D33]' : ''
+                      event.event_type === 'gamou' ? 'border-l-4 border-[#D4AF37]' : 
+                      event.event_type === 'ziarra' ? 'border-l-4 border-[#004D33]' : ''
                     }`}
                   >
                     <div className="flex-1">
-                      <h4 className="font-bold text-[#004D33]">{event.titre}</h4>
+                      <h4 className="font-bold text-[#004D33]">{getEventText(event, 'name')}</h4>
                       <div className="flex items-center gap-4 mt-1 text-sm text-[#888888]">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
-                          {event.date}
+                          {formatEventDate(event.date, event.recurrence_pattern)}
                         </span>
                         <span className="flex items-center gap-1">
                           <MapPin className="w-4 h-4" />
-                          {event.lieu}
+                          {event.location}
                         </span>
                       </div>
                     </div>
                   </div>
-                ))}
+                )) : (
+                  <p className="text-[#888888]">{t('noFeaturedVideos')}</p>
+                )}
               </div>
               <Link 
                 to="/evenements/gamou"
