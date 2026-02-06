@@ -107,7 +107,7 @@ const LigneeKhalifes = () => {
         "Développement des œuvres sociales (hôpitaux, écoles)",
         "Renforcement des liens avec les disciples de la diaspora"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/dwimysfs_FB_IMG_1770340522540.jpg"
     },
     {
       name: "Serigne Babacar Sy Mansour",
