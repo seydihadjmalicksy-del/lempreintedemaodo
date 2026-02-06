@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Users, ChevronDown, ChevronRight, Star, Crown, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const ArbreGenealogique = () => {
   const [expandedNodes, setExpandedNodes] = useState(['maodo']);
+  const { t, language } = useLanguage();
 
   const toggleNode = (nodeId) => {
     setExpandedNodes(prev => 
@@ -19,7 +21,12 @@ const ArbreGenealogique = () => {
     nom: "El Hadji Malick Sy",
     surnom: "Maodo",
     dates: "1855 - 1922",
-    titre: "Fondateur de la Zawiya de Tivaouane",
+    titre: {
+      fr: "Fondateur de la Zawiya de Tivaouane",
+      en: "Founder of the Zawiya of Tivaouane",
+      ar: "مؤسس زاوية تيفاوان",
+      wo: "Tëkkikat Zawiya Tiwaawaan"
+    },
     image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
     epouses: [
       { nom: "Sokhna Rokhaya Ndiaye", enfants: ["babacar"] },
@@ -30,14 +37,19 @@ const ArbreGenealogique = () => {
         id: 'babacar',
         nom: "Serigne Babacar Sy",
         dates: "1885 - 1957",
-        titre: "Premier Khalife (1922-1957)",
+        titre: {
+          fr: "Premier Khalife (1922-1957)",
+          en: "First Khalife (1922-1957)",
+          ar: "الخليفة الأول (1922-1957)",
+          wo: "Njëkk Xaliifa (1922-1957)"
+        },
         image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg",
         enfants: [
           {
             id: 'djamil',
             nom: "Serigne Moustapha Sy Djamil",
             dates: "1916 - 1993",
-            titre: "Borom Fass",
+            titre: { fr: "Borom Fass", en: "Borom Fass", ar: "بوروم فاس", wo: "Borom Fass" },
             image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/p7vxoses_FB_IMG_1770340283848.jpg",
             enfants: []
           },
@@ -46,14 +58,14 @@ const ArbreGenealogique = () => {
             nom: "Serigne Cheikh Ahmed Tidiane Sy",
             surnom: "Al Maktoum",
             dates: "1925 - 2017",
-            titre: "Fondateur Moustarchidine",
+            titre: { fr: "Fondateur Moustarchidine", en: "Founder Moustarchidine", ar: "مؤسس مسترشدين", wo: "Tëkkikat Moustarchidine" },
             image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/jtrbkp29_IMG-20260206-WA0053.jpg",
             enfants: [
               {
                 id: 'moustapha_maktoum',
                 nom: "Serigne Moustapha Sy",
                 dates: "1956 -",
-                titre: "Guide Moustarchidine Wal Moustarchidati",
+                titre: { fr: "Guide Moustarchidine Wal Moustarchidati", en: "Guide Moustarchidine Wal Moustarchidati", ar: "مرشد مسترشدين ومسترشدات", wo: "Guide Moustarchidine Wal Moustarchidati" },
                 image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
                 enfants: []
               }
@@ -66,7 +78,12 @@ const ArbreGenealogique = () => {
         nom: "Serigne Mansour Sy",
         surnom: "Balkhawmi",
         dates: "1900 - 1957",
-        titre: "Le Savant (Khalife quelques mois en 1957)",
+        titre: {
+          fr: "Le Savant (Khalife quelques mois en 1957)",
+          en: "The Scholar (Khalife for a few months in 1957)",
+          ar: "العالم (خليفة لبضعة أشهر في 1957)",
+          wo: "Borom xam-xam (Xaliifa ay weer ci 1957)"
+        },
         image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
         enfants: []
       },
@@ -75,7 +92,7 @@ const ArbreGenealogique = () => {
         nom: "Serigne Abdoul Aziz Sy",
         surnom: "Dabakh",
         dates: "1904 - 1997",
-        titre: "Khalife (1957-1997)",
+        titre: { fr: "Khalife (1957-1997)", en: "Khalife (1957-1997)", ar: "الخليفة (1957-1997)", wo: "Xaliifa (1957-1997)" },
         image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg",
         enfants: [
           {
@@ -83,14 +100,19 @@ const ArbreGenealogique = () => {
             nom: "Serigne Mansour Sy",
             surnom: "Borom Daradji",
             dates: "1925 - 2012",
-            titre: "Khalife (1997-2012)",
+            titre: { fr: "Khalife (1997-2012)", en: "Khalife (1997-2012)", ar: "الخليفة (1997-2012)", wo: "Xaliifa (1997-2012)" },
             image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg",
             enfants: [
               {
                 id: 'babacar_mansour',
                 nom: "Serigne Babacar Sy Mansour",
                 dates: "1932 -",
-                titre: "Khalife Actuel (depuis 2017)",
+                titre: {
+                  fr: "Khalife Actuel (depuis 2017)",
+                  en: "Current Khalife (since 2017)",
+                  ar: "الخليفة الحالي (منذ 2017)",
+                  wo: "Xaliifa tey (dale 2017)"
+                },
                 image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
                 current: true,
                 enfants: []
@@ -102,7 +124,7 @@ const ArbreGenealogique = () => {
             nom: "Serigne Abdoul Aziz Sy",
             surnom: "Al Amine",
             dates: "1928 - 2017",
-            titre: "Khalife (2012-2017)",
+            titre: { fr: "Khalife (2012-2017)", en: "Khalife (2012-2017)", ar: "الخليفة (2012-2017)", wo: "Xaliifa (2012-2017)" },
             image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/dwimysfs_FB_IMG_1770340522540.jpg",
             enfants: []
           }
@@ -112,7 +134,12 @@ const ArbreGenealogique = () => {
         id: 'habib',
         nom: "Serigne Mouhammadoul Habib Sy",
         dates: "1906 - 1992",
-        titre: "Fils cadet de Maodo",
+        titre: {
+          fr: "Fils cadet de Maodo",
+          en: "Youngest son of Maodo",
+          ar: "الابن الأصغر لمودو",
+          wo: "Doom bu ndaw Maodo"
+        },
         image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/zk7vtiqg_FB_IMG_1770340169935.jpg",
         enfants: []
       }
@@ -123,6 +150,7 @@ const ArbreGenealogique = () => {
     const hasChildren = member.enfants && member.enfants.length > 0;
     const isExpanded = expandedNodes.includes(member.id);
     const isRoot = level === 0;
+    const titre = typeof member.titre === 'object' ? (member.titre[language] || member.titre.fr) : member.titre;
 
     return (
       <div key={member.id} className={`${level > 0 ? 'ml-8 mt-4' : ''}`}>
@@ -171,7 +199,7 @@ const ArbreGenealogique = () => {
               {member.dates}
             </p>
             <p className={`text-xs ${isRoot ? 'text-[#D4AF37]' : 'text-[#004D33]'}`}>
-              {member.titre}
+              {titre}
             </p>
           </div>
 
@@ -205,13 +233,13 @@ const ArbreGenealogique = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 rounded-full px-6 py-3 mb-6">
               <Users className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-white font-semibold">Lignée Spirituelle</span>
+              <span className="text-white font-semibold">{t('spiritualLineage')}</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-              Arbre Généalogique
+              {t('familyTreeTitle')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              La descendance d'El Hadji Malick Sy et la succession des Khalifes
+              {t('familyTreeSubtitle')}
             </p>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mt-6"></div>
           </div>
@@ -223,7 +251,7 @@ const ArbreGenealogique = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-[#4A4A4A]">
             <Star className="w-4 h-4 inline mr-2 text-[#D4AF37]" />
-            Cliquez sur un membre de la famille pour voir ses descendants
+            {t('clickToExpand')}
           </p>
         </div>
       </section>
@@ -239,20 +267,18 @@ const ArbreGenealogique = () => {
       <section className="py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#F9F7F2] rounded-2xl p-8 border-l-4 border-[#D4AF37]">
-            <h3 className="text-xl font-bold text-[#004D33] mb-4">À propos de cet arbre</h3>
+            <h3 className="text-xl font-bold text-[#004D33] mb-4">{t('aboutThisTree')}</h3>
             <p className="text-[#4A4A4A] mb-4">
-              Cet arbre généalogique présente une vue simplifiée de la descendance d'El Hadji Malick Sy, 
-              en mettant l'accent sur la lignée des Khalifes et les figures majeures de la famille.
+              {t('treeDescription')}
             </p>
             <p className="text-[#4A4A4A] mb-4">
-              La famille de Maodo est très étendue, avec des centaines de descendants répartis 
-              à travers le Sénégal et le monde entier.
+              {t('extendedFamily')}
             </p>
             <Link 
               to="/histoire/khalifes"
               className="inline-flex items-center gap-2 text-[#004D33] font-semibold hover:text-[#D4AF37] transition-colors"
             >
-              Voir la page détaillée des Héritiers
+              {t('viewDetailedPage')}
               <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
@@ -262,19 +288,19 @@ const ArbreGenealogique = () => {
       {/* Légende */}
       <section className="py-8 bg-[#F9F7F2]">
         <div className="max-w-4xl mx-auto px-4">
-          <h3 className="text-center font-bold text-[#004D33] mb-4">Légende</h3>
+          <h3 className="text-center font-bold text-[#004D33] mb-4">{t('legend')}</h3>
           <div className="flex flex-wrap justify-center gap-6">
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-[#004D33] rounded"></div>
-              <span className="text-sm text-[#4A4A4A]">Fondateur (Maodo)</span>
+              <span className="text-sm text-[#4A4A4A]">{t('founder')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-[#D4AF37]/30 border-2 border-[#D4AF37] rounded"></div>
-              <span className="text-sm text-[#4A4A4A]">Khalife Actuel</span>
+              <span className="text-sm text-[#4A4A4A]">{t('currentKhalife')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-4 h-4 bg-white border border-gray-300 rounded"></div>
-              <span className="text-sm text-[#4A4A4A]">Descendants</span>
+              <span className="text-sm text-[#4A4A4A]">{t('descendants')}</span>
             </div>
           </div>
         </div>
