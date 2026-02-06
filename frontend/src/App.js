@@ -11,6 +11,7 @@ import CarteTivaouane from "./pages/CarteTivaouane";
 import ArbreGenealogique from "./pages/ArbreGenealogique";
 import PhotoGallery from "./pages/PhotoGallery";
 import AdminPanel from "./pages/AdminPanel";
+import AdminLogin from "./pages/AdminLogin";
 import ElHadjiMalickSy from "./pages/histoire/ElHadjiMalickSy";
 import Maodo from "./pages/histoire/Maodo";
 import LigneeKhalifes from "./pages/histoire/LigneeKhalifes";
