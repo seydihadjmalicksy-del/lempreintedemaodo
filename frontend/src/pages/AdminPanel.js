@@ -768,7 +768,7 @@ const AdminPanel = () => {
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-2 mb-6">
+        <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => { setActiveTab("quotes"); setShowAddForm(false); setEditingItem(null); }}
             className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
@@ -787,21 +787,51 @@ const AdminPanel = () => {
             <Calendar className="w-5 h-5" />
             {t.events} ({events.length})
           </button>
+          <button
+            onClick={() => { setActiveTab("content"); setShowAddForm(false); setEditingItem(null); }}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+              activeTab === "content" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+            }`}
+          >
+            <FileText className="w-5 h-5" />
+            {t.content} ({pageContent.length})
+          </button>
         </div>
 
         {/* Content Area */}
         <div className="bg-white rounded-xl shadow-md p-6">
-          {/* Add Button */}
-          <div className="flex justify-end mb-6">
-            <button
-              onClick={() => { setShowAddForm(!showAddForm); setEditingItem(null); }}
-              className="flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-4 py-2 rounded-lg font-medium transition-colors"
-              data-testid="add-new-btn"
-            >
-              <Plus className="w-5 h-5" />
-              {t.addNew}
-            </button>
-          </div>
+          {/* Add Button - only for quotes and events */}
+          {activeTab !== "content" && (
+            <div className="flex justify-end mb-6">
+              <button
+                onClick={() => { setShowAddForm(!showAddForm); setEditingItem(null); }}
+                className="flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-4 py-2 rounded-lg font-medium transition-colors"
+                data-testid="add-new-btn"
+              >
+                <Plus className="w-5 h-5" />
+                {t.addNew}
+              </button>
+            </div>
+          )}
+
+          {/* Seed Buttons for Content */}
+          {activeTab === "content" && pageContent.length === 0 && (
+            <div className="mb-6 p-4 bg-[#FFF8E1] rounded-lg">
+              <p className="text-[#4A4A4A] mb-4">{t.noContent}</p>
+              <div className="flex flex-wrap gap-2">
+                {["maodo", "gamou", "ecole"].map(slug => (
+                  <button
+                    key={slug}
+                    onClick={() => handleSeedContent(slug)}
+                    disabled={actionLoading}
+                    className="px-4 py-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] rounded-lg font-medium disabled:opacity-50"
+                  >
+                    {t.seedContent}: {slug}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Add Form */}
           {showAddForm && (
