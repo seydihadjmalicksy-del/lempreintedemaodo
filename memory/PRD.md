@@ -7,7 +7,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - **Frontend**: React + Tailwind CSS + Shadcn UI
 - **Backend**: FastAPI (Python) + MongoDB (via Motor async driver)
 - **Base de données**: MongoDB - Utilisée pour Newsletter et Contact
-- **URL Preview**: https://tidjaniyya-hub.preview.emergentagent.com
+- **URL Preview**: https://tisoweb.preview.emergentagent.com
 
 ## ✅ Fonctionnalités Implémentées
 
