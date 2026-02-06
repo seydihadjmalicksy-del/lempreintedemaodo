@@ -677,7 +677,7 @@ const translations = {
     gamouHistoryTitle: "History of the Gamou of Tivaouane",
     gamouHistory1: "The celebration of the Mawlid (birth of the Prophet) was not systematic in Senegal before the arrival of El Hadji Malick Sy. It was he who institutionalized this practice in Tivaouane at the beginning of the 20th century.",
     gamouHistory2: "The first organized celebration was modest, but it quickly grew in scope. Maodo saw it as an opportunity to educate the masses: the 10 days preceding the Mawlid were devoted to the recitation of the Bourde (mystical poem) and the teaching of prophetic values.",
-    gamouHistory3: "After Maodo's death in 1922, his successors perpetuated the tradition. The Gamou gradually became Senegal's major spiritual event, attracting political figures, intellectuals and above all millions of disciples.",
+    gamouHistory3: "After Maodo's death in 1922, his heirs perpetuated the tradition. The Gamou gradually became Senegal's major spiritual event, attracting political figures, intellectuals and above all millions of disciples.",
     celebrationProgram: "The Celebration Program",
     tenDaysOfBourde: "10 Days of Bourde",
     tenDaysOfBourdeDesc: "Recitation of Al-Bousayri's Al-Burda poem in honor of the Prophet (PBUH), accompanied by spiritual songs",
