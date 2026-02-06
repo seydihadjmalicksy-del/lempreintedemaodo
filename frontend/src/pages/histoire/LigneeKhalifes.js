@@ -8,13 +8,13 @@ const LigneeKhalifes = () => {
     {
       name: "Serigne Sidy Ahmet Sy",
       title: { fr: "Le Premier Fils de Maodo", en: "The First Son of Maodo", ar: "الابن الأول لمودو", wo: "Doom bu njëkk Maodo" },
-      period: "1879 - 1920",
+      period: "1879 - 1916",
       icon: Sparkles,
       description: {
-        fr: "Aîné des enfants d'El Hadji Malick Sy, Serigne Sidy Ahmet Sy fut le premier à recevoir l'enseignement direct de son illustre père. Homme de grande piété et de profonde érudition, il assista Maodo dans ses œuvres spirituelles et éducatives. Rappelé à Dieu avant son père en 1920, il n'accéda pas au Califat, mais son héritage spirituel et sa descendance continuent d'illuminer la Tariqa.",
-        en: "The eldest child of El Hadji Malick Sy, Serigne Sidy Ahmet Sy was the first to receive direct teaching from his illustrious father. A man of great piety and profound erudition, he assisted Maodo in his spiritual and educational works. Called back to God before his father in 1920, he did not accede to the Caliphate, but his spiritual legacy and descendants continue to illuminate the Tariqa.",
-        ar: "البكر من أبناء الحاج مالك سي، كان سرين سيدي أحمد سي أول من تلقى التعليم المباشر من والده الشهير. رجل ذو تقوى عظيمة وعلم عميق، ساعد مودو في أعماله الروحية والتعليمية. توفي قبل والده عام 1920، ولم يتولَّ الخلافة، لكن إرثه الروحي وذريته يستمران في إنارة الطريقة.",
-        wo: "Doom bu njëkk El Hadji Maalik Si, Serigne Sidy Ahmet Sy moo njëkk jàng ci baay bam bu mag. Nit ku diine bu baax te borom xam-xam bu xóot, mu dimbali Maodo ci liggéey diine ak jàngale. Wéesu Yàlla balaa baay bam ci 1920, du nekk Xaliifa, waaye warisaay diine bam ak doom yam dañuy leer Tariqa ba."
+        fr: "Aîné des enfants d'El Hadji Malick Sy, Serigne Sidy Ahmet Sy fut le premier à recevoir l'enseignement direct de son illustre père. Homme de grande piété et de profonde érudition, il assista Maodo dans ses œuvres spirituelles et éducatives. Rappelé à Dieu avant son père en 1916, il n'accéda pas au Califat, mais son héritage spirituel et sa descendance continuent d'illuminer la Tariqa.",
+        en: "The eldest child of El Hadji Malick Sy, Serigne Sidy Ahmet Sy was the first to receive direct teaching from his illustrious father. A man of great piety and profound erudition, he assisted Maodo in his spiritual and educational works. Called back to God before his father in 1916, he did not accede to the Caliphate, but his spiritual legacy and descendants continue to illuminate the Tariqa.",
+        ar: "البكر من أبناء الحاج مالك سي، كان سرين سيدي أحمد سي أول من تلقى التعليم المباشر من والده الشهير. رجل ذو تقوى عظيمة وعلم عميق، ساعد مودو في أعماله الروحية والتعليمية. توفي قبل والده عام 1916، ولم يتولَّ الخلافة، لكن إرثه الروحي وذريته يستمران في إنارة الطريقة.",
+        wo: "Doom bu njëkk El Hadji Maalik Si, Serigne Sidy Ahmet Sy moo njëkk jàng ci baay bam bu mag. Nit ku diine bu baax te borom xam-xam bu xóot, mu dimbali Maodo ci liggéey diine ak jàngale. Wéesu Yàlla balaa baay bam ci 1916, du nekk Xaliifa, waaye warisaay diine bam ak doom yam dañuy leer Tariqa ba."
       },
       contributions: {
         fr: ["Premier disciple et assistant de Maodo", "Transmission des enseignements paternels", "Fondation d'une lignée de savants et d'érudits"],
