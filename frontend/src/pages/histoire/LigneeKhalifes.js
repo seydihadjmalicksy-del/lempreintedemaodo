@@ -80,7 +80,7 @@ const LigneeKhalifes = () => {
         "Renforcement de l'éducation islamique",
         "Expansion des écoles coraniques (daaras)"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg"
     },
     {
       name: "Serigne Cheikh Ahmed Tidiane Sy 'Al Maktoum'",
