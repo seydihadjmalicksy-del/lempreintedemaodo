@@ -10,6 +10,7 @@ const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const isActive = (path) => location.pathname === path;
 
@@ -22,37 +23,37 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { path: "/", label: "Accueil" },
+    { path: "/", label: t('home') },
     { 
-      label: "Histoire", 
+      label: t('history'), 
       dropdown: [
-        { path: "/histoire/origines", label: "Les Origines" },
-        { path: "/histoire/maodo", label: "Maodo (El Hadji Malick Sy)" },
-        { path: "/histoire/khalifes", label: "Lignée des Héritiers" },
-        { path: "/arbre-genealogique", label: "Arbre Généalogique" },
-        { path: "/histoire/geographie", label: "Géographie Sacrée" },
-        { path: "/carte", label: "Carte Interactive" }
+        { path: "/histoire/origines", label: t('origins') },
+        { path: "/histoire/maodo", label: t('maodo') },
+        { path: "/histoire/khalifes", label: t('heirsLineage') },
+        { path: "/arbre-genealogique", label: t('familyTree') },
+        { path: "/histoire/geographie", label: t('sacredGeography') },
+        { path: "/carte", label: t('interactiveMap') }
       ]
     },
     { 
-      label: "Enseignements",
+      label: t('teachings'),
       dropdown: [
-        { path: "/enseignements/piliers", label: "Piliers de la Tariqa" },
-        { path: "/enseignements/ecole", label: "L'École de Tivaouane" },
-        { path: "/enseignements/ouvrages", label: "Ouvrages de Référence" }
+        { path: "/enseignements/piliers", label: t('pillars') },
+        { path: "/enseignements/ecole", label: t('school') },
+        { path: "/enseignements/ouvrages", label: t('referenceWorks') }
       ]
     },
     { 
-      label: "Événements",
+      label: t('events'),
       dropdown: [
-        { path: "/evenements/gamou", label: "Le Gamou" },
-        { path: "/evenements/ziarra", label: "Ziarra Annuelles" },
-        { path: "/evenements/ceremonies", label: "Cérémonies Religieuses" }
+        { path: "/evenements/gamou", label: t('gamou') },
+        { path: "/evenements/ziarra", label: t('annualZiarra') },
+        { path: "/evenements/ceremonies", label: t('religiousCeremonies') }
       ]
     },
-    { path: "/archives", label: "Archives" },
-    { path: "/mediatheque", label: "Médiathèque" },
-    { path: "/contact", label: "Contact" }
+    { path: "/archives", label: t('archives') },
+    { path: "/mediatheque", label: t('media') },
+    { path: "/contact", label: t('contact') }
   ];
 
   return (
