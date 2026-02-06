@@ -150,6 +150,61 @@ class SearchResult(BaseModel):
     url: str
     relevance: float = 1.0
 
+class AdminLogin(BaseModel):
+    username: str
+    password: str
+
+class AdminSession(BaseModel):
+    token: str
+    expires_at: str
+    username: str
+
+class PushSubscription(BaseModel):
+    endpoint: str
+    keys: dict
+    user_agent: Optional[str] = None
+    language: str = "fr"
+
+class NotificationPreferences(BaseModel):
+    events: bool = True
+    gamou: bool = True
+    ziarra: bool = True
+    weekly_hadratoul: bool = False
+
+
+# ============== AUTHENTICATION HELPERS ==============
+
+def verify_password(password: str) -> bool:
+    """Verify password against stored hash"""
+    password_hash = hashlib.sha256(password.encode()).hexdigest()
+    return secrets.compare_digest(password_hash, ADMIN_PASSWORD_HASH)
+
+def generate_session_token() -> str:
+    """Generate a secure session token"""
+    return secrets.token_urlsafe(32)
+
+async def verify_admin_token(authorization: Optional[str] = Header(None)) -> bool:
+    """Verify admin session token from Authorization header"""
+    if not authorization:
+        raise HTTPException(status_code=401, detail="Token d'authentification requis")
+    
+    # Extract token from "Bearer <token>"
+    if authorization.startswith("Bearer "):
+        token = authorization[7:]
+    else:
+        token = authorization
+    
+    # Check token in database
+    session = await db.admin_sessions.find_one({
+        "token": token,
+        "expires_at": {"$gt": datetime.now(timezone.utc).isoformat()}
+    })
+    
+    if not session:
+        raise HTTPException(status_code=401, detail="Session invalide ou expirée")
+    
+    return True
+
 
 # Video routes
 @api_router.get("/")
