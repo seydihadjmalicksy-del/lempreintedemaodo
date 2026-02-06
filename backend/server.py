@@ -142,6 +142,37 @@ class Event(BaseModel):
     recurrence_pattern: Optional[str] = None  # weekly, annual, etc.
     active: bool = True
 
+
+# Update Models for CMS
+class QuoteUpdate(BaseModel):
+    text_fr: Optional[str] = None
+    text_en: Optional[str] = None
+    text_ar: Optional[str] = None
+    text_wo: Optional[str] = None
+    author: Optional[str] = None
+    context_fr: Optional[str] = None
+    context_en: Optional[str] = None
+    active: Optional[bool] = None
+    order: Optional[int] = None
+
+
+class EventUpdate(BaseModel):
+    name_fr: Optional[str] = None
+    name_en: Optional[str] = None
+    name_ar: Optional[str] = None
+    name_wo: Optional[str] = None
+    description_fr: Optional[str] = None
+    description_en: Optional[str] = None
+    description_ar: Optional[str] = None
+    description_wo: Optional[str] = None
+    date: Optional[str] = None
+    location: Optional[str] = None
+    event_type: Optional[str] = None
+    recurring: Optional[bool] = None
+    recurrence_pattern: Optional[str] = None
+    active: Optional[bool] = None
+
+
 class SearchResult(BaseModel):
     id: str
     title: str
