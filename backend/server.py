@@ -97,6 +97,49 @@ class ContactCreate(BaseModel):
     message: str
 
 
+# Content Models for CMS
+class Quote(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    text_fr: str
+    text_en: str
+    text_ar: str
+    text_wo: str
+    author: str = "El Hadji Malick Sy"
+    context_fr: Optional[str] = None
+    context_en: Optional[str] = None
+    active: bool = True
+    order: int = 0
+
+class Event(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name_fr: str
+    name_en: str
+    name_ar: str
+    name_wo: str
+    description_fr: Optional[str] = None
+    description_en: Optional[str] = None
+    description_ar: Optional[str] = None
+    description_wo: Optional[str] = None
+    date: str  # ISO date string
+    location: str = "Tivaouane"
+    event_type: str  # gamou, ziarra, hadratoul_joumah, other
+    recurring: bool = False
+    recurrence_pattern: Optional[str] = None  # weekly, annual, etc.
+    active: bool = True
+
+class SearchResult(BaseModel):
+    id: str
+    title: str
+    description: str
+    type: str  # page, video, event, quote
+    url: str
+    relevance: float = 1.0
+
+
 # Video routes
 @api_router.get("/")
 async def root():
