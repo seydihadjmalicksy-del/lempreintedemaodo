@@ -3,6 +3,20 @@ import { Clock, Users, Church, Sun } from "lucide-react";
 const CeremoniesReligieuses = () => {
   const ceremonies = [
     {
+      icon: Clock,
+      titre: "Hadratoul Joumah (Khadra)",
+      frequence: "Tous les vendredis",
+      description: "La Hadratoul Joumah est une veillée religieuse hebdomadaire instituée à la Zawiya El Hadji Malick Sy. C'est le moment privilégié de la semaine où les disciples se rassemblent pour le dhikr collectif et l'enseignement.",
+      deroulement: [
+        "Après Asr : Récitations coraniques",
+        "Wird et Wazifa collectifs",
+        "Enseignements sur la Tijaniyya (genèse, philosophie, principes)",
+        "Allocutions des guides religieux",
+        "Clôture avec les invocations"
+      ],
+      particularite: "Organisée par la CEZAT (Cellule Zawiya Tijaniyya), elle est diffusée en direct sur les chaînes HABIBBA TV et TIVAOUANE 24 TV."
+    },
+    {
       icon: Church,
       titre: "La Prière du Vendredi",
       frequence: "Hebdomadaire",
