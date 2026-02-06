@@ -82,11 +82,20 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 | `/api/videos` | GET | Liste vidéos |
 | `/api/videos/featured` | GET | Vidéos en vedette |
 | `/api/categories` | GET | Catégories |
+| `/api/quotes` | GET | Liste des citations |
+| `/api/quotes/daily` | GET | Citation du jour |
+| `/api/events` | GET | Liste des événements |
+| `/api/events/upcoming` | GET | Événements à venir |
+| `/api/search` | GET | Recherche globale multilingue |
+| `/api/admin/seed` | POST | Initialiser les données |
 
 ### Base de Données MongoDB
 **Collections:**
 - `newsletter_subscriptions`: `{ email, language, subscribed_at, active }`
 - `contact_messages`: `{ nom, email, sujet, message, sent_at, id }`
+- `quotes`: `{ id, text_fr, text_en, text_ar, text_wo, author, context_fr, context_en, active, order }`
+- `events`: `{ id, name_fr/en/ar/wo, description_fr/en/ar/wo, date, location, event_type, recurring, recurrence_pattern, active }`
+- `videos`: `{ id, title, description, youtube_id, category, is_featured, created_at }`
 
 ## 📝 Backlog (P1-P3)
 
