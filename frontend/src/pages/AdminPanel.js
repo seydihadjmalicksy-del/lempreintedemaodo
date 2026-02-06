@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, CheckCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, CheckCircle, LogOut } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -8,12 +9,14 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const AdminPanel = () => {
+  const navigate = useNavigate();
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState("quotes");
   const [quotes, setQuotes] = useState([]);
   const [events, setEvents] = useState([]);
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
 
@@ -29,9 +32,64 @@ const AdminPanel = () => {
     date: "", location: "Tivaouane", event_type: "gamou", recurring: false, recurrence_pattern: "", active: true
   });
 
+  // Check authentication on mount
   useEffect(() => {
-    fetchData();
+    checkAuth();
   }, []);
+
+  const checkAuth = async () => {
+    const token = localStorage.getItem("adminToken");
+    const expires = localStorage.getItem("adminExpires");
+    
+    if (!token || !expires) {
+      navigate("/admin/login");
+      return;
+    }
+    
+    // Check if token expired
+    if (new Date(expires) < new Date()) {
+      localStorage.removeItem("adminToken");
+      localStorage.removeItem("adminExpires");
+      localStorage.removeItem("adminUsername");
+      navigate("/admin/login");
+      return;
+    }
+    
+    // Verify token with backend
+    try {
+      await axios.get(`${API}/admin/verify`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setIsAuthenticated(true);
+      fetchData();
+    } catch (error) {
+      localStorage.removeItem("adminToken");
+      localStorage.removeItem("adminExpires");
+      localStorage.removeItem("adminUsername");
+      navigate("/admin/login");
+    }
+  };
+
+  const handleLogout = async () => {
+    const token = localStorage.getItem("adminToken");
+    try {
+      await axios.post(`${API}/admin/logout`, null, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+    } catch (e) {
+      // Ignore errors
+    }
+    localStorage.removeItem("adminToken");
+    localStorage.removeItem("adminExpires");
+    localStorage.removeItem("adminUsername");
+    toast.success(language === 'en' ? "Logged out successfully" : "Déconnexion réussie");
+    navigate("/admin/login");
+  };
+
+  const getAuthHeaders = () => {
+    const token = localStorage.getItem("adminToken");
+    return { Authorization: `Bearer ${token}` };
+  };
 
   const fetchData = async () => {
     setLoading(true);
