@@ -262,6 +262,21 @@ const Gamou = () => {
             })}
           </div>
 
+          {/* Add to Calendar Button */}
+          <div className="flex justify-center mb-12">
+            <AddToCalendar 
+              event={{
+                id: "gamou-2025",
+                name_fr: "Gamou de Tivaouane 2025",
+                name_en: "Gamou of Tivaouane 2025",
+                description_fr: "Célébration annuelle de la naissance du Prophète Muhammad (PSL) à Tivaouane",
+                description_en: "Annual celebration of the birth of Prophet Muhammad (PBUH) in Tivaouane",
+                date: "2025-09-05",
+                location: "Tivaouane, Sénégal"
+              }}
+            />
+          </div>
+
           <div className="bg-white rounded-xl p-8 shadow-md">
             <h3 className="text-2xl font-bold text-[#004D33] mb-6 text-center">
               {t('pilgrimAdvice')}
