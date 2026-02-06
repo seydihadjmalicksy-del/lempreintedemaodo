@@ -118,7 +118,7 @@ const Maodo = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 rounded-full px-6 py-3 mb-6">
               <Star className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-white font-semibold">Le Fondateur</span>
+              <span className="text-white font-semibold">{t('theFounder')}</span>
             </div>
             
             <h1 className="text-4xl lg:text-6xl font-bold mb-4">
@@ -131,7 +131,7 @@ const Maodo = () => {
               (1855 - 1922)
             </p>
             <p className="text-lg text-white/80 max-w-3xl mx-auto">
-              Érudit, Saint, Fondateur de la Zawiya de Tivaouane et Vivificateur de la Sunna du Prophète (PSL)
+              {t('scholarSaint')}
             </p>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mt-8"></div>
           </div>
@@ -143,22 +143,17 @@ const Maodo = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-[#4A4A4A] leading-relaxed mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-[#004D33] first-letter:float-left first-letter:mr-3">
-              El Hadji Malick Sy, affectueusement appelé <strong className="text-[#004D33]">Maodo</strong> (terme wolof signifiant "le Vénéré"), 
-              fut l'un des plus grands érudits musulmans de l'Afrique de l'Ouest. Chef de la confrérie Tijaniyya au Sénégal, 
-              il transforma Tivaouane en un centre spirituel rayonnant dont l'influence perdure jusqu'à nos jours.
+              {t('maodoIntro')}
             </p>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              Né en 1855 dans le village de Gaya au nord du Sénégal, il consacra sa vie entière à l'apprentissage, 
-              l'enseignement et la diffusion de l'Islam selon la voie du Prophète Muhammad (PSL). Son érudition exceptionnelle, 
-              sa piété exemplaire et sa sagesse firent de lui une référence incontournable pour des générations de musulmans.
+              {t('maodoBio')}
             </p>
 
             <div className="bg-[#F9F7F2] border-l-4 border-[#D4AF37] p-6 rounded-r-lg my-8">
               <Quote className="w-8 h-8 text-[#D4AF37] mb-4" />
               <p className="text-lg italic text-[#4A4A4A]">
-                "Chez Maodo, la dualité l'emporte sur l'alternative : il fut à la fois homme de science et homme d'action, 
-                mystique et pragmatique, traditionaliste et moderniste."
+                "{t('maodoQuote')}"
               </p>
             </div>
           </div>
@@ -171,10 +166,10 @@ const Maodo = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 rounded-full px-6 py-3 mb-4">
               <Image className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-white font-semibold">Photos Historiques</span>
+              <span className="text-white font-semibold">{t('historicPhotos')}</span>
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Portraits de Maodo
+              {t('portraitsOfMaodo')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -185,11 +180,11 @@ const Maodo = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={photos[selectedPhoto].url}
-                  alt={photos[selectedPhoto].caption}
+                  alt={photos[selectedPhoto].caption[language] || photos[selectedPhoto].caption.fr}
                   className="w-full h-auto max-h-[500px] object-contain bg-black"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                  <p className="text-white text-lg">{photos[selectedPhoto].caption}</p>
+                  <p className="text-white text-lg">{photos[selectedPhoto].caption[language] || photos[selectedPhoto].caption.fr}</p>
                 </div>
               </div>
             </div>
@@ -208,7 +203,7 @@ const Maodo = () => {
                 >
                   <img
                     src={photo.url}
-                    alt={photo.caption}
+                    alt={photo.caption[language] || photo.caption.fr}
                     className="w-full h-full object-cover"
                   />
                   {selectedPhoto === index && (
@@ -226,7 +221,7 @@ const Maodo = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#004D33] mb-4">
-              Parcours de Vie
+              {t('lifePath')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
           </div>
@@ -272,7 +267,7 @@ const Maodo = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#004D33] mb-4">
-              Ses Contributions Majeures
+              {t('majorContributions')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
           </div>
@@ -302,16 +297,16 @@ const Maodo = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              Ses Œuvres Littéraires
+              {t('literaryWorks')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
             <p className="text-white/80">
-              Maodo a laissé un héritage littéraire inestimable
+              {t('literaryHeritage')}
             </p>
           </div>
 
           <div className="space-y-4">
-            {oeuvres.map((oeuvre, index) => (
+            {(oeuvres[language] || oeuvres.fr).map((oeuvre, index) => (
               <div
                 key={index}
                 className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-4 hover:bg-white/20 transition-colors"
@@ -329,7 +324,7 @@ const Maodo = () => {
               href="/enseignements/ouvrages"
               className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-6 py-3 rounded-full font-bold transition-colors"
             >
-              Voir tous les ouvrages
+              {t('viewAllWorks')}
             </a>
           </div>
         </div>
@@ -340,7 +335,7 @@ const Maodo = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-[#004D33] mb-4">
-              Paroles de Sagesse
+              {t('wordsOfWisdom')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
           </div>
@@ -367,15 +362,11 @@ const Maodo = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Award className="w-16 h-16 text-[#D4AF37] mx-auto mb-6" />
           <h2 className="text-3xl lg:text-4xl font-bold text-[#004D33] mb-6">
-            Son Héritage Éternel
+            {t('eternalLegacy')}
           </h2>
           
           <p className="text-lg text-[#4A4A4A] leading-relaxed mb-8">
-            Aujourd'hui, plus d'un siècle après son rappel à Dieu, l'influence de Maodo continue de rayonner. 
-            La Tariqa Tijaniyya est devenue la principale confrérie soufie au Sénégal, et le Gamou de Tivaouane 
-            rassemble chaque année <strong className="text-[#004D33]">plus de 5 millions de fidèles</strong>. 
-            Ses enseignements, transmis par ses successeurs, continuent d'éclairer les cœurs et les esprits 
-            de millions de musulmans à travers le monde.
+            {t('legacyText')}
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -384,14 +375,14 @@ const Maodo = () => {
               className="inline-flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-6 py-3 rounded-full font-bold transition-colors"
             >
               <Users className="w-5 h-5" />
-              Ses Successeurs
+              {t('hisSuccessors')}
             </a>
             <a
               href="/evenements/gamou"
               className="inline-flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-6 py-3 rounded-full font-bold transition-colors"
             >
               <Calendar className="w-5 h-5" />
-              Le Gamou
+              {t('theGamou')}
             </a>
           </div>
         </div>
@@ -405,7 +396,7 @@ const Maodo = () => {
             رَضِيَ اللهُ عَنْهُ وَأَرْضَاهُ
           </p>
           <p className="text-white/70">
-            "Que Dieu soit satisfait de lui et le rende satisfait"
+            {t('mayAllahBePleasedWithHim')}
           </p>
         </div>
       </section>
