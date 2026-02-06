@@ -136,11 +136,13 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 | Export iCal | ✅ 100% | Google Calendar, Outlook, .ics |
 | **Auth Admin** | ✅ 100% | Login/Logout/Protection routes |
 | **PWA** | ✅ 100% | Service Worker, Manifest, Notifications |
-| **CRUD CMS** | ✅ 100% | **NOUVEAU** - Édition/Suppression citations et événements |
+| **CRUD CMS** | ✅ 100% | Édition/Suppression citations et événements |
+| **Content CMS** | ✅ 100% | **NOUVEAU** - Gestion contenu des pages (9 sections, 3 pages) |
 
 ## 📅 Historique des mises à jour
 
 ### Février 2025
+- ✅ **Content CMS** : Migration du contenu vers MongoDB (maodo, gamou, ecole), hook usePageContent, onglet admin
 - ✅ CRUD CMS complet (édition et suppression des citations/événements)
 - ✅ Authentification admin complète (login/logout/protection)
 - ✅ PWA avec Service Worker et notifications push
