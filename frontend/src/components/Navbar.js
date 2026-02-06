@@ -139,12 +139,15 @@ const Navbar = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Rechercher..."
+                  placeholder={t('search')}
                   data-testid="search-input-desktop"
                   className="w-48 px-4 py-2 pl-10 border border-gray-300 rounded-full focus:outline-none focus:border-[#004D33] focus:ring-1 focus:ring-[#004D33] text-sm"
                 />
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#888888]" />
               </form>
+
+              {/* Language Selector */}
+              <LanguageSelector variant="minimal" />
             </div>
 
             {/* Mobile menu button */}
