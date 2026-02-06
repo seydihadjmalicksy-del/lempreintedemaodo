@@ -1130,6 +1130,95 @@ const AdminPanel = () => {
               )}
             </div>
           )}
+
+          {/* Page Content List */}
+          {activeTab === "content" && (
+            <div className="space-y-4">
+              {/* Group content by page */}
+              {pageContent.length > 0 ? (
+                Object.entries(
+                  pageContent.reduce((acc, item) => {
+                    if (!acc[item.slug]) acc[item.slug] = [];
+                    acc[item.slug].push(item);
+                    return acc;
+                  }, {})
+                ).map(([slug, sections]) => (
+                  <div key={slug} className="border rounded-lg overflow-hidden">
+                    <div className="bg-[#004D33] text-white px-4 py-2 font-semibold capitalize">
+                      {t.page}: {slug}
+                    </div>
+                    <div className="divide-y">
+                      {sections.sort((a, b) => a.order - b.order).map((item, index) => (
+                        <div key={item.id}>
+                          {editingItem?.id === item.id ? (
+                            <EditContentForm item={item} />
+                          ) : (
+                            <div
+                              className={`p-4 ${item.active ? 'bg-white' : 'bg-gray-50'}`}
+                              data-testid={`content-item-${slug}-${index}`}
+                            >
+                              <div className="flex justify-between items-start">
+                                <div className="flex-1">
+                                  <div className="flex items-center gap-2 mb-2">
+                                    <span className="px-2 py-1 bg-[#E8F5E9] text-[#004D33] text-xs font-semibold rounded">
+                                      {item.section}
+                                    </span>
+                                    <span className="text-xs text-[#888888]">Order: {item.order}</span>
+                                  </div>
+                                  <p className="text-[#4A4A4A] text-sm line-clamp-2">
+                                    {item.content?.fr?.substring(0, 200)}...
+                                  </p>
+                                </div>
+                                <div className="flex items-center gap-2 ml-4">
+                                  <span className={`px-2 py-1 rounded-full text-xs ${
+                                    item.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
+                                  }`}>
+                                    {item.active ? t.active : t.inactive}
+                                  </span>
+                                  <button
+                                    onClick={() => setEditingItem({...item})}
+                                    className="p-2 text-[#004D33] hover:bg-[#E8F5E9] rounded-lg transition-colors"
+                                    title={t.edit}
+                                    data-testid={`edit-content-${slug}-${index}`}
+                                  >
+                                    <Edit2 className="w-4 h-4" />
+                                  </button>
+                                  <button
+                                    onClick={() => setDeleteConfirm({ type: 'content', id: item.id })}
+                                    className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                    title={t.delete}
+                                    data-testid={`delete-content-${slug}-${index}`}
+                                  >
+                                    <Trash2 className="w-4 h-4" />
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="text-center py-8">
+                  <p className="text-[#888888] mb-4">{t.noContent}</p>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    {["maodo", "gamou", "ecole"].map(slug => (
+                      <button
+                        key={slug}
+                        onClick={() => handleSeedContent(slug)}
+                        disabled={actionLoading}
+                        className="px-4 py-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] rounded-lg font-medium disabled:opacity-50"
+                      >
+                        {t.seedContent}: {slug}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
