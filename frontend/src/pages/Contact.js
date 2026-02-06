@@ -3,8 +3,13 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useLanguage } from "../contexts/LanguageContext";
+import axios from "axios";
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Contact = () => {
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     nom: "",
     email: "",
@@ -17,12 +22,19 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     
-    // Simulation envoi
-    setTimeout(() => {
-      toast.success("Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.");
+    try {
+      const response = await axios.post(`${BACKEND_URL}/api/contact`, formData);
+      toast.success(response.data.message || t('messageSent'));
       setFormData({ nom: "", email: "", sujet: "", message: "" });
+    } catch (error) {
+      const errorMessage = error.response?.data?.detail || 
+        (language === 'en' ? "Failed to send message. Please try again." : 
+         language === 'ar' ? "فشل إرسال الرسالة. حاول مرة أخرى." :
+         "Échec de l'envoi. Veuillez réessayer.");
+      toast.error(errorMessage);
+    } finally {
       setLoading(false);
-    }, 1500);
+    }
   };
 
   const handleChange = (e) => {
@@ -35,13 +47,13 @@ const Contact = () => {
   const coordonnees = [
     {
       icon: MapPin,
-      titre: "Adresse",
+      titre: t('address'),
       contenu: "Grande Mosquée de Tivaouane\nTivaouane, Région de Thiès\nSénégal"
     },
     {
       icon: Phone,
-      titre: "Téléphone",
-      contenu: "+221 77 338 90 95\n(Disponible 8h-20h)"
+      titre: t('phone'),
+      contenu: "+221 77 338 90 95\n(8h-20h)"
     },
     {
       icon: Mail,
@@ -50,14 +62,40 @@ const Contact = () => {
     }
   ];
 
-  const raisonsDon = [
-    "CRAT (Cadre de Réflexion et d'Action Tidiane)",
-    "Soutien aux écoles coraniques (daaras)",
-    "Aide aux pèlerins démunis lors du Gamou",
-    "Numérisation des archives et manuscrits",
-    "Projets sociaux (hôpitaux, écoles)",
-    "Distribution d'eau et de nourriture lors des événements"
-  ];
+  const raisonsDon = {
+    fr: [
+      "CRAT (Cadre de Réflexion et d'Action Tidiane)",
+      "Soutien aux écoles coraniques (daaras)",
+      "Aide aux pèlerins démunis lors du Gamou",
+      "Numérisation des archives et manuscrits",
+      "Projets sociaux (hôpitaux, écoles)",
+      "Distribution d'eau et de nourriture lors des événements"
+    ],
+    en: [
+      "CRAT (Framework for Tidiane Reflection and Action)",
+      "Support for Quranic schools (daaras)",
+      "Aid to needy pilgrims during the Gamou",
+      "Digitization of archives and manuscripts",
+      "Social projects (hospitals, schools)",
+      "Distribution of water and food during events"
+    ],
+    ar: [
+      "إطار التفكير والعمل التجاني",
+      "دعم المدارس القرآنية (الدار)",
+      "مساعدة الحجاج المحتاجين أثناء المولد",
+      "رقمنة الأرشيف والمخطوطات",
+      "المشاريع الاجتماعية (المستشفيات، المدارس)",
+      "توزيع الماء والطعام أثناء الفعاليات"
+    ],
+    wo: [
+      "CRAT (Cadre xalaat ak liggéey Tijaan)",
+      "Dimbali daara yi",
+      "Dimbali ajibi yi baaxul ci Gamou gi",
+      "Numérisation archive yi ak manuscrit yi",
+      "Projet social yi (opital, ekol)",
+      "Seddale ndox ak lekk ci mbir yi"
+    ]
+  };
 
   return (
     <div className="min-h-screen bg-[#F9F7F2]" data-testid="contact-page">
