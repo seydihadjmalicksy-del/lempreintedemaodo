@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
 import VideoPlayer from "./pages/VideoPlayer";
@@ -24,14 +25,29 @@ import PiliersTariqa from "./pages/enseignements/PiliersTariqa";
 import EcoleTivaouane from "./pages/enseignements/EcoleTivaouane";
 import OuvragesReference from "./pages/enseignements/OuvragesReference";
 import Navbar from "./components/Navbar";
+import PWAPrompt from "./components/PWAPrompt";
 import { Toaster } from "@/components/ui/sonner";
 import "@/App.css";
 
 function App() {
+  // Register service worker for PWA
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered:', registration.scope);
+        })
+        .catch((error) => {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
+  }, []);
+
   return (
     <div className="App min-h-screen">
       <BrowserRouter>
         <Navbar />
+        <PWAPrompt />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
