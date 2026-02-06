@@ -217,58 +217,64 @@ const DocumentsArchives = () => {
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
             <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
               Images d'époque d'El Hadji Malick Sy et de ses édifices religieux, extraites du livre de Paul Marty.
-              <br />
-              <span className="text-sm text-[#888888]">Cliquez sur chaque image pour l'ouvrir dans le visualiseur Gallica (haute résolution)</span>
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {gallicaPhotos.map((photo, index) => (
-              <div
+              <a
                 key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                href={photo.embedUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                {/* Image Container with iframe */}
-                <div className="relative bg-[#1a1a1a] aspect-[4/3] overflow-hidden">
-                  <iframe
-                    src={`https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f${photo.folio}.item.zoom`}
-                    title={photo.title}
-                    className="absolute inset-0 w-full h-full border-0"
-                    loading="lazy"
-                    allowFullScreen
-                  />
-                  {/* Overlay with view button */}
-                  <a
-                    href={photo.embedUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute bottom-4 right-4 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg transition-all z-10"
-                  >
-                    <Eye className="w-4 h-4" />
-                    Voir en HD
-                  </a>
+                {/* Image Container with decorative background */}
+                <div className="relative bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] aspect-[4/3] overflow-hidden flex items-center justify-center">
+                  {/* Decorative Islamic pattern overlay */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="w-full h-full" style={{
+                      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                      backgroundSize: '30px 30px'
+                    }}></div>
+                  </div>
+                  
+                  {/* Central content */}
+                  <div className="relative z-10 text-center p-8">
+                    <div className="w-20 h-20 bg-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                      <Camera className="w-10 h-10 text-[#004D33]" />
+                    </div>
+                    <p className="text-[#D4AF37] font-bold text-lg mb-2">Page {photo.page}</p>
+                    <p className="text-white/70 text-sm">Cliquez pour voir l'image originale</p>
+                  </div>
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-[#004D33]/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <div className="text-center">
+                      <Eye className="w-12 h-12 text-[#D4AF37] mx-auto mb-3" />
+                      <p className="text-white font-bold">Voir sur Gallica</p>
+                      <p className="text-white/70 text-sm">Haute résolution</p>
+                    </div>
+                  </div>
                 </div>
                 
                 {/* Info Section */}
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 bg-[#004D33] rounded-full flex items-center justify-center">
-                      <Camera className="w-5 h-5 text-[#D4AF37]" />
+                    <div className="px-3 py-1 bg-[#E8F5E9] rounded-full">
+                      <span className="text-[#004D33] text-xs font-semibold">Domaine Public</span>
                     </div>
-                    <div>
-                      <p className="text-[#D4AF37] text-sm font-semibold">Page {photo.page}</p>
-                      <p className="text-[#888888] text-xs">Gallica - BnF (Domaine public)</p>
-                    </div>
+                    <span className="text-[#888888] text-xs">Gallica - BnF</span>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-[#004D33] mb-2">
+                  <h3 className="text-xl font-bold text-[#004D33] mb-2 group-hover:text-[#D4AF37] transition-colors">
                     {photo.title}
                   </h3>
                   <p className="text-[#4A4A4A] text-sm">
                     {photo.description}
                   </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
 
@@ -283,7 +289,8 @@ const DocumentsArchives = () => {
                 <p className="text-[#4A4A4A] text-sm">
                   Ces photographies proviennent du livre <em>"Études sur l'Islam au Sénégal"</em> de Paul Marty, publié en 1917 
                   et numérisé par la Bibliothèque nationale de France (BnF). Elles sont dans le <strong>domaine public</strong> et 
-                  constituent un témoignage historique précieux de Tivaouane à l'époque de Maodo.
+                  constituent un témoignage historique précieux de Tivaouane à l'époque de Maodo. En cliquant sur chaque élément, 
+                  vous accédez à la page originale sur Gallica où vous pouvez télécharger l'image en haute résolution.
                 </p>
               </div>
             </div>
