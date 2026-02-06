@@ -179,8 +179,11 @@ const Mediatheque = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {videosRecentes.map((video, index) => (
-              <div
+              <a
                 key={index}
+                href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#F9F7F2] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
               >
                 <div className="relative aspect-video bg-gray-100 overflow-hidden">
@@ -200,7 +203,7 @@ const Mediatheque = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="font-semibold text-[#004D33] mb-3 text-lg">
+                  <h3 className="font-semibold text-[#004D33] mb-3 text-lg group-hover:text-[#D4AF37] transition-colors">
                     {video.titre}
                   </h3>
                   <div className="flex items-center gap-2 text-sm text-[#888888]">
@@ -208,8 +211,95 @@ const Mediatheque = () => {
                     <span>{video.vues.toLocaleString()} vues</span>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Chaînes YouTube */}
+      <section className="py-16 bg-[#F9F7F2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#004D33] mb-4">
+              Chaînes Officielles
+            </h2>
+            <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-4"></div>
+            <p className="text-[#4A4A4A]">Suivez les événements de Tivaouane en direct</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {chainesYoutube.map((chaine, index) => (
+              <a
+                key={index}
+                href={chaine.lien}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all group flex items-start gap-4"
+              >
+                <div className="w-14 h-14 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Play className="w-7 h-7 text-white" fill="white" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-[#004D33] group-hover:text-[#D4AF37] transition-colors mb-2">
+                    {chaine.nom}
+                  </h3>
+                  <p className="text-sm text-[#4A4A4A] mb-3">{chaine.description}</p>
+                  <span className="text-sm text-[#D4AF37] flex items-center gap-1">
+                    <ExternalLink className="w-4 h-4" />
+                    S'abonner
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ressources Téléchargeables */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-[#004D33] mb-4">
+              Ressources Téléchargeables
+            </h2>
+            <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-4"></div>
+            <p className="text-[#4A4A4A]">Ouvrages de Maodo en format numérique</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ressourcesTelechargement.map((ressource, index) => (
+              <a
+                key={index}
+                href={ressource.lien}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#F9F7F2] rounded-xl p-6 hover:shadow-lg transition-all group"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-[#004D33] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Download className="w-6 h-6 text-[#D4AF37]" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-[#004D33] group-hover:text-[#D4AF37] transition-colors mb-1">
+                      {ressource.titre}
+                    </h3>
+                    <p className="text-sm text-[#888888]">
+                      {ressource.type} • {ressource.taille}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="text-center mt-8">
+            <Link
+              to="/enseignements/ouvrages"
+              className="inline-flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-6 py-3 rounded-full font-bold transition-colors"
+            >
+              Voir tous les ouvrages
+            </Link>
           </div>
         </div>
       </section>
