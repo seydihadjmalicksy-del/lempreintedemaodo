@@ -1,34 +1,42 @@
-import { Book, FileText, Image, ExternalLink, Calendar, MapPin, Camera, Archive } from "lucide-react";
+import { Book, FileText, Image, ExternalLink, Calendar, MapPin, Camera, Archive, Eye } from "lucide-react";
 
 const DocumentsArchives = () => {
-  const gallicaResources = [
+  const gallicaPhotos = [
     {
       title: "Portrait d'Al-Hadj Malik de Tivaouane",
       page: 176,
-      description: "Portrait photographique d'El Hadji Malick Sy, fondateur de la Zawiya de Tivaouane.",
+      folio: 194,
+      description: "Portrait photographique d'El Hadji Malick Sy, fondateur de la Zawiya de Tivaouane. Photo prise du vivant de Maodo.",
       type: "photo",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f194.item"
+      embedUrl: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f194.item",
+      iiifUrl: "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k77474r/f194/full/600,/0/native.jpg"
     },
     {
       title: "Al-Hadj Malik avec ses petits-fils en voiture",
       page: 178,
-      description: "El Hadji Malick Sy accompagné de deux de ses petits-fils, avec sa mosquée en arrière-plan.",
+      folio: 196,
+      description: "El Hadji Malick Sy accompagné de deux de ses petits-fils. En arrière-plan, on aperçoit sa mosquée à Tivaouane.",
       type: "photo",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f196.item"
+      embedUrl: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f196.item",
+      iiifUrl: "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k77474r/f196/full/600,/0/native.jpg"
     },
     {
       title: "La Mosquée des Tidianïa à Tivaouane",
       page: 182,
-      description: "Vue historique de la Grande Mosquée fondée par El Hadji Malick Sy à Tivaouane.",
+      folio: 200,
+      description: "Vue historique de la Grande Mosquée fondée par El Hadji Malick Sy à Tivaouane en 1904.",
       type: "photo",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f200.item"
+      embedUrl: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f200.item",
+      iiifUrl: "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k77474r/f200/full/600,/0/native.jpg"
     },
     {
       title: "La Mosquée d'Al-Hadj Malik à Dakar",
       page: 202,
-      description: "La première mosquée construite par Maodo à Dakar, témoignage de son expansion spirituelle.",
+      folio: 220,
+      description: "La première mosquée construite par Maodo à Dakar, témoignage de son expansion spirituelle dans la capitale.",
       type: "photo",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f220.item"
+      embedUrl: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f220.item",
+      iiifUrl: "https://gallica.bnf.fr/iiif/ark:/12148/bpt6k77474r/f220/full/600,/0/native.jpg"
     }
   ];
 
