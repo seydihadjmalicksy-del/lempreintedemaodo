@@ -26,9 +26,9 @@ const Gamou = () => {
 
   const practicalInfo = [
     {
-      title: "Date",
+      title: "Gamou 2025",
       icon: Calendar,
-      content: "12 Rabi' al-Awwal du calendrier hégirien (variable selon le calendrier grégorien)"
+      content: "Nuit du jeudi 4 au vendredi 5 septembre 2025 (12 Rabi' al-Awwal)"
     },
     {
       icon: MapPin,
@@ -38,7 +38,7 @@ const Gamou = () => {
     {
       icon: Users,
       title: "Affluence",
-      content: "Plus de 2 millions de pèlerins attendus chaque année"
+      content: "Plus de 5 millions de pèlerins attendus chaque année"
     }
   ];
 
