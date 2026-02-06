@@ -313,6 +313,137 @@ async def initialize_data():
     
     return {"message": "Données initialisées avec succès", "count": len(sample_videos)}
 
+
+# Newsletter Routes
+@api_router.post("/newsletter/subscribe")
+async def subscribe_newsletter(input: NewsletterSubscribe):
+    """Subscribe to newsletter"""
+    import re
+    
+    # Validate email format
+    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if not re.match(email_pattern, input.email):
+        raise HTTPException(status_code=400, detail="Format d'email invalide")
+    
+    # Check if already subscribed
+    existing = await db.newsletter.find_one({"email": input.email.lower()})
+    if existing:
+        if existing.get('active', True):
+            return {"message": "Vous êtes déjà inscrit à la newsletter", "already_subscribed": True}
+        else:
+            # Reactivate subscription
+            await db.newsletter.update_one(
+                {"email": input.email.lower()},
+                {"$set": {"active": True, "language": input.language}}
+            )
+            return {"message": "Votre inscription a été réactivée", "reactivated": True}
+    
+    # Create subscription
+    subscription = NewsletterSubscription(
+        email=input.email.lower(),
+        language=input.language
+    )
+    
+    doc = subscription.model_dump()
+    doc['subscribed_at'] = doc['subscribed_at'].isoformat()
+    
+    await db.newsletter.insert_one(doc)
+    
+    logger.info(f"New newsletter subscription: {input.email}")
+    
+    return {
+        "message": "Inscription réussie ! Vous recevrez nos actualités.",
+        "success": True,
+        "email": input.email.lower()
+    }
+
+@api_router.delete("/newsletter/unsubscribe/{email}")
+async def unsubscribe_newsletter(email: str):
+    """Unsubscribe from newsletter"""
+    result = await db.newsletter.update_one(
+        {"email": email.lower()},
+        {"$set": {"active": False}}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Email non trouvé")
+    
+    return {"message": "Désabonnement effectué avec succès"}
+
+@api_router.get("/newsletter/subscribers")
+async def get_newsletter_subscribers():
+    """Get newsletter statistics (admin)"""
+    total = await db.newsletter.count_documents({})
+    active = await db.newsletter.count_documents({"active": True})
+    
+    return {
+        "total_subscribers": total,
+        "active_subscribers": active,
+        "inactive_subscribers": total - active
+    }
+
+
+# Contact Routes
+@api_router.post("/contact")
+async def send_contact_message(input: ContactCreate):
+    """Send a contact message"""
+    import re
+    
+    # Validate email format
+    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    if not re.match(email_pattern, input.email):
+        raise HTTPException(status_code=400, detail="Format d'email invalide")
+    
+    # Validate message length
+    if len(input.message.strip()) < 10:
+        raise HTTPException(status_code=400, detail="Le message doit contenir au moins 10 caractères")
+    
+    # Create message
+    message = ContactMessage(
+        nom=input.nom.strip(),
+        email=input.email.lower(),
+        sujet=input.sujet.strip(),
+        message=input.message.strip()
+    )
+    
+    doc = message.model_dump()
+    doc['created_at'] = doc['created_at'].isoformat()
+    
+    await db.contact_messages.insert_one(doc)
+    
+    logger.info(f"New contact message from: {input.email} - Subject: {input.sujet}")
+    
+    return {
+        "message": "Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.",
+        "success": True,
+        "id": message.id
+    }
+
+@api_router.get("/contact/messages")
+async def get_contact_messages(unread_only: bool = False):
+    """Get contact messages (admin)"""
+    query = {"read": False} if unread_only else {}
+    
+    messages = await db.contact_messages.find(query, {"_id": 0}).sort("created_at", -1).to_list(100)
+    
+    return {
+        "messages": messages,
+        "count": len(messages)
+    }
+
+@api_router.put("/contact/messages/{message_id}/read")
+async def mark_message_read(message_id: str):
+    """Mark a contact message as read"""
+    result = await db.contact_messages.update_one(
+        {"id": message_id},
+        {"$set": {"read": True}}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Message non trouvé")
+    
+    return {"message": "Message marqué comme lu"}
+
 # Include the router in the main app
 app.include_router(api_router)
 
