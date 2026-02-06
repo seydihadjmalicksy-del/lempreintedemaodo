@@ -64,6 +64,7 @@ function App() {
           
           {/* Admin Route */}
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
         <Toaster />
       </BrowserRouter>
