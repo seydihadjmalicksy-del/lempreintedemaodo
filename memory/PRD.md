@@ -98,19 +98,13 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - `events`: `{ id, name_fr/en/ar/wo, description_fr/en/ar/wo, date, location, event_type, recurring, recurrence_pattern, active }`
 - `videos`: `{ id, title, description, youtube_id, category, is_featured, created_at }`
 
-## 📝 Backlog (P2-P3)
+## 📝 Backlog (P3+)
 
-### P2 - Galerie de photos avec lightbox
-- [ ] Créer une visionneuse d'images (lightbox)
-- [ ] Catégoriser les photos
-
-### P2 - CMS simple pour administration
-- [ ] Interface d'administration pour gérer le contenu
-- [ ] Gestion des citations, événements, vidéos
-
-### P3 - Intégration calendrier iCal
-- [ ] Exporter les événements au format iCal
-- [ ] Synchronisation avec calendriers externes
+### P3 - Améliorations futures
+- [ ] Authentification admin (protection du panneau /admin)
+- [ ] Notifications push pour les événements
+- [ ] Intégration réseaux sociaux (flux Twitter/Facebook)
+- [ ] Mode hors ligne (PWA)
 
 ## 🔒 Informations Techniques
 
