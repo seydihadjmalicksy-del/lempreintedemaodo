@@ -814,6 +814,108 @@ async def seed_database():
     }
 
 
+# ============== iCAL CALENDAR EXPORT ==============
+
+def generate_ical_event(event: dict, uid_suffix: str = "") -> str:
+    """Generate a single iCal event entry"""
+    event_date = event.get("date", "")
+    if not event_date:
+        return ""
+    
+    # Parse the date
+    try:
+        dt = datetime.strptime(event_date, "%Y-%m-%d")
+        dtstart = dt.strftime("%Y%m%d")
+        dtend = (dt + timedelta(days=1)).strftime("%Y%m%d")
+    except ValueError:
+        return ""
+    
+    name = event.get("name_fr", event.get("name_en", "Event"))
+    description = event.get("description_fr", event.get("description_en", ""))
+    location = event.get("location", "Tivaouane")
+    uid = f"{event.get('id', uuid.uuid4())}{uid_suffix}@tivaouane.sn"
+    
+    # Escape special characters
+    name = name.replace(",", "\\,").replace(";", "\\;")
+    description = description.replace(",", "\\,").replace(";", "\\;").replace("\n", "\\n")
+    location = location.replace(",", "\\,").replace(";", "\\;")
+    
+    ical_event = f"""BEGIN:VEVENT
+UID:{uid}
+DTSTAMP:{datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")}
+DTSTART;VALUE=DATE:{dtstart}
+DTEND;VALUE=DATE:{dtend}
+SUMMARY:{name}
+DESCRIPTION:{description}
+LOCATION:{location}
+END:VEVENT"""
+    
+    return ical_event
+
+
+@api_router.get("/calendar/events.ics")
+async def get_ical_calendar():
+    """Export all events as iCal (.ics) file"""
+    events = await db.events.find({"active": True}, {"_id": 0}).to_list(100)
+    
+    ical_events = []
+    for event in events:
+        ical_event = generate_ical_event(event)
+        if ical_event:
+            ical_events.append(ical_event)
+    
+    ical_content = f"""BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tariqa Tidiane Tivaouane//Events Calendar//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Événements Tivaouane
+X-WR-TIMEZONE:Africa/Dakar
+{chr(10).join(ical_events)}
+END:VCALENDAR"""
+    
+    return Response(
+        content=ical_content,
+        media_type="text/calendar",
+        headers={
+            "Content-Disposition": "attachment; filename=tivaouane-events.ics"
+        }
+    )
+
+
+@api_router.get("/calendar/event/{event_id}.ics")
+async def get_single_event_ical(event_id: str):
+    """Export a single event as iCal (.ics) file"""
+    event = await db.events.find_one({"id": event_id}, {"_id": 0})
+    
+    if not event:
+        raise HTTPException(status_code=404, detail="Événement non trouvé")
+    
+    ical_event = generate_ical_event(event)
+    if not ical_event:
+        raise HTTPException(status_code=400, detail="Impossible de générer le fichier iCal")
+    
+    name_slug = event.get("name_fr", "event").lower().replace(" ", "-")[:30]
+    
+    ical_content = f"""BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Tariqa Tidiane Tivaouane//Events Calendar//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:{event.get("name_fr", "Événement Tivaouane")}
+X-WR-TIMEZONE:Africa/Dakar
+{ical_event}
+END:VCALENDAR"""
+    
+    return Response(
+        content=ical_content,
+        media_type="text/calendar",
+        headers={
+            "Content-Disposition": f"attachment; filename={name_slug}.ics"
+        }
+    )
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
