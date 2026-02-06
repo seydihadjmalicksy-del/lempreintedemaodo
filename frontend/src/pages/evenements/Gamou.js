@@ -1,46 +1,95 @@
 import { Calendar, MapPin, Users, Heart, Book, Music } from "lucide-react";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Gamou = () => {
+  const { t, language } = useLanguage();
+
   const phases = [
     {
       icon: Calendar,
-      title: "10 Jours de Bourde",
-      description: "Récitation du poème Al-Burda d'Al-Bousayri en l'honneur du Prophète (PSL), accompagnée de chants spirituels"
+      title: t('tenDaysOfBourde'),
+      description: t('tenDaysOfBourdeDesc')
     },
     {
       icon: Book,
-      title: "Causeries Nocturnes",
-      description: "Grands tafsirs et enseignements dispensés par les érudits durant les nuits précédant le Maouloud"
+      title: t('nightlyTalks'),
+      description: t('nightlyTalksDesc')
     },
     {
       icon: Users,
-      title: "Rassemblement Massif",
-      description: "Convergence de millions de fidèles venus de toute l'Afrique et du monde entier"
+      title: t('massGathering'),
+      description: t('massGatheringDesc')
     },
     {
       icon: Heart,
-      title: "Nuit du Maouloud",
-      description: "Point culminant des célébrations avec la grande prière collective et les bénédictions"
+      title: t('mawlidNight'),
+      description: t('mawlidNightDesc')
     }
   ];
 
   const practicalInfo = [
     {
-      title: "Gamou 2025",
+      title: t('gamou2025'),
       icon: Calendar,
-      content: "Nuit du jeudi 4 au vendredi 5 septembre 2025 (12 Rabi' al-Awwal)"
+      content: t('gamouDate')
     },
     {
       icon: MapPin,
-      title: "Lieu Principal",
-      content: "Grande Mosquée de Tivaouane et ses alentours (Champs de courses)"
+      title: t('mainLocation'),
+      content: t('mainLocationDesc')
     },
     {
       icon: Users,
-      title: "Affluence",
-      content: "Plus de 5 millions de pèlerins attendus chaque année"
+      title: t('attendance'),
+      content: t('attendanceDesc')
     }
   ];
+
+  const beforeDepartureAdvice = {
+    fr: [
+      "Réserver son hébergement plusieurs semaines à l'avance",
+      "Prévoir des vêtements adaptés (tenues modestes)",
+      "Se munir de son Wird et de son chapelet"
+    ],
+    en: [
+      "Book accommodation several weeks in advance",
+      "Plan appropriate clothing (modest attire)",
+      "Bring your Wird and prayer beads"
+    ],
+    ar: [
+      "حجز الإقامة قبل عدة أسابيع",
+      "تحضير ملابس مناسبة (لباس محتشم)",
+      "إحضار الورد والسبحة"
+    ],
+    wo: [
+      "Réserve paxas toog ay ayu-bés balaa",
+      "Jàpp yéré yu rafet (yéré yu sell)",
+      "Yóbbu sa Wird ak sa chapelet"
+    ]
+  };
+
+  const onSiteAdvice = {
+    fr: [
+      "Respecter l'ordre et la discipline des organisateurs",
+      "Participer aux séances de Bourde et de dhikr",
+      "Préserver la propreté des lieux saints"
+    ],
+    en: [
+      "Respect the order and discipline of the organizers",
+      "Participate in Bourde and dhikr sessions",
+      "Preserve the cleanliness of holy places"
+    ],
+    ar: [
+      "احترام نظام وانضباط المنظمين",
+      "المشاركة في جلسات البردة والذكر",
+      "الحفاظ على نظافة الأماكن المقدسة"
+    ],
+    wo: [
+      "Topp mbir organisateurs yi",
+      "Bokk ci séances Bourde ak dhikr",
+      "Sàmm set paxas yu sell yi"
+    ]
+  };
 
   return (
     <div className="min-h-screen bg-[#F9F7F2]" data-testid="gamou-page">
@@ -49,7 +98,7 @@ const Gamou = () => {
         <div className="absolute inset-0">
           <img
             src="https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
-            alt="Gamou de Tivaouane"
+            alt={t('gamouTitle')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#004D33]/90 via-[#004D33]/80 to-[#004D33]/70"></div>
@@ -60,18 +109,17 @@ const Gamou = () => {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 backdrop-blur-sm border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-6">
                 <Music className="w-4 h-4 text-[#D4AF37]" />
-                <span className="text-[#D4AF37] text-sm font-medium">Célébration Annuelle</span>
+                <span className="text-[#D4AF37] text-sm font-medium">{t('annualCelebration')}</span>
               </div>
               
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
-                Le Gamou de Tivaouane
+                {t('gamouTitle')}
                 <br />
-                <span className="text-[#D4AF37]">Maouloud an-Nabawi</span>
+                <span className="text-[#D4AF37]">{t('mawlidAnNabawi')}</span>
               </h1>
               
               <p className="text-xl text-white/90 leading-relaxed">
-                Le plus grand rassemblement spirituel d'Afrique de l'Ouest en l'honneur 
-                de la naissance du Prophète Muhammad (PSL)
+                {t('gamouHeroDesc')}
               </p>
             </div>
           </div>
@@ -83,22 +131,16 @@ const Gamou = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-[#004D33] font-semibold mb-6 leading-relaxed">
-              Le Gamou de Tivaouane est bien plus qu'une fête religieuse : c'est un moment de communion 
-              spirituelle intense, un pèlerinage annuel qui réaffirme l'amour des Tidiane pour le Prophète 
-              Muhammad (PSL) et leur attachement à son message.
+              {t('gamouIntro1')}
             </p>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              Institué par El Hadji Malick Sy au début du XXe siècle, le Gamou de Tivaouane est devenu 
-              le rendez-vous incontournable de la Tidjanidya sénégalaise et ouest-africaine. Chaque année, 
-              au 12e jour du mois de Rabi' al-Awwal, des millions de fidèles convergent vers la cité sainte.
+              {t('gamouIntro2')}
             </p>
 
             <div className="bg-[#E8F5E9] border-l-4 border-[#D4AF37] p-6 rounded-lg my-8">
               <p className="text-[#004D33] italic mb-0">
-                <strong>L'esprit du Gamou :</strong> "Il ne s'agit pas seulement de commémorer une naissance, 
-                mais de raviver en chaque cœur l'amour du Prophète (PSL) et de renouveler son engagement 
-                sur la voie spirituelle."
+                <strong>{t('gamouSpirit')} :</strong> "{t('gamouSpiritText')}"
               </p>
             </div>
           </div>
@@ -110,7 +152,7 @@ const Gamou = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
-              Histoire du Gamou de Tivaouane
+              {t('gamouHistoryTitle')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -118,25 +160,9 @@ const Gamou = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <div className="space-y-6 text-lg text-[#4A4A4A] leading-relaxed">
-                <p>
-                  La célébration du Maouloud (naissance du Prophète) n'était pas systématique au Sénégal 
-                  avant l'arrivée d'El Hadji Malick Sy. C'est lui qui institutionnalisa cette pratique à 
-                  <strong className="text-[#004D33]"> Tivaouane dès le début du XXe siècle</strong>.
-                </p>
-                
-                <p>
-                  La première célébration organisée fut modeste, mais elle gagna rapidement en ampleur. 
-                  Maodo y voyait une opportunité d'<strong className="text-[#004D33]">éduquer les masses</strong> : 
-                  les 10 jours précédant le Maouloud étaient consacrés à la récitation du Bourde (poème mystique) 
-                  et à l'enseignement des valeurs prophétiques.
-                </p>
-
-                <p>
-                  Après la mort de Maodo en 1922, ses successeurs perpétuèrent la tradition. 
-                  Le Gamou devint progressivement <strong className="text-[#004D33]">l'événement spirituel 
-                  majeur</strong> du Sénégal, attirant des personnalités politiques, des intellectuels 
-                  et surtout des millions de disciples.
-                </p>
+                <p>{t('gamouHistory1')}</p>
+                <p>{t('gamouHistory2')}</p>
+                <p>{t('gamouHistory3')}</p>
               </div>
             </div>
 
@@ -144,7 +170,7 @@ const Gamou = () => {
               <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-2xl relative">
                 <img
                   src="https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
-                  alt="Grande Mosquée durant le Gamou"
+                  alt={t('gamouTitle')}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#004D33]/30 to-transparent"></div>
@@ -159,7 +185,7 @@ const Gamou = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
-              Le Déroulement des Célébrations
+              {t('celebrationProgram')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -198,7 +224,7 @@ const Gamou = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
-              Informations Pratiques
+              {t('practicalInfo')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -227,43 +253,31 @@ const Gamou = () => {
 
           <div className="bg-white rounded-xl p-8 shadow-md">
             <h3 className="text-2xl font-bold text-[#004D33] mb-6 text-center">
-              Conseils aux Pèlerins
+              {t('pilgrimAdvice')}
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#4A4A4A]">
               <div>
-                <h4 className="font-bold text-[#004D33] mb-3">Avant le Départ</h4>
+                <h4 className="font-bold text-[#004D33] mb-3">{t('beforeDeparture')}</h4>
                 <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Réserver son hébergement plusieurs semaines à l'avance</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Prévoir des vêtements adaptés (tenues modestes)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Se munir de son Wird et de son chapelet</span>
-                  </li>
+                  {(beforeDepartureAdvice[language] || beforeDepartureAdvice.fr).map((advice, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-[#D4AF37] mt-1">•</span>
+                      <span>{advice}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               
               <div>
-                <h4 className="font-bold text-[#004D33] mb-3">Sur Place</h4>
+                <h4 className="font-bold text-[#004D33] mb-3">{t('onSite')}</h4>
                 <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Respecter l'ordre et la discipline des organisateurs</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Participer aux séances de Bourde et de dhikr</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Préserver la propreté des lieux saints</span>
-                  </li>
+                  {(onSiteAdvice[language] || onSiteAdvice.fr).map((advice, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="text-[#D4AF37] mt-1">•</span>
+                      <span>{advice}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -275,13 +289,11 @@ const Gamou = () => {
       <section className="py-16 bg-gradient-to-b from-[#004D33] to-[#003d29] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Un Rendez-vous avec l'Éternité
+            {t('appointmentWithEternity')}
           </h2>
           
           <p className="text-xl text-white/90 leading-relaxed mb-8">
-            Le Gamou de Tivaouane n'est pas qu'un rassemblement de masse. C'est un moment où le ciel 
-            et la terre se rejoignent, où les cœurs des fidèles vibrent à l'unisson dans l'amour du 
-            meilleur des hommes, Muhammad (PSL).
+            {t('gamouConclusion')}
           </p>
           
           <div className="mt-12">
@@ -289,7 +301,7 @@ const Gamou = () => {
             <p className="text-white/70 text-sm italic">
               صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ
               <br />
-              Que la paix et les bénédictions d'Allah soient sur lui
+              {t('peaceAndBlessings')}
             </p>
           </div>
         </div>
