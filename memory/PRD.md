@@ -133,3 +133,6 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 | Contenu dynamique | ✅ 70% | Citations, événements, recherche depuis MongoDB |
 | Boutons de partage | ✅ 100% | Facebook, Twitter, WhatsApp, Email, Copier |
 | Moteur de recherche | ✅ 100% | Backend multilingue fonctionnel |
+| Galerie photos | ✅ 100% | **Nouveau** Avec filtres et lightbox |
+| CMS Admin | ✅ 100% | **Nouveau** Gestion citations et événements |
+| Export iCal | ✅ 100% | **Nouveau** Google Calendar, Outlook, .ics |
