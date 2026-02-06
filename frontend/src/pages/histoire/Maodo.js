@@ -402,7 +402,8 @@ const Maodo = () => {
           </h2>
           
           <p className="text-lg text-[#4A4A4A] leading-relaxed mb-8">
-            {t('legacyText')}
+            {/* Dynamic legacy content or fallback */}
+            {getContentText(content, "legacy", t('legacyText'))}
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
