@@ -272,20 +272,23 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-6">
-                L'empreinte de Tivaouane dans la Tariqa Tidiane
+                {t('heroTitle')} {t('heroSubtitle')}
               </h2>
               <p className="text-lg text-[#4A4A4A] mb-6 leading-relaxed">
-                Le Foyer Tidiane de Tivaouane est une confrérie soufie fondée par 
-                Cheikh El Hadj Malick Sy, un grand érudit et guide spirituel. 
-                Elle représente une voie de purification spirituelle et d'élévation 
-                de l'âme à travers le dhikr et les enseignements prophétiques.
+                {language === 'en' ? 
+                  'The Tidiane Foyer of Tivaouane is a Sufi brotherhood founded by Sheikh El Hadj Malick Sy, a great scholar and spiritual guide. It represents a path of spiritual purification and elevation of the soul through dhikr and prophetic teachings.' :
+                 language === 'ar' ? 
+                  'مركز التجانية في تيفاوان هو طريقة صوفية أسسها الشيخ الحاج مالك سي، العالم الكبير والمرشد الروحي. وهي تمثل طريق التزكية الروحية والارتقاء بالنفس من خلال الذكر والتعاليم النبوية.' :
+                 language === 'wo' ?
+                  'Foyer Tijaan Tiwaawaan dafa nekk tariqa suufi bu El Hadji Maalik Si tëkki, borom xam-xam bu mag ak guide spirituel. Moo di yoon wu sell wu ruu bi di ko yokk ci jëfandikoo dikr ak jàng yi ñu jël ci Yonent bi.' :
+                  'Le Foyer Tidiane de Tivaouane est une confrérie soufie fondée par Cheikh El Hadj Malick Sy, un grand érudit et guide spirituel. Elle représente une voie de purification spirituelle et d\'élévation de l\'âme à travers le dhikr et les enseignements prophétiques.'}
               </p>
               <Link
                 to="/about"
                 data-testid="about-learn-more-btn"
                 className="inline-flex items-center gap-2 text-[#004D33] hover:text-[#D4AF37] font-medium transition-colors group"
               >
-                En savoir plus sur notre histoire
+                {t('readMore')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
