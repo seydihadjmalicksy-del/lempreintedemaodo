@@ -1,62 +1,124 @@
 import { MapPin, Navigation, Info, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const CarteTivaouane = () => {
+  const { t, language } = useLanguage();
   const [selectedLieu, setSelectedLieu] = useState(null);
 
   const lieuxSacres = [
     {
       id: 1,
-      nom: "Grande Mosquée de Tivaouane",
-      description: "Fondée par El Hadji Malick Sy en 1904, la Grande Mosquée est le cœur spirituel de Tivaouane. Elle peut accueillir plus de 10 000 fidèles et abrite le mausolée de Maodo.",
+      nom: {
+        fr: "Grande Mosquée de Tivaouane",
+        en: "Grand Mosque of Tivaouane",
+        ar: "المسجد الكبير في تيفاوان",
+        wo: "Jàkka bu mag Tiwaawaan"
+      },
+      description: {
+        fr: "Fondée par El Hadji Malick Sy en 1904, la Grande Mosquée est le cœur spirituel de Tivaouane. Elle peut accueillir plus de 10 000 fidèles et abrite le mausolée de Maodo.",
+        en: "Founded by El Hadji Malick Sy in 1904, the Grand Mosque is the spiritual heart of Tivaouane. It can accommodate more than 10,000 worshippers and houses Maodo's mausoleum.",
+        ar: "أسسه الحاج مالك سي عام 1904، المسجد الكبير هو القلب الروحي لتيفاوان. يمكنه استيعاب أكثر من 10,000 مصلٍ ويضم ضريح مودو.",
+        wo: "El Hadji Maalik Si moo ko tëkki ci 1904, Jàkka bu mag bi mooy xol bu sell Tiwaawaan. Mën na jël gën 10 000 mu julli te ci biir am ñu nebbi Maodo."
+      },
       coordonnees: { lat: 14.9508, lng: -16.8222 },
       type: "mosquee",
-      horaires: "Ouverte 24h/24 pour les prières",
+      horaires: t('openAllDay'),
       image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     },
     {
       id: 2,
-      nom: "Mausolée d'El Hadji Malick Sy",
-      description: "Lieu de repos éternel du fondateur Maodo, situé à l'intérieur de la Grande Mosquée. Des milliers de fidèles viennent y recueillir chaque année.",
+      nom: {
+        fr: "Mausolée d'El Hadji Malick Sy",
+        en: "Mausoleum of El Hadji Malick Sy",
+        ar: "ضريح الحاج مالك سي",
+        wo: "Mausolée El Hadji Maalik Si"
+      },
+      description: {
+        fr: "Lieu de repos éternel du fondateur Maodo, situé à l'intérieur de la Grande Mosquée. Des milliers de fidèles viennent y recueillir chaque année.",
+        en: "Eternal resting place of founder Maodo, located inside the Grand Mosque. Thousands of faithful come to pay their respects every year.",
+        ar: "مثوى المؤسس مودو الأخير، يقع داخل المسجد الكبير. يأتي آلاف المؤمنين للتأمل فيه كل عام.",
+        wo: "Paxas nebbi ba fàww tëkkikat Maodo, nekk na ci biir Jàkka bu mag bi. Ay mille mu gëm di ñëw fi at bu nekk."
+      },
       coordonnees: { lat: 14.9508, lng: -16.8220 },
       type: "mausolee",
-      horaires: "Accessible pendant les heures de prière",
+      horaires: t('accessibleDuringPrayer'),
       image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     },
     {
       id: 3,
-      nom: "Zawiya El Hadji Malick Sy",
-      description: "Centre d'enseignement et de spiritualité fondé par Maodo. C'est ici que se tient la Hadratoul Joumah chaque vendredi.",
+      nom: {
+        fr: "Zawiya El Hadji Malick Sy",
+        en: "Zawiya El Hadji Malick Sy",
+        ar: "زاوية الحاج مالك سي",
+        wo: "Zawiya El Hadji Maalik Si"
+      },
+      description: {
+        fr: "Centre d'enseignement et de spiritualité fondé par Maodo. C'est ici que se tient la Hadratoul Joumah chaque vendredi.",
+        en: "Teaching and spirituality center founded by Maodo. This is where Hadratoul Joumah is held every Friday.",
+        ar: "مركز التعليم والروحانية الذي أسسه مودو. هنا تقام حضرة الجمعة كل جمعة.",
+        wo: "Senter jàngale ak diine bu Maodo tëkki. Fii la Hadratoul Joumah di nekk Ajjuma bu nekk."
+      },
       coordonnees: { lat: 14.9512, lng: -16.8225 },
       type: "zawiya",
-      horaires: "Hadratoul Joumah : Tous les vendredis après Asr",
+      horaires: t('hadratoulJoumahTime'),
       image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     },
     {
       id: 4,
-      nom: "Champs de Courses (Gamou)",
-      description: "Vaste espace où se rassemblent les millions de pèlerins lors du Gamou annuel. Des tentes et installations temporaires y sont montées.",
+      nom: {
+        fr: "Champs de Courses (Gamou)",
+        en: "Racecourse (Gamou)",
+        ar: "ساحة السباق (المولد)",
+        wo: "Champs de Courses (Gamou)"
+      },
+      description: {
+        fr: "Vaste espace où se rassemblent les millions de pèlerins lors du Gamou annuel. Des tentes et installations temporaires y sont montées.",
+        en: "Vast space where millions of pilgrims gather during the annual Gamou. Tents and temporary facilities are set up here.",
+        ar: "مساحة واسعة يتجمع فيها ملايين الحجاج أثناء المولد السنوي. تُقام فيها الخيام والمرافق المؤقتة.",
+        wo: "Paxas bu yàgg fi ay million ajibi di dajale ci Gamou at. Tënti ak jëfandikoo yu waxtu yu am fi."
+      },
       coordonnees: { lat: 14.9480, lng: -16.8200 },
       type: "evenement",
-      horaires: "Utilisé principalement lors du Gamou",
+      horaires: t('usedDuringGamou'),
       image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     },
     {
       id: 5,
-      nom: "Résidence du Khalife",
-      description: "Demeure officielle du Khalife Général des Tidianes, Serigne Babacar Sy Mansour.",
+      nom: {
+        fr: "Résidence du Khalife",
+        en: "Khalife's Residence",
+        ar: "مقر الخليفة",
+        wo: "Kër Xaliifa bi"
+      },
+      description: {
+        fr: "Demeure officielle du Khalife Général des Tidianes, Serigne Babacar Sy Mansour.",
+        en: "Official residence of the General Khalife of the Tidianes, Serigne Babacar Sy Mansour.",
+        ar: "المقر الرسمي للخليفة العام للتجانيين، سرين باباكار سي منصور.",
+        wo: "Kër officiel Xaliifa Général Tijaan yi, Serigne Babacar Sy Mansour."
+      },
       coordonnees: { lat: 14.9515, lng: -16.8218 },
       type: "residence",
-      horaires: "Visites sur rendez-vous",
+      horaires: t('visitsByAppointment'),
       image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     },
     {
       id: 6,
-      nom: "Bibliothèque Seydi El Hadji Malick Sy",
-      description: "Bibliothèque regroupant les manuscrits, ouvrages et archives de Maodo et des érudits tidiane.",
+      nom: {
+        fr: "Bibliothèque Seydi El Hadji Malick Sy",
+        en: "Seydi El Hadji Malick Sy Library",
+        ar: "مكتبة سيدي الحاج مالك سي",
+        wo: "Bibliothèque Seydi El Hadji Maalik Si"
+      },
+      description: {
+        fr: "Bibliothèque regroupant les manuscrits, ouvrages et archives de Maodo et des érudits tidiane.",
+        en: "Library containing manuscripts, works and archives of Maodo and Tidiane scholars.",
+        ar: "مكتبة تضم مخطوطات وأعمال وأرشيفات مودو وعلماء التجانية.",
+        wo: "Bibliothèque bu dajale manuscrits, téere yi ak archives Maodo ak borom xam-xam Tijaan yi."
+      },
       coordonnees: { lat: 14.9505, lng: -16.8230 },
       type: "bibliotheque",
-      horaires: "Lun-Sam : 9h-17h",
+      horaires: t('libHours'),
       image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     }
   ];
@@ -75,12 +137,12 @@ const CarteTivaouane = () => {
 
   const getTypeLabel = (type) => {
     switch(type) {
-      case 'mosquee': return 'Mosquée';
-      case 'mausolee': return 'Mausolée';
-      case 'zawiya': return 'Zawiya';
-      case 'evenement': return 'Événement';
-      case 'residence': return 'Résidence';
-      case 'bibliotheque': return 'Bibliothèque';
+      case 'mosquee': return t('mosque');
+      case 'mausolee': return t('mausoleumType');
+      case 'zawiya': return t('zawiyaType');
+      case 'evenement': return t('eventPlace');
+      case 'residence': return t('residence');
+      case 'bibliotheque': return t('libraryType');
       default: return type;
     }
   };
@@ -93,13 +155,13 @@ const CarteTivaouane = () => {
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 rounded-full px-6 py-3 mb-6">
               <MapPin className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-white font-semibold">Géographie Sacrée</span>
+              <span className="text-white font-semibold">{t('sacredGeographyLabel')}</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold mb-4">
-              Carte Interactive de Tivaouane
+              {t('interactiveMapTitle')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Découvrez les lieux saints de la cité spirituelle
+              {t('discoverHolyPlaces')}
             </p>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mt-6"></div>
           </div>
@@ -112,7 +174,7 @@ const CarteTivaouane = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Liste des lieux */}
             <div className="lg:col-span-1 space-y-4">
-              <h2 className="text-2xl font-bold text-[#004D33] mb-4">Lieux Saints</h2>
+              <h2 className="text-2xl font-bold text-[#004D33] mb-4">{t('holyPlaces')}</h2>
               
               {lieuxSacres.map((lieu) => (
                 <button
@@ -130,7 +192,7 @@ const CarteTivaouane = () => {
                     </div>
                     <div>
                       <h3 className={`font-bold ${selectedLieu?.id === lieu.id ? 'text-white' : 'text-[#004D33]'}`}>
-                        {lieu.nom}
+                        {lieu.nom[language] || lieu.nom.fr}
                       </h3>
                       <span className={`text-xs ${selectedLieu?.id === lieu.id ? 'text-[#D4AF37]' : 'text-[#888888]'}`}>
                         {getTypeLabel(lieu.type)}
@@ -153,7 +215,7 @@ const CarteTivaouane = () => {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Carte de Tivaouane"
+                  title={t('interactiveMapTitle')}
                   className="w-full"
                 ></iframe>
               </div>
@@ -164,7 +226,7 @@ const CarteTivaouane = () => {
                   <div className="relative h-48">
                     <img 
                       src={selectedLieu.image} 
-                      alt={selectedLieu.nom}
+                      alt={selectedLieu.nom[language] || selectedLieu.nom.fr}
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -172,12 +234,12 @@ const CarteTivaouane = () => {
                       <span className={`inline-block ${getTypeColor(selectedLieu.type)} text-white text-xs px-3 py-1 rounded-full mb-2`}>
                         {getTypeLabel(selectedLieu.type)}
                       </span>
-                      <h3 className="text-2xl font-bold text-white">{selectedLieu.nom}</h3>
+                      <h3 className="text-2xl font-bold text-white">{selectedLieu.nom[language] || selectedLieu.nom.fr}</h3>
                     </div>
                   </div>
                   
                   <div className="p-6">
-                    <p className="text-[#4A4A4A] mb-4">{selectedLieu.description}</p>
+                    <p className="text-[#4A4A4A] mb-4">{selectedLieu.description[language] || selectedLieu.description.fr}</p>
                     
                     <div className="flex items-center gap-2 text-sm text-[#888888] mb-4">
                       <Info className="w-4 h-4" />
@@ -191,7 +253,7 @@ const CarteTivaouane = () => {
                       className="inline-flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-full text-sm font-medium transition-colors"
                     >
                       <Navigation className="w-4 h-4" />
-                      Obtenir l'itinéraire
+                      {t('getDirections')}
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
@@ -199,9 +261,9 @@ const CarteTivaouane = () => {
               ) : (
                 <div className="bg-white rounded-2xl p-8 shadow-lg text-center">
                   <MapPin className="w-16 h-16 text-[#D4AF37] mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-[#004D33] mb-2">Sélectionnez un lieu</h3>
+                  <h3 className="text-xl font-bold text-[#004D33] mb-2">{t('selectPlace')}</h3>
                   <p className="text-[#4A4A4A]">
-                    Cliquez sur un lieu dans la liste pour voir ses détails et obtenir l'itinéraire.
+                    {t('selectPlaceDesc')}
                   </p>
                 </div>
               )}
@@ -213,15 +275,15 @@ const CarteTivaouane = () => {
       {/* Légende */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-[#004D33] mb-6 text-center">Légende</h2>
+          <h2 className="text-2xl font-bold text-[#004D33] mb-6 text-center">{t('legendTitle')}</h2>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { type: 'mosquee', label: 'Mosquée' },
-              { type: 'mausolee', label: 'Mausolée' },
-              { type: 'zawiya', label: 'Zawiya' },
-              { type: 'evenement', label: 'Lieu d\'événement' },
-              { type: 'residence', label: 'Résidence' },
-              { type: 'bibliotheque', label: 'Bibliothèque' }
+              { type: 'mosquee', label: t('mosque') },
+              { type: 'mausolee', label: t('mausoleumType') },
+              { type: 'zawiya', label: t('zawiyaType') },
+              { type: 'evenement', label: t('eventPlace') },
+              { type: 'residence', label: t('residence') },
+              { type: 'bibliotheque', label: t('libraryType') }
             ].map((item) => (
               <div key={item.type} className="flex items-center gap-2">
                 <div className={`w-4 h-4 ${getTypeColor(item.type)} rounded-full`}></div>
@@ -235,19 +297,19 @@ const CarteTivaouane = () => {
       {/* Informations pratiques */}
       <section className="py-12 bg-[#F9F7F2]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-[#004D33] mb-6">Comment se rendre à Tivaouane ?</h2>
+          <h2 className="text-2xl font-bold text-[#004D33] mb-6">{t('howToGetThere')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-md">
-              <h3 className="font-bold text-[#004D33] mb-2">Depuis Dakar</h3>
-              <p className="text-sm text-[#4A4A4A]">~90 km (1h30 en voiture via l'autoroute A1)</p>
+              <h3 className="font-bold text-[#004D33] mb-2">{t('fromDakar')}</h3>
+              <p className="text-sm text-[#4A4A4A]">{t('fromDakarDesc')}</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-md">
-              <h3 className="font-bold text-[#004D33] mb-2">Depuis Thiès</h3>
-              <p className="text-sm text-[#4A4A4A]">~20 km (30 min en voiture)</p>
+              <h3 className="font-bold text-[#004D33] mb-2">{t('fromThies')}</h3>
+              <p className="text-sm text-[#4A4A4A]">{t('fromThiesDesc')}</p>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-md">
-              <h3 className="font-bold text-[#004D33] mb-2">Transport</h3>
-              <p className="text-sm text-[#4A4A4A]">Bus, taxis et cars rapides disponibles</p>
+              <h3 className="font-bold text-[#004D33] mb-2">{t('transport')}</h3>
+              <p className="text-sm text-[#4A4A4A]">{t('transportDesc')}</p>
             </div>
           </div>
         </div>
