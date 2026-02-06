@@ -173,6 +173,39 @@ class EventUpdate(BaseModel):
     active: Optional[bool] = None
 
 
+# Page Content Models for CMS
+class PageContent(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    slug: str  # e.g., "maodo", "gamou", "khalifes", "ecole"
+    section: str  # e.g., "hero", "intro", "timeline", "contributions"
+    content: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    metadata: Optional[dict] = None  # Additional data like images, dates, etc.
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class PageContentCreate(BaseModel):
+    slug: str
+    section: str
+    content: dict
+    metadata: Optional[dict] = None
+    order: int = 0
+    active: bool = True
+
+
+class PageContentUpdate(BaseModel):
+    slug: Optional[str] = None
+    section: Optional[str] = None
+    content: Optional[dict] = None
+    metadata: Optional[dict] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
 class SearchResult(BaseModel):
     id: str
     title: str
