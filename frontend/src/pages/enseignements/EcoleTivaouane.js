@@ -260,6 +260,32 @@ const EcoleTivaouane = () => {
             })}
           </div>
 
+          {/* Teaching Cycles Section */}
+          <div className="bg-gradient-to-r from-[#004D33] to-[#006644] rounded-xl p-8 lg:p-12 mb-12 text-white">
+            <h3 className="text-2xl font-bold mb-8 text-center">
+              {t('teachingCycles') || "Cycles d'enseignement"}
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {cyclesData.map((cycle, index) => (
+                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-colors">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center">
+                      <span className="text-[#004D33] font-bold">{index + 1}</span>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white">{cycle.name}</h4>
+                      <span className="text-sm text-white/70">{cycle.duration}</span>
+                    </div>
+                  </div>
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    {cycle.content}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="bg-white rounded-xl p-8 lg:p-12 shadow-lg">
             <h3 className="text-2xl font-bold text-[#004D33] mb-6">
               {t('guidingPrinciples')}
