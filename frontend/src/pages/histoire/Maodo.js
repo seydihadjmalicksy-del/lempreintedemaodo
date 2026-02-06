@@ -265,8 +265,10 @@ const Maodo = () => {
 
             <div className="space-y-8">
               {timeline.map((event, index) => {
-                const Icon = event.icon;
                 const isLeft = index % 2 === 0;
+                // Select icon based on index for visual variety
+                const icons = [Star, BookOpen, BookOpen, MapPin, Star, MapPin, MapPin, Star, Heart];
+                const Icon = icons[index % icons.length];
                 return (
                   <div key={index} className={`relative flex items-start gap-8 ${isLeft ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                     {/* Content */}
@@ -275,8 +277,7 @@ const Maodo = () => {
                         <span className="inline-block bg-[#004D33] text-white px-4 py-1 rounded-full text-sm font-bold mb-3">
                           {event.year}
                         </span>
-                        <h3 className="text-xl font-bold text-[#004D33] mb-2">{event.title}</h3>
-                        <p className="text-[#4A4A4A]">{event.description}</p>
+                        <p className="text-[#4A4A4A]">{event.event || event.description}</p>
                       </div>
                     </div>
 
@@ -307,7 +308,9 @@ const Maodo = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {contributions.map((contribution, index) => {
-              const Icon = contribution.icon;
+              // Select icon based on index for visual variety
+              const icons = [Calendar, BookOpen, Users, Heart, BookOpen, Star];
+              const Icon = icons[index % icons.length];
               return (
                 <div
                   key={index}
