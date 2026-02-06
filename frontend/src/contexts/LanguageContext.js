@@ -137,7 +137,7 @@ const translations = {
     // Khalifes Page
     lineageOfHeirs: "La Lignée des Héritiers",
     heirsSubtitle: "Les Héritiers de Maodo : Gardiens de l'Héritage Spirituel",
-    heirsIntro: "Depuis le rappel à Dieu d'El Hadji Malick Sy en 1922, plusieurs khalifes se sont succédé à la tête de la Tariqa Tidiane de Tivaouane. Chacun d'eux a apporté sa pierre à l'édifice, contribuant à faire rayonner l'enseignement de Maodo à travers le temps et l'espace.",
+    heirsIntro: "L'œuvre de Mawlaya El Hadji Malick Sy (rta) ne s'est pas éteinte avec lui en 1922. Elle a été portée par une lignée d'hommes d'exception : ses fils et ses disciples. Si la direction officielle de la confrérie (le Califat) a suivi une lignée précise, chaque héritier, qu'il ait accédé au trône de la Khadra ou non, a été un gardien vigilant du temple du savoir.",
     successionPrinciple: "Le principe de succession (Khilafa) dans la Tariqa Tidiane de Tivaouane suit une logique de primogéniture spirituelle, privilégiant généralement les fils de Maodo, tout en tenant compte des qualités de science et de piété.",
     majorContributionsLabel: "Contributions Majeures :",
     currentKhalife: "Khalife Actuel",
