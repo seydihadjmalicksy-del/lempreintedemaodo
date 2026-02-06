@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Users, Eye, Calendar, MapPin } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const StatsCounter = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,6 +11,7 @@ const StatsCounter = () => {
     countries: 0
   });
   const ref = useRef(null);
+  const { t } = useLanguage();
 
   const targetCounts = {
     visitors: 5000000,
@@ -78,25 +80,25 @@ const StatsCounter = () => {
     {
       icon: Users,
       value: counts.visitors,
-      label: "Pèlerins au Gamou",
+      label: t('pilgrims'),
       suffix: "+"
     },
     {
       icon: Eye,
       value: counts.followers,
-      label: "Disciples en ligne",
+      label: t('onlineFollowers'),
       suffix: "+"
     },
     {
       icon: Calendar,
       value: counts.events,
-      label: "Jours de dévotion",
+      label: t('daysOfDevotion'),
       suffix: "/an"
     },
     {
       icon: MapPin,
       value: counts.countries,
-      label: "Pays représentés",
+      label: t('countriesRepresented'),
       suffix: ""
     }
   ];
@@ -106,7 +108,7 @@ const StatsCounter = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-2">
-            La Tariqa Tidiane en Chiffres
+            {t('statsTitle')}
           </h2>
           <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
         </div>
