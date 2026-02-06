@@ -1,10 +1,14 @@
 import { Star, BookOpen, MapPin, Calendar, Heart, Award, Quote, Users, Image } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { usePageContent, getContentText } from "../../hooks/usePageContent";
 
 const Maodo = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
   const { t, language } = useLanguage();
+  
+  // Fetch dynamic content from MongoDB
+  const { content, loading: contentLoading } = usePageContent("maodo", language);
 
   const photos = [
     {
