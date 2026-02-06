@@ -314,6 +314,9 @@ const Home = () => {
 
       {/* Newsletter */}
       <Newsletter />
+
+      {/* Stats Counter */}
+      <StatsCounter />
     </div>
   );
 };
