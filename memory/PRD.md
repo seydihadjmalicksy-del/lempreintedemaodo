@@ -12,7 +12,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 ## ✅ Fonctionnalités Implémentées
 
 ### Pages Principales (17+ pages)
-1. **Accueil** (`/`) - Citation du jour, Calendrier événements, Vidéos en vedette, Newsletter, Compteur stats
+1. **Accueil** (`/`) - Citation du jour (dynamique), Calendrier événements (dynamique), Vidéos en vedette, Newsletter, Compteur stats
 2. **Histoire**
    - `/histoire/origines` - Les Origines de la Tariqa
    - `/histoire/maodo` - ⭐ Page dédiée à El Hadji Malick Sy avec galerie photos (5 photos authentiques)
