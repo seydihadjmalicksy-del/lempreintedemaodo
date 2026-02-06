@@ -222,10 +222,6 @@ const LigneeKhalifes = () => {
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
               {t('heirsIntro')}
             </p>
-            
-            <p className="text-lg text-[#4A4A4A] leading-relaxed">
-              {t('successionPrinciple')}
-            </p>
           </div>
         </div>
       </section>
