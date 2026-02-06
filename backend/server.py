@@ -1052,6 +1052,363 @@ async def seed_page_content(slug: str, is_admin: bool = Depends(verify_admin_tok
     return {"message": f"Contenu initialisé pour {slug}", "seeded": seeded_count}
 
 
+@api_router.post("/content/enrich/{slug}")
+async def enrich_page_content(slug: str, is_admin: bool = Depends(verify_admin_token)):
+    """Add additional content sections to an existing page (admin only)"""
+    enriched_count = 0
+    
+    if slug == "maodo":
+        # Check which sections already exist
+        existing_sections = await db.page_content.distinct("section", {"slug": "maodo"})
+        
+        new_sections = []
+        
+        # Timeline section
+        if "timeline" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "maodo",
+                "section": "timeline",
+                "content": {
+                    "fr": json.dumps([
+                        {"year": "1855", "event": "Naissance à Gaya, nord du Sénégal"},
+                        {"year": "1855-1862", "event": "Mémorisation du Coran sous la tutelle de son père"},
+                        {"year": "1862-1884", "event": "Études islamiques approfondies auprès de grands maîtres"},
+                        {"year": "1884", "event": "Installation à Saint-Louis, début de l'enseignement"},
+                        {"year": "1886-1888", "event": "Pèlerinage à La Mecque et rencontre avec des savants"},
+                        {"year": "1892", "event": "Fondation de la zawiya de Ndar"},
+                        {"year": "1900", "event": "Installation définitive à Tivaouane"},
+                        {"year": "1902", "event": "Fondation de la zawiya de Tivaouane"},
+                        {"year": "1922", "event": "Rappel à Dieu à Tivaouane"}
+                    ]),
+                    "en": json.dumps([
+                        {"year": "1855", "event": "Birth in Gaya, northern Senegal"},
+                        {"year": "1855-1862", "event": "Quran memorization under his father's guidance"},
+                        {"year": "1862-1884", "event": "Advanced Islamic studies with great masters"},
+                        {"year": "1884", "event": "Settlement in Saint-Louis, beginning of teaching"},
+                        {"year": "1886-1888", "event": "Pilgrimage to Mecca and meeting with scholars"},
+                        {"year": "1892", "event": "Foundation of the Ndar zawiya"},
+                        {"year": "1900", "event": "Final settlement in Tivaouane"},
+                        {"year": "1902", "event": "Foundation of the Tivaouane zawiya"},
+                        {"year": "1922", "event": "Return to God in Tivaouane"}
+                    ]),
+                    "ar": json.dumps([
+                        {"year": "1855", "event": "الولادة في غايا، شمال السنغال"},
+                        {"year": "1855-1862", "event": "حفظ القرآن تحت إشراف والده"},
+                        {"year": "1862-1884", "event": "دراسات إسلامية متقدمة مع كبار العلماء"},
+                        {"year": "1884", "event": "الاستقرار في سان لويس وبدء التدريس"},
+                        {"year": "1886-1888", "event": "الحج إلى مكة ولقاء العلماء"},
+                        {"year": "1892", "event": "تأسيس زاوية ندار"},
+                        {"year": "1900", "event": "الاستقرار النهائي في تيفاوان"},
+                        {"year": "1902", "event": "تأسيس زاوية تيفاوان"},
+                        {"year": "1922", "event": "الانتقال إلى رحمة الله في تيفاوان"}
+                    ]),
+                    "wo": json.dumps([
+                        {"year": "1855", "event": "Juddu ci Gaya, gejj gu Senegaal"},
+                        {"year": "1855-1862", "event": "Xam Kur'aan ci kaw baay am"},
+                        {"year": "1862-1884", "event": "Jàng Lislaam ak boroom xam-xam yu mag"},
+                        {"year": "1884", "event": "Tëdd ci Ndar, door jàngale"},
+                        {"year": "1886-1888", "event": "Aj ci Makka ak gis ak ay xam-xam"},
+                        {"year": "1892", "event": "Tànn zawiya Ndar"},
+                        {"year": "1900", "event": "Tëdd ci Tiwaawaan"},
+                        {"year": "1902", "event": "Tànn zawiya Tiwaawaan"},
+                        {"year": "1922", "event": "Wéesu Yàlla ci Tiwaawaan"}
+                    ])
+                },
+                "metadata": {"type": "timeline"},
+                "order": 4,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Contributions section
+        if "contributions" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "maodo",
+                "section": "contributions",
+                "content": {
+                    "fr": json.dumps([
+                        {"title": "Fondateur du Gamou", "description": "Instituteur de la plus grande célébration du Mawlid en Afrique de l'Ouest"},
+                        {"title": "Bâtisseur d'écoles", "description": "Créateur d'un réseau de daaras formant des milliers d'étudiants"},
+                        {"title": "Propagateur de la Tijaniyya", "description": "Principal artisan de l'expansion de la confrérie au Sénégal"},
+                        {"title": "Homme de paix", "description": "Médiateur respecté entre les communautés et le pouvoir colonial"},
+                        {"title": "Auteur prolifique", "description": "Rédacteur de nombreux ouvrages de référence en sciences islamiques"},
+                        {"title": "Revivificateur de la Sunna", "description": "Promoteur du retour aux sources authentiques de l'Islam"}
+                    ]),
+                    "en": json.dumps([
+                        {"title": "Founder of Gamou", "description": "Initiator of the largest Mawlid celebration in West Africa"},
+                        {"title": "School Builder", "description": "Creator of a network of daaras training thousands of students"},
+                        {"title": "Spreader of Tijaniyya", "description": "Main architect of the brotherhood's expansion in Senegal"},
+                        {"title": "Man of Peace", "description": "Respected mediator between communities and colonial power"},
+                        {"title": "Prolific Author", "description": "Writer of numerous reference works in Islamic sciences"},
+                        {"title": "Reviver of the Sunna", "description": "Promoter of return to authentic sources of Islam"}
+                    ]),
+                    "ar": json.dumps([
+                        {"title": "مؤسس المولد", "description": "مبتكر أكبر احتفال بالمولد النبوي في غرب أفريقيا"},
+                        {"title": "باني المدارس", "description": "مؤسس شبكة من الدور القرآنية التي درّبت آلاف الطلاب"},
+                        {"title": "ناشر التيجانية", "description": "المهندس الرئيسي لتوسع الطريقة في السنغال"},
+                        {"title": "رجل السلام", "description": "وسيط محترم بين المجتمعات والسلطة الاستعمارية"},
+                        {"title": "مؤلف غزير الإنتاج", "description": "كاتب العديد من المراجع في العلوم الإسلامية"},
+                        {"title": "محيي السنة", "description": "داعية العودة إلى المصادر الأصيلة للإسلام"}
+                    ]),
+                    "wo": json.dumps([
+                        {"title": "Boroom Gamou", "description": "Ki tànn sant Mawlid bu mag ci Afrik sowwu jant"},
+                        {"title": "Ki mos daara", "description": "Ki tànn ay daara yu jàngale ay téeméer taalibe"},
+                        {"title": "Yéngu Tijaan", "description": "Ki yéngu tariqa ci Senegaal"},
+                        {"title": "Nit ku jàmm", "description": "Ki jëfandikoo diggante ay mbooloo ak kilifa tubaab"},
+                        {"title": "Bindkat bu bari", "description": "Ki bind ay téere yu bari ci xam-xam Lislaam"},
+                        {"title": "Ki dund Sunna", "description": "Ki yéngu dellu ci dëgg yu Lislaam"}
+                    ])
+                },
+                "metadata": {"type": "list"},
+                "order": 5,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Oeuvres (Works) section
+        if "oeuvres" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "maodo",
+                "section": "oeuvres",
+                "content": {
+                    "fr": json.dumps([
+                        {"title": "Khilâçu-Dhahab", "description": "30 tableaux poétiques sur la vie du Prophète Muhammad (PSL)"},
+                        {"title": "Fâkihat at-Tullâb", "description": "Principes fondamentaux de la Tariqa Tijaniyya"},
+                        {"title": "Kifâyat ar-Râghibîn", "description": "Traité complet sur le soufisme et la spiritualité"},
+                        {"title": "Ifhâm al-Munkir al-Jânî", "description": "Défense argumentée de la Tariqa Tijaniyya"},
+                        {"title": "Wassilatoul Mouna (Tayssir)", "description": "Invocations des 99 Noms d'Allah"}
+                    ]),
+                    "en": json.dumps([
+                        {"title": "Khilâçu-Dhahab", "description": "30 poetic tableaux on the life of Prophet Muhammad (PBUH)"},
+                        {"title": "Fâkihat at-Tullâb", "description": "Fundamental principles of the Tijaniyya Tariqa"},
+                        {"title": "Kifâyat ar-Râghibîn", "description": "Complete treatise on Sufism and spirituality"},
+                        {"title": "Ifhâm al-Munkir al-Jânî", "description": "Argued defense of the Tijaniyya Tariqa"},
+                        {"title": "Wassilatoul Mouna (Tayssir)", "description": "Invocations of the 99 Names of Allah"}
+                    ]),
+                    "ar": json.dumps([
+                        {"title": "خلاص الذهب", "description": "30 لوحة شعرية عن حياة النبي محمد (ص)"},
+                        {"title": "فاكهة الطلاب", "description": "المبادئ الأساسية للطريقة التيجانية"},
+                        {"title": "كفاية الراغبين", "description": "رسالة كاملة في التصوف والروحانية"},
+                        {"title": "إفهام المنكر الجاني", "description": "دفاع مبرهن عن الطريقة التيجانية"},
+                        {"title": "وسيلة المنى (تيسير)", "description": "أدعية أسماء الله الحسنى"}
+                    ]),
+                    "wo": json.dumps([
+                        {"title": "Khilâçu-Dhahab", "description": "30 nataal woy ci dundu Yonent Muhammad (YWS)"},
+                        {"title": "Fâkihat at-Tullâb", "description": "Tënk bu njëkk ci Tariqa Tijaan"},
+                        {"title": "Kifâyat ar-Râghibîn", "description": "Téere bu mat ci tasawwuf ak xel"},
+                        {"title": "Ifhâm al-Munkir al-Jânî", "description": "Dimbali Tariqa Tijaan"},
+                        {"title": "Wassilatoul Mouna (Tayssir)", "description": "Ñaan 99 Tur yi Yàlla"}
+                    ])
+                },
+                "metadata": {"type": "list"},
+                "order": 6,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        if new_sections:
+            await db.page_content.insert_many(new_sections)
+            enriched_count = len(new_sections)
+    
+    elif slug == "gamou":
+        existing_sections = await db.page_content.distinct("section", {"slug": "gamou"})
+        
+        new_sections = []
+        
+        # Program section
+        if "program" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "gamou",
+                "section": "program",
+                "content": {
+                    "fr": json.dumps([
+                        {"phase": "10 jours de Bourde", "description": "Récitation quotidienne du poème de louange au Prophète", "icon": "book"},
+                        {"phase": "Causeries nocturnes", "description": "Conférences et enseignements religieux par les oulémas", "icon": "users"},
+                        {"phase": "Rassemblement des fidèles", "description": "Arrivée des pèlerins de tout le Sénégal et de l'étranger", "icon": "map-pin"},
+                        {"phase": "Nuit du Mawlid", "description": "Veillée spirituelle culminant à la Grande Mosquée", "icon": "star"}
+                    ]),
+                    "en": json.dumps([
+                        {"phase": "10 days of Bourde", "description": "Daily recitation of the poem praising the Prophet", "icon": "book"},
+                        {"phase": "Night talks", "description": "Conferences and religious teachings by scholars", "icon": "users"},
+                        {"phase": "Gathering of the faithful", "description": "Arrival of pilgrims from all over Senegal and abroad", "icon": "map-pin"},
+                        {"phase": "Mawlid Night", "description": "Spiritual vigil culminating at the Grand Mosque", "icon": "star"}
+                    ]),
+                    "ar": json.dumps([
+                        {"phase": "10 أيام من البردة", "description": "تلاوة يومية لقصيدة مدح النبي", "icon": "book"},
+                        {"phase": "المحاضرات الليلية", "description": "مؤتمرات وتعاليم دينية من قبل العلماء", "icon": "users"},
+                        {"phase": "تجمع المؤمنين", "description": "وصول الحجاج من جميع أنحاء السنغال والخارج", "icon": "map-pin"},
+                        {"phase": "ليلة المولد", "description": "سهرة روحية تبلغ ذروتها في المسجد الكبير", "icon": "star"}
+                    ]),
+                    "wo": json.dumps([
+                        {"phase": "10 bés Bourde", "description": "Jàng bés bu nekk woy sant Yonent", "icon": "book"},
+                        {"phase": "Waxtaan guddi", "description": "Conférence ak jàng diine ci boroom xam-xam yi", "icon": "users"},
+                        {"phase": "Ndaje ñi gëm", "description": "Ñëw ziyaarkaat yi bëgg Senegaal ak biti", "icon": "map-pin"},
+                        {"phase": "Guddi Mawlid", "description": "Fecc bu xel bu mujj ci Jàkka bu mag bi", "icon": "star"}
+                    ])
+                },
+                "metadata": {"type": "program"},
+                "order": 4,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Practical advice section
+        if "advice" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "gamou",
+                "section": "advice",
+                "content": {
+                    "fr": json.dumps({
+                        "before": [
+                            "Réserver son hébergement plusieurs semaines à l'avance",
+                            "Prévoir des vêtements adaptés (tenues modestes)",
+                            "Se munir de son Wird et de son chapelet"
+                        ],
+                        "during": [
+                            "Respecter l'ordre et la discipline des organisateurs",
+                            "Participer aux séances de Bourde et de dhikr",
+                            "Préserver la propreté des lieux saints"
+                        ]
+                    }),
+                    "en": json.dumps({
+                        "before": [
+                            "Book accommodation several weeks in advance",
+                            "Plan appropriate clothing (modest attire)",
+                            "Bring your Wird and prayer beads"
+                        ],
+                        "during": [
+                            "Respect the order and discipline of the organizers",
+                            "Participate in Bourde and dhikr sessions",
+                            "Preserve the cleanliness of holy places"
+                        ]
+                    }),
+                    "ar": json.dumps({
+                        "before": [
+                            "حجز الإقامة قبل عدة أسابيع",
+                            "تحضير ملابس مناسبة (لباس محتشم)",
+                            "إحضار الورد والسبحة"
+                        ],
+                        "during": [
+                            "احترام نظام وانضباط المنظمين",
+                            "المشاركة في جلسات البردة والذكر",
+                            "الحفاظ على نظافة الأماكن المقدسة"
+                        ]
+                    }),
+                    "wo": json.dumps({
+                        "before": [
+                            "Réserve paxas toog ay ayu-bés balaa",
+                            "Jàpp yéré yu rafet (yéré yu sell)",
+                            "Yóbbu sa Wird ak sa chapelet"
+                        ],
+                        "during": [
+                            "Teral wax ak njuumte boroom liggéey yi",
+                            "Bokk ci waxtu Bourde ak dhikr",
+                            "Sàmm setal bérép yu sell yi"
+                        ]
+                    })
+                },
+                "metadata": {"type": "advice"},
+                "order": 5,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        if new_sections:
+            await db.page_content.insert_many(new_sections)
+            enriched_count = len(new_sections)
+    
+    elif slug == "ecole":
+        existing_sections = await db.page_content.distinct("section", {"slug": "ecole"})
+        
+        new_sections = []
+        
+        # Teaching cycles section
+        if "cycles" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "ecole",
+                "section": "cycles",
+                "content": {
+                    "fr": json.dumps([
+                        {"name": "Cycle élémentaire", "duration": "3-5 ans", "content": "Mémorisation du Coran, bases de la langue arabe, initiation au fiqh"},
+                        {"name": "Cycle moyen", "duration": "5-7 ans", "content": "Grammaire arabe, exégèse coranique, jurisprudence malékite"},
+                        {"name": "Cycle supérieur", "duration": "Variable", "content": "Hadith, théologie, logique, rhétorique, études approfondies"}
+                    ]),
+                    "en": json.dumps([
+                        {"name": "Elementary cycle", "duration": "3-5 years", "content": "Quran memorization, Arabic basics, introduction to fiqh"},
+                        {"name": "Middle cycle", "duration": "5-7 years", "content": "Arabic grammar, Quranic exegesis, Maliki jurisprudence"},
+                        {"name": "Advanced cycle", "duration": "Variable", "content": "Hadith, theology, logic, rhetoric, advanced studies"}
+                    ]),
+                    "ar": json.dumps([
+                        {"name": "المرحلة الابتدائية", "duration": "3-5 سنوات", "content": "حفظ القرآن، أساسيات اللغة العربية، مقدمة في الفقه"},
+                        {"name": "المرحلة المتوسطة", "duration": "5-7 سنوات", "content": "النحو العربي، تفسير القرآن، الفقه المالكي"},
+                        {"name": "المرحلة العليا", "duration": "متغير", "content": "الحديث، علم الكلام، المنطق، البلاغة، دراسات متقدمة"}
+                    ]),
+                    "wo": json.dumps([
+                        {"name": "Daara njëkk", "duration": "3-5 at", "content": "Xam Kur'aan, njëkk arabe, door fiqh"},
+                        {"name": "Daara diggante", "duration": "5-7 at", "content": "Grammaire arabe, tafsir Kur'aan, fiqh Maliki"},
+                        {"name": "Daara kaw", "duration": "Wéet", "content": "Hadith, théologie, logique, rhétorique, jàng yu xóot"}
+                    ])
+                },
+                "metadata": {"type": "cycles"},
+                "order": 3,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Pedagogy methods section
+        if "methods" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "ecole",
+                "section": "methods",
+                "content": {
+                    "fr": json.dumps([
+                        {"title": "Enseignement intégral", "description": "Sciences religieuses et profanes enseignées conjointement"},
+                        {"title": "Pédagogie orale", "description": "Transmission directe de maître à élève, mémorisation et discussion"},
+                        {"title": "Formation spirituelle", "description": "Éducation du cœur autant que de l'esprit, pratique du dhikr"}
+                    ]),
+                    "en": json.dumps([
+                        {"title": "Integral teaching", "description": "Religious and secular sciences taught together"},
+                        {"title": "Oral pedagogy", "description": "Direct transmission from master to student, memorization and discussion"},
+                        {"title": "Spiritual formation", "description": "Education of heart as much as mind, practice of dhikr"}
+                    ]),
+                    "ar": json.dumps([
+                        {"title": "التعليم المتكامل", "description": "العلوم الدينية والدنيوية تُدرَّس معاً"},
+                        {"title": "التعليم الشفهي", "description": "النقل المباشر من الشيخ إلى الطالب، الحفظ والمناقشة"},
+                        {"title": "التكوين الروحي", "description": "تربية القلب والعقل معاً، ممارسة الذكر"}
+                    ]),
+                    "wo": json.dumps([
+                        {"title": "Jàngale bu mat", "description": "Xam-xam diine ak aduna ñoo jàngale ànd"},
+                        {"title": "Jàngale gémmiñ", "description": "Yóbbu ci kilifa jëkk ci taalibe, xam ak waxtaan"},
+                        {"title": "Jàngale xol", "description": "Jàngale xol loxo ci xel, def dhikr"}
+                    ])
+                },
+                "metadata": {"type": "methods"},
+                "order": 4,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        if new_sections:
+            await db.page_content.insert_many(new_sections)
+            enriched_count = len(new_sections)
+    
+    return {"message": f"Contenu enrichi pour {slug}", "added": enriched_count}
+
+
 # ============== SEARCH ENDPOINT ==============
 
 @api_router.get("/search")
