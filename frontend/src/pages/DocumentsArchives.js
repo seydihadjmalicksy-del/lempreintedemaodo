@@ -216,44 +216,77 @@ const DocumentsArchives = () => {
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
             <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
-              Images d'époque d'El Hadji Malick Sy et de ses édifices religieux, extraites du livre de Paul Marty
+              Images d'époque d'El Hadji Malick Sy et de ses édifices religieux, extraites du livre de Paul Marty.
+              <br />
+              <span className="text-sm text-[#888888]">Cliquez sur chaque image pour l'ouvrir dans le visualiseur Gallica (haute résolution)</span>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {gallicaResources.map((resource, index) => (
-              <a
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {gallicaPhotos.map((photo, index) => (
+              <div
                 key={index}
-                href={resource.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
               >
-                <div className="bg-gradient-to-r from-[#004D33] to-[#003d29] p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center">
-                        <Image className="w-6 h-6 text-[#004D33]" />
-                      </div>
-                      <div>
-                        <p className="text-[#D4AF37] text-sm font-semibold">Page {resource.page}</p>
-                        <p className="text-white/70 text-xs">Gallica - BnF</p>
-                      </div>
-                    </div>
-                    <ExternalLink className="w-5 h-5 text-white/50 group-hover:text-[#D4AF37] transition-colors" />
-                  </div>
+                {/* Image Container with iframe */}
+                <div className="relative bg-[#1a1a1a] aspect-[4/3] overflow-hidden">
+                  <iframe
+                    src={`https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f${photo.folio}.item.zoom`}
+                    title={photo.title}
+                    className="absolute inset-0 w-full h-full border-0"
+                    loading="lazy"
+                    allowFullScreen
+                  />
+                  {/* Overlay with view button */}
+                  <a
+                    href={photo.embedUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-4 py-2 rounded-full font-bold text-sm flex items-center gap-2 shadow-lg transition-all z-10"
+                  >
+                    <Eye className="w-4 h-4" />
+                    Voir en HD
+                  </a>
                 </div>
                 
+                {/* Info Section */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#004D33] mb-3 group-hover:text-[#D4AF37] transition-colors">
-                    {resource.title}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 bg-[#004D33] rounded-full flex items-center justify-center">
+                      <Camera className="w-5 h-5 text-[#D4AF37]" />
+                    </div>
+                    <div>
+                      <p className="text-[#D4AF37] text-sm font-semibold">Page {photo.page}</p>
+                      <p className="text-[#888888] text-xs">Gallica - BnF (Domaine public)</p>
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-[#004D33] mb-2">
+                    {photo.title}
                   </h3>
-                  <p className="text-[#4A4A4A]">
-                    {resource.description}
+                  <p className="text-[#4A4A4A] text-sm">
+                    {photo.description}
                   </p>
                 </div>
-              </a>
+              </div>
             ))}
+          </div>
+
+          {/* Note about images */}
+          <div className="mt-12 bg-white rounded-xl p-6 border-l-4 border-[#D4AF37]">
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 bg-[#E8F5E9] rounded-full flex items-center justify-center flex-shrink-0">
+                <Archive className="w-5 h-5 text-[#004D33]" />
+              </div>
+              <div>
+                <h4 className="font-bold text-[#004D33] mb-2">À propos de ces documents</h4>
+                <p className="text-[#4A4A4A] text-sm">
+                  Ces photographies proviennent du livre <em>"Études sur l'Islam au Sénégal"</em> de Paul Marty, publié en 1917 
+                  et numérisé par la Bibliothèque nationale de France (BnF). Elles sont dans le <strong>domaine public</strong> et 
+                  constituent un témoignage historique précieux de Tivaouane à l'époque de Maodo.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
