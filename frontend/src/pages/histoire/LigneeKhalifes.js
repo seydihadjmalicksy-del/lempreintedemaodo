@@ -39,7 +39,7 @@ const LigneeKhalifes = () => {
         "Promotion du dialogue interreligieux",
         "Modernisation des infrastructures de Tivaouane"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg"
     },
     {
       name: "Serigne Mouhammadoul Habib Sy",
