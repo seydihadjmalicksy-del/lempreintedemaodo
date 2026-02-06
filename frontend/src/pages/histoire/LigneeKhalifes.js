@@ -13,7 +13,7 @@ const LigneeKhalifes = () => {
         "Organisation de la première Ziarra Générale en 1930",
         "Consolidation de l'unité des disciples après le décès de Maodo"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg"
     },
     {
       name: "Serigne Mansour Sy 'Balkhawmi'",
