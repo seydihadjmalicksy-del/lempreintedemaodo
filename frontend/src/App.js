@@ -4,6 +4,7 @@ import Gallery from "./pages/Gallery";
 import VideoPlayer from "./pages/VideoPlayer";
 import About from "./pages/About";
 import Archives from "./pages/Archives";
+import DocumentsArchives from "./pages/DocumentsArchives";
 import SearchResults from "./pages/SearchResults";
 import Mediatheque from "./pages/Mediatheque";
 import Contact from "./pages/Contact";
