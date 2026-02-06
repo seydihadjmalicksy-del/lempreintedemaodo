@@ -89,9 +89,6 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 
 ## 📝 Backlog (P1-P3)
 
-### P2 - Compléter le contenu
-- [ ] Vérifier `/enseignements/ecole` - contenu de remplissage
-
 ### P1 - Migration du contenu vers MongoDB
 - [ ] Migrer les textes des pages vers la base de données
 - [ ] Créer un CMS simple pour l'administration
