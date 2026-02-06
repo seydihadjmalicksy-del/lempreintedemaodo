@@ -770,6 +770,288 @@ async def delete_event(event_id: str, is_admin: bool = Depends(verify_admin_toke
     return {"message": "Événement supprimé", "id": event_id}
 
 
+# ============== PAGE CONTENT ENDPOINTS ==============
+
+@api_router.get("/content")
+async def get_all_page_content(slug: Optional[str] = None, active_only: bool = True):
+    """Get all page content or filter by slug"""
+    query = {}
+    if slug:
+        query["slug"] = slug
+    if active_only:
+        query["active"] = True
+    
+    content = await db.page_content.find(query, {"_id": 0}).sort("order", 1).to_list(500)
+    return {"content": content, "count": len(content)}
+
+
+@api_router.get("/content/{slug}")
+async def get_page_content(slug: str, lang: str = "fr"):
+    """Get all content sections for a specific page"""
+    content = await db.page_content.find(
+        {"slug": slug, "active": True}, 
+        {"_id": 0}
+    ).sort("order", 1).to_list(100)
+    
+    if not content:
+        raise HTTPException(status_code=404, detail=f"Contenu non trouvé pour la page: {slug}")
+    
+    # Format response with language-specific content
+    formatted = {}
+    for item in content:
+        section_content = item.get("content", {})
+        formatted[item["section"]] = {
+            "text": section_content.get(lang) or section_content.get("fr", ""),
+            "all_languages": section_content,
+            "metadata": item.get("metadata"),
+            "id": item.get("id")
+        }
+    
+    return {"slug": slug, "sections": formatted, "raw": content}
+
+
+@api_router.get("/content/{slug}/{section}")
+async def get_page_section(slug: str, section: str, lang: str = "fr"):
+    """Get a specific section of a page"""
+    content = await db.page_content.find_one(
+        {"slug": slug, "section": section, "active": True},
+        {"_id": 0}
+    )
+    
+    if not content:
+        raise HTTPException(status_code=404, detail=f"Section '{section}' non trouvée pour la page: {slug}")
+    
+    section_content = content.get("content", {})
+    return {
+        "slug": slug,
+        "section": section,
+        "text": section_content.get(lang) or section_content.get("fr", ""),
+        "all_languages": section_content,
+        "metadata": content.get("metadata"),
+        "id": content.get("id")
+    }
+
+
+@api_router.post("/content")
+async def create_page_content(content: PageContentCreate, is_admin: bool = Depends(verify_admin_token)):
+    """Create new page content section (admin only)"""
+    # Check if section already exists
+    existing = await db.page_content.find_one({"slug": content.slug, "section": content.section})
+    if existing:
+        raise HTTPException(status_code=400, detail=f"La section '{content.section}' existe déjà pour la page '{content.slug}'")
+    
+    page_content = PageContent(**content.model_dump())
+    doc = page_content.model_dump()
+    doc["created_at"] = doc["created_at"].isoformat()
+    doc["updated_at"] = doc["updated_at"].isoformat()
+    
+    await db.page_content.insert_one(doc)
+    return {"message": "Contenu créé", "id": page_content.id}
+
+
+@api_router.put("/content/{content_id}")
+async def update_page_content(content_id: str, update: PageContentUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update page content section (admin only)"""
+    existing = await db.page_content.find_one({"id": content_id})
+    if not existing:
+        raise HTTPException(status_code=404, detail="Contenu non trouvé")
+    
+    update_data = {k: v for k, v in update.model_dump().items() if v is not None}
+    update_data["updated_at"] = datetime.now(timezone.utc).isoformat()
+    
+    if update_data:
+        await db.page_content.update_one({"id": content_id}, {"$set": update_data})
+    
+    updated = await db.page_content.find_one({"id": content_id}, {"_id": 0})
+    return {"message": "Contenu mis à jour", "content": updated}
+
+
+@api_router.delete("/content/{content_id}")
+async def delete_page_content(content_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete page content section (admin only)"""
+    result = await db.page_content.delete_one({"id": content_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Contenu non trouvé")
+    
+    return {"message": "Contenu supprimé", "id": content_id}
+
+
+@api_router.post("/content/seed/{slug}")
+async def seed_page_content(slug: str, is_admin: bool = Depends(verify_admin_token)):
+    """Seed content for a specific page (admin only)"""
+    # Check if already seeded
+    existing = await db.page_content.count_documents({"slug": slug})
+    if existing > 0:
+        return {"message": f"Contenu déjà existant pour {slug}", "count": existing}
+    
+    seeded_count = 0
+    
+    if slug == "maodo":
+        maodo_content = [
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "maodo",
+                "section": "hero",
+                "content": {
+                    "fr": "El Hadji Malick Sy, affectueusement appelé Maodo (terme wolof signifiant \"le Vénéré\"), fut l'un des plus grands érudits musulmans de l'Afrique de l'Ouest.",
+                    "en": "El Hadji Malick Sy, affectionately called Maodo (a Wolof term meaning \"the Revered\"), was one of the greatest Muslim scholars of West Africa.",
+                    "ar": "الحاج مالك سي، المعروف بمودو (مصطلح ولوفي يعني \"المبجّل\")، كان من أعظم العلماء المسلمين في غرب أفريقيا.",
+                    "wo": "El Hadji Maalik Si, ñuy wax Maodo (baat wu wolof bu tekki \"ku ñu gëm\"), dafa nekk benn ci ñiy xam-xam yu mag ci Lislaam ci Afrik sowwu jant."
+                },
+                "metadata": {"title": {"fr": "Le Fondateur", "en": "The Founder", "ar": "المؤسس", "wo": "Boroom Ci"}},
+                "order": 1,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "maodo",
+                "section": "biography",
+                "content": {
+                    "fr": "Né en 1855 dans le village de Gaya au nord du Sénégal, il consacra sa vie entière à l'apprentissage, l'enseignement et la diffusion de l'Islam selon la voie du Prophète Muhammad (PSL). Son érudition exceptionnelle, sa piété exemplaire et sa sagesse firent de lui une référence incontournable pour des générations de musulmans.",
+                    "en": "Born in 1855 in the village of Gaya in northern Senegal, he devoted his entire life to learning, teaching and spreading Islam according to the way of Prophet Muhammad (PBUH). His exceptional scholarship, exemplary piety and wisdom made him an essential reference for generations of Muslims.",
+                    "ar": "ولد عام 1855 في قرية غايا شمال السنغال، وكرّس حياته كلها للتعلم والتعليم ونشر الإسلام وفق طريقة النبي محمد (ص). جعلت منه علمه الاستثنائي وتقواه المثالية وحكمته مرجعاً أساسياً لأجيال من المسلمين.",
+                    "wo": "Juddu na ci 1855 ci dëkk bi ñuy wax Gaya ci gejj gu Senegaal, def na dund bam yépp ci jàng, jàngale ak yaatal Lislaam ni Yonent Muhammad (YWS) daa ko def. Xam-xam bam bu baax, diine bam bu mat ak xelam jëkk ko ñu tekki ay jàng yu mag ci yeneen muslim."
+                },
+                "metadata": {},
+                "order": 2,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "maodo",
+                "section": "quote",
+                "content": {
+                    "fr": "Chez Maodo, la dualité l'emporte sur l'alternative : il fut à la fois homme de science et homme d'action, mystique et pragmatique, traditionaliste et moderniste.",
+                    "en": "In Maodo, duality prevails over the alternative: he was both a man of science and a man of action, mystic and pragmatic, traditionalist and modernist.",
+                    "ar": "عند مودو، تغلب الثنائية على البديل: كان رجل علم ورجل عمل في آن واحد، صوفياً وعملياً، تقليدياً وحداثياً.",
+                    "wo": "Ci Maodo, ñaari ay yoon a mujj ci benn yoon rekk: dafa nekk nit ku xam-xam te nit ku jëf, soufi te ku liggéey, ku jëkk te ku bés."
+                },
+                "metadata": {"author": "Historien"},
+                "order": 3,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "maodo",
+                "section": "legacy",
+                "content": {
+                    "fr": "Aujourd'hui, plus d'un siècle après son rappel à Dieu, l'influence de Maodo continue de rayonner. La Tariqa Tijaniyya est devenue la principale confrérie soufie au Sénégal, et le Gamou de Tivaouane rassemble chaque année plus de 5 millions de fidèles.",
+                    "en": "Today, more than a century after his return to God, Maodo's influence continues to shine. The Tijaniyya Tariqa has become the main Sufi brotherhood in Senegal, and the Tivaouane Gamou gathers more than 5 million faithful every year.",
+                    "ar": "اليوم، بعد أكثر من قرن على انتقاله إلى رحمة الله، لا يزال تأثير مودو يتألق. أصبحت الطريقة التيجانية الطريقة الصوفية الرئيسية في السنغال، ويجمع مولد تيفاوان أكثر من 5 ملايين مؤمن كل عام.",
+                    "wo": "Tey, juróom fukki at ginnaaw bi mu wéesu Yàlla, doole Maodo dey leer ba tey. Tariqa Tijaan moo nekk tariqa soufi bu mag ci Senegaal, te Gamou Tiwaawaan mooy daje juróom million nit atum kamm."
+                },
+                "metadata": {},
+                "order": 10,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            }
+        ]
+        await db.page_content.insert_many(maodo_content)
+        seeded_count = len(maodo_content)
+    
+    elif slug == "gamou":
+        gamou_content = [
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "gamou",
+                "section": "hero",
+                "content": {
+                    "fr": "Le plus grand rassemblement spirituel d'Afrique de l'Ouest en l'honneur de la naissance du Prophète Muhammad (PSL)",
+                    "en": "The largest spiritual gathering in West Africa in honor of the birth of Prophet Muhammad (PBUH)",
+                    "ar": "أكبر تجمع روحي في غرب أفريقيا تكريماً لمولد النبي محمد (ص)",
+                    "wo": "Ndaje bu réy ci Afrik sowwu jant ngir sant juddu Yonent Muhammad (YWS)"
+                },
+                "metadata": {"title": {"fr": "Le Gamou de Tivaouane", "en": "The Gamou of Tivaouane", "ar": "مولد تيفاوان", "wo": "Gamou Tiwaawaan"}},
+                "order": 1,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "gamou",
+                "section": "intro",
+                "content": {
+                    "fr": "Le Gamou de Tivaouane est bien plus qu'une fête religieuse : c'est un moment de communion spirituelle intense, un pèlerinage annuel qui réaffirme l'amour des Tidiane pour le Prophète Muhammad (PSL) et leur attachement à son message. Institué par El Hadji Malick Sy au début du XXe siècle, le Gamou de Tivaouane est devenu le rendez-vous incontournable de la Tidjanidya sénégalaise et ouest-africaine.",
+                    "en": "The Tivaouane Gamou is much more than a religious celebration: it is a moment of intense spiritual communion, an annual pilgrimage that reaffirms the love of the Tidiane for Prophet Muhammad (PBUH) and their attachment to his message. Established by El Hadji Malick Sy at the beginning of the 20th century, the Tivaouane Gamou has become the essential gathering of Senegalese and West African Tijaniyya.",
+                    "ar": "مولد تيفاوان أكثر من مجرد احتفال ديني: إنه لحظة شركة روحية مكثفة، حج سنوي يؤكد حب التيجانيين للنبي محمد (ص) وتعلقهم برسالته. أسسه الحاج مالك سي في بداية القرن العشرين، وأصبح مولد تيفاوان الموعد الأساسي للتيجانية السنغالية والغرب أفريقية.",
+                    "wo": "Gamou Tiwaawaan du bëgg-bëgg diine rekk: mooy waxtu ci mbooloo bu diine bu tar, ziyaar at bu dey wàccal sopp Tijaan yi ci Yonent Muhammad (YWS) ak sàmm baat yam. El Hadji Maalik Si moo ko tànn ci door teemeer fukki at, Gamou Tiwaawaan moo nekk ndaje bu war ci Tijaan Senegaal ak Afrik sowwu jant."
+                },
+                "metadata": {},
+                "order": 2,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "gamou",
+                "section": "date_2025",
+                "content": {
+                    "fr": "Nuit du jeudi 4 au vendredi 5 septembre 2025",
+                    "en": "Night of Thursday 4 to Friday 5 September 2025",
+                    "ar": "ليلة الخميس 4 إلى الجمعة 5 سبتمبر 2025",
+                    "wo": "Guddi altine 4 ba aljuma 5 septàmbar 2025"
+                },
+                "metadata": {"date": "2025-09-05", "islamic_date": "12 Rabi' al-Awwal 1447"},
+                "order": 3,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            }
+        ]
+        await db.page_content.insert_many(gamou_content)
+        seeded_count = len(gamou_content)
+    
+    elif slug == "ecole":
+        ecole_content = [
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "ecole",
+                "section": "hero",
+                "content": {
+                    "fr": "La méthode pédagogique unique d'El Hadji Malick Sy qui a révolutionné l'enseignement islamique en Afrique de l'Ouest",
+                    "en": "The unique pedagogical method of El Hadji Malick Sy that revolutionized Islamic education in West Africa",
+                    "ar": "المنهج التعليمي الفريد للحاج مالك سي الذي أحدث ثورة في التعليم الإسلامي في غرب أفريقيا",
+                    "wo": "Yoon jàngale bu El Hadji Maalik Si bu soppaliku jàng Lislaam ci Afrik sowwu jant"
+                },
+                "metadata": {"title": {"fr": "L'École de Tivaouane", "en": "The School of Tivaouane", "ar": "مدرسة تيفاوان", "wo": "Daara Tiwaawaan"}},
+                "order": 1,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "slug": "ecole",
+                "section": "intro",
+                "content": {
+                    "fr": "L'École de Tivaouane n'est pas une institution au sens moderne, mais un système d'enseignement vivant créé par El Hadji Malick Sy, qui visait à former des musulmans éclairés, à la fois savants et vertueux. Dès son installation en 1902, Maodo établit une zawiya (école coranique) qui devint rapidement un centre d'attraction pour des milliers d'étudiants.",
+                    "en": "The School of Tivaouane is not an institution in the modern sense, but a living teaching system created by El Hadji Malick Sy, aimed at training enlightened Muslims who are both scholars and virtuous. From his establishment in 1902, Maodo established a zawiya (Quranic school) which quickly became a center of attraction for thousands of students.",
+                    "ar": "مدرسة تيفاوان ليست مؤسسة بالمعنى الحديث، بل هي نظام تعليمي حي أنشأه الحاج مالك سي، يهدف إلى تكوين مسلمين مستنيرين يجمعون بين العلم والفضيلة. منذ استقراره عام 1902، أسس مودو زاوية (مدرسة قرآنية) سرعان ما أصبحت مركز جذب لآلاف الطلاب.",
+                    "wo": "Daara Tiwaawaan du benn institution ci biir tey, waaye mooy yoon jàngale buy dund bi El Hadji Maalik Si tànn, ngir jàngale muslim yu leer, yu xam te yu yar. Bi mu tëdd ci 1902, Maodo tànn zawiya (daara Kur'aan) bu gaaw nekk benn bopp njëkk ngir ay téeméer taalibe."
+                },
+                "metadata": {},
+                "order": 2,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            }
+        ]
+        await db.page_content.insert_many(ecole_content)
+        seeded_count = len(ecole_content)
+    
+    return {"message": f"Contenu initialisé pour {slug}", "seeded": seeded_count}
+
+
 # ============== SEARCH ENDPOINT ==============
 
 @api_router.get("/search")
