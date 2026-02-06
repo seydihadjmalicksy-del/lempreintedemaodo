@@ -71,7 +71,13 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - `Footer.js` - Footer global avec newsletter compacte
 - `LanguageSelector.js` - Sélecteur de langue (FR/EN/AR/WO) avec drapeaux
 - `LanguageContext.js` - Contexte multi-langue (1500+ lignes de traductions)
-- `ShareButtons.js` - **Nouveau** Boutons de partage social (Facebook, Twitter, WhatsApp, Email, Copier)
+- `ShareButtons.js` - Boutons de partage social (Facebook, Twitter, WhatsApp, Email, Copier)
+- `Lightbox.js` - **Nouveau** Visionneuse d'images plein écran avec navigation
+- `AddToCalendar.js` - **Nouveau** Bouton d'export calendrier (Google, Outlook, iCal)
+
+### Pages Admin et Galerie
+- `/photos` - **Nouveau** Galerie photos avec filtres par catégorie et lightbox
+- `/admin` - **Nouveau** Panneau d'administration (gestion citations, événements, statistiques)
 
 ### API Endpoints
 | Endpoint | Méthode | Description |
