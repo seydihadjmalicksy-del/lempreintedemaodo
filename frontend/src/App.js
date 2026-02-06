@@ -7,6 +7,8 @@ import Archives from "./pages/Archives";
 import SearchResults from "./pages/SearchResults";
 import Mediatheque from "./pages/Mediatheque";
 import Contact from "./pages/Contact";
+import CarteTivaouane from "./pages/CarteTivaouane";
+import ArbreGenealogique from "./pages/ArbreGenealogique";
 import ElHadjiMalickSy from "./pages/histoire/ElHadjiMalickSy";
 import Maodo from "./pages/histoire/Maodo";
 import LigneeKhalifes from "./pages/histoire/LigneeKhalifes";
