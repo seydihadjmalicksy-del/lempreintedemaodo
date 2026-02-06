@@ -36,7 +36,7 @@ const translations = {
     spiritualPath: "Sur la voie de la purification spirituelle",
     
     // Home
-    heroTitle: "L'empreinte de Tivaouane",
+    heroTitle: "L'empreinte de Maodo",
     heroSubtitle: "dans la Tariqa Tidiane",
     heroDescription: "Découvrez l'héritage spirituel d'El Hadji Malick Sy et les enseignements de la Tijaniyya",
     quoteOfDay: "Citation du Jour",

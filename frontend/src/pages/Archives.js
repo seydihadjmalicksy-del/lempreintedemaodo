@@ -89,7 +89,7 @@ const Archives = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              Bienvenue dans le <strong className="text-[#004D33]">sanctuaire documentaire</strong> de L'empreinte de Tivaouane. 
+              Bienvenue dans le <strong className="text-[#004D33]">sanctuaire documentaire</strong> de L'empreinte de Maodo. 
               Cette rubrique n'est pas qu'un simple espace de stockage ; elle est la <strong className="text-[#004D33]">mémoire vive</strong> d'une 
               épopée spirituelle qui a façonné l'Islam en Afrique de l'Ouest.
             </p>
