@@ -272,6 +272,7 @@ const AdminPanel = () => {
       title: "Panneau d'Administration",
       quotes: "Citations",
       events: "Événements",
+      content: "Contenu Pages",
       addNew: "Ajouter",
       refresh: "Actualiser",
       save: "Enregistrer",
@@ -301,12 +302,18 @@ const AdminPanel = () => {
       newQuote: "Nouvelle Citation",
       newEvent: "Nouvel Événement",
       editQuote: "Modifier la Citation",
-      editEvent: "Modifier l'Événement"
+      editEvent: "Modifier l'Événement",
+      editContent: "Modifier le Contenu",
+      page: "Page",
+      section: "Section",
+      seedContent: "Initialiser contenu",
+      noContent: "Aucun contenu. Initialisez le contenu des pages."
     },
     en: {
       title: "Administration Panel",
       quotes: "Quotes",
       events: "Events",
+      content: "Page Content",
       addNew: "Add",
       refresh: "Refresh",
       save: "Save",
