@@ -111,7 +111,6 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 ## 📝 Backlog
 
 ### P1 - Prochaines étapes prioritaires
-- [ ] **CRUD CMS complet**: Ajouter édition/suppression des citations et événements dans /admin
 - [ ] **Migration contenu vers BDD**: Refactoriser les pages statiques pour utiliser l'API
 
 ### P2 - Améliorations
