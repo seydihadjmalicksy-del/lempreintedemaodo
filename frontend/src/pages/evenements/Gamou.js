@@ -1,6 +1,7 @@
 import { Calendar, MapPin, Users, Heart, Book, Music } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
 import ShareButtons from "../../components/ShareButtons";
+import AddToCalendar from "../../components/AddToCalendar";
 
 const Gamou = () => {
   const { t, language } = useLanguage();
