@@ -1,8 +1,12 @@
 import { GraduationCap, BookOpen, Users, Award, Globe, Star } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { usePageContent, getContentText } from "../../hooks/usePageContent";
 
 const EcoleTivaouane = () => {
   const { t, language } = useLanguage();
+  
+  // Fetch dynamic content from MongoDB
+  const { content, loading: contentLoading } = usePageContent("ecole", language);
 
   const methodePedagogique = [
     {
