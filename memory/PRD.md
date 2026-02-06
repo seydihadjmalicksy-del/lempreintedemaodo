@@ -5,8 +5,8 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 
 ## 🏗️ Architecture Technique
 - **Frontend**: React + Tailwind CSS + Shadcn UI
-- **Backend**: FastAPI (Python)
-- **Base de données**: MongoDB (disponible mais non utilisée - données codées en dur)
+- **Backend**: FastAPI (Python) + MongoDB (via Motor async driver)
+- **Base de données**: MongoDB - Utilisée pour Newsletter et Contact
 - **URL Preview**: https://tidjaniyya-hub.preview.emergentagent.com
 
 ## ✅ Fonctionnalités Implémentées
@@ -25,17 +25,17 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
    - `/enseignements/ecole` - L'École de Tivaouane
    - `/enseignements/ouvrages` - Ouvrages de Référence avec liens réels (Gallica, Scribd, PDF)
 4. **Événements**
-   - `/evenements/gamou` - Le Gamou (date 2025: 4-5 septembre)
-   - `/evenements/ziarra` - Ziarra Annuelles (date 2025: 20 avril)
+   - `/evenements/gamou` - ⭐ Le Gamou (date 2025: 4-5 septembre) - **Traduit**
+   - `/evenements/ziarra` - ⭐ Ziarra Annuelles (date 2025: 20 avril) - **Traduit**
    - `/evenements/ceremonies` - Cérémonies Religieuses + Hadratoul Joumah
 5. **Autres**
    - `/archives` - Archives avec système de filtrage
-   - `/mediatheque` - Médiathèque enrichie (Chaînes YouTube, Ressources téléchargeables)
-   - `/contact` - Contact avec informations bancaires CRAT
+   - `/mediatheque` - ⭐ Médiathèque enrichie (Chaînes YouTube, Ressources téléchargeables) - **Traduit**
+   - `/contact` - Contact avec informations bancaires CRAT - **Formulaire fonctionnel**
    - `/gallery` - Galerie vidéos
    - `/search` - Recherche globale
 
-### Support Multilingue ✅ COMPLÉTÉ (Décembre 2025)
+### Support Multilingue ✅ COMPLÉTÉ (Février 2025)
 - **4 langues supportées**: Français (FR), English (EN), العربية (AR), Wolof (WO)
 - **Support RTL**: Direction droite-à-gauche automatique pour l'arabe
 - **Persistance**: Choix de langue sauvegardé dans localStorage
@@ -45,122 +45,86 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
   - ✅ Page Lignée des Héritiers (9 khalifes avec titres, descriptions, contributions)
   - ✅ Page Arbre Généalogique (titres, légende, instructions)
   - ✅ Page d'Accueil (toutes les sections)
-  - ✅ Composants Newsletter et StatsCounter
-  - ✅ Navigation et barre de recherche
-- **Composants mis à jour**: Navbar, Home, Newsletter, StatsCounter, Maodo, LigneeKhalifes, ArbreGenealogique
+  - ✅ **CarteTivaouane** - Carte interactive avec lieux saints traduits
+  - ✅ **Gamou** - Page du Gamou avec programme et conseils
+  - ✅ **ZiarraAnnuelles** - Pèlerinages spirituels avec guide du pèlerin
+  - ✅ **Médiathèque** - Bibliothèque multimédia avec catégories et ressources
+
+### Formulaires Fonctionnels ✅ COMPLÉTÉS (Février 2025)
+- **Newsletter** (`/api/newsletter/subscribe`)
+  - Inscription avec email et langue préférée
+  - Validation email côté serveur
+  - Messages de succès multilingues
+  - Détection doublons
+  - Stockage MongoDB
+- **Contact** (`/api/contact`)
+  - Formulaire complet (nom, email, sujet, message)
+  - Validation côté serveur
+  - Messages de succès avec toast Sonner
+  - Stockage MongoDB
 
 ### Composants Créés
-- `Newsletter.js` - Formulaire d'inscription (2 variantes: default, compact) - **Multilingue**
+- `Newsletter.js` - Formulaire d'inscription (2 variantes: default, compact) - **Fonctionnel + Multilingue**
 - `StatsCounter.js` - Compteur animé de statistiques - **Multilingue**
 - `Footer.js` - Footer global avec newsletter compacte
 - `LanguageSelector.js` - ⭐ Sélecteur de langue (FR/EN/AR/WO) avec drapeaux
-- `LanguageContext.js` - ⭐ Contexte multi-langue avec traductions complètes
+- `LanguageContext.js` - ⭐ Contexte multi-langue avec traductions complètes (1500+ lignes)
 
-### Photos Authentiques Intégrées
-**Maodo (5 photos):**
-- Portrait avec mosquée en arrière-plan
-- Portrait sépia avec chapelet
-- Avec ses disciples
-- Portrait doré
+### API Endpoints
+| Endpoint | Méthode | Description |
+|----------|---------|-------------|
+| `/api/newsletter/subscribe` | POST | Inscription newsletter |
+| `/api/newsletter/subscribers` | GET | Stats abonnés |
+| `/api/contact` | POST | Envoi message contact |
+| `/api/contact/messages` | GET | Liste messages |
+| `/api/videos` | GET | Liste vidéos |
+| `/api/videos/featured` | GET | Vidéos en vedette |
+| `/api/categories` | GET | Catégories |
 
-**Héritiers (9 photos):**
-1. Serigne Babacar Sy (1885-1957)
-2. Serigne Mansour Sy 'Balkhawmi' (1900-1957)
-3. Serigne Abdoul Aziz Sy 'Dabakh' (1904-1997)
-4. Serigne Mouhammadoul Habib Sy (1906-1992)
-5. Serigne Moustapha Sy Djamil (1916-1993)
-6. Serigne Mansour Sy 'Borom Daradji' (1925-2012)
-7. Serigne Cheikh Ahmed Tidiane Sy 'Al Maktoum' (1925-2017)
-8. Serigne Abdoul Aziz Sy Al Amine (1928-2017)
-9. Serigne Babacar Sy Mansour (1932-Actuel)
+### Base de Données MongoDB
+**Collections:**
+- `newsletter_subscriptions`: `{ email, language, subscribed_at, active }`
+- `contact_messages`: `{ nom, email, sujet, message, sent_at, id }`
 
-### SEO Implémenté
-- Meta tags (description, keywords, author)
-- Open Graph pour Facebook
-- Twitter Cards
-- Langue FR par défaut
-- Police Amiri pour l'arabe
+## 📝 Backlog (P1-P3)
 
-## 🔄 Tâches Prochaines (P1)
+### P1 - Détection de la langue du navigateur
+- [ ] Détecter automatiquement la langue préférée du navigateur
+- [ ] Définir comme langue par défaut au premier chargement
 
-### Newsletter Backend
-- [ ] Créer endpoint `/api/newsletter/subscribe`
-- [ ] Collection MongoDB pour stocker les emails
-- [ ] Validation email côté serveur
-
-### Formulaire Contact
-- [ ] Créer endpoint `/api/contact`
-- [ ] Stocker messages dans MongoDB ou envoyer par email
-
-### Compléter Contenu
+### P2 - Compléter le contenu
 - [ ] Vérifier `/enseignements/ecole` - contenu de remplissage
 
-## 📝 Backlog (P2-P3)
+### P1 - Migration du contenu vers MongoDB
+- [ ] Migrer les textes des pages vers la base de données
+- [ ] Créer un CMS simple pour l'administration
+- [ ] API endpoints pour chaque type de contenu
 
-### Migration Base de Données
-- [ ] Migrer toutes les données codées en dur vers MongoDB
-- [ ] Créer API CRUD pour gestion du contenu
-- [ ] Panel d'administration
+### P2 - Moteur de recherche amélioré
+- [ ] Endpoint backend pour recherche dans MongoDB
+- [ ] Recherche multi-langue
 
-### Technique
-- [ ] Lazy loading des images
-- [ ] Service Worker pour PWA
-- [ ] Améliorer moteur de recherche (backend)
+### P3 - Fonctionnalités sociales
+- [ ] Boutons de partage social
+- [ ] Galerie de photos avec lightbox
+- [ ] Intégration calendrier iCal
 
-### Fonctionnel
-- [ ] Galerie de photos dédiée avec lightbox
-- [ ] Espace membre / Authentification
-- [ ] Système de favoris
-- [ ] Partage sur réseaux sociaux
-- [ ] Commentaires sur les vidéos
+## 🔒 Informations Techniques
 
-## 📁 Fichiers Clés
+### Variables d'environnement
+- **Frontend**: `REACT_APP_BACKEND_URL`
+- **Backend**: `MONGO_URL`, `DB_NAME`
 
-### Frontend
-```
-/app/frontend/src/
-├── index.js (LanguageProvider wrapper) ✅
-├── App.js (Routes)
-├── components/
-│   ├── Navbar.js (multilingue) ✅
-│   ├── Newsletter.js (multilingue) ✅
-│   ├── StatsCounter.js (multilingue) ✅
-│   ├── Footer.js
-│   ├── LanguageSelector.js ⭐
-│   └── VideoCard.js
-├── contexts/
-│   └── LanguageContext.js ⭐ (FR/EN/AR/WO)
-└── pages/
-    ├── Home.js (multilingue) ✅
-    ├── CarteTivaouane.js
-    ├── ArbreGenealogique.js
-    ├── histoire/
-    │   ├── Maodo.js (galerie photos)
-    │   └── LigneeKhalifes.js (photos authentiques)
-    └── ...
-```
+### Dépendances clés
+- **Backend**: FastAPI, Motor (MongoDB async), Pydantic, python-dotenv
+- **Frontend**: React, React Router, Tailwind CSS, Axios, Sonner (toasts), Lucide React (icônes)
 
-### Backend
-```
-/app/backend/
-├── server.py (FastAPI - vidéos codées en dur)
-└── requirements.txt
-```
+## 📊 État du Projet
 
-## 🔗 Ressources Externes Utilisées
-- **Gallica (BnF)**: Livre de Paul Marty 1917 - https://gallica.bnf.fr/ark:/12148/bpt6k77474r
-- **Chaînes YouTube**: HABIBBA TV, TIVAOUANE 24 TV, Malikiya TV
-- **PDF Ouvrages**: Scribd, ssmasenegal.com, Calameo
-
-## 📅 Dates Importantes (2025)
-- **Ziarra Générale**: 20 avril 2025
-- **Gamou**: 4-5 septembre 2025 (12 Rabi' al-Awwal)
-- **Hadratoul Joumah**: Tous les vendredis après Asr
-
-## 🎨 Design System
-- **Couleurs**: Vert #004D33, Or #D4AF37, Fond #F9F7F2
-- **Fonts**: Inter (UI), Amiri (Arabe)
-- **Composants**: Shadcn UI
-
----
-*Dernière mise à jour: Décembre 2025*
+| Fonctionnalité | Status | Notes |
+|----------------|--------|-------|
+| Support Multilingue | ✅ 100% | FR, EN, AR, WO avec RTL |
+| Newsletter | ✅ 100% | Backend + Frontend fonctionnels |
+| Contact | ✅ 100% | Backend + Frontend fonctionnels |
+| Pages traduites | ✅ 90% | Principales pages traduites |
+| Contenu dynamique | ⏳ 10% | Encore codé en dur |
