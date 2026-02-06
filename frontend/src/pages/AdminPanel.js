@@ -219,6 +219,54 @@ const AdminPanel = () => {
     }
   };
 
+  // ===== PAGE CONTENT CRUD =====
+  const handleUpdateContent = async (contentId) => {
+    setActionLoading(true);
+    try {
+      await axios.put(`${API}/content/${contentId}`, editingItem, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Contenu mis à jour");
+      setEditingItem(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la mise à jour");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleDeleteContent = async (contentId) => {
+    setActionLoading(true);
+    try {
+      await axios.delete(`${API}/content/${contentId}`, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Contenu supprimé");
+      setDeleteConfirm(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la suppression");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleSeedContent = async (slug) => {
+    setActionLoading(true);
+    try {
+      await axios.post(`${API}/content/seed/${slug}`, null, {
+        headers: getAuthHeaders()
+      });
+      toast.success(`Contenu initialisé pour ${slug}`);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de l'initialisation");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
   const labels = {
     fr: {
       title: "Panneau d'Administration",
