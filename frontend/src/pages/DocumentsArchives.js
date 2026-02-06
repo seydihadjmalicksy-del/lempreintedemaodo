@@ -45,37 +45,37 @@ const DocumentsArchives = () => {
       title: "Chapitre III - Le Groupement tidianï d'Al-Hadj Malik",
       page: 173,
       description: "Introduction au chapitre consacré aux Tidianïa Ouolofs et à la figure d'El Hadji Malick Sy.",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f191.item"
+      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f184.item"
     },
     {
       title: "Personnalité et Famille d'Al-Hadj Malik",
       page: 175,
       description: "Biographie détaillée et arbre généalogique de Maodo établis par l'administration coloniale.",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f193.item"
+      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f186.item"
     },
     {
       title: "La Zaouïa d'Al-Hadj Malik, à Tivaouane",
       page: 182,
       description: "Description de la zawiya, centre spirituel de la Tariqa Tidiane au Sénégal.",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f200.item"
+      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f193.item"
     },
     {
       title: "L'Influence d'Al-Hadj Malik",
       page: 188,
       description: "Analyse de l'influence spirituelle et sociale de Maodo au Sénégal.",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f206.item"
+      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f199.item"
     },
     {
       title: "Poème d'Al-Hadj Malik sur son pèlerinage à la Mecque",
       page: 212,
       description: "Transcription d'un poème composé par El Hadji Malick Sy relatant son Hajj.",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f230.item"
+      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f223.item"
     },
     {
       title: "Œuvres d'Al-Hadj Malik",
       page: 214,
       description: "Inventaire des ouvrages et écrits de Maodo recensés de son vivant en 1917.",
-      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f232.item"
+      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f225.item"
     }
   ];
 
