@@ -90,8 +90,8 @@ const translations = {
     viewAllWorks: "Voir tous les ouvrages",
     wordsOfWisdom: "Paroles de Sagesse",
     eternalLegacy: "Son Héritage Éternel",
-    legacyText: "Aujourd'hui, plus d'un siècle après son rappel à Dieu, l'influence de Maodo continue de rayonner. La Tariqa Tijaniyya est devenue la principale confrérie soufie au Sénégal, et le Gamou de Tivaouane rassemble chaque année plus de 5 millions de fidèles. Ses enseignements, transmis par ses successeurs, continuent d'éclairer les cœurs et les esprits de millions de musulmans à travers le monde.",
-    hisSuccessors: "Ses Successeurs",
+    legacyText: "Aujourd'hui, plus d'un siècle après son rappel à Dieu, l'influence de Maodo continue de rayonner. La Tariqa Tijaniyya est devenue la principale confrérie soufie au Sénégal, et le Gamou de Tivaouane rassemble chaque année plus de 5 millions de fidèles. Ses enseignements, transmis par ses héritiers, continuent d'éclairer les cœurs et les esprits de millions de musulmans à travers le monde.",
+    hisSuccessors: "Ses Héritiers",
     theGamou: "Le Gamou",
     mayAllahBePleasedWithHim: "Que Dieu soit satisfait de lui et le rende satisfait",
     
@@ -136,7 +136,7 @@ const translations = {
     
     // Khalifes Page
     lineageOfHeirs: "La Lignée des Héritiers",
-    heirsSubtitle: "Les Successeurs de Maodo : Gardiens de l'Héritage Spirituel",
+    heirsSubtitle: "Les Héritiers de Maodo : Gardiens de l'Héritage Spirituel",
     heirsIntro: "Depuis le rappel à Dieu d'El Hadji Malick Sy en 1922, plusieurs khalifes se sont succédé à la tête de la Tariqa Tidiane de Tivaouane. Chacun d'eux a apporté sa pierre à l'édifice, contribuant à faire rayonner l'enseignement de Maodo à travers le temps et l'espace.",
     successionPrinciple: "Le principe de succession (Khilafa) dans la Tariqa Tidiane de Tivaouane suit une logique de primogéniture spirituelle, privilégiant généralement les fils de Maodo, tout en tenant compte des qualités de science et de piété.",
     majorContributionsLabel: "Contributions Majeures :",
@@ -292,7 +292,7 @@ const translations = {
     gamouHistoryTitle: "Histoire du Gamou de Tivaouane",
     gamouHistory1: "La célébration du Maouloud (naissance du Prophète) n'était pas systématique au Sénégal avant l'arrivée d'El Hadji Malick Sy. C'est lui qui institutionnalisa cette pratique à Tivaouane dès le début du XXe siècle.",
     gamouHistory2: "La première célébration organisée fut modeste, mais elle gagna rapidement en ampleur. Maodo y voyait une opportunité d'éduquer les masses : les 10 jours précédant le Maouloud étaient consacrés à la récitation du Bourde (poème mystique) et à l'enseignement des valeurs prophétiques.",
-    gamouHistory3: "Après la mort de Maodo en 1922, ses successeurs perpétuèrent la tradition. Le Gamou devint progressivement l'événement spirituel majeur du Sénégal, attirant des personnalités politiques, des intellectuels et surtout des millions de disciples.",
+    gamouHistory3: "Après la mort de Maodo en 1922, ses héritiers perpétuèrent la tradition. Le Gamou devint progressivement l'événement spirituel majeur du Sénégal, attirant des personnalités politiques, des intellectuels et surtout des millions de disciples.",
     celebrationProgram: "Le Déroulement des Célébrations",
     tenDaysOfBourde: "10 Jours de Bourde",
     tenDaysOfBourdeDesc: "Récitation du poème Al-Burda d'Al-Bousayri en l'honneur du Prophète (PSL), accompagnée de chants spirituels",
@@ -336,7 +336,7 @@ const translations = {
     ziarraMaodoDesc: "Pèlerinage commémoratif en l'honneur du fondateur de Tivaouane. Les disciples se recueillent sur sa tombe et lisent des poèmes en son honneur.",
     ziarraKhalifesTitle: "Ziarra des Khalifes",
     ziarraKhalifesDate: "Dates variables selon les khalifes",
-    ziarraKhalifesDesc: "Commémorations des différents Khalifes successeurs de Maodo. Chaque khalife a sa propre journée de ziarra.",
+    ziarraKhalifesDesc: "Commémorations des différents Khalifes héritiers de Maodo. Chaque khalife a sa propre journée de ziarra.",
     program: "Programme",
     spiritualSignificance: "Signification Spirituelle",
     pilgrimGuide: "Guide du Pèlerin",
