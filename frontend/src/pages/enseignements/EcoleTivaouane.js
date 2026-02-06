@@ -1,66 +1,144 @@
 import { GraduationCap, BookOpen, Users, Award, Globe, Star } from "lucide-react";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const EcoleTivaouane = () => {
+  const { t, language } = useLanguage();
+
   const methodePedagogique = [
     {
       icon: BookOpen,
-      title: "Enseignement Intégral",
-      description: "Combinaison harmonieuse entre sciences religieuses (Coran, Hadith, Fiqh) et sciences profanes (mathématiques, langues)"
+      title: t('integralTeaching'),
+      description: t('integralTeachingDesc')
     },
     {
       icon: Users,
-      title: "Pédagogie Orale",
-      description: "Transmission directe du maître à l'élève, favorisant la mémorisation et la compréhension profonde"
+      title: t('oralPedagogy'),
+      description: t('oralPedagogyDesc')
     },
     {
       icon: Award,
-      title: "Formation Spirituelle",
-      description: "Au-delà de la science, éducation du caractère (Akhlaq) et purification de l'âme (Tazkiyya)"
+      title: t('spiritualFormation'),
+      description: t('spiritualFormationDesc')
     }
   ];
 
   const grandsErudits = [
     {
-      name: "Serigne Mansour Sy 'Balkhawmi'",
+      name: {
+        fr: "Serigne Mansour Sy 'Balkhawmi'",
+        en: "Serigne Mansour Sy 'Balkhawmi'",
+        ar: "سرين منصور سي 'بلخومي'",
+        wo: "Serigne Mansour Sy 'Balkhawmi'"
+      },
       period: "1925-1980",
-      specialites: "Exégèse coranique, Jurisprudence, Poésie mystique",
-      contribution: "A formé des centaines d'imams et de muqqadams qui ont essaimé la Tariqa à travers le Sénégal"
+      specialites: {
+        fr: "Exégèse coranique, Jurisprudence, Poésie mystique",
+        en: "Quranic exegesis, Jurisprudence, Mystical poetry",
+        ar: "التفسير القرآني، الفقه، الشعر الصوفي",
+        wo: "Tafsir, Fiqh, Téere soufie"
+      },
+      contribution: {
+        fr: "A formé des centaines d'imams et de muqqadams qui ont essaimé la Tariqa à travers le Sénégal",
+        en: "Trained hundreds of imams and muqqadams who spread the Tariqa throughout Senegal",
+        ar: "درّب مئات الأئمة والمقدمين الذين نشروا الطريقة في جميع أنحاء السنغال",
+        wo: "Jàngale ay téeméer imam ak muqqadam yi yéngu Tariqa bi ci Senegaal yépp"
+      }
     },
     {
-      name: "Serigne Abdoul Aziz Sy 'Dabakh'",
+      name: {
+        fr: "Serigne Abdoul Aziz Sy 'Dabakh'",
+        en: "Serigne Abdoul Aziz Sy 'Dabakh'",
+        ar: "سرين عبد العزيز سي 'دباخ'",
+        wo: "Serigne Abdoul Aziz Sy 'Dabakh'"
+      },
       period: "1904-1997",
-      specialites: "Tafsir, Hadith, Médiation sociale",
-      contribution: "Ses causeries radiodiffusées ont éduqué des millions de Sénégalais pendant des décennies"
+      specialites: {
+        fr: "Tafsir, Hadith, Médiation sociale",
+        en: "Tafsir, Hadith, Social mediation",
+        ar: "التفسير، الحديث، الوساطة الاجتماعية",
+        wo: "Tafsir, Hadith, Jagle"
+      },
+      contribution: {
+        fr: "Ses causeries radiodiffusées ont éduqué des millions de Sénégalais pendant des décennies",
+        en: "His broadcast talks educated millions of Senegalese for decades",
+        ar: "ثقّفت محاضراته الإذاعية ملايين السنغاليين لعقود",
+        wo: "Causeries am yi ci radio jàngale ay million Senegaalees ay fukki at"
+      }
     },
     {
-      name: "Serigne Rawane Mbaye",
+      name: {
+        fr: "Serigne Rawane Mbaye",
+        en: "Serigne Rawane Mbaye",
+        ar: "سرين راوان مباي",
+        wo: "Serigne Rawane Mbaye"
+      },
       period: "1890-1960",
-      specialites: "Grammaire arabe, Logique, Sciences coraniques",
-      contribution: "Maître réputé qui a formé une génération d'arabisants de haut niveau"
+      specialites: {
+        fr: "Grammaire arabe, Logique, Sciences coraniques",
+        en: "Arabic grammar, Logic, Quranic sciences",
+        ar: "النحو العربي، المنطق، علوم القرآن",
+        wo: "Grammaire arabe, Logique, Xam-xam Coran"
+      },
+      contribution: {
+        fr: "Maître réputé qui a formé une génération d'arabisants de haut niveau",
+        en: "Renowned master who trained a generation of high-level Arabists",
+        ar: "معلم مشهور درّب جيلاً من المستعربين رفيعي المستوى",
+        wo: "Maître bu ñuy xam moo jàngale ab génération arabisants yu mag"
+      }
     },
     {
-      name: "Serigne Souhaibou Mbacké",
+      name: {
+        fr: "Serigne Souhaibou Mbacké",
+        en: "Serigne Souhaibou Mbacké",
+        ar: "سرين صهيب مباكي",
+        wo: "Serigne Souhaibou Mbacké"
+      },
       period: "1925-2008",
-      specialites: "Fiqh Maliki, Usul al-Fiqh",
-      contribution: "Juriste exceptionnel consulté pour les questions complexes de droit islamique"
+      specialites: {
+        fr: "Fiqh Maliki, Usul al-Fiqh",
+        en: "Maliki Fiqh, Usul al-Fiqh",
+        ar: "الفقه المالكي، أصول الفقه",
+        wo: "Fiqh Maliki, Usul al-Fiqh"
+      },
+      contribution: {
+        fr: "Juriste exceptionnel consulté pour les questions complexes de droit islamique",
+        en: "Exceptional jurist consulted for complex Islamic law questions",
+        ar: "فقيه استثنائي يُستشار في مسائل الشريعة الإسلامية المعقدة",
+        wo: "Juriste bu baax bu ñuy laaj ngir questions yu xóot ci droit islamique"
+      }
     }
   ];
 
   const niveauxEnseignement = [
     {
-      niveau: "Cycle Élémentaire",
-      duree: "3-5 ans",
-      contenu: "Apprentissage du Coran par cœur, initiation à la langue arabe, principes de base de l'Islam"
+      niveau: t('elementaryCycle'),
+      duree: {
+        fr: "3-5 ans",
+        en: "3-5 years",
+        ar: "3-5 سنوات",
+        wo: "3-5 at"
+      },
+      contenu: t('elementaryCycleDesc')
     },
     {
-      niveau: "Cycle Moyen",
-      duree: "5-7 ans",
-      contenu: "Grammaire arabe (Nahw, Sarf), Fiqh, Hadith, introduction au Tafsir"
+      niveau: t('middleCycle'),
+      duree: {
+        fr: "5-7 ans",
+        en: "5-7 years",
+        ar: "5-7 سنوات",
+        wo: "5-7 at"
+      },
+      contenu: t('middleCycleDesc')
     },
     {
-      niveau: "Cycle Supérieur",
-      duree: "Variable",
-      contenu: "Spécialisation en Tafsir, Hadith, Fiqh approfondi, Usul al-Fiqh, Logique (Mantiq)"
+      niveau: t('superiorCycle'),
+      duree: {
+        fr: "Variable",
+        en: "Variable",
+        ar: "متغير",
+        wo: "Wéet"
+      },
+      contenu: t('superiorCycleDesc')
     }
   ];
 
@@ -71,7 +149,7 @@ const EcoleTivaouane = () => {
         <div className="absolute inset-0">
           <img
             src="https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
-            alt="École de Tivaouane"
+            alt={t('ecoleTitle')}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#004D33]/95 via-[#004D33]/85 to-[#004D33]/75"></div>
@@ -82,18 +160,17 @@ const EcoleTivaouane = () => {
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 backdrop-blur-sm border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-6">
                 <GraduationCap className="w-4 h-4 text-[#D4AF37]" />
-                <span className="text-[#D4AF37] text-sm font-medium">Université Populaire</span>
+                <span className="text-[#D4AF37] text-sm font-medium">{t('popularUniversity')}</span>
               </div>
               
               <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
-                L'École de Tivaouane
+                {t('ecoleTitle')}
                 <br />
-                <span className="text-[#D4AF37]">Former l'Homme Complet</span>
+                <span className="text-[#D4AF37]">{t('ecoleSubtitle')}</span>
               </h1>
               
               <p className="text-xl text-white/90 leading-relaxed">
-                La méthode pédagogique unique d'El Hadji Malick Sy qui a révolutionné 
-                l'enseignement islamique en Afrique de l'Ouest
+                {t('ecoleHeroDesc')}
               </p>
             </div>
           </div>
@@ -105,23 +182,16 @@ const EcoleTivaouane = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-[#004D33] font-semibold mb-6 leading-relaxed">
-              L'École de Tivaouane n'est pas une institution au sens moderne, mais un 
-              <strong> système d'enseignement vivant</strong> créé par El Hadji Malick Sy, 
-              qui visait à former des musulmans éclairés, à la fois savants et vertueux.
+              {t('ecoleIntro1')}
             </p>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              Dès son installation en 1902, Maodo établit une <strong className="text-[#004D33]">zawiya</strong> 
-              (école coranique) qui devint rapidement un centre d'attraction pour des milliers d'étudiants. 
-              Sa pédagogie se distinguait par son <strong className="text-[#004D33]">accessibilité</strong> : 
-              contrairement aux écoles élitistes de l'époque, Tivaouane accueillait tous les aspirants au savoir, 
-              riches ou pauvres, Wolofs ou Sérères, citadins ou ruraux.
+              {t('ecoleIntro2')}
             </p>
 
             <div className="bg-[#E8F5E9] border-l-4 border-[#D4AF37] p-6 rounded-lg my-8">
               <p className="text-[#004D33] italic mb-0">
-                <strong>La vision de Maodo :</strong> "Le savoir religieux doit être accessible à tous. 
-                Un berger qui connaît son Seigneur vaut mieux qu'un érudit orgueilleux."
+                <strong>{t('maodoVision')} :</strong> "{t('maodoVisionQuote')}"
               </p>
             </div>
           </div>
@@ -133,7 +203,7 @@ const EcoleTivaouane = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
-              La Méthode Pédagogique
+              {t('pedagogicalMethod')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -164,7 +234,7 @@ const EcoleTivaouane = () => {
 
           <div className="bg-white rounded-xl p-8 lg:p-12 shadow-lg">
             <h3 className="text-2xl font-bold text-[#004D33] mb-6">
-              Les Principes Directeurs
+              {t('guidingPrinciples')}
             </h3>
             
             <div className="space-y-4">
@@ -173,11 +243,9 @@ const EcoleTivaouane = () => {
                   <span className="text-white font-bold">1</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#004D33] mb-2">La Gratuité de l'Enseignement</h4>
+                  <h4 className="font-bold text-[#004D33] mb-2">{t('freeEducation')}</h4>
                   <p className="text-[#4A4A4A]">
-                    L'éducation à Tivaouane était entièrement gratuite. Les étudiants étaient nourris 
-                    et logés par la communauté. Le savoir était considéré comme un bien sacré qui ne 
-                    se monnaye pas.
+                    {t('freeEducationDesc')}
                   </p>
                 </div>
               </div>
@@ -187,11 +255,9 @@ const EcoleTivaouane = () => {
                   <span className="text-white font-bold">2</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#004D33] mb-2">L'Équilibre Science-Spiritualité</h4>
+                  <h4 className="font-bold text-[#004D33] mb-2">{t('scienceSpiritualityBalance')}</h4>
                   <p className="text-[#4A4A4A]">
-                    Maodo insistait sur le fait que la science sans spiritualité mène à l'orgueil, 
-                    et la spiritualité sans science conduit à l'égarement. L'étudiant devait cultiver 
-                    les deux simultanément.
+                    {t('scienceSpiritualityBalanceDesc')}
                   </p>
                 </div>
               </div>
@@ -201,10 +267,9 @@ const EcoleTivaouane = () => {
                   <span className="text-white font-bold">3</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#004D33] mb-2">Le Service à la Communauté</h4>
+                  <h4 className="font-bold text-[#004D33] mb-2">{t('communityService')}</h4>
                   <p className="text-[#4A4A4A]">
-                    Les étudiants étaient encouragés à mettre leur savoir au service de la société : 
-                    enseigner aux enfants, conseiller les familles, arbitrer les conflits.
+                    {t('communityServiceDesc')}
                   </p>
                 </div>
               </div>
@@ -218,7 +283,7 @@ const EcoleTivaouane = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
-              Les Cycles d'Enseignement
+              {t('teachingCycles')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -231,7 +296,7 @@ const EcoleTivaouane = () => {
               >
                 <div className="mb-4">
                   <span className="inline-block bg-[#004D33] text-white px-4 py-2 rounded-full text-sm font-bold">
-                    {niveau.duree}
+                    {niveau.duree[language] || niveau.duree.fr}
                   </span>
                 </div>
                 
@@ -253,11 +318,11 @@ const EcoleTivaouane = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
-              Les Grands Maîtres de Tivaouane
+              {t('greatMasters')}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
             <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
-              L'École de Tivaouane a produit des sommités dans tous les domaines des sciences islamiques
+              {t('greatMastersDesc')}
             </p>
           </div>
 
@@ -273,7 +338,7 @@ const EcoleTivaouane = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-[#004D33] mb-1">
-                      {erudit.name}
+                      {erudit.name[language] || erudit.name.fr}
                     </h3>
                     <p className="text-sm text-[#888888]">{erudit.period}</p>
                   </div>
@@ -281,13 +346,13 @@ const EcoleTivaouane = () => {
 
                 <div className="space-y-3">
                   <div>
-                    <h4 className="font-semibold text-[#004D33] mb-2">Spécialités :</h4>
-                    <p className="text-[#4A4A4A]">{erudit.specialites}</p>
+                    <h4 className="font-semibold text-[#004D33] mb-2">{t('specialties')} :</h4>
+                    <p className="text-[#4A4A4A]">{erudit.specialites[language] || erudit.specialites.fr}</p>
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-[#004D33] mb-2">Contribution :</h4>
-                    <p className="text-[#4A4A4A]">{erudit.contribution}</p>
+                    <h4 className="font-semibold text-[#004D33] mb-2">{t('contribution')} :</h4>
+                    <p className="text-[#4A4A4A]">{erudit.contribution[language] || erudit.contribution.fr}</p>
                   </div>
                 </div>
               </div>
@@ -300,28 +365,25 @@ const EcoleTivaouane = () => {
       <section className="py-16 bg-gradient-to-b from-[#004D33] to-[#003d29] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Un Héritage qui Perdure
+            {t('lastingLegacy')}
           </h2>
           
           <p className="text-xl text-white/90 leading-relaxed mb-8">
-            Aujourd'hui encore, des dizaines de daaras (écoles coraniques) perpétuent la méthode 
-            de Maodo à Tivaouane et dans tout le Sénégal. Des milliers d'étudiants y apprennent 
-            le Coran, la langue arabe et les sciences islamiques dans le respect de la tradition 
-            éducative tidiane.
+            {t('lastingLegacyDesc')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <div className="text-4xl font-bold text-[#D4AF37] mb-2">50+</div>
-              <p className="text-white/80">Daaras actives</p>
+              <p className="text-white/80">{t('activeDaaras')}</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <div className="text-4xl font-bold text-[#D4AF37] mb-2">10K+</div>
-              <p className="text-white/80">Étudiants actuels</p>
+              <p className="text-white/80">{t('currentStudents')}</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
               <div className="text-4xl font-bold text-[#D4AF37] mb-2">120+</div>
-              <p className="text-white/80">Ans d'histoire</p>
+              <p className="text-white/80">{t('yearsOfHistory')}</p>
             </div>
           </div>
 
@@ -330,7 +392,7 @@ const EcoleTivaouane = () => {
             <p className="text-white/70 text-sm italic">
               اطْلُبُوا الْعِلْمَ مِنَ الْمَهْدِ إِلَى اللَّحْدِ
               <br />
-              "Cherchez la science du berceau jusqu'à la tombe"
+              "{t('seekKnowledge')}"
             </p>
           </div>
         </div>
