@@ -4,9 +4,10 @@
 Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouane, l'héritage spirituel d'El Hadji Malick Sy (Maodo), les enseignements de la confrérie Tijaniyya, et les événements religieux de la cité sainte.
 
 ## 🏗️ Architecture Technique
-- **Frontend**: React + Tailwind CSS + Shadcn UI
+- **Frontend**: React + Tailwind CSS + Shadcn UI + PWA
 - **Backend**: FastAPI (Python) + MongoDB (via Motor async driver)
-- **Base de données**: MongoDB - Utilisée pour Newsletter et Contact
+- **Base de données**: MongoDB
+- **Authentification**: JWT avec sessions stockées en MongoDB
 - **URL Preview**: https://tisoweb.preview.emergentagent.com
 
 ## ✅ Fonctionnalités Implémentées
@@ -34,6 +35,37 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
    - `/contact` - Contact avec informations bancaires CRAT - **Formulaire fonctionnel**
    - `/gallery` - Galerie vidéos
    - `/search` - Recherche globale
+   - `/photos` - Galerie photos avec filtres par catégorie et lightbox
+
+### 🔐 Authentification Admin ✅ COMPLÉTÉ (Février 2025)
+- **Page de connexion**: `/admin/login`
+  - Formulaire sécurisé avec username/password
+  - Messages d'erreur multilingues
+  - Mot de passe par défaut indiqué
+- **Panneau d'administration**: `/admin`
+  - Protection par token JWT
+  - Redirection automatique si non authentifié
+  - Statistiques du site (abonnés, messages, vidéos)
+  - Gestion des citations et événements
+  - Boutons Actualiser et Déconnexion
+- **Credentials Admin**:
+  - Username: `admin`
+  - Password: `tivaouane2025`
+
+### 📱 PWA (Progressive Web App) ✅ COMPLÉTÉ (Février 2025)
+- **Service Worker**: Enregistré et actif
+  - Mise en cache des assets statiques
+  - Support mode hors ligne (network-first, fallback cache)
+  - Gestion des événements push
+- **Manifest**: Configuré avec
+  - Nom de l'app et icônes
+  - Thème et couleurs
+  - Raccourcis vers les pages principales
+  - Mode standalone
+- **Composant PWAPrompt**: Interface pour
+  - Installation de l'application
+  - Activation des notifications push
+  - Indicateur de connexion (online/offline)
 
 ### Support Multilingue ✅ COMPLÉTÉ (Février 2025)
 - **4 langues supportées**: Français (FR), English (EN), العربية (AR), Wolof (WO)
@@ -41,60 +73,30 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - **Détection automatique**: ⭐ Langue du navigateur détectée automatiquement à la première visite
 - **Persistance**: Choix de langue sauvegardé dans localStorage
 - **Éléments traduits**: Navigation, Hero section, Citations, Événements, Newsletter, Statistiques, Footer
-- **Pages entièrement traduites**:
-  - ✅ Page Maodo (biographie, chronologie, contributions, citations, oeuvres)
-  - ✅ Page Lignée des Héritiers (9 khalifes avec titres, descriptions, contributions)
-  - ✅ Page Arbre Généalogique (titres, légende, instructions)
-  - ✅ Page d'Accueil (toutes les sections)
-  - ✅ **CarteTivaouane** - Carte interactive avec lieux saints traduits
-  - ✅ **Gamou** - Page du Gamou avec programme et conseils
-  - ✅ **ZiarraAnnuelles** - Pèlerinages spirituels avec guide du pèlerin
-  - ✅ **Médiathèque** - Bibliothèque multimédia avec catégories et ressources
-  - ✅ **École de Tivaouane** - Système éducatif avec méthodes, cycles et érudits
 
 ### Formulaires Fonctionnels ✅ COMPLÉTÉS (Février 2025)
 - **Newsletter** (`/api/newsletter/subscribe`)
-  - Inscription avec email et langue préférée
-  - Validation email côté serveur
-  - Messages de succès multilingues
-  - Détection doublons
-  - Stockage MongoDB
 - **Contact** (`/api/contact`)
-  - Formulaire complet (nom, email, sujet, message)
-  - Validation côté serveur
-  - Messages de succès avec toast Sonner
-  - Stockage MongoDB
-
-### Composants UI
-- `Newsletter.js` - Formulaire d'inscription (fonctionnel + multilingue)
-- `StatsCounter.js` - Compteur animé de statistiques
-- `Footer.js` - Footer global avec newsletter compacte
-- `LanguageSelector.js` - Sélecteur de langue (FR/EN/AR/WO) avec drapeaux
-- `LanguageContext.js` - Contexte multi-langue (1500+ lignes de traductions)
-- `ShareButtons.js` - Boutons de partage social (Facebook, Twitter, WhatsApp, Email, Copier)
-- `Lightbox.js` - **Nouveau** Visionneuse d'images plein écran avec navigation
-- `AddToCalendar.js` - **Nouveau** Bouton d'export calendrier (Google, Outlook, iCal)
-
-### Pages Admin et Galerie
-- `/photos` - **Nouveau** Galerie photos avec filtres par catégorie et lightbox
-- `/admin` - **Nouveau** Panneau d'administration (gestion citations, événements, statistiques)
 
 ### API Endpoints
 | Endpoint | Méthode | Description |
 |----------|---------|-------------|
+| `/api/admin/login` | POST | Connexion admin (retourne token JWT) |
+| `/api/admin/logout` | POST | Déconnexion admin |
+| `/api/admin/verify` | GET | Vérification token (protected) |
+| `/api/admin/seed` | POST | Initialiser les données |
 | `/api/newsletter/subscribe` | POST | Inscription newsletter |
 | `/api/newsletter/subscribers` | GET | Stats abonnés |
 | `/api/contact` | POST | Envoi message contact |
 | `/api/contact/messages` | GET | Liste messages |
-| `/api/videos` | GET | Liste vidéos |
-| `/api/videos/featured` | GET | Vidéos en vedette |
-| `/api/categories` | GET | Catégories |
 | `/api/quotes` | GET | Liste des citations |
 | `/api/quotes/daily` | GET | Citation du jour |
 | `/api/events` | GET | Liste des événements |
 | `/api/events/upcoming` | GET | Événements à venir |
+| `/api/calendar/events.ics` | GET | Export iCal tous événements |
+| `/api/notifications/subscribe` | POST | Abonnement push |
+| `/api/notifications/unsubscribe` | POST | Désabonnement push |
 | `/api/search` | GET | Recherche globale multilingue |
-| `/api/admin/seed` | POST | Initialiser les données |
 
 ### Base de Données MongoDB
 **Collections:**
@@ -103,24 +105,22 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - `quotes`: `{ id, text_fr, text_en, text_ar, text_wo, author, context_fr, context_en, active, order }`
 - `events`: `{ id, name_fr/en/ar/wo, description_fr/en/ar/wo, date, location, event_type, recurring, recurrence_pattern, active }`
 - `videos`: `{ id, title, description, youtube_id, category, is_featured, created_at }`
+- `admin_sessions`: `{ token, username, created_at, expires_at }`
+- `push_subscriptions`: `{ endpoint, keys, user_agent, language, preferences, active }`
 
-## 📝 Backlog (P3+)
+## 📝 Backlog
 
-### P3 - Améliorations futures
-- [ ] Authentification admin (protection du panneau /admin)
-- [ ] Notifications push pour les événements
+### P1 - Prochaines étapes prioritaires
+- [ ] **CRUD CMS complet**: Ajouter édition/suppression des citations et événements dans /admin
+- [ ] **Migration contenu vers BDD**: Refactoriser les pages statiques pour utiliser l'API
+
+### P2 - Améliorations
+- [ ] Simplifier `LanguageContext.js` après migration du contenu
+- [ ] Bannière "Bismillah" demandée précédemment
+
+### P3 - Futures
 - [ ] Intégration réseaux sociaux (flux Twitter/Facebook)
-- [ ] Mode hors ligne (PWA)
-
-## 🔒 Informations Techniques
-
-### Variables d'environnement
-- **Frontend**: `REACT_APP_BACKEND_URL`
-- **Backend**: `MONGO_URL`, `DB_NAME`
-
-### Dépendances clés
-- **Backend**: FastAPI, Motor (MongoDB async), Pydantic, python-dotenv
-- **Frontend**: React, React Router, Tailwind CSS, Axios, Sonner (toasts), Lucide React (icônes)
+- [ ] Envoi de notifications push depuis le panneau admin
 
 ## 📊 État du Projet
 
@@ -131,8 +131,15 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 | Contact | ✅ 100% | Backend + Frontend fonctionnels |
 | Pages traduites | ✅ 95% | Principales pages traduites |
 | Contenu dynamique | ✅ 70% | Citations, événements, recherche depuis MongoDB |
-| Boutons de partage | ✅ 100% | Facebook, Twitter, WhatsApp, Email, Copier |
-| Moteur de recherche | ✅ 100% | Backend multilingue fonctionnel |
-| Galerie photos | ✅ 100% | **Nouveau** Avec filtres et lightbox |
-| CMS Admin | ✅ 100% | **Nouveau** Gestion citations et événements |
-| Export iCal | ✅ 100% | **Nouveau** Google Calendar, Outlook, .ics |
+| Galerie photos | ✅ 100% | Avec filtres et lightbox |
+| CMS Admin | ✅ 100% | Gestion citations et événements (lecture seule) |
+| Export iCal | ✅ 100% | Google Calendar, Outlook, .ics |
+| **Auth Admin** | ✅ 100% | **NOUVEAU** - Login/Logout/Protection routes |
+| **PWA** | ✅ 100% | **NOUVEAU** - Service Worker, Manifest, Notifications |
+
+## 📅 Historique des mises à jour
+
+### Février 2025
+- ✅ Authentification admin complète (login/logout/protection)
+- ✅ PWA avec Service Worker et notifications push
+- ✅ Tests automatisés passés à 100%
