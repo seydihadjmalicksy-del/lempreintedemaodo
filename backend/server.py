@@ -633,6 +633,42 @@ async def create_quote(quote: Quote):
     return {"message": "Citation créée", "id": quote.id}
 
 
+@api_router.get("/quotes/{quote_id}")
+async def get_quote(quote_id: str):
+    """Get a single quote by ID"""
+    quote = await db.quotes.find_one({"id": quote_id}, {"_id": 0})
+    if not quote:
+        raise HTTPException(status_code=404, detail="Citation non trouvée")
+    return quote
+
+
+@api_router.put("/quotes/{quote_id}")
+async def update_quote(quote_id: str, update: QuoteUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update a quote (admin only)"""
+    quote = await db.quotes.find_one({"id": quote_id})
+    if not quote:
+        raise HTTPException(status_code=404, detail="Citation non trouvée")
+    
+    update_data = {k: v for k, v in update.model_dump().items() if v is not None}
+    
+    if update_data:
+        await db.quotes.update_one({"id": quote_id}, {"$set": update_data})
+    
+    updated_quote = await db.quotes.find_one({"id": quote_id}, {"_id": 0})
+    return {"message": "Citation mise à jour", "quote": updated_quote}
+
+
+@api_router.delete("/quotes/{quote_id}")
+async def delete_quote(quote_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete a quote (admin only)"""
+    result = await db.quotes.delete_one({"id": quote_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Citation non trouvée")
+    
+    return {"message": "Citation supprimée", "id": quote_id}
+
+
 # Events endpoints
 @api_router.get("/events")
 async def get_events(upcoming_only: bool = True, event_type: Optional[str] = None):
