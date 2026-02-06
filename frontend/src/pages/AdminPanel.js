@@ -227,13 +227,23 @@ const AdminPanel = () => {
               <Settings className="w-8 h-8 text-[#D4AF37]" />
               <h1 className="text-2xl font-bold">{t.title}</h1>
             </div>
-            <button
-              onClick={fetchData}
-              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors"
-            >
-              <RefreshCw className="w-4 h-4" />
-              {t.refresh}
-            </button>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={fetchData}
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition-colors"
+              >
+                <RefreshCw className="w-4 h-4" />
+                {t.refresh}
+              </button>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 bg-red-500/20 hover:bg-red-500/40 px-4 py-2 rounded-lg transition-colors"
+                data-testid="admin-logout"
+              >
+                <LogOut className="w-4 h-4" />
+                {t.logout}
+              </button>
+            </div>
           </div>
         </div>
       </div>
