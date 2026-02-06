@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, LogOut, AlertTriangle } from "lucide-react";
+import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, LogOut, AlertTriangle, FileText } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -14,6 +14,7 @@ const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("quotes");
   const [quotes, setQuotes] = useState([]);
   const [events, setEvents] = useState([]);
+  const [pageContent, setPageContent] = useState([]);
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [editingItem, setEditingItem] = useState(null);
