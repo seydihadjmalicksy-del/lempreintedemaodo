@@ -342,7 +342,7 @@ const Maodo = () => {
           </div>
 
           <div className="space-y-4">
-            {(oeuvres[language] || oeuvres.fr).map((oeuvre, index) => (
+            {getOeuvresList().map((oeuvre, index) => (
               <div
                 key={index}
                 className="bg-white/10 backdrop-blur-sm rounded-lg p-4 flex items-center gap-4 hover:bg-white/20 transition-colors"
@@ -350,7 +350,7 @@ const Maodo = () => {
                 <div className="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
                   <BookOpen className="w-5 h-5 text-[#004D33]" />
                 </div>
-                <p className="text-white">{oeuvre}</p>
+                <p className="text-white">{typeof oeuvre === 'string' ? oeuvre : `${oeuvre.title} - ${oeuvre.description}`}</p>
               </div>
             ))}
           </div>
