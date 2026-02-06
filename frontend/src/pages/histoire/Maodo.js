@@ -120,14 +120,14 @@ const Maodo = () => {
     ]
   };
 
-  const contributions = [
-    { title: t('gamouFounder'), description: t('gamouFounderDesc'), icon: Calendar },
-    { title: t('schoolBuilder'), description: t('schoolBuilderDesc'), icon: BookOpen },
-    { title: t('tijaniyyaSpreader'), description: t('tijaniyyaSpreaderDesc'), icon: Users },
-    { title: t('manOfPeace'), description: t('manOfPeaceDesc'), icon: Heart },
-    { title: t('prolificAuthor'), description: t('prolificAuthorDesc'), icon: BookOpen },
-    { title: t('sunnaReviver'), description: t('sunnaReviverDesc'), icon: Star }
-  ];
+  // Get dynamic oeuvres or use static fallback
+  const getOeuvresList = () => {
+    if (oeuvresData && Array.isArray(oeuvresData)) {
+      // Format from API: [{title: "...", description: "..."}]
+      return oeuvresData.map(o => `${o.title} - ${o.description}`);
+    }
+    return oeuvres[language] || oeuvres.fr;
+  };
 
   const citations = [
     { texte: t('quote1'), contexte: t('onAction') },
