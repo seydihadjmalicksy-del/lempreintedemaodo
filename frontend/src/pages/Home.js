@@ -4,6 +4,7 @@ import axios from "axios";
 import VideoCard from "../components/VideoCard";
 import Newsletter from "../components/Newsletter";
 import StatsCounter from "../components/StatsCounter";
+import ShareButtons from "../components/ShareButtons";
 import { ArrowRight, Sparkles, Calendar, MapPin, Quote } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -11,54 +12,10 @@ import { useLanguage } from "../contexts/LanguageContext";
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
-// Citations de Maodo
-const citations = [
-  {
-    texte: "La science sans la pratique est comme un arbre sans fruit.",
-    source: "El Hadji Malick Sy"
-  },
-  {
-    texte: "Celui qui connaît Dieu, son cœur trouve la paix.",
-    source: "El Hadji Malick Sy"
-  },
-  {
-    texte: "L'amour du Prophète (PSL) est la clé de tout bien.",
-    source: "El Hadji Malick Sy"
-  },
-  {
-    texte: "Le savoir est une lumière qui illumine le cœur du croyant.",
-    source: "El Hadji Malick Sy"
-  },
-  {
-    texte: "La patience dans l'épreuve est le signe de la foi sincère.",
-    source: "El Hadji Malick Sy"
-  }
-];
-
-// Événements à venir
-const evenementsAVenir = [
-  {
-    titre: "Ziarra Générale 2025",
-    date: "20 avril 2025",
-    lieu: "Tivaouane",
-    type: "ziarra"
-  },
-  {
-    titre: "Gamou 2025",
-    date: "4-5 septembre 2025",
-    lieu: "Tivaouane",
-    type: "gamou"
-  },
-  {
-    titre: "Hadratoul Joumah",
-    date: "Tous les vendredis",
-    lieu: "Zawiya El Hadji Malick Sy",
-    type: "hebdomadaire"
-  }
-];
-
 const Home = () => {
   const [featuredVideos, setFeaturedVideos] = useState([]);
+  const [dailyQuote, setDailyQuote] = useState(null);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const { t, language } = useLanguage();
 
@@ -66,14 +23,28 @@ const Home = () => {
     const fetchData = async () => {
       try {
         // Initialize data if needed
-        await axios.post(`${API}/init-data`);
+        await axios.post(`${API}/init-data`).catch(() => {});
+        
+        // Seed database with initial content
+        await axios.post(`${API}/admin/seed`).catch(() => {});
         
         // Fetch featured videos
-        const response = await axios.get(`${API}/videos/featured`);
-        setFeaturedVideos(response.data);
+        const videosResponse = await axios.get(`${API}/videos/featured`);
+        setFeaturedVideos(videosResponse.data);
+        
+        // Fetch daily quote
+        const quoteResponse = await axios.get(`${API}/quotes/daily`);
+        if (quoteResponse.data) {
+          setDailyQuote(quoteResponse.data);
+        }
+        
+        // Fetch upcoming events
+        const eventsResponse = await axios.get(`${API}/events`);
+        if (eventsResponse.data?.events) {
+          setUpcomingEvents(eventsResponse.data.events);
+        }
       } catch (error) {
-        console.error("Erreur lors du chargement des vidéos:", error);
-        toast.error("Erreur lors du chargement des vidéos");
+        console.error("Erreur lors du chargement:", error);
       } finally {
         setLoading(false);
       }
@@ -81,6 +52,36 @@ const Home = () => {
 
     fetchData();
   }, []);
+
+  // Get quote text based on language
+  const getQuoteText = () => {
+    if (!dailyQuote) return "";
+    switch(language) {
+      case 'en': return dailyQuote.text_en || dailyQuote.text_fr;
+      case 'ar': return dailyQuote.text_ar || dailyQuote.text_fr;
+      case 'wo': return dailyQuote.text_wo || dailyQuote.text_fr;
+      default: return dailyQuote.text_fr;
+    }
+  };
+
+  // Get event text based on language
+  const getEventText = (event, field) => {
+    const langField = `${field}_${language}`;
+    return event[langField] || event[`${field}_fr`] || event[field];
+  };
+
+  // Format event date for display
+  const formatEventDate = (dateStr, recurrencePattern) => {
+    if (recurrencePattern === 'weekly') {
+      return language === 'en' ? 'Every Friday' : 
+             language === 'ar' ? 'كل جمعة' : 
+             language === 'wo' ? 'Ajjuma bu nekk' : 
+             'Tous les vendredis';
+    }
+    const date = new Date(dateStr);
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return date.toLocaleDateString(language === 'ar' ? 'ar-SA' : language === 'en' ? 'en-US' : 'fr-FR', options);
+  };
 
   if (loading) {
     return (
