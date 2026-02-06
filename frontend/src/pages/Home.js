@@ -143,6 +143,67 @@ const Home = () => {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></div>
       </section>
 
+      {/* Citation du Jour & Calendrier */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Citation du Jour */}
+            <div className="bg-gradient-to-br from-[#004D33] to-[#003d29] rounded-2xl p-8 text-white">
+              <div className="flex items-center gap-3 mb-6">
+                <Quote className="w-8 h-8 text-[#D4AF37]" />
+                <h3 className="text-xl font-bold">Citation du Jour</h3>
+              </div>
+              <blockquote className="text-2xl font-light italic leading-relaxed mb-6">
+                "{citations[Math.floor(Date.now() / 86400000) % citations.length].texte}"
+              </blockquote>
+              <p className="text-[#D4AF37] font-semibold">
+                — {citations[Math.floor(Date.now() / 86400000) % citations.length].source}
+              </p>
+            </div>
+
+            {/* Calendrier des Événements */}
+            <div className="bg-[#F9F7F2] rounded-2xl p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Calendar className="w-8 h-8 text-[#004D33]" />
+                <h3 className="text-xl font-bold text-[#004D33]">Événements à Venir</h3>
+              </div>
+              <div className="space-y-4">
+                {evenementsAVenir.map((event, index) => (
+                  <div 
+                    key={index}
+                    className={`flex items-start gap-4 p-4 rounded-xl bg-white ${
+                      event.type === 'gamou' ? 'border-l-4 border-[#D4AF37]' : 
+                      event.type === 'ziarra' ? 'border-l-4 border-[#004D33]' : ''
+                    }`}
+                  >
+                    <div className="flex-1">
+                      <h4 className="font-bold text-[#004D33]">{event.titre}</h4>
+                      <div className="flex items-center gap-4 mt-1 text-sm text-[#888888]">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {event.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <MapPin className="w-4 h-4" />
+                          {event.lieu}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <Link 
+                to="/evenements/gamou"
+                className="inline-flex items-center gap-2 text-[#004D33] font-semibold mt-4 hover:text-[#D4AF37] transition-colors"
+              >
+                Voir tous les événements
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Videos Section */}
       <section className="py-16 lg:py-24 islamic-pattern" data-testid="featured-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
