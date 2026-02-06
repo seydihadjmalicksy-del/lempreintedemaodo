@@ -199,7 +199,7 @@ const AdminPanel = () => {
       wolof: "Wolof",
       author: "Author",
       context: "Context",
-      logout: "Logout"
+      logout: "Logout",
       date: "Date",
       location: "Location",
       type: "Type",
