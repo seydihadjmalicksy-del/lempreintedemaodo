@@ -35,12 +35,19 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
    - `/gallery` - Galerie vidéos
    - `/search` - Recherche globale
 
+### Support Multilingue ✅ COMPLÉTÉ (Décembre 2025)
+- **4 langues supportées**: Français (FR), English (EN), العربية (AR), Wolof (WO)
+- **Support RTL**: Direction droite-à-gauche automatique pour l'arabe
+- **Persistance**: Choix de langue sauvegardé dans localStorage
+- **Éléments traduits**: Navigation, Hero section, Citations, Événements, Newsletter, Statistiques, Footer
+- **Composants mis à jour**: Navbar, Home, Newsletter, StatsCounter
+
 ### Composants Créés
-- `Newsletter.js` - Formulaire d'inscription (2 variantes: default, compact)
-- `StatsCounter.js` - Compteur animé de statistiques
+- `Newsletter.js` - Formulaire d'inscription (2 variantes: default, compact) - **Multilingue**
+- `StatsCounter.js` - Compteur animé de statistiques - **Multilingue**
 - `Footer.js` - Footer global avec newsletter compacte
-- `LanguageSelector.js` - Sélecteur de langue (FR/AR/WO)
-- `LanguageContext.js` - Contexte multi-langue (traductions FR, Arabe, Wolof)
+- `LanguageSelector.js` - ⭐ Sélecteur de langue (FR/EN/AR/WO) avec drapeaux
+- `LanguageContext.js` - ⭐ Contexte multi-langue avec traductions complètes
 
 ### Photos Authentiques Intégrées
 **Maodo (5 photos):**
@@ -67,29 +74,34 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - Langue FR par défaut
 - Police Amiri pour l'arabe
 
-## 🔄 En Cours / À Compléter
+## 🔄 Tâches Prochaines (P1)
 
-### Multi-langue (Structure créée, intégration à finaliser)
-- [x] Contexte LanguageContext créé
-- [x] Traductions FR/AR/WO définies
-- [x] Composant LanguageSelector créé
-- [ ] Intégrer LanguageProvider dans App.js
-- [ ] Ajouter LanguageSelector à la Navbar
-- [ ] Appliquer les traductions aux composants
+### Newsletter Backend
+- [ ] Créer endpoint `/api/newsletter/subscribe`
+- [ ] Collection MongoDB pour stocker les emails
+- [ ] Validation email côté serveur
 
-### Newsletter
-- [x] Composant créé avec simulation
-- [ ] Connecter à un vrai service (ex: Mailchimp, SendGrid)
+### Formulaire Contact
+- [ ] Créer endpoint `/api/contact`
+- [ ] Stocker messages dans MongoDB ou envoyer par email
 
-## 📝 Backlog (P2)
+### Compléter Contenu
+- [ ] Vérifier `/enseignements/ecole` - contenu de remplissage
+
+## 📝 Backlog (P2-P3)
+
+### Migration Base de Données
+- [ ] Migrer toutes les données codées en dur vers MongoDB
+- [ ] Créer API CRUD pour gestion du contenu
+- [ ] Panel d'administration
 
 ### Technique
-- [ ] Migrer les données vers MongoDB
-- [ ] Créer API pour gestion du contenu
 - [ ] Lazy loading des images
 - [ ] Service Worker pour PWA
+- [ ] Améliorer moteur de recherche (backend)
 
 ### Fonctionnel
+- [ ] Galerie de photos dédiée avec lightbox
 - [ ] Espace membre / Authentification
 - [ ] Système de favoris
 - [ ] Partage sur réseaux sociaux
@@ -100,22 +112,23 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 ### Frontend
 ```
 /app/frontend/src/
+├── index.js (LanguageProvider wrapper) ✅
 ├── App.js (Routes)
 ├── components/
-│   ├── Navbar.js
-│   ├── Newsletter.js ⭐
-│   ├── StatsCounter.js ⭐
-│   ├── Footer.js ⭐
+│   ├── Navbar.js (multilingue) ✅
+│   ├── Newsletter.js (multilingue) ✅
+│   ├── StatsCounter.js (multilingue) ✅
+│   ├── Footer.js
 │   ├── LanguageSelector.js ⭐
 │   └── VideoCard.js
 ├── contexts/
-│   └── LanguageContext.js ⭐
+│   └── LanguageContext.js ⭐ (FR/EN/AR/WO)
 └── pages/
-    ├── Home.js
-    ├── CarteTivaouane.js ⭐
-    ├── ArbreGenealogique.js ⭐
+    ├── Home.js (multilingue) ✅
+    ├── CarteTivaouane.js
+    ├── ArbreGenealogique.js
     ├── histoire/
-    │   ├── Maodo.js ⭐ (avec galerie photos)
+    │   ├── Maodo.js (galerie photos)
     │   └── LigneeKhalifes.js (photos authentiques)
     └── ...
 ```
@@ -143,4 +156,4 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - **Composants**: Shadcn UI
 
 ---
-*Dernière mise à jour: 6 février 2025*
+*Dernière mise à jour: Décembre 2025*
