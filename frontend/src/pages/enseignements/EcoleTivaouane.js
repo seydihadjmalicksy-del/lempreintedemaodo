@@ -8,23 +8,45 @@ const EcoleTivaouane = () => {
   // Fetch dynamic content from MongoDB
   const { content, loading: contentLoading } = usePageContent("ecole", language);
 
-  const methodePedagogique = [
-    {
-      icon: BookOpen,
-      title: t('integralTeaching'),
-      description: t('integralTeachingDesc')
-    },
-    {
-      icon: Users,
-      title: t('oralPedagogy'),
-      description: t('oralPedagogyDesc')
-    },
-    {
-      icon: Award,
-      title: t('spiritualFormation'),
-      description: t('spiritualFormationDesc')
+  // Helper function to parse JSON content
+  const parseJsonContent = (section, fallback) => {
+    try {
+      const text = content?.[section]?.text;
+      if (text) {
+        return JSON.parse(text);
+      }
+    } catch (e) {
+      console.log(`Using fallback for ${section}`);
     }
+    return fallback;
+  };
+
+  // Static fallback for methods
+  const staticMethods = [
+    { title: t('integralTeaching'), description: t('integralTeachingDesc') },
+    { title: t('oralPedagogy'), description: t('oralPedagogyDesc') },
+    { title: t('spiritualFormation'), description: t('spiritualFormationDesc') }
   ];
+
+  // Dynamic methods from API or fallback
+  const methodsData = parseJsonContent("methods", staticMethods);
+  const methodIcons = [BookOpen, Users, Award, Globe, Star];
+
+  const methodePedagogique = methodsData.map((item, index) => ({
+    icon: methodIcons[index % methodIcons.length],
+    title: item.title,
+    description: item.description
+  }));
+
+  // Static fallback for cycles
+  const staticCycles = [
+    { name: t('elementaryCycle') || "Cycle élémentaire", duration: "3-5 ans", content: t('elementaryContent') || "Mémorisation du Coran, bases de la langue arabe" },
+    { name: t('middleCycle') || "Cycle moyen", duration: "5-7 ans", content: t('middleContent') || "Grammaire arabe, exégèse coranique" },
+    { name: t('advancedCycle') || "Cycle supérieur", duration: "Variable", content: t('advancedContent') || "Hadith, théologie, études approfondies" }
+  ];
+
+  // Dynamic cycles from API or fallback
+  const cyclesData = parseJsonContent("cycles", staticCycles);
 
   const grandsErudits = [
     {
