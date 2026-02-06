@@ -120,7 +120,7 @@ const LigneeKhalifes = () => {
         "Renforcement de l'unité des disciples",
         "Adaptation de l'enseignement aux réalités du 21e siècle"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg",
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
       current: true
     }
   ];
