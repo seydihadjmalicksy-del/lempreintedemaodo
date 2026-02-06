@@ -174,7 +174,8 @@ const AdminPanel = () => {
       date: "Date",
       location: "Lieu",
       type: "Type",
-      recurring: "Récurrent"
+      recurring: "Récurrent",
+      logout: "Déconnexion"
     },
     en: {
       title: "Administration Panel",
@@ -198,6 +199,7 @@ const AdminPanel = () => {
       wolof: "Wolof",
       author: "Author",
       context: "Context",
+      logout: "Logout"
       date: "Date",
       location: "Location",
       type: "Type",
