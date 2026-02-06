@@ -98,21 +98,19 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - `events`: `{ id, name_fr/en/ar/wo, description_fr/en/ar/wo, date, location, event_type, recurring, recurrence_pattern, active }`
 - `videos`: `{ id, title, description, youtube_id, category, is_featured, created_at }`
 
-## 📝 Backlog (P1-P3)
+## 📝 Backlog (P2-P3)
 
-### P1 - Migration du contenu vers MongoDB
-- [ ] Migrer les textes des pages vers la base de données
-- [ ] Créer un CMS simple pour l'administration
-- [ ] API endpoints pour chaque type de contenu
+### P2 - Galerie de photos avec lightbox
+- [ ] Créer une visionneuse d'images (lightbox)
+- [ ] Catégoriser les photos
 
-### P2 - Moteur de recherche amélioré
-- [ ] Endpoint backend pour recherche dans MongoDB
-- [ ] Recherche multi-langue
+### P2 - CMS simple pour administration
+- [ ] Interface d'administration pour gérer le contenu
+- [ ] Gestion des citations, événements, vidéos
 
-### P3 - Fonctionnalités sociales
-- [ ] Boutons de partage social
-- [ ] Galerie de photos avec lightbox
-- [ ] Intégration calendrier iCal
+### P3 - Intégration calendrier iCal
+- [ ] Exporter les événements au format iCal
+- [ ] Synchronisation avec calendriers externes
 
 ## 🔒 Informations Techniques
 
