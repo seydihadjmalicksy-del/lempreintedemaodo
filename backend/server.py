@@ -701,6 +701,42 @@ async def create_event(event: Event):
     return {"message": "Événement créé", "id": event.id}
 
 
+@api_router.get("/events/{event_id}")
+async def get_event(event_id: str):
+    """Get a single event by ID"""
+    event = await db.events.find_one({"id": event_id}, {"_id": 0})
+    if not event:
+        raise HTTPException(status_code=404, detail="Événement non trouvé")
+    return event
+
+
+@api_router.put("/events/{event_id}")
+async def update_event(event_id: str, update: EventUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update an event (admin only)"""
+    event = await db.events.find_one({"id": event_id})
+    if not event:
+        raise HTTPException(status_code=404, detail="Événement non trouvé")
+    
+    update_data = {k: v for k, v in update.model_dump().items() if v is not None}
+    
+    if update_data:
+        await db.events.update_one({"id": event_id}, {"$set": update_data})
+    
+    updated_event = await db.events.find_one({"id": event_id}, {"_id": 0})
+    return {"message": "Événement mis à jour", "event": updated_event}
+
+
+@api_router.delete("/events/{event_id}")
+async def delete_event(event_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete an event (admin only)"""
+    result = await db.events.delete_one({"id": event_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Événement non trouvé")
+    
+    return {"message": "Événement supprimé", "id": event_id}
+
+
 # ============== SEARCH ENDPOINT ==============
 
 @api_router.get("/search")
