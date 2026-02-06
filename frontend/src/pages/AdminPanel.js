@@ -388,8 +388,10 @@ const AdminPanel = () => {
               onClick={() => {
                 if (deleteConfirm.type === 'quote') {
                   handleDeleteQuote(deleteConfirm.id);
-                } else {
+                } else if (deleteConfirm.type === 'event') {
                   handleDeleteEvent(deleteConfirm.id);
+                } else if (deleteConfirm.type === 'content') {
+                  handleDeleteContent(deleteConfirm.id);
                 }
               }}
               disabled={actionLoading}
@@ -403,6 +405,103 @@ const AdminPanel = () => {
       </div>
     );
   };
+
+  // Edit Content Form
+  const EditContentForm = ({ item }) => (
+    <div className="bg-[#F9F7F2] rounded-lg p-6 mb-4" data-testid="edit-content-form">
+      <h3 className="font-bold text-[#004D33] mb-4">{t.editContent} - {item.slug}/{item.section}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.french}</label>
+          <textarea
+            value={editingItem?.content?.fr || ""}
+            onChange={(e) => setEditingItem({
+              ...editingItem,
+              content: { ...editingItem.content, fr: e.target.value }
+            })}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+            rows={4}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.english}</label>
+          <textarea
+            value={editingItem?.content?.en || ""}
+            onChange={(e) => setEditingItem({
+              ...editingItem,
+              content: { ...editingItem.content, en: e.target.value }
+            })}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+            rows={4}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.arabic}</label>
+          <textarea
+            value={editingItem?.content?.ar || ""}
+            onChange={(e) => setEditingItem({
+              ...editingItem,
+              content: { ...editingItem.content, ar: e.target.value }
+            })}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent text-right"
+            dir="rtl"
+            rows={4}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.wolof}</label>
+          <textarea
+            value={editingItem?.content?.wo || ""}
+            onChange={(e) => setEditingItem({
+              ...editingItem,
+              content: { ...editingItem.content, wo: e.target.value }
+            })}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+            rows={4}
+          />
+        </div>
+      </div>
+      <div className="flex items-center gap-4 mt-4">
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="content-active"
+            checked={editingItem?.active || false}
+            onChange={(e) => setEditingItem({...editingItem, active: e.target.checked})}
+            className="w-5 h-5"
+          />
+          <label htmlFor="content-active" className="text-sm font-medium text-[#4A4A4A]">{t.active}</label>
+        </div>
+        <div>
+          <label className="text-sm font-medium text-[#4A4A4A] mr-2">Order:</label>
+          <input
+            type="number"
+            value={editingItem?.order || 0}
+            onChange={(e) => setEditingItem({...editingItem, order: parseInt(e.target.value)})}
+            className="w-20 border rounded-lg p-2"
+          />
+        </div>
+      </div>
+      <div className="flex gap-2 mt-4">
+        <button
+          onClick={() => handleUpdateContent(item.id)}
+          disabled={actionLoading}
+          className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+          data-testid="save-content-btn"
+        >
+          <Save className="w-4 h-4" />
+          {actionLoading ? "..." : t.save}
+        </button>
+        <button
+          onClick={() => setEditingItem(null)}
+          className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+        >
+          <X className="w-4 h-4" />
+          {t.cancel}
+        </button>
+      </div>
+    </div>
+  );
 
   // Edit Quote Form
   const EditQuoteForm = ({ quote }) => (
