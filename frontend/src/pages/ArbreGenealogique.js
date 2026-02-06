@@ -20,7 +20,7 @@ const ArbreGenealogique = () => {
     surnom: "Maodo",
     dates: "1855 - 1922",
     titre: "Fondateur de la Zawiya de Tivaouane",
-    image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
+    image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
     epouses: [
       { nom: "Sokhna Rokhaya Ndiaye", enfants: ["babacar"] },
       { nom: "Sokhna Safiétou Niang", enfants: ["habib"] }
