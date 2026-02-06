@@ -49,17 +49,45 @@ const Maodo = () => {
     }
   ];
 
-  const timeline = [
-    { year: "1855", title: t('birth'), description: t('birthDesc'), icon: Star },
-    { year: "1855-1862", title: t('quranMemorization'), description: t('quranMemorizationDesc'), icon: BookOpen },
-    { year: "1862-1884", title: t('islamicStudies'), description: t('islamicStudiesDesc'), icon: BookOpen },
-    { year: "1884", title: t('saintLouisSettlement'), description: t('saintLouisSettlementDesc'), icon: MapPin },
-    { year: "1886-1888", title: t('hajjPilgrimage'), description: t('hajjPilgrimageDesc'), icon: Star },
-    { year: "1892", title: t('zawiyaNdar'), description: t('zawiyaNdarDesc'), icon: MapPin },
-    { year: "1900", title: t('tivaouaneSettlement'), description: t('tivaouaneSettlementDesc'), icon: MapPin },
-    { year: "1902", title: t('zawiyaTivaouane'), description: t('zawiyaTivaouaneDesc'), icon: Star },
-    { year: "1922", title: t('returnToGod'), description: t('returnToGodDesc'), icon: Heart }
+  // Helper function to parse JSON content from API
+  const parseJsonContent = (section, fallback) => {
+    try {
+      const text = content?.[section]?.text;
+      if (text) {
+        return JSON.parse(text);
+      }
+    } catch (e) {
+      console.log(`Using fallback for ${section}`);
+    }
+    return fallback;
+  };
+
+  // Static fallback data
+  const staticTimeline = [
+    { year: "1855", event: t('birthDesc') },
+    { year: "1855-1862", event: t('quranMemorizationDesc') },
+    { year: "1862-1884", event: t('islamicStudiesDesc') },
+    { year: "1884", event: t('saintLouisSettlementDesc') },
+    { year: "1886-1888", event: t('hajjPilgrimageDesc') },
+    { year: "1892", event: t('zawiyaNdarDesc') },
+    { year: "1900", event: t('tivaouaneSettlementDesc') },
+    { year: "1902", event: t('zawiyaTivaouaneDesc') },
+    { year: "1922", event: t('returnToGodDesc') }
   ];
+
+  const staticContributions = [
+    { title: t('gamouFounder'), description: t('gamouFounderDesc') },
+    { title: t('schoolBuilder'), description: t('schoolBuilderDesc') },
+    { title: t('tijaniyyaSpreader'), description: t('tijaniyyaSpreaderDesc') },
+    { title: t('manOfPeace'), description: t('manOfPeaceDesc') },
+    { title: t('prolificAuthor'), description: t('prolificAuthorDesc') },
+    { title: t('sunnaReviver'), description: t('sunnaReviverDesc') }
+  ];
+
+  // Use dynamic content or fallback
+  const timeline = parseJsonContent("timeline", staticTimeline);
+  const contributions = parseJsonContent("contributions", staticContributions);
+  const oeuvresData = parseJsonContent("oeuvres", null);
 
   const oeuvres = {
     fr: [
