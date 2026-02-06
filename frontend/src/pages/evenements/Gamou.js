@@ -125,7 +125,8 @@ const Gamou = () => {
               </h1>
               
               <p className="text-xl text-white/90 leading-relaxed">
-                {t('gamouHeroDesc')}
+                {/* Dynamic content from MongoDB or fallback to static */}
+                {getContentText(content, "hero", t('gamouHeroDesc'))}
               </p>
             </div>
           </div>
@@ -140,13 +141,14 @@ const Gamou = () => {
             <ShareButtons 
               url="/evenements/gamou" 
               title={t('gamouTitle')}
-              description={t('gamouHeroDesc')}
+              description={getContentText(content, "hero", t('gamouHeroDesc'))}
             />
           </div>
           
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-[#004D33] font-semibold mb-6 leading-relaxed">
-              {t('gamouIntro1')}
+              {/* Dynamic intro content */}
+              {getContentText(content, "intro", t('gamouIntro1'))}
             </p>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
