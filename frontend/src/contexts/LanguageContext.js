@@ -475,8 +475,8 @@ const translations = {
     viewAllWorks: "View all works",
     wordsOfWisdom: "Words of Wisdom",
     eternalLegacy: "His Eternal Legacy",
-    legacyText: "Today, more than a century after his return to God, Maodo's influence continues to radiate. The Tijaniyya Tariqa has become the main Sufi brotherhood in Senegal, and the Gamou of Tivaouane gathers more than 5 million faithful every year. His teachings, transmitted by his successors, continue to enlighten the hearts and minds of millions of Muslims around the world.",
-    hisSuccessors: "His Successors",
+    legacyText: "Today, more than a century after his return to God, Maodo's influence continues to radiate. The Tijaniyya Tariqa has become the main Sufi brotherhood in Senegal, and the Gamou of Tivaouane gathers more than 5 million faithful every year. His teachings, transmitted by his heirs, continue to enlighten the hearts and minds of millions of Muslims around the world.",
+    hisSuccessors: "His Heirs",
     theGamou: "The Gamou",
     mayAllahBePleasedWithHim: "May God be pleased with him and make him satisfied",
     
@@ -521,7 +521,7 @@ const translations = {
     
     // Khalifes Page
     lineageOfHeirs: "The Lineage of Heirs",
-    heirsSubtitle: "The Successors of Maodo: Guardians of the Spiritual Heritage",
+    heirsSubtitle: "The Heirs of Maodo: Guardians of the Spiritual Heritage",
     heirsIntro: "Since the return to God of El Hadji Malick Sy in 1922, several khalifes have succeeded at the head of the Tidiane Tariqa of Tivaouane. Each of them has contributed to the edifice, helping to spread Maodo's teaching through time and space.",
     successionPrinciple: "The principle of succession (Khilafa) in the Tidiane Tariqa of Tivaouane follows a logic of spiritual primogeniture, generally favoring the sons of Maodo, while taking into account qualities of science and piety.",
     majorContributionsLabel: "Major Contributions:",
