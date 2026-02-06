@@ -49,7 +49,7 @@ const Archives = () => {
       id: 5,
       category: "photos",
       title: "Portraits des Khalifes",
-      description: "Collection de photographies des successeurs d'El Hadji Malick Sy",
+      description: "Collection de photographies des héritiers d'El Hadji Malick Sy",
       date: "1922-2024",
       image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"
     },
