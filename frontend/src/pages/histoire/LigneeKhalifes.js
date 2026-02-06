@@ -176,20 +176,22 @@ const LigneeKhalifes = () => {
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
                     {/* Image */}
-                    <div className="relative h-64 lg:h-auto">
-                      <img
-                        src={khalife.image}
-                        alt={khalife.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <div className="w-16 h-16 bg-[#004D33] rounded-full flex items-center justify-center shadow-lg">
-                          <Icon className="w-8 h-8 text-[#D4AF37]" />
+                    <div className="relative bg-gradient-to-b from-[#1a1a1a] to-[#2a2a2a] flex items-center justify-center p-6 lg:p-8">
+                      <div className="relative">
+                        <img
+                          src={khalife.image}
+                          alt={khalife.name}
+                          className="max-h-80 lg:max-h-96 w-auto object-contain rounded-lg shadow-2xl"
+                        />
+                        <div className="absolute -top-3 -left-3">
+                          <div className="w-14 h-14 bg-[#004D33] rounded-full flex items-center justify-center shadow-lg border-2 border-[#D4AF37]">
+                            <Icon className="w-7 h-7 text-[#D4AF37]" />
+                          </div>
                         </div>
                       </div>
                       {khalife.current && (
                         <div className="absolute bottom-4 left-4 right-4">
-                          <div className="bg-[#D4AF37] text-[#004D33] px-4 py-2 rounded-full text-center font-bold">
+                          <div className="bg-[#D4AF37] text-[#004D33] px-4 py-2 rounded-full text-center font-bold text-sm">
                             Khalife Actuel
                           </div>
                         </div>
