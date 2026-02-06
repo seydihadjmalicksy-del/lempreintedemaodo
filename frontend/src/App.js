@@ -9,6 +9,7 @@ import Mediatheque from "./pages/Mediatheque";
 import Contact from "./pages/Contact";
 import CarteTivaouane from "./pages/CarteTivaouane";
 import ArbreGenealogique from "./pages/ArbreGenealogique";
+import PhotoGallery from "./pages/PhotoGallery";
 import ElHadjiMalickSy from "./pages/histoire/ElHadjiMalickSy";
 import Maodo from "./pages/histoire/Maodo";
 import LigneeKhalifes from "./pages/histoire/LigneeKhalifes";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/photos" element={<PhotoGallery />} />
           <Route path="/video/:id" element={<VideoPlayer />} />
           <Route path="/about" element={<About />} />
           <Route path="/archives" element={<Archives />} />
