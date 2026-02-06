@@ -126,8 +126,10 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 
 | Fonctionnalité | Status | Notes |
 |----------------|--------|-------|
-| Support Multilingue | ✅ 100% | FR, EN, AR, WO avec RTL |
+| Support Multilingue | ✅ 100% | FR, EN, AR, WO avec RTL + détection auto |
 | Newsletter | ✅ 100% | Backend + Frontend fonctionnels |
 | Contact | ✅ 100% | Backend + Frontend fonctionnels |
-| Pages traduites | ✅ 90% | Principales pages traduites |
-| Contenu dynamique | ⏳ 10% | Encore codé en dur |
+| Pages traduites | ✅ 95% | Principales pages traduites |
+| Contenu dynamique | ✅ 70% | Citations, événements, recherche depuis MongoDB |
+| Boutons de partage | ✅ 100% | Facebook, Twitter, WhatsApp, Email, Copier |
+| Moteur de recherche | ✅ 100% | Backend multilingue fonctionnel |
