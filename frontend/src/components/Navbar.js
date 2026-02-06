@@ -27,7 +27,9 @@ const Navbar = () => {
         { path: "/histoire/origines", label: "Les Origines" },
         { path: "/histoire/maodo", label: "Maodo (El Hadji Malick Sy)" },
         { path: "/histoire/khalifes", label: "Lignée des Héritiers" },
-        { path: "/histoire/geographie", label: "Géographie Sacrée" }
+        { path: "/arbre-genealogique", label: "Arbre Généalogique" },
+        { path: "/histoire/geographie", label: "Géographie Sacrée" },
+        { path: "/carte", label: "Carte Interactive" }
       ]
     },
     { 
