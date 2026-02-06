@@ -3,16 +3,16 @@ import { Calendar, MapPin, Users, Heart } from "lucide-react";
 const ZiarraAnnuelles = () => {
   const ziarras = [
     {
-      nom: "Ziarra Générale",
-      date: "Dernier vendredi du mois de Rajab",
+      nom: "Ziarra Générale 2025",
+      date: "Dimanche 20 avril 2025",
       icon: Users,
-      description: "La plus importante des ziarra, créée en 1930 par Serigne Babacar Sy. Elle rassemble des centaines de milliers de disciples venus renouveler leur pacte spirituel (bay'a) avec le Khalife.",
+      description: "La plus importante des ziarra, créée en 1930 par Serigne Babacar Sy. Elle rassemble des centaines de milliers de disciples venus renouveler leur pacte spirituel (bay'a) avec le Khalife Serigne Babacar Sy Mansour.",
       programme: [
-        "Jeudi : Arrivée des pèlerins et installation",
-        "Vendredi matin : Grande prière à la mosquée",
-        "Vendredi après-midi : Wazifa collective géante",
-        "Vendredi soir : Allocution du Khalife et bénédictions",
-        "Samedi : Visites aux mausolées et retour"
+        "Samedi 19 avril : Arrivée des pèlerins et Gamou traditionnel",
+        "Dimanche matin : Grande prière à la mosquée",
+        "Dimanche : Renouvellement de l'allégeance des Dahiras",
+        "Dimanche soir : Allocution du Khalife et bénédictions",
+        "Forum sur les Dahiras comme vecteurs de développement"
       ],
       signification: "C'est le moment où chaque tidiane réaffirme son engagement spirituel et reçoit les orientations du guide pour l'année à venir."
     },
