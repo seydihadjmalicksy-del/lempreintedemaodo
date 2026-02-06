@@ -104,10 +104,10 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Contactez-Nous
+              {t('contactUs')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto mb-4">
-              Nous sommes à votre écoute pour toute question ou contribution
+              {t('contactSubtitle')}
             </p>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -148,19 +148,19 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#004D33] mb-4">
-              Envoyez-nous un Message
+              {language === 'en' ? 'Send us a Message' : 
+               language === 'ar' ? 'أرسل لنا رسالة' : 
+               language === 'wo' ? 'Yónnee nu ab bataaxal' :
+               'Envoyez-nous un Message'}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
-            <p className="text-lg text-[#4A4A4A]">
-              Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais
-            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label className="block text-sm font-semibold text-[#004D33] mb-2">
-                  Nom complet *
+                  {t('yourName')} *
                 </label>
                 <Input
                   type="text"
@@ -168,14 +168,14 @@ const Contact = () => {
                   value={formData.nom}
                   onChange={handleChange}
                   required
-                  placeholder="Votre nom"
+                  placeholder={t('yourName')}
                   className="h-12 border-gray-300 focus:border-[#004D33] focus:ring-[#004D33]"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-semibold text-[#004D33] mb-2">
-                  Email *
+                  {t('yourEmail')} *
                 </label>
                 <Input
                   type="email"
@@ -183,7 +183,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="votre@email.com"
+                  placeholder="email@example.com"
                   className="h-12 border-gray-300 focus:border-[#004D33] focus:ring-[#004D33]"
                 />
               </div>
@@ -191,7 +191,7 @@ const Contact = () => {
 
             <div className="mb-6">
               <label className="block text-sm font-semibold text-[#004D33] mb-2">
-                Sujet *
+                {t('subject')} *
               </label>
               <Input
                 type="text"
@@ -199,14 +199,14 @@ const Contact = () => {
                 value={formData.sujet}
                 onChange={handleChange}
                 required
-                placeholder="Objet de votre message"
+                placeholder={t('subject')}
                 className="h-12 border-gray-300 focus:border-[#004D33] focus:ring-[#004D33]"
               />
             </div>
 
             <div className="mb-6">
               <label className="block text-sm font-semibold text-[#004D33] mb-2">
-                Message *
+                {t('message')} *
               </label>
               <textarea
                 name="message"
@@ -214,7 +214,7 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 rows="6"
-                placeholder="Écrivez votre message ici..."
+                placeholder={t('message')}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-[#004D33] focus:ring-1 focus:ring-[#004D33] resize-none"
               ></textarea>
             </div>
@@ -225,11 +225,11 @@ const Contact = () => {
               className="w-full bg-[#004D33] hover:bg-[#003d29] text-white h-14 text-lg font-semibold rounded-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
             >
               {loading ? (
-                "Envoi en cours..."
+                t('sending')
               ) : (
                 <>
                   <Send className="w-5 h-5" />
-                  Envoyer le message
+                  {t('send')}
                 </>
               )}
             </Button>
@@ -243,26 +243,32 @@ const Contact = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 rounded-full px-6 py-3 mb-6">
               <Heart className="w-5 h-5 text-[#D4AF37]" />
-              <span className="text-[#004D33] font-semibold">Soutenez Tivaouane</span>
+              <span className="text-[#004D33] font-semibold">
+                {language === 'en' ? 'Support Tivaouane' : 
+                 language === 'ar' ? 'ادعم تيفاوان' : 
+                 'Soutenez Tivaouane'}
+              </span>
             </div>
             
             <h2 className="text-4xl font-bold text-[#004D33] mb-4">
-              Faire un Don (Hadiya)
+              {language === 'en' ? 'Make a Donation (Hadiya)' : 
+               language === 'ar' ? 'تبرع (هدية)' : 
+               language === 'wo' ? 'Def ab don (Hadiya)' :
+               'Faire un Don (Hadiya)'}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
-            <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
-              Votre générosité contribue au rayonnement de la Tariqa et au bien-être de la communauté
-            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl font-bold text-[#004D33] mb-6">
-                À quoi servent vos dons ?
+                {language === 'en' ? 'What are your donations used for?' : 
+                 language === 'ar' ? 'لماذا تستخدم تبرعاتكم؟' : 
+                 'À quoi servent vos dons ?'}
               </h3>
               
               <div className="space-y-4">
-                {raisonsDon.map((raison, index) => (
+                {(raisonsDon[language] || raisonsDon.fr).map((raison, index) => (
                   <div key={index} className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="text-white font-bold text-sm">{index + 1}</span>
@@ -274,16 +280,24 @@ const Contact = () => {
             </div>
 
             <div className="bg-gradient-to-br from-[#004D33] to-[#003d29] rounded-2xl p-8 lg:p-12 text-white shadow-2xl">
-              <h3 className="text-2xl font-bold mb-6">Informations Bancaires</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                {language === 'en' ? 'Bank Information' : 
+                 language === 'ar' ? 'معلومات بنكية' : 
+                 'Informations Bancaires'}
+              </h3>
               
               <div className="space-y-4 mb-8">
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-sm text-white/70 mb-1">Bénéficiaire</p>
+                  <p className="text-sm text-white/70 mb-1">
+                    {language === 'en' ? 'Beneficiary' : language === 'ar' ? 'المستفيد' : 'Bénéficiaire'}
+                  </p>
                   <p className="font-semibold">Cadre de Réflexion et d'Action Tidiane</p>
                 </div>
                 
                 <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-sm text-white/70 mb-1">Banque</p>
+                  <p className="text-sm text-white/70 mb-1">
+                    {language === 'en' ? 'Bank' : language === 'ar' ? 'البنك' : 'Banque'}
+                  </p>
                   <p className="font-semibold">Banque Islamique du Sénégal</p>
                 </div>
                 
@@ -295,10 +309,13 @@ const Contact = () => {
 
               <div className="bg-[#D4AF37]/20 border border-[#D4AF37]/30 rounded-lg p-4">
                 <p className="text-sm text-white/90 italic">
-                  "Celui qui fait une aumône équivalant à une datte provenant d'un gain licite, 
-                  Allah l'accepte de Sa Main droite et la fait fructifier pour son donateur."
+                  {language === 'ar' ? 
+                    '"من تصدق بعدل تمرة من كسب طيب، وَلَا يَقْبَلُ اللَّهُ إِلَّا الطَّيِّبَ..."' :
+                    '"Celui qui fait une aumône équivalant à une datte provenant d\'un gain licite, Allah l\'accepte de Sa Main droite..."'}
                 </p>
-                <p className="text-xs text-[#D4AF37] mt-2">- Hadith authentique</p>
+                <p className="text-xs text-[#D4AF37] mt-2">
+                  {language === 'en' ? '- Authentic Hadith' : language === 'ar' ? '- حديث صحيح' : '- Hadith authentique'}
+                </p>
               </div>
             </div>
           </div>
@@ -310,48 +327,43 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[#004D33] mb-4">
-              Comment nous trouver
+              {language === 'en' ? 'How to find us' : 
+               language === 'ar' ? 'كيف تجدنا' : 
+               'Comment nous trouver'}
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
-            <p className="text-lg text-[#4A4A4A]">
-              Tivaouane est située à 90 km à l'est de Dakar, facilement accessible par route
-            </p>
           </div>
 
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-bold text-[#004D33] mb-4">Depuis Dakar</h3>
+                <h3 className="text-xl font-bold text-[#004D33] mb-4">
+                  {language === 'en' ? 'From Dakar' : language === 'ar' ? 'من داكار' : 'Depuis Dakar'}
+                </h3>
                 <ul className="space-y-3 text-[#4A4A4A]">
                   <li className="flex items-start gap-3">
                     <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>En voiture : 1h30 via l'autoroute à péage</span>
+                    <span>{language === 'en' ? 'By car: 1h30 via the toll highway' : 'En voiture : 1h30 via l\'autoroute à péage'}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>En bus : Départs réguliers depuis la gare routière Pompiers</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>En taxi-brousse : Liaisons fréquentes</span>
+                    <span>{language === 'en' ? 'By bus: Regular departures from Pompiers station' : 'En bus : Départs réguliers depuis la gare routière Pompiers'}</span>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-[#004D33] mb-4">Une fois sur place</h3>
+                <h3 className="text-xl font-bold text-[#004D33] mb-4">
+                  {language === 'en' ? 'Once there' : language === 'ar' ? 'عند الوصول' : 'Une fois sur place'}
+                </h3>
                 <ul className="space-y-3 text-[#4A4A4A]">
                   <li className="flex items-start gap-3">
                     <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>La Grande Mosquée est au centre-ville, facilement repérable</span>
+                    <span>{language === 'en' ? 'The Grand Mosque is in the city center' : 'La Grande Mosquée est au centre-ville'}</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Transport local : taxis, calèches, motos-taxis</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#D4AF37] mt-1">•</span>
-                    <span>Hébergement : Nombreuses maisons d'accueil et hôtels</span>
+                    <span>{language === 'en' ? 'Local transport: taxis, carriages, moto-taxis' : 'Transport local : taxis, calèches, motos-taxis'}</span>
                   </li>
                 </ul>
               </div>
