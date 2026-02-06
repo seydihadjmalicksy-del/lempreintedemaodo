@@ -44,6 +44,25 @@ const LigneeKhalifes = () => {
       image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg"
     },
     {
+      name: "Serigne Sidy Ahmed Sy ibn Serigne Babacar",
+      title: { fr: "Le Gardien de l'Héritage Paternel", en: "The Guardian of Paternal Heritage", ar: "حارس الإرث الأبوي", wo: "Sàmm warisaay baay" },
+      period: "1910 - 1998",
+      icon: Shield,
+      description: {
+        fr: "Fils de Serigne Babacar Sy, premier Khalife, Serigne Sidy Ahmed Sy incarna la continuité spirituelle de la lignée. Formé directement par son père dans les sciences religieuses et la gestion de la confrérie, il fut un pilier silencieux mais essentiel de la Tariqa. Sa piété profonde, sa discrétion exemplaire et son dévouement absolu aux enseignements de Maodo firent de lui un modèle pour les disciples.",
+        en: "Son of Serigne Babacar Sy, the first Khalife, Serigne Sidy Ahmed Sy embodied the spiritual continuity of the lineage. Trained directly by his father in religious sciences and brotherhood management, he was a silent but essential pillar of the Tariqa. His deep piety, exemplary discretion, and absolute devotion to Maodo's teachings made him a model for disciples.",
+        ar: "ابن سرين باباكار سي، الخليفة الأول، جسّد سرين سيدي أحمد سي الاستمرارية الروحية للسلالة. تدرب مباشرة على يد والده في العلوم الدينية وإدارة الطريقة، فكان ركيزة صامتة لكن أساسية للطريقة. تقواه العميقة وتواضعه المثالي وإخلاصه المطلق لتعاليم مودو جعلته قدوة للتلاميذ.",
+        wo: "Doom Serigne Babacar Sy, njëkk Xaliifa, Serigne Sidy Ahmed Sy mu wone dund diine waa kër gi. Baay bi moo ko jàngale xam-xam diine ak yoon tànn tariqa. Diine bam bu xóot, sutura bam, ak jëf bam ci jàng Maodo moo ko def misaal ci taalibe yi."
+      },
+      contributions: {
+        fr: ["Préservation fidèle des enseignements de son père", "Soutien actif aux activités de la Tariqa", "Formation spirituelle de nombreux disciples", "Maintien de l'unité familiale au sein de la confrérie"],
+        en: ["Faithful preservation of his father's teachings", "Active support of Tariqa activities", "Spiritual training of many disciples", "Maintaining family unity within the brotherhood"],
+        ar: ["الحفاظ الأمين على تعاليم والده", "الدعم الفعال لأنشطة الطريقة", "التكوين الروحي للعديد من التلاميذ", "الحفاظ على وحدة الأسرة داخل الطريقة"],
+        wo: ["Sàmm jàng baay bi bu sell", "Dimbali liggéey Tariqa yi", "Jàngale diine taalibe yu bari", "Sàmm bokk waa kër ci biir tariqa"]
+      },
+      image: "https://customer-assets.emergentagent.com/job_9e8f0b7f-bd5d-4cfa-8b09-9e5f34d5dbc8/artifacts/q4qx4any_FB_IMG_1770361012622.jpg"
+    },
+    {
       name: "Serigne Mansour Sy 'Balkhawmi'",
       title: { fr: "Le Savant Multidimensionnel", en: "The Multidimensional Scholar", ar: "العالم متعدد الأبعاد", wo: "Borom xam-xam bu bari" },
       period: "1900 - 1957",
