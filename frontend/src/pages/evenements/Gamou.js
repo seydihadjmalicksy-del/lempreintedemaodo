@@ -10,28 +10,45 @@ const Gamou = () => {
   // Fetch dynamic content from MongoDB
   const { content, loading: contentLoading } = usePageContent("gamou", language);
 
-  const phases = [
-    {
-      icon: Calendar,
-      title: t('tenDaysOfBourde'),
-      description: t('tenDaysOfBourdeDesc')
-    },
-    {
-      icon: Book,
-      title: t('nightlyTalks'),
-      description: t('nightlyTalksDesc')
-    },
-    {
-      icon: Users,
-      title: t('massGathering'),
-      description: t('massGatheringDesc')
-    },
-    {
-      icon: Heart,
-      title: t('mawlidNight'),
-      description: t('mawlidNightDesc')
+  // Helper function to parse JSON content
+  const parseJsonContent = (section, fallback) => {
+    try {
+      const text = content?.[section]?.text;
+      if (text) {
+        return JSON.parse(text);
+      }
+    } catch (e) {
+      console.log(`Using fallback for ${section}`);
     }
+    return fallback;
+  };
+
+  // Static fallback for phases
+  const staticPhases = [
+    { phase: t('tenDaysOfBourde'), description: t('tenDaysOfBourdeDesc'), icon: "book" },
+    { phase: t('nightlyTalks'), description: t('nightlyTalksDesc'), icon: "users" },
+    { phase: t('massGathering'), description: t('massGatheringDesc'), icon: "map-pin" },
+    { phase: t('mawlidNight'), description: t('mawlidNightDesc'), icon: "star" }
   ];
+
+  // Dynamic program from API or fallback
+  const programData = parseJsonContent("program", staticPhases);
+  
+  // Map icon strings to components
+  const iconMap = {
+    "book": Book,
+    "users": Users,
+    "map-pin": MapPin,
+    "star": Heart,
+    "calendar": Calendar,
+    "music": Music
+  };
+
+  const phases = programData.map((item, index) => ({
+    icon: iconMap[item.icon] || [Calendar, Book, Users, Heart][index % 4],
+    title: item.phase || item.title,
+    description: item.description
+  }));
 
   const practicalInfo = [
     {
