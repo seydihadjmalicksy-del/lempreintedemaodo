@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, CheckCircle, LogOut } from "lucide-react";
+import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, LogOut, AlertTriangle } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -16,9 +16,10 @@ const AdminPanel = () => {
   const [events, setEvents] = useState([]);
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [editingItem, setEditingItem] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [deleteConfirm, setDeleteConfirm] = useState(null);
+  const [actionLoading, setActionLoading] = useState(false);
 
   // New item forms
   const [newQuote, setNewQuote] = useState({
@@ -46,7 +47,6 @@ const AdminPanel = () => {
       return;
     }
     
-    // Check if token expired
     if (new Date(expires) < new Date()) {
       localStorage.removeItem("adminToken");
       localStorage.removeItem("adminExpires");
@@ -55,12 +55,10 @@ const AdminPanel = () => {
       return;
     }
     
-    // Verify token with backend
     try {
       await axios.get(`${API}/admin/verify`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setIsAuthenticated(true);
       fetchData();
     } catch (error) {
       localStorage.removeItem("adminToken");
@@ -76,9 +74,7 @@ const AdminPanel = () => {
       await axios.post(`${API}/admin/logout`, null, {
         headers: { Authorization: `Bearer ${token}` }
       });
-    } catch (e) {
-      // Ignore errors
-    }
+    } catch (e) {}
     localStorage.removeItem("adminToken");
     localStorage.removeItem("adminExpires");
     localStorage.removeItem("adminUsername");
@@ -117,7 +113,9 @@ const AdminPanel = () => {
     }
   };
 
+  // ===== QUOTES CRUD =====
   const handleAddQuote = async () => {
+    setActionLoading(true);
     try {
       await axios.post(`${API}/quotes`, newQuote);
       toast.success("Citation ajoutée avec succès");
@@ -129,10 +127,46 @@ const AdminPanel = () => {
       fetchData();
     } catch (error) {
       toast.error("Erreur lors de l'ajout de la citation");
+    } finally {
+      setActionLoading(false);
     }
   };
 
+  const handleUpdateQuote = async (quoteId) => {
+    setActionLoading(true);
+    try {
+      await axios.put(`${API}/quotes/${quoteId}`, editingItem, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Citation mise à jour");
+      setEditingItem(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la mise à jour");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleDeleteQuote = async (quoteId) => {
+    setActionLoading(true);
+    try {
+      await axios.delete(`${API}/quotes/${quoteId}`, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Citation supprimée");
+      setDeleteConfirm(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la suppression");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // ===== EVENTS CRUD =====
   const handleAddEvent = async () => {
+    setActionLoading(true);
     try {
       await axios.post(`${API}/events`, newEvent);
       toast.success("Événement ajouté avec succès");
@@ -145,6 +179,40 @@ const AdminPanel = () => {
       fetchData();
     } catch (error) {
       toast.error("Erreur lors de l'ajout de l'événement");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleUpdateEvent = async (eventId) => {
+    setActionLoading(true);
+    try {
+      await axios.put(`${API}/events/${eventId}`, editingItem, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Événement mis à jour");
+      setEditingItem(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la mise à jour");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleDeleteEvent = async (eventId) => {
+    setActionLoading(true);
+    try {
+      await axios.delete(`${API}/events/${eventId}`, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Événement supprimé");
+      setDeleteConfirm(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la suppression");
+    } finally {
+      setActionLoading(false);
     }
   };
 
@@ -153,7 +221,6 @@ const AdminPanel = () => {
       title: "Panneau d'Administration",
       quotes: "Citations",
       events: "Événements",
-      stats: "Statistiques",
       addNew: "Ajouter",
       refresh: "Actualiser",
       save: "Enregistrer",
@@ -175,13 +242,20 @@ const AdminPanel = () => {
       location: "Lieu",
       type: "Type",
       recurring: "Récurrent",
-      logout: "Déconnexion"
+      logout: "Déconnexion",
+      confirmDelete: "Confirmer la suppression",
+      confirmDeleteMsg: "Êtes-vous sûr de vouloir supprimer cet élément ?",
+      yes: "Oui, supprimer",
+      no: "Annuler",
+      newQuote: "Nouvelle Citation",
+      newEvent: "Nouvel Événement",
+      editQuote: "Modifier la Citation",
+      editEvent: "Modifier l'Événement"
     },
     en: {
       title: "Administration Panel",
       quotes: "Quotes",
       events: "Events",
-      stats: "Statistics",
       addNew: "Add",
       refresh: "Refresh",
       save: "Save",
@@ -199,11 +273,19 @@ const AdminPanel = () => {
       wolof: "Wolof",
       author: "Author",
       context: "Context",
-      logout: "Logout",
       date: "Date",
       location: "Location",
       type: "Type",
-      recurring: "Recurring"
+      recurring: "Recurring",
+      logout: "Logout",
+      confirmDelete: "Confirm Deletion",
+      confirmDeleteMsg: "Are you sure you want to delete this item?",
+      yes: "Yes, delete",
+      no: "Cancel",
+      newQuote: "New Quote",
+      newEvent: "New Event",
+      editQuote: "Edit Quote",
+      editEvent: "Edit Event"
     }
   };
 
@@ -217,8 +299,251 @@ const AdminPanel = () => {
     );
   }
 
+  // Delete Confirmation Modal
+  const DeleteModal = () => {
+    if (!deleteConfirm) return null;
+    
+    return (
+      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" data-testid="delete-modal">
+        <div className="bg-white rounded-2xl p-6 max-w-md w-full mx-4 shadow-2xl">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+              <AlertTriangle className="w-6 h-6 text-red-600" />
+            </div>
+            <h3 className="text-xl font-bold text-[#004D33]">{t.confirmDelete}</h3>
+          </div>
+          <p className="text-[#4A4A4A] mb-6">{t.confirmDeleteMsg}</p>
+          <div className="flex gap-3">
+            <button
+              onClick={() => setDeleteConfirm(null)}
+              className="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-[#4A4A4A] rounded-lg font-medium transition-colors"
+              data-testid="cancel-delete-btn"
+            >
+              {t.no}
+            </button>
+            <button
+              onClick={() => {
+                if (deleteConfirm.type === 'quote') {
+                  handleDeleteQuote(deleteConfirm.id);
+                } else {
+                  handleDeleteEvent(deleteConfirm.id);
+                }
+              }}
+              disabled={actionLoading}
+              className="flex-1 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors disabled:opacity-50"
+              data-testid="confirm-delete-btn"
+            >
+              {actionLoading ? "..." : t.yes}
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Edit Quote Form
+  const EditQuoteForm = ({ quote }) => (
+    <div className="bg-[#F9F7F2] rounded-lg p-6 mb-4" data-testid="edit-quote-form">
+      <h3 className="font-bold text-[#004D33] mb-4">{t.editQuote}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.french}</label>
+          <textarea
+            value={editingItem?.text_fr || ""}
+            onChange={(e) => setEditingItem({...editingItem, text_fr: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+            rows={3}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.english}</label>
+          <textarea
+            value={editingItem?.text_en || ""}
+            onChange={(e) => setEditingItem({...editingItem, text_en: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+            rows={3}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.arabic}</label>
+          <textarea
+            value={editingItem?.text_ar || ""}
+            onChange={(e) => setEditingItem({...editingItem, text_ar: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent text-right"
+            dir="rtl"
+            rows={3}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.wolof}</label>
+          <textarea
+            value={editingItem?.text_wo || ""}
+            onChange={(e) => setEditingItem({...editingItem, text_wo: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+            rows={3}
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.author}</label>
+          <input
+            type="text"
+            value={editingItem?.author || ""}
+            onChange={(e) => setEditingItem({...editingItem, author: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.context}</label>
+          <input
+            type="text"
+            value={editingItem?.context_fr || ""}
+            onChange={(e) => setEditingItem({...editingItem, context_fr: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          />
+        </div>
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="quote-active"
+            checked={editingItem?.active || false}
+            onChange={(e) => setEditingItem({...editingItem, active: e.target.checked})}
+            className="w-5 h-5"
+          />
+          <label htmlFor="quote-active" className="text-sm font-medium text-[#4A4A4A]">{t.active}</label>
+        </div>
+      </div>
+      <div className="flex gap-2 mt-4">
+        <button
+          onClick={() => handleUpdateQuote(quote.id)}
+          disabled={actionLoading}
+          className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+          data-testid="save-quote-btn"
+        >
+          <Save className="w-4 h-4" />
+          {actionLoading ? "..." : t.save}
+        </button>
+        <button
+          onClick={() => setEditingItem(null)}
+          className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+        >
+          <X className="w-4 h-4" />
+          {t.cancel}
+        </button>
+      </div>
+    </div>
+  );
+
+  // Edit Event Form
+  const EditEventForm = ({ event }) => (
+    <div className="bg-[#F9F7F2] rounded-lg p-6 mb-4" data-testid="edit-event-form">
+      <h3 className="font-bold text-[#004D33] mb-4">{t.editEvent}</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom ({t.french})</label>
+          <input
+            type="text"
+            value={editingItem?.name_fr || ""}
+            onChange={(e) => setEditingItem({...editingItem, name_fr: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom ({t.english})</label>
+          <input
+            type="text"
+            value={editingItem?.name_en || ""}
+            onChange={(e) => setEditingItem({...editingItem, name_en: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.date}</label>
+          <input
+            type="date"
+            value={editingItem?.date || ""}
+            onChange={(e) => setEditingItem({...editingItem, date: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.location}</label>
+          <input
+            type="text"
+            value={editingItem?.location || ""}
+            onChange={(e) => setEditingItem({...editingItem, location: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.type}</label>
+          <select
+            value={editingItem?.event_type || "gamou"}
+            onChange={(e) => setEditingItem({...editingItem, event_type: e.target.value})}
+            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          >
+            <option value="gamou">Gamou</option>
+            <option value="ziarra">Ziarra</option>
+            <option value="hadratoul_joumah">Hadratoul Joumah</option>
+            <option value="other">Autre</option>
+          </select>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="event-recurring"
+              checked={editingItem?.recurring || false}
+              onChange={(e) => setEditingItem({...editingItem, recurring: e.target.checked})}
+              className="w-5 h-5"
+            />
+            <label htmlFor="event-recurring" className="text-sm font-medium text-[#4A4A4A]">{t.recurring}</label>
+          </div>
+          <div className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              id="event-active"
+              checked={editingItem?.active || false}
+              onChange={(e) => setEditingItem({...editingItem, active: e.target.checked})}
+              className="w-5 h-5"
+            />
+            <label htmlFor="event-active" className="text-sm font-medium text-[#4A4A4A]">{t.active}</label>
+          </div>
+        </div>
+      </div>
+      <div className="mt-4">
+        <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Description ({t.french})</label>
+        <textarea
+          value={editingItem?.description_fr || ""}
+          onChange={(e) => setEditingItem({...editingItem, description_fr: e.target.value})}
+          className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+          rows={3}
+        />
+      </div>
+      <div className="flex gap-2 mt-4">
+        <button
+          onClick={() => handleUpdateEvent(event.id)}
+          disabled={actionLoading}
+          className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+          data-testid="save-event-btn"
+        >
+          <Save className="w-4 h-4" />
+          {actionLoading ? "..." : t.save}
+        </button>
+        <button
+          onClick={() => setEditingItem(null)}
+          className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+        >
+          <X className="w-4 h-4" />
+          {t.cancel}
+        </button>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-[#F9F7F2]" data-testid="admin-panel">
+      <DeleteModal />
+      
       {/* Header */}
       <div className="bg-[#004D33] text-white py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -283,7 +608,7 @@ const AdminPanel = () => {
         {/* Tabs */}
         <div className="flex gap-2 mb-6">
           <button
-            onClick={() => { setActiveTab("quotes"); setShowAddForm(false); }}
+            onClick={() => { setActiveTab("quotes"); setShowAddForm(false); setEditingItem(null); }}
             className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
               activeTab === "quotes" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
             }`}
@@ -292,7 +617,7 @@ const AdminPanel = () => {
             {t.quotes} ({quotes.length})
           </button>
           <button
-            onClick={() => { setActiveTab("events"); setShowAddForm(false); }}
+            onClick={() => { setActiveTab("events"); setShowAddForm(false); setEditingItem(null); }}
             className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
               activeTab === "events" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
             }`}
@@ -307,8 +632,9 @@ const AdminPanel = () => {
           {/* Add Button */}
           <div className="flex justify-end mb-6">
             <button
-              onClick={() => setShowAddForm(!showAddForm)}
+              onClick={() => { setShowAddForm(!showAddForm); setEditingItem(null); }}
               className="flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-4 py-2 rounded-lg font-medium transition-colors"
+              data-testid="add-new-btn"
             >
               <Plus className="w-5 h-5" />
               {t.addNew}
@@ -320,7 +646,7 @@ const AdminPanel = () => {
             <div className="bg-[#F9F7F2] rounded-lg p-6 mb-6">
               {activeTab === "quotes" ? (
                 <div className="space-y-4">
-                  <h3 className="font-bold text-[#004D33] mb-4">Nouvelle Citation</h3>
+                  <h3 className="font-bold text-[#004D33] mb-4">{t.newQuote}</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.french}</label>
@@ -381,10 +707,11 @@ const AdminPanel = () => {
                   <div className="flex gap-2 mt-4">
                     <button
                       onClick={handleAddQuote}
-                      className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg"
+                      disabled={actionLoading}
+                      className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
                     >
                       <Save className="w-4 h-4" />
-                      {t.save}
+                      {actionLoading ? "..." : t.save}
                     </button>
                     <button
                       onClick={() => setShowAddForm(false)}
@@ -397,7 +724,7 @@ const AdminPanel = () => {
                 </div>
               ) : (
                 <div className="space-y-4">
-                  <h3 className="font-bold text-[#004D33] mb-4">Nouvel Événement</h3>
+                  <h3 className="font-bold text-[#004D33] mb-4">{t.newEvent}</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-[#4A4A4A] mb-1">Nom ({t.french})</label>
@@ -471,10 +798,11 @@ const AdminPanel = () => {
                   <div className="flex gap-2 mt-4">
                     <button
                       onClick={handleAddEvent}
-                      className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg"
+                      disabled={actionLoading}
+                      className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
                     >
                       <Save className="w-4 h-4" />
-                      {t.save}
+                      {actionLoading ? "..." : t.save}
                     </button>
                     <button
                       onClick={() => setShowAddForm(false)}
@@ -493,26 +821,48 @@ const AdminPanel = () => {
           {activeTab === "quotes" && (
             <div className="space-y-4">
               {quotes.length > 0 ? quotes.map((quote, index) => (
-                <div
-                  key={quote.id || index}
-                  className={`p-4 rounded-lg border ${quote.active ? 'bg-white border-[#E8F5E9]' : 'bg-gray-50 border-gray-200'}`}
-                >
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <p className="text-[#004D33] font-medium mb-2">"{quote.text_fr}"</p>
-                      <p className="text-sm text-[#888888]">— {quote.author}</p>
-                      {quote.context_fr && (
-                        <p className="text-xs text-[#888888] mt-1">{quote.context_fr}</p>
-                      )}
+                <div key={quote.id || index}>
+                  {editingItem?.id === quote.id ? (
+                    <EditQuoteForm quote={quote} />
+                  ) : (
+                    <div
+                      className={`p-4 rounded-lg border ${quote.active ? 'bg-white border-[#E8F5E9]' : 'bg-gray-50 border-gray-200'}`}
+                      data-testid={`quote-item-${index}`}
+                    >
+                      <div className="flex justify-between items-start">
+                        <div className="flex-1">
+                          <p className="text-[#004D33] font-medium mb-2">"{quote.text_fr}"</p>
+                          <p className="text-sm text-[#888888]">— {quote.author}</p>
+                          {quote.context_fr && (
+                            <p className="text-xs text-[#888888] mt-1">{quote.context_fr}</p>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className={`px-2 py-1 rounded-full text-xs ${
+                            quote.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
+                          }`}>
+                            {quote.active ? t.active : t.inactive}
+                          </span>
+                          <button
+                            onClick={() => setEditingItem({...quote})}
+                            className="p-2 text-[#004D33] hover:bg-[#E8F5E9] rounded-lg transition-colors"
+                            title={t.edit}
+                            data-testid={`edit-quote-${index}`}
+                          >
+                            <Edit2 className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => setDeleteConfirm({ type: 'quote', id: quote.id })}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title={t.delete}
+                            data-testid={`delete-quote-${index}`}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className={`px-2 py-1 rounded-full text-xs ${
-                        quote.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
-                      }`}>
-                        {quote.active ? t.active : t.inactive}
-                      </span>
-                    </div>
-                  </div>
+                  )}
                 </div>
               )) : (
                 <p className="text-center text-[#888888] py-8">Aucune citation</p>
@@ -524,40 +874,64 @@ const AdminPanel = () => {
           {activeTab === "events" && (
             <div className="space-y-4">
               {events.length > 0 ? events.map((event, index) => (
-                <div
-                  key={event.id || index}
-                  className={`p-4 rounded-lg border ${event.active ? 'bg-white border-[#E8F5E9]' : 'bg-gray-50 border-gray-200'}`}
-                >
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <h4 className="text-[#004D33] font-bold">{event.name_fr}</h4>
-                        <span className="px-2 py-1 bg-[#D4AF37] text-[#004D33] text-xs font-semibold rounded-full">
-                          {event.event_type}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-4 text-sm text-[#888888]">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {event.date}
-                        </span>
-                        <span>{event.location}</span>
-                        {event.recurring && (
-                          <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">
-                            {event.recurrence_pattern}
+                <div key={event.id || index}>
+                  {editingItem?.id === event.id ? (
+                    <EditEventForm event={event} />
+                  ) : (
+                    <div
+                      className={`p-4 rounded-lg border ${event.active ? 'bg-white border-[#E8F5E9]' : 'bg-gray-50 border-gray-200'}`}
+                      data-testid={`event-item-${index}`}
+                    >
+                      <div className="flex justify-between items-start">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <h4 className="text-[#004D33] font-bold">{event.name_fr}</h4>
+                            <span className="px-2 py-1 bg-[#D4AF37] text-[#004D33] text-xs font-semibold rounded-full">
+                              {event.event_type}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-4 text-sm text-[#888888]">
+                            <span className="flex items-center gap-1">
+                              <Calendar className="w-4 h-4" />
+                              {event.date}
+                            </span>
+                            <span>{event.location}</span>
+                            {event.recurring && (
+                              <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">
+                                {event.recurrence_pattern}
+                              </span>
+                            )}
+                          </div>
+                          {event.description_fr && (
+                            <p className="text-sm text-[#4A4A4A] mt-2">{event.description_fr}</p>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className={`px-2 py-1 rounded-full text-xs ${
+                            event.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
+                          }`}>
+                            {event.active ? t.active : t.inactive}
                           </span>
-                        )}
+                          <button
+                            onClick={() => setEditingItem({...event})}
+                            className="p-2 text-[#004D33] hover:bg-[#E8F5E9] rounded-lg transition-colors"
+                            title={t.edit}
+                            data-testid={`edit-event-${index}`}
+                          >
+                            <Edit2 className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => setDeleteConfirm({ type: 'event', id: event.id })}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title={t.delete}
+                            data-testid={`delete-event-${index}`}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
                       </div>
-                      {event.description_fr && (
-                        <p className="text-sm text-[#4A4A4A] mt-2">{event.description_fr}</p>
-                      )}
                     </div>
-                    <span className={`px-2 py-1 rounded-full text-xs ${
-                      event.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
-                    }`}>
-                      {event.active ? t.active : t.inactive}
-                    </span>
-                  </div>
+                  )}
                 </div>
               )) : (
                 <p className="text-center text-[#888888] py-8">Aucun événement</p>
