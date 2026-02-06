@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import VideoCard from "../components/VideoCard";
+import Newsletter from "../components/Newsletter";
 import { ArrowRight, Sparkles, Calendar, MapPin, Quote } from "lucide-react";
 import { toast } from "sonner";
 
