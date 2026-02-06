@@ -34,6 +34,7 @@ function App() {
           <Route path="/video/:id" element={<VideoPlayer />} />
           <Route path="/about" element={<About />} />
           <Route path="/archives" element={<Archives />} />
+          <Route path="/documents-archives" element={<DocumentsArchives />} />
           <Route path="/mediatheque" element={<Mediatheque />} />
           <Route path="/contact" element={<Contact />} />
           
