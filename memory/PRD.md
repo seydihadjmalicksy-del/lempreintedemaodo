@@ -89,10 +89,6 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 
 ## 📝 Backlog (P1-P3)
 
-### P1 - Détection de la langue du navigateur
-- [ ] Détecter automatiquement la langue préférée du navigateur
-- [ ] Définir comme langue par défaut au premier chargement
-
 ### P2 - Compléter le contenu
 - [ ] Vérifier `/enseignements/ecole` - contenu de remplissage
 
