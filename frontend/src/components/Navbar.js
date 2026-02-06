@@ -1,6 +1,8 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, ChevronDown, Search } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
