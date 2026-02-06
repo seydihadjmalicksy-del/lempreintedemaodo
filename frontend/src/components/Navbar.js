@@ -47,7 +47,6 @@ const Navbar = () => {
       ]
     },
     { path: "/archives", label: "Archives" },
-    { path: "/documents-archives", label: "Documents Historiques" },
     { path: "/mediatheque", label: "Médiathèque" },
     { path: "/contact", label: "Contact" }
   ];

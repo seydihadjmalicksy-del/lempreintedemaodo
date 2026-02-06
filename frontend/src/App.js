@@ -4,7 +4,6 @@ import Gallery from "./pages/Gallery";
 import VideoPlayer from "./pages/VideoPlayer";
 import About from "./pages/About";
 import Archives from "./pages/Archives";
-import DocumentsArchives from "./pages/DocumentsArchives";
 import SearchResults from "./pages/SearchResults";
 import Mediatheque from "./pages/Mediatheque";
 import Contact from "./pages/Contact";
@@ -34,7 +33,6 @@ function App() {
           <Route path="/video/:id" element={<VideoPlayer />} />
           <Route path="/about" element={<About />} />
           <Route path="/archives" element={<Archives />} />
-          <Route path="/documents-archives" element={<DocumentsArchives />} />
           <Route path="/mediatheque" element={<Mediatheque />} />
           <Route path="/contact" element={<Contact />} />
           
