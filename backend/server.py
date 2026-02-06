@@ -879,6 +879,150 @@ async def seed_database():
     }
 
 
+# ============== ADMIN AUTHENTICATION ==============
+
+@api_router.post("/admin/login")
+async def admin_login(credentials: AdminLogin):
+    """Login to admin panel"""
+    if credentials.username != ADMIN_USERNAME:
+        raise HTTPException(status_code=401, detail="Identifiants incorrects")
+    
+    if not verify_password(credentials.password):
+        raise HTTPException(status_code=401, detail="Identifiants incorrects")
+    
+    # Generate session token
+    token = generate_session_token()
+    expires_at = (datetime.now(timezone.utc) + timedelta(hours=24)).isoformat()
+    
+    # Store session
+    await db.admin_sessions.insert_one({
+        "token": token,
+        "username": credentials.username,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "expires_at": expires_at
+    })
+    
+    # Clean up old sessions
+    await db.admin_sessions.delete_many({
+        "expires_at": {"$lt": datetime.now(timezone.utc).isoformat()}
+    })
+    
+    return {
+        "success": True,
+        "token": token,
+        "expires_at": expires_at,
+        "username": credentials.username
+    }
+
+@api_router.post("/admin/logout")
+async def admin_logout(authorization: Optional[str] = Header(None)):
+    """Logout from admin panel"""
+    if authorization:
+        token = authorization[7:] if authorization.startswith("Bearer ") else authorization
+        await db.admin_sessions.delete_one({"token": token})
+    
+    return {"success": True, "message": "Déconnexion réussie"}
+
+@api_router.get("/admin/verify")
+async def verify_admin_session(is_valid: bool = Depends(verify_admin_token)):
+    """Verify if current session is valid"""
+    return {"valid": is_valid}
+
+@api_router.post("/admin/change-password")
+async def change_admin_password(
+    old_password: str,
+    new_password: str,
+    is_admin: bool = Depends(verify_admin_token)
+):
+    """Change admin password"""
+    if not verify_password(old_password):
+        raise HTTPException(status_code=401, detail="Ancien mot de passe incorrect")
+    
+    # In a real app, you'd update this in the database or environment
+    # For now, we'll just return success (password would need to be updated in .env)
+    new_hash = hashlib.sha256(new_password.encode()).hexdigest()
+    
+    return {
+        "success": True,
+        "message": "Mot de passe changé. Mettez à jour ADMIN_PASSWORD_HASH dans .env avec: " + new_hash
+    }
+
+
+# ============== PUSH NOTIFICATIONS ==============
+
+@api_router.post("/notifications/subscribe")
+async def subscribe_to_notifications(subscription: PushSubscription):
+    """Subscribe to push notifications"""
+    # Check if already subscribed
+    existing = await db.push_subscriptions.find_one({"endpoint": subscription.endpoint})
+    
+    if existing:
+        # Update existing subscription
+        await db.push_subscriptions.update_one(
+            {"endpoint": subscription.endpoint},
+            {"$set": {
+                "keys": subscription.keys,
+                "user_agent": subscription.user_agent,
+                "language": subscription.language,
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            }}
+        )
+        return {"success": True, "message": "Abonnement mis à jour", "new": False}
+    
+    # Create new subscription
+    await db.push_subscriptions.insert_one({
+        "id": str(uuid.uuid4()),
+        "endpoint": subscription.endpoint,
+        "keys": subscription.keys,
+        "user_agent": subscription.user_agent,
+        "language": subscription.language,
+        "preferences": {
+            "events": True,
+            "gamou": True,
+            "ziarra": True,
+            "weekly_hadratoul": False
+        },
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "active": True
+    })
+    
+    return {"success": True, "message": "Abonnement créé avec succès", "new": True}
+
+@api_router.post("/notifications/unsubscribe")
+async def unsubscribe_from_notifications(endpoint: str):
+    """Unsubscribe from push notifications"""
+    result = await db.push_subscriptions.delete_one({"endpoint": endpoint})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Abonnement non trouvé")
+    
+    return {"success": True, "message": "Désabonnement réussi"}
+
+@api_router.put("/notifications/preferences")
+async def update_notification_preferences(endpoint: str, preferences: NotificationPreferences):
+    """Update notification preferences"""
+    result = await db.push_subscriptions.update_one(
+        {"endpoint": endpoint},
+        {"$set": {"preferences": preferences.model_dump()}}
+    )
+    
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Abonnement non trouvé")
+    
+    return {"success": True, "message": "Préférences mises à jour"}
+
+@api_router.get("/notifications/stats")
+async def get_notification_stats(is_admin: bool = Depends(verify_admin_token)):
+    """Get push notification statistics (admin only)"""
+    total = await db.push_subscriptions.count_documents({})
+    active = await db.push_subscriptions.count_documents({"active": True})
+    
+    return {
+        "total_subscriptions": total,
+        "active_subscriptions": active
+    }
+
+
 # ============== iCAL CALENDAR EXPORT ==============
 
 def generate_ical_event(event: dict, uid_suffix: str = "") -> str:
