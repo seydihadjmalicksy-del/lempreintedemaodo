@@ -130,6 +130,15 @@ const Gamou = () => {
       {/* Introduction */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Share Buttons */}
+          <div className="flex justify-end mb-6">
+            <ShareButtons 
+              url="/evenements/gamou" 
+              title={t('gamouTitle')}
+              description={t('gamouHeroDesc')}
+            />
+          </div>
+          
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-[#004D33] font-semibold mb-6 leading-relaxed">
               {t('gamouIntro1')}
