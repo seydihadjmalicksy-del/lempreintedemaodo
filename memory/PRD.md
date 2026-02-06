@@ -111,11 +111,12 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 ## 📝 Backlog
 
 ### P1 - Prochaines étapes prioritaires
-- [ ] **Migration contenu vers BDD**: Refactoriser les pages statiques pour utiliser l'API
+- [ ] **Intégrer le hook usePageContent** dans les pages frontend (Maodo, Gamou, Ecole) pour afficher le contenu dynamique
 
 ### P2 - Améliorations
-- [ ] Simplifier `LanguageContext.js` après migration du contenu
+- [ ] Simplifier `LanguageContext.js` après migration complète du contenu
 - [ ] Bannière "Bismillah" demandée précédemment
+- [ ] Ajouter plus de contenu aux pages (timeline, contributions, etc.)
 
 ### P3 - Futures
 - [ ] Intégration réseaux sociaux (flux Twitter/Facebook)
