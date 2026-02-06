@@ -53,7 +53,7 @@ const LigneeKhalifes = () => {
         "Direction de nombreux Gamous et transmission de l'islam tidjane",
         "Liens fraternels avec les communautés Lébous, Layènes et Médina Baye"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/zk7vtiqg_FB_IMG_1770340169935.jpg"
     },
     {
       name: "Serigne Moustapha Sy Djamil",
