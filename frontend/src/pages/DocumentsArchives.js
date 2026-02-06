@@ -42,13 +42,19 @@ const DocumentsArchives = () => {
 
   const chapters = [
     {
+      title: "Chapitre III - Le Groupement tidianï d'Al-Hadj Malik",
+      page: 173,
+      description: "Introduction au chapitre consacré aux Tidianïa Ouolofs et à la figure d'El Hadji Malick Sy.",
+      link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f191.item"
+    },
+    {
       title: "Personnalité et Famille d'Al-Hadj Malik",
       page: 175,
       description: "Biographie détaillée et arbre généalogique de Maodo établis par l'administration coloniale.",
       link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f193.item"
     },
     {
-      title: "La Zaouïa d'Al-Hadj Malik à Tivaouane",
+      title: "La Zaouïa d'Al-Hadj Malik, à Tivaouane",
       page: 182,
       description: "Description de la zawiya, centre spirituel de la Tariqa Tidiane au Sénégal.",
       link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f200.item"
@@ -60,15 +66,15 @@ const DocumentsArchives = () => {
       link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f206.item"
     },
     {
-      title: "Poème sur le Pèlerinage à La Mecque",
+      title: "Poème d'Al-Hadj Malik sur son pèlerinage à la Mecque",
       page: 212,
       description: "Transcription d'un poème composé par El Hadji Malick Sy relatant son Hajj.",
       link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f230.item"
     },
     {
-      title: "Liste des Œuvres d'Al-Hadj Malik",
+      title: "Œuvres d'Al-Hadj Malik",
       page: 214,
-      description: "Inventaire des ouvrages et écrits de Maodo recensés en 1917.",
+      description: "Inventaire des ouvrages et écrits de Maodo recensés de son vivant en 1917.",
       link: "https://gallica.bnf.fr/ark:/12148/bpt6k77474r/f232.item"
     }
   ];
