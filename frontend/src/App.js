@@ -37,6 +37,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/archives" element={<Archives />} />
           <Route path="/mediatheque" element={<Mediatheque />} />
+          <Route path="/carte" element={<CarteTivaouane />} />
+          <Route path="/arbre-genealogique" element={<ArbreGenealogique />} />
           <Route path="/contact" element={<Contact />} />
           
           {/* Histoire Routes */}
