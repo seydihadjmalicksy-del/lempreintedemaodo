@@ -2,11 +2,57 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import VideoCard from "../components/VideoCard";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Calendar, MapPin, Quote } from "lucide-react";
 import { toast } from "sonner";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
+
+// Citations de Maodo
+const citations = [
+  {
+    texte: "La science sans la pratique est comme un arbre sans fruit.",
+    source: "El Hadji Malick Sy"
+  },
+  {
+    texte: "Celui qui connaît Dieu, son cœur trouve la paix.",
+    source: "El Hadji Malick Sy"
+  },
+  {
+    texte: "L'amour du Prophète (PSL) est la clé de tout bien.",
+    source: "El Hadji Malick Sy"
+  },
+  {
+    texte: "Le savoir est une lumière qui illumine le cœur du croyant.",
+    source: "El Hadji Malick Sy"
+  },
+  {
+    texte: "La patience dans l'épreuve est le signe de la foi sincère.",
+    source: "El Hadji Malick Sy"
+  }
+];
+
+// Événements à venir
+const evenementsAVenir = [
+  {
+    titre: "Ziarra Générale 2025",
+    date: "20 avril 2025",
+    lieu: "Tivaouane",
+    type: "ziarra"
+  },
+  {
+    titre: "Gamou 2025",
+    date: "4-5 septembre 2025",
+    lieu: "Tivaouane",
+    type: "gamou"
+  },
+  {
+    titre: "Hadratoul Joumah",
+    date: "Tous les vendredis",
+    lieu: "Zawiya El Hadji Malick Sy",
+    type: "hebdomadaire"
+  }
+];
 
 const Home = () => {
   const [featuredVideos, setFeaturedVideos] = useState([]);
