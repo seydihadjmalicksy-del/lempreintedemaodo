@@ -174,7 +174,8 @@ const EcoleTivaouane = () => {
               </h1>
               
               <p className="text-xl text-white/90 leading-relaxed">
-                {t('ecoleHeroDesc')}
+                {/* Dynamic content from MongoDB or fallback to static */}
+                {getContentText(content, "hero", t('ecoleHeroDesc'))}
               </p>
             </div>
           </div>
@@ -186,7 +187,8 @@ const EcoleTivaouane = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-[#004D33] font-semibold mb-6 leading-relaxed">
-              {t('ecoleIntro1')}
+              {/* Dynamic intro content */}
+              {getContentText(content, "intro", t('ecoleIntro1'))}
             </p>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
