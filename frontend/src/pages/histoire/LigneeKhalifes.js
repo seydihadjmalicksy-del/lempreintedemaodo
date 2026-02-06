@@ -186,10 +186,10 @@ const LigneeKhalifes = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              La Lignée des Héritiers
+              {t('lineageOfHeirs')}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto mb-4">
-              Les Successeurs de Maodo : Gardiens de l'Héritage Spirituel
+              {t('heirsSubtitle')}
             </p>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto"></div>
           </div>
@@ -201,15 +201,11 @@ const LigneeKhalifes = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              Depuis le rappel à Dieu d'El Hadji Malick Sy en 1922, six khalifes se sont succédé à la tête 
-              de la Tariqa Tidiane de Tivaouane. Chacun d'eux a apporté sa pierre à l'édifice, contribuant 
-              à faire rayonner l'enseignement de Maodo à travers le temps et l'espace.
+              {t('heirsIntro')}
             </p>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed">
-              Le principe de succession (Khilafa) dans la Tariqa Tidiane de Tivaouane suit une logique de 
-              <strong className="text-[#004D33]"> primogéniture spirituelle</strong>, privilégiant généralement 
-              les fils de Maodo, tout en tenant compte des qualités de science et de piété.
+              {t('successionPrinciple')}
             </p>
           </div>
         </div>
@@ -246,7 +242,7 @@ const LigneeKhalifes = () => {
                       {khalife.current && (
                         <div className="absolute bottom-4 left-4 right-4">
                           <div className="bg-[#D4AF37] text-[#004D33] px-4 py-2 rounded-full text-center font-bold text-sm">
-                            Khalife Actuel
+                            {t('currentKhalife')}
                           </div>
                         </div>
                       )}
@@ -265,19 +261,19 @@ const LigneeKhalifes = () => {
                       </h2>
                       
                       <p className="text-xl text-[#D4AF37] font-semibold mb-6">
-                        {khalife.title}
+                        {khalife.title[language] || khalife.title.fr}
                       </p>
 
                       <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-                        {khalife.description}
+                        {khalife.description[language] || khalife.description.fr}
                       </p>
 
                       <div className="border-t-2 border-[#E8F5E9] pt-6">
                         <h3 className="text-lg font-bold text-[#004D33] mb-4">
-                          Contributions Majeures :
+                          {t('majorContributionsLabel')}
                         </h3>
                         <ul className="space-y-3">
-                          {khalife.contributions.map((contribution, idx) => (
+                          {(khalife.contributions[language] || khalife.contributions.fr).map((contribution, idx) => (
                             <li key={idx} className="flex items-start gap-3">
                               <div className="w-2 h-2 bg-[#D4AF37] rounded-full mt-2 flex-shrink-0"></div>
                               <span className="text-[#4A4A4A]">{contribution}</span>
@@ -298,17 +294,15 @@ const LigneeKhalifes = () => {
       <section className="py-16 bg-gradient-to-r from-[#004D33] to-[#003d29] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Une Chaîne Spirituelle Ininterrompue
+            {t('unbrokenChain')}
           </h2>
           
           <p className="text-xl text-white/90 leading-relaxed mb-8">
-            De Maodo à nos jours, la transmission de la Baraka (grâce spirituelle) s'est poursuivie 
-            sans rupture. Chaque Khalife a été le maillon d'une chaîne qui remonte au Prophète Muhammad 
-            (PSL) à travers Cheikh Ahmed Tijani.
+            {t('chainText')}
           </p>
           
           <p className="text-lg text-white/80 leading-relaxed">
-            Cette continuité est le gage de l'authenticité de la voie et de la fidélité à l'enseignement originel.
+            {t('continuityGuarantee')}
           </p>
 
           <div className="mt-12">
@@ -316,7 +310,7 @@ const LigneeKhalifes = () => {
             <p className="text-white/70 text-sm italic">
               رَضِيَ اللهُ عَنْهُمْ أَجْمَعِينَ
               <br />
-              Que Allah les agrée tous
+              {t('mayAllahBePleasedWithThemAll')}
             </p>
           </div>
         </div>
