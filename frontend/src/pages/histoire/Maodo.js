@@ -147,17 +147,18 @@ const Maodo = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-[#4A4A4A] leading-relaxed mb-6 first-letter:text-5xl first-letter:font-bold first-letter:text-[#004D33] first-letter:float-left first-letter:mr-3">
-              {t('maodoIntro')}
+              {/* Dynamic content from MongoDB or fallback to static */}
+              {getContentText(content, "hero", t('maodoIntro'))}
             </p>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              {t('maodoBio')}
+              {getContentText(content, "biography", t('maodoBio'))}
             </p>
 
             <div className="bg-[#F9F7F2] border-l-4 border-[#D4AF37] p-6 rounded-r-lg my-8">
               <Quote className="w-8 h-8 text-[#D4AF37] mb-4" />
               <p className="text-lg italic text-[#4A4A4A]">
-                "{t('maodoQuote')}"
+                "{getContentText(content, "quote", t('maodoQuote'))}"
               </p>
             </div>
           </div>
