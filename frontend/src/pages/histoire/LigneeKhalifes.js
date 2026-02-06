@@ -26,7 +26,7 @@ const LigneeKhalifes = () => {
         "Composition de poèmes en l'honneur du Prophète (PSL)",
         "Formation de générations de muqqadams et d'imams"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg"
     },
     {
       name: "Serigne Abdoul Aziz Sy 'Dabakh'",
