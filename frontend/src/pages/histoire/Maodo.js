@@ -1,139 +1,106 @@
 import { Star, BookOpen, MapPin, Calendar, Heart, Award, Quote, Users, Image } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Maodo = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const { t, language } = useLanguage();
 
   const photos = [
     {
       url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
-      caption: "Portrait de Maodo avec la Grande Mosquée de Tivaouane en arrière-plan"
+      caption: {
+        fr: "Portrait de Maodo avec la Grande Mosquée de Tivaouane en arrière-plan",
+        en: "Portrait of Maodo with the Grand Mosque of Tivaouane in the background",
+        ar: "صورة مودو مع المسجد الكبير في تيفاوان في الخلفية",
+        wo: "Nataal Maodo ak Jàkka bu mag bi ci ginnaaw"
+      }
     },
     {
       url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg",
-      caption: "El Hadji Malick Sy tenant son chapelet - Photo historique"
+      caption: {
+        fr: "El Hadji Malick Sy tenant son chapelet - Photo historique",
+        en: "El Hadji Malick Sy holding his rosary - Historic photo",
+        ar: "الحاج مالك سي يحمل مسبحته - صورة تاريخية",
+        wo: "El Hadji Maalik Si muy tegu chapelet bi - Nataal taariix"
+      }
     },
     {
       url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg",
-      caption: "Maodo accompagné de ses disciples à Tivaouane"
+      caption: {
+        fr: "Maodo accompagné de ses disciples à Tivaouane",
+        en: "Maodo accompanied by his disciples in Tivaouane",
+        ar: "مودو برفقة تلاميذه في تيفاوان",
+        wo: "Maodo ak taalibe yi ci Tiwaawaan"
+      }
     },
     {
       url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg",
-      caption: "Portrait sépia d'El Hadji Malick Sy"
+      caption: {
+        fr: "Portrait sépia d'El Hadji Malick Sy",
+        en: "Sepia portrait of El Hadji Malick Sy",
+        ar: "صورة بنية اللون للحاج مالك سي",
+        wo: "Nataal sépia El Hadji Maalik Si"
+      }
     }
   ];
 
   const timeline = [
-    {
-      year: "1855",
-      title: "Naissance",
-      description: "Naissance dans le quartier de Daw Fall à Gaya, département de Dagana, au nord du Sénégal.",
-      icon: Star
-    },
-    {
-      year: "1855-1862",
-      title: "Mémorisation du Coran",
-      description: "Mémorisation complète du Saint Coran en sept ans, démontrant une intelligence et une dévotion exceptionnelles.",
-      icon: BookOpen
-    },
-    {
-      year: "1862-1884",
-      title: "Études islamiques",
-      description: "25 années d'études approfondies en fiqh maliki, théologie, exégèse et sciences islamiques dans différents centres : Ndombo, Bokhol, Keur Kodé Alassane, Taiba Sèye, Saldé et Thiarène.",
-      icon: BookOpen
-    },
-    {
-      year: "1884",
-      title: "Installation à Saint-Louis",
-      description: "Installation à Saint-Louis pour enseigner. Il adopte le nom de Malick Fawade en hommage à sa pieuse mère.",
-      icon: MapPin
-    },
-    {
-      year: "1886-1888",
-      title: "Pèlerinage à La Mecque",
-      description: "Accomplissement du Hajj à 31 ans. Séjour de deux ans à La Mecque, passage par Marseille et Alexandrie. Il devient 'El Hadji' Malick Sy.",
-      icon: Star
-    },
-    {
-      year: "1892",
-      title: "Construction de la Zawiya de Ndar",
-      description: "Édification de la première zawiya à Saint-Louis (Ndar), centre d'enseignement et de spiritualité.",
-      icon: MapPin
-    },
-    {
-      year: "1900",
-      title: "Installation à Tivaouane",
-      description: "Sur invitation de Djibril Guèye, il s'établit définitivement à Tivaouane après un séjour à Ndiarndé.",
-      icon: MapPin
-    },
-    {
-      year: "1902",
-      title: "Fondation de la Zawiya de Tivaouane",
-      description: "Création de la zawiya principale de Tivaouane et institution de la première célébration du Mawlid (Gamou) avec El Hadji Rawane Ngom.",
-      icon: Star
-    },
-    {
-      year: "1922",
-      title: "Rappel à Dieu",
-      description: "Le 27 juin 1922, El Hadji Malick Sy rejoint son Seigneur à Tivaouane, où il est inhumé. Son fils Serigne Babacar Sy lui succède.",
-      icon: Heart
-    }
+    { year: "1855", title: t('birth'), description: t('birthDesc'), icon: Star },
+    { year: "1855-1862", title: t('quranMemorization'), description: t('quranMemorizationDesc'), icon: BookOpen },
+    { year: "1862-1884", title: t('islamicStudies'), description: t('islamicStudiesDesc'), icon: BookOpen },
+    { year: "1884", title: t('saintLouisSettlement'), description: t('saintLouisSettlementDesc'), icon: MapPin },
+    { year: "1886-1888", title: t('hajjPilgrimage'), description: t('hajjPilgrimageDesc'), icon: Star },
+    { year: "1892", title: t('zawiyaNdar'), description: t('zawiyaNdarDesc'), icon: MapPin },
+    { year: "1900", title: t('tivaouaneSettlement'), description: t('tivaouaneSettlementDesc'), icon: MapPin },
+    { year: "1902", title: t('zawiyaTivaouane'), description: t('zawiyaTivaouaneDesc'), icon: Star },
+    { year: "1922", title: t('returnToGod'), description: t('returnToGodDesc'), icon: Heart }
   ];
 
-  const oeuvres = [
-    "Khilâçu-Dhahab (L'Or Décanté) - 30 tableaux poétiques sur la vie du Prophète",
-    "Fâkihat at-Tullâb - Principes de la Tariqa Tijaniyya",
-    "Kifâyat ar-Râghibîn - Traité sur le soufisme",
-    "Ifhâm al-Munkir al-Jânî - Défense de la Tariqa",
-    "Wassilatoul Mouna (Tayssir) - Invocations des Noms d'Allah"
-  ];
+  const oeuvres = {
+    fr: [
+      "Khilâçu-Dhahab (L'Or Décanté) - 30 tableaux poétiques sur la vie du Prophète",
+      "Fâkihat at-Tullâb - Principes de la Tariqa Tijaniyya",
+      "Kifâyat ar-Râghibîn - Traité sur le soufisme",
+      "Ifhâm al-Munkir al-Jânî - Défense de la Tariqa",
+      "Wassilatoul Mouna (Tayssir) - Invocations des Noms d'Allah"
+    ],
+    en: [
+      "Khilâçu-Dhahab (The Decanted Gold) - 30 poetic tableaux on the Prophet's life",
+      "Fâkihat at-Tullâb - Principles of the Tijaniyya Tariqa",
+      "Kifâyat ar-Râghibîn - Treatise on Sufism",
+      "Ifhâm al-Munkir al-Jânî - Defense of the Tariqa",
+      "Wassilatoul Mouna (Tayssir) - Invocations of the Names of Allah"
+    ],
+    ar: [
+      "خلاص الذهب - 30 لوحة شعرية عن حياة النبي",
+      "فاكهة الطلاب - مبادئ الطريقة التجانية",
+      "كفاية الراغبين - رسالة في التصوف",
+      "إفهام المنكر الجاني - الدفاع عن الطريقة",
+      "وسيلة المنى (تيسير) - أدعية أسماء الله"
+    ],
+    wo: [
+      "Khilâçu-Dhahab (Wurus wu sell) - 30 woy ci dundu Yonent bi",
+      "Fâkihat at-Tullâb - Tënk Tariqa Tijaan",
+      "Kifâyat ar-Râghibîn - Téere ci tasawwuf",
+      "Ifhâm al-Munkir al-Jânî - Dimbali Tariqa",
+      "Wassilatoul Mouna (Tayssir) - Ñaan Turi Yàlla"
+    ]
+  };
 
   const contributions = [
-    {
-      title: "Fondateur du Gamou",
-      description: "Institution de la première célébration organisée du Mawlid Nabi au Sénégal en 1902",
-      icon: Calendar
-    },
-    {
-      title: "Bâtisseur d'écoles",
-      description: "Fondation de nombreuses écoles coraniques au Djolof et au Walo",
-      icon: BookOpen
-    },
-    {
-      title: "Diffuseur de la Tijaniyya",
-      description: "Propagation de la Tariqa Tijaniyya, devenue la principale confrérie soufie au Sénégal",
-      icon: Users
-    },
-    {
-      title: "Homme de paix",
-      description: "Dialogue pacifique avec les colonisateurs plutôt que confrontation armée",
-      icon: Heart
-    },
-    {
-      title: "Auteur prolifique",
-      description: "Rédaction d'ouvrages majeurs sur la théologie, le soufisme et la sunna prophétique",
-      icon: BookOpen
-    },
-    {
-      title: "Vivificateur de la Sunna",
-      description: "Modèle achevé de piété, incarnant les enseignements du Prophète (PSL)",
-      icon: Star
-    }
+    { title: t('gamouFounder'), description: t('gamouFounderDesc'), icon: Calendar },
+    { title: t('schoolBuilder'), description: t('schoolBuilderDesc'), icon: BookOpen },
+    { title: t('tijaniyyaSpreader'), description: t('tijaniyyaSpreaderDesc'), icon: Users },
+    { title: t('manOfPeace'), description: t('manOfPeaceDesc'), icon: Heart },
+    { title: t('prolificAuthor'), description: t('prolificAuthorDesc'), icon: BookOpen },
+    { title: t('sunnaReviver'), description: t('sunnaReviverDesc'), icon: Star }
   ];
 
   const citations = [
-    {
-      texte: "La science sans la pratique est comme un arbre sans fruit.",
-      contexte: "Sur l'importance de l'action"
-    },
-    {
-      texte: "Celui qui connaît Dieu, son cœur trouve la paix.",
-      contexte: "Sur la connaissance divine"
-    },
-    {
-      texte: "L'amour du Prophète (PSL) est la clé de tout bien.",
-      contexte: "Sur l'amour prophétique"
-    }
+    { texte: t('quote1'), contexte: t('onAction') },
+    { texte: t('quote2'), contexte: t('onDivineKnowledge') },
+    { texte: t('quote3'), contexte: t('onPropheticLove') }
   ];
 
   return (
