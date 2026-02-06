@@ -6,6 +6,7 @@ import Newsletter from "../components/Newsletter";
 import StatsCounter from "../components/StatsCounter";
 import { ArrowRight, Sparkles, Calendar, MapPin, Quote } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -59,6 +60,7 @@ const evenementsAVenir = [
 const Home = () => {
   const [featuredVideos, setFeaturedVideos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const fetchData = async () => {
