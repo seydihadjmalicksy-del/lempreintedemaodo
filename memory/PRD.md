@@ -65,12 +65,13 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
   - Messages de succès avec toast Sonner
   - Stockage MongoDB
 
-### Composants Créés
-- `Newsletter.js` - Formulaire d'inscription (2 variantes: default, compact) - **Fonctionnel + Multilingue**
-- `StatsCounter.js` - Compteur animé de statistiques - **Multilingue**
+### Composants UI
+- `Newsletter.js` - Formulaire d'inscription (fonctionnel + multilingue)
+- `StatsCounter.js` - Compteur animé de statistiques
 - `Footer.js` - Footer global avec newsletter compacte
-- `LanguageSelector.js` - ⭐ Sélecteur de langue (FR/EN/AR/WO) avec drapeaux
-- `LanguageContext.js` - ⭐ Contexte multi-langue avec traductions complètes (1500+ lignes)
+- `LanguageSelector.js` - Sélecteur de langue (FR/EN/AR/WO) avec drapeaux
+- `LanguageContext.js` - Contexte multi-langue (1500+ lignes de traductions)
+- `ShareButtons.js` - **Nouveau** Boutons de partage social (Facebook, Twitter, WhatsApp, Email, Copier)
 
 ### API Endpoints
 | Endpoint | Méthode | Description |
