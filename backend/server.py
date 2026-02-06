@@ -289,7 +289,7 @@ async def get_videos(category: Optional[str] = None, search: Optional[str] = Non
             {'description': {'$regex': search, '$options': 'i'}}
         ]
     
-    videos = await db.videos.find(query, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    videos = await db.videos.find(query, {"_id": 0}).sort("created_at", -1).to_list(100)
     
     for video in videos:
         if isinstance(video['created_at'], str):
