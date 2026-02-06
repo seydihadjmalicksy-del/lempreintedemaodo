@@ -154,7 +154,7 @@ const Home = () => {
             <div className="bg-gradient-to-br from-[#004D33] to-[#003d29] rounded-2xl p-8 text-white">
               <div className="flex items-center gap-3 mb-6">
                 <Quote className="w-8 h-8 text-[#D4AF37]" />
-                <h3 className="text-xl font-bold">Citation du Jour</h3>
+                <h3 className="text-xl font-bold">{t('quoteOfDay')}</h3>
               </div>
               <blockquote className="text-2xl font-light italic leading-relaxed mb-6">
                 "{citations[Math.floor(Date.now() / 86400000) % citations.length].texte}"
@@ -168,7 +168,7 @@ const Home = () => {
             <div className="bg-[#F9F7F2] rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
                 <Calendar className="w-8 h-8 text-[#004D33]" />
-                <h3 className="text-xl font-bold text-[#004D33]">Événements à Venir</h3>
+                <h3 className="text-xl font-bold text-[#004D33]">{t('upcomingEvents')}</h3>
               </div>
               <div className="space-y-4">
                 {evenementsAVenir.map((event, index) => (
@@ -199,7 +199,7 @@ const Home = () => {
                 to="/evenements/gamou"
                 className="inline-flex items-center gap-2 text-[#004D33] font-semibold mt-4 hover:text-[#D4AF37] transition-colors"
               >
-                Voir tous les événements
+                {t('seeAll')}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
