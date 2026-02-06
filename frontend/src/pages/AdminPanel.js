@@ -343,7 +343,12 @@ const AdminPanel = () => {
       newQuote: "New Quote",
       newEvent: "New Event",
       editQuote: "Edit Quote",
-      editEvent: "Edit Event"
+      editEvent: "Edit Event",
+      editContent: "Edit Content",
+      page: "Page",
+      section: "Section",
+      seedContent: "Seed content",
+      noContent: "No content. Initialize page content."
     }
   };
 
