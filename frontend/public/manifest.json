@@ -1,0 +1,57 @@
+{
+  "short_name": "Tivaouane",
+  "name": "Tariqa Tidiane de Tivaouane",
+  "description": "Portail officiel de la Tariqa Tidiane de Tivaouane - Héritage spirituel d'El Hadji Malick Sy",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#004D33",
+  "background_color": "#F9F7F2",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr",
+  "categories": ["education", "lifestyle", "social"],
+  "shortcuts": [
+    {
+      "name": "Gamou 2025",
+      "short_name": "Gamou",
+      "description": "Informations sur le Gamou de Tivaouane",
+      "url": "/evenements/gamou",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Médiathèque",
+      "short_name": "Média",
+      "description": "Vidéos et photos de Tivaouane",
+      "url": "/mediatheque",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Nous contacter",
+      "url": "/contact",
+      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
