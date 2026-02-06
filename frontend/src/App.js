@@ -59,6 +59,9 @@ function App() {
           <Route path="/evenements/gamou" element={<Gamou />} />
           <Route path="/evenements/ziarra" element={<ZiarraAnnuelles />} />
           <Route path="/evenements/ceremonies" element={<CeremoniesReligieuses />} />
+          
+          {/* Admin Route */}
+          <Route path="/admin" element={<AdminPanel />} />
         </Routes>
         <Toaster />
       </BrowserRouter>
