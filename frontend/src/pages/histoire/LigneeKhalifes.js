@@ -1,10 +1,29 @@
-import { Crown, BookOpen, Building, Scale, Shield, Users, Heart, Star } from "lucide-react";
+import { Crown, BookOpen, Building, Scale, Shield, Users, Heart, Star, Sparkles } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const LigneeKhalifes = () => {
   const { t, language } = useLanguage();
 
   const khalifes = [
+    {
+      name: "Serigne Sidy Ahmet Sy",
+      title: { fr: "Le Premier Fils de Maodo", en: "The First Son of Maodo", ar: "الابن الأول لمودو", wo: "Doom bu njëkk Maodo" },
+      period: "1879 - 1920",
+      icon: Sparkles,
+      description: {
+        fr: "Aîné des enfants d'El Hadji Malick Sy, Serigne Sidy Ahmet Sy fut le premier à recevoir l'enseignement direct de son illustre père. Homme de grande piété et de profonde érudition, il assista Maodo dans ses œuvres spirituelles et éducatives. Rappelé à Dieu avant son père en 1920, il n'accéda pas au Califat, mais son héritage spirituel et sa descendance continuent d'illuminer la Tariqa.",
+        en: "The eldest child of El Hadji Malick Sy, Serigne Sidy Ahmet Sy was the first to receive direct teaching from his illustrious father. A man of great piety and profound erudition, he assisted Maodo in his spiritual and educational works. Called back to God before his father in 1920, he did not accede to the Caliphate, but his spiritual legacy and descendants continue to illuminate the Tariqa.",
+        ar: "البكر من أبناء الحاج مالك سي، كان سرين سيدي أحمد سي أول من تلقى التعليم المباشر من والده الشهير. رجل ذو تقوى عظيمة وعلم عميق، ساعد مودو في أعماله الروحية والتعليمية. توفي قبل والده عام 1920، ولم يتولَّ الخلافة، لكن إرثه الروحي وذريته يستمران في إنارة الطريقة.",
+        wo: "Doom bu njëkk El Hadji Maalik Si, Serigne Sidy Ahmet Sy moo njëkk jàng ci baay bam bu mag. Nit ku diine bu baax te borom xam-xam bu xóot, mu dimbali Maodo ci liggéey diine ak jàngale. Wéesu Yàlla balaa baay bam ci 1920, du nekk Xaliifa, waaye warisaay diine bam ak doom yam dañuy leer Tariqa ba."
+      },
+      contributions: {
+        fr: ["Premier disciple et assistant de Maodo", "Transmission des enseignements paternels", "Fondation d'une lignée de savants et d'érudits"],
+        en: ["First disciple and assistant of Maodo", "Transmission of paternal teachings", "Foundation of a lineage of scholars and erudites"],
+        ar: ["أول تلميذ ومساعد لمودو", "نقل تعاليم الوالد", "تأسيس سلسلة من العلماء والفقهاء"],
+        wo: ["Njëkk taalibe ak dimbali Maodo", "Yóbbu jàng baay bi", "Sos ay doom boroom xam-xam"]
+      },
+      image: "https://customer-assets.emergentagent.com/job_9e8f0b7f-bd5d-4cfa-8b09-9e5f34d5dbc8/artifacts/1aad3juf_FB_IMG_1770358736967.jpg"
+    },
     {
       name: "Serigne Babacar Sy",
       title: { fr: "Le Premier Khalife", en: "The First Khalife", ar: "الخليفة الأول", wo: "Xaliifa bu njëkk" },
