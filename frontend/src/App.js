@@ -40,6 +40,7 @@ function App() {
           {/* Histoire Routes */}
           <Route path="/histoire/origines" element={<Origines />} />
           <Route path="/histoire/el-hadji-malick-sy" element={<ElHadjiMalickSy />} />
+          <Route path="/histoire/maodo" element={<Maodo />} />
           <Route path="/histoire/khalifes" element={<LigneeKhalifes />} />
           <Route path="/histoire/geographie" element={<GeographieSacree />} />
           
