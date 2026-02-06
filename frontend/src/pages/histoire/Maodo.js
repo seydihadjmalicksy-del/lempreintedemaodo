@@ -1,6 +1,28 @@
-import { Star, BookOpen, MapPin, Calendar, Heart, Award, Quote, Users } from "lucide-react";
+import { Star, BookOpen, MapPin, Calendar, Heart, Award, Quote, Users, Image } from "lucide-react";
+import { useState } from "react";
 
 const Maodo = () => {
+  const [selectedPhoto, setSelectedPhoto] = useState(0);
+
+  const photos = [
+    {
+      url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
+      caption: "Portrait de Maodo avec la Grande Mosquée de Tivaouane en arrière-plan"
+    },
+    {
+      url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg",
+      caption: "El Hadji Malick Sy tenant son chapelet - Photo historique"
+    },
+    {
+      url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg",
+      caption: "Maodo accompagné de ses disciples à Tivaouane"
+    },
+    {
+      url: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg",
+      caption: "Portrait sépia d'El Hadji Malick Sy"
+    }
+  ];
+
   const timeline = [
     {
       year: "1855",
