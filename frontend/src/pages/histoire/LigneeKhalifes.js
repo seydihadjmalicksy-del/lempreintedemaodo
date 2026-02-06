@@ -94,7 +94,7 @@ const LigneeKhalifes = () => {
         "Initiation du COSKAS pour l'organisation du Gamou (1968)",
         "Engagement politique et économique pour le développement du Sénégal"
       ],
-      image: "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/jtrbkp29_IMG-20260206-WA0053.jpg"
     },
     {
       name: "Serigne Abdoul Aziz Sy Al Amine",
