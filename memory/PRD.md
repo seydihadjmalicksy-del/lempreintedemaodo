@@ -50,6 +50,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
   - ✅ **Gamou** - Page du Gamou avec programme et conseils
   - ✅ **ZiarraAnnuelles** - Pèlerinages spirituels avec guide du pèlerin
   - ✅ **Médiathèque** - Bibliothèque multimédia avec catégories et ressources
+  - ✅ **École de Tivaouane** - Système éducatif avec méthodes, cycles et érudits
 
 ### Formulaires Fonctionnels ✅ COMPLÉTÉS (Février 2025)
 - **Newsletter** (`/api/newsletter/subscribe`)
