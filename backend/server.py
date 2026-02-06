@@ -487,6 +487,332 @@ async def mark_message_read(message_id: str):
     
     return {"message": "Message marqué comme lu"}
 
+
+# ============== CONTENT MANAGEMENT ENDPOINTS ==============
+
+# Quotes endpoints
+@api_router.get("/quotes")
+async def get_quotes(active_only: bool = True, random: bool = False):
+    """Get all quotes or a random quote"""
+    query = {"active": True} if active_only else {}
+    
+    if random:
+        # Get a random quote using aggregation
+        pipeline = [{"$match": query}, {"$sample": {"size": 1}}]
+        quotes = await db.quotes.aggregate(pipeline).to_list(1)
+        if quotes:
+            quote = quotes[0]
+            quote.pop('_id', None)
+            return quote
+        return None
+    
+    quotes = await db.quotes.find(query, {"_id": 0}).sort("order", 1).to_list(100)
+    return {"quotes": quotes, "count": len(quotes)}
+
+@api_router.get("/quotes/daily")
+async def get_daily_quote():
+    """Get quote of the day (based on day of year)"""
+    from datetime import date
+    day_of_year = date.today().timetuple().tm_yday
+    
+    # Get total count
+    count = await db.quotes.count_documents({"active": True})
+    if count == 0:
+        return None
+    
+    # Use day of year to pick a quote
+    skip = day_of_year % count
+    quotes = await db.quotes.find({"active": True}, {"_id": 0}).skip(skip).limit(1).to_list(1)
+    
+    if quotes:
+        return quotes[0]
+    return None
+
+@api_router.post("/quotes")
+async def create_quote(quote: Quote):
+    """Create a new quote"""
+    doc = quote.model_dump()
+    await db.quotes.insert_one(doc)
+    return {"message": "Citation créée", "id": quote.id}
+
+
+# Events endpoints
+@api_router.get("/events")
+async def get_events(upcoming_only: bool = True, event_type: Optional[str] = None):
+    """Get events, optionally filtered by type"""
+    query = {"active": True} if upcoming_only else {}
+    
+    if event_type:
+        query["event_type"] = event_type
+    
+    events = await db.events.find(query, {"_id": 0}).sort("date", 1).to_list(100)
+    return {"events": events, "count": len(events)}
+
+@api_router.get("/events/upcoming")
+async def get_upcoming_events(limit: int = 5):
+    """Get upcoming events from today"""
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    
+    events = await db.events.find(
+        {"active": True, "date": {"$gte": today}},
+        {"_id": 0}
+    ).sort("date", 1).limit(limit).to_list(limit)
+    
+    return {"events": events, "count": len(events)}
+
+@api_router.post("/events")
+async def create_event(event: Event):
+    """Create a new event"""
+    doc = event.model_dump()
+    await db.events.insert_one(doc)
+    return {"message": "Événement créé", "id": event.id}
+
+
+# ============== SEARCH ENDPOINT ==============
+
+@api_router.get("/search")
+async def search_content(q: str, lang: str = "fr", limit: int = 20):
+    """Global search across all content types"""
+    if not q or len(q) < 2:
+        raise HTTPException(status_code=400, detail="La recherche doit contenir au moins 2 caractères")
+    
+    results = []
+    search_regex = {"$regex": q, "$options": "i"}
+    
+    # Search in videos
+    video_query = {"$or": [
+        {"title": search_regex},
+        {"description": search_regex}
+    ]}
+    videos = await db.videos.find(video_query, {"_id": 0}).limit(5).to_list(5)
+    for video in videos:
+        results.append({
+            "id": video.get("id"),
+            "title": video.get("title"),
+            "description": video.get("description", "")[:150],
+            "type": "video",
+            "url": f"/gallery?video={video.get('id')}",
+            "relevance": 0.9
+        })
+    
+    # Search in events
+    lang_field = f"name_{lang}" if lang in ["fr", "en", "ar", "wo"] else "name_fr"
+    desc_field = f"description_{lang}" if lang in ["fr", "en", "ar", "wo"] else "description_fr"
+    
+    event_query = {"$or": [
+        {lang_field: search_regex},
+        {desc_field: search_regex},
+        {"name_fr": search_regex}  # Fallback to French
+    ]}
+    events = await db.events.find(event_query, {"_id": 0}).limit(5).to_list(5)
+    for event in events:
+        results.append({
+            "id": event.get("id"),
+            "title": event.get(lang_field) or event.get("name_fr"),
+            "description": event.get(desc_field) or event.get("description_fr", "")[:150] if event.get(desc_field) or event.get("description_fr") else "",
+            "type": "event",
+            "url": f"/evenements/{event.get('event_type', 'gamou')}",
+            "relevance": 0.85
+        })
+    
+    # Search in quotes
+    quote_field = f"text_{lang}" if lang in ["fr", "en", "ar", "wo"] else "text_fr"
+    quote_query = {"$or": [
+        {quote_field: search_regex},
+        {"text_fr": search_regex},
+        {"author": search_regex}
+    ]}
+    quotes = await db.quotes.find(quote_query, {"_id": 0}).limit(3).to_list(3)
+    for quote in quotes:
+        results.append({
+            "id": quote.get("id"),
+            "title": f"Citation - {quote.get('author', 'Maodo')}",
+            "description": (quote.get(quote_field) or quote.get("text_fr", ""))[:150],
+            "type": "quote",
+            "url": "/",
+            "relevance": 0.7
+        })
+    
+    # Static page search (hardcoded for now, can be migrated to DB later)
+    static_pages = [
+        {"title": {"fr": "El Hadji Malick Sy (Maodo)", "en": "El Hadji Malick Sy (Maodo)", "ar": "الحاج مالك سي (مودو)", "wo": "El Hadji Maalik Si (Maodo)"}, "url": "/histoire/maodo", "keywords": ["maodo", "malick", "sy", "fondateur", "founder", "مالك"]},
+        {"title": {"fr": "Lignée des Héritiers", "en": "Lineage of Heirs", "ar": "سلالة الورثة", "wo": "Warisaay yi"}, "url": "/histoire/khalifes", "keywords": ["khalife", "héritier", "heir", "خليفة", "warisaay"]},
+        {"title": {"fr": "Le Gamou de Tivaouane", "en": "The Gamou of Tivaouane", "ar": "مولد تيفاوان", "wo": "Gamou Tiwaawaan"}, "url": "/evenements/gamou", "keywords": ["gamou", "mawlid", "maouloud", "مولد", "naissance"]},
+        {"title": {"fr": "Les Ziarra Annuelles", "en": "Annual Ziarras", "ar": "الزيارات السنوية", "wo": "Ziarra at yi"}, "url": "/evenements/ziarra", "keywords": ["ziarra", "pèlerinage", "pilgrimage", "زيارة"]},
+        {"title": {"fr": "L'École de Tivaouane", "en": "The School of Tivaouane", "ar": "مدرسة تيفاوان", "wo": "Daara Tiwaawaan"}, "url": "/enseignements/ecole", "keywords": ["école", "school", "daara", "مدرسة", "enseignement"]},
+        {"title": {"fr": "Carte de Tivaouane", "en": "Map of Tivaouane", "ar": "خريطة تيفاوان", "wo": "Kart Tiwaawaan"}, "url": "/carte", "keywords": ["carte", "map", "خريطة", "mosquée", "mosque"]},
+        {"title": {"fr": "Médiathèque", "en": "Media Library", "ar": "المكتبة الإعلامية", "wo": "Médiathèque"}, "url": "/mediatheque", "keywords": ["video", "photo", "audio", "archive", "فيديو"]},
+        {"title": {"fr": "Arbre Généalogique", "en": "Family Tree", "ar": "شجرة العائلة", "wo": "Garab kër gi"}, "url": "/arbre-genealogique", "keywords": ["arbre", "tree", "famille", "family", "شجرة"]},
+    ]
+    
+    q_lower = q.lower()
+    for page in static_pages:
+        if any(kw in q_lower for kw in page["keywords"]):
+            results.append({
+                "id": page["url"],
+                "title": page["title"].get(lang, page["title"]["fr"]),
+                "description": "",
+                "type": "page",
+                "url": page["url"],
+                "relevance": 0.95
+            })
+    
+    # Sort by relevance
+    results.sort(key=lambda x: x["relevance"], reverse=True)
+    
+    return {
+        "query": q,
+        "results": results[:limit],
+        "count": len(results[:limit])
+    }
+
+
+# ============== SEED DATA ENDPOINT ==============
+
+@api_router.post("/admin/seed")
+async def seed_database():
+    """Seed database with initial content"""
+    seeded = {"quotes": 0, "events": 0}
+    
+    # Check if already seeded
+    quotes_count = await db.quotes.count_documents({})
+    events_count = await db.events.count_documents({})
+    
+    if quotes_count == 0:
+        # Seed quotes
+        quotes = [
+            {
+                "id": str(uuid.uuid4()),
+                "text_fr": "La science sans la pratique est comme un arbre sans fruit.",
+                "text_en": "Knowledge without practice is like a tree without fruit.",
+                "text_ar": "العلم بلا عمل كالشجرة بلا ثمر.",
+                "text_wo": "Xam-xam te liggéeyul dafa ni garab bu amul xob.",
+                "author": "El Hadji Malick Sy",
+                "context_fr": "Sur l'importance de l'action",
+                "context_en": "On the importance of action",
+                "active": True,
+                "order": 1
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "text_fr": "Celui qui connaît Dieu, son cœur trouve la paix.",
+                "text_en": "He who knows God, his heart finds peace.",
+                "text_ar": "من عرف الله سكن قلبه.",
+                "text_wo": "Ku xam Yàlla, xol am mu dal.",
+                "author": "El Hadji Malick Sy",
+                "context_fr": "Sur la connaissance divine",
+                "context_en": "On divine knowledge",
+                "active": True,
+                "order": 2
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "text_fr": "L'amour du Prophète (PSL) est la clé de tout bien.",
+                "text_en": "Love for the Prophet (PBUH) is the key to all goodness.",
+                "text_ar": "حب النبي (ص) مفتاح كل خير.",
+                "text_wo": "Sopp Yonent bi (YWS) mooy caabi bu nekk baax.",
+                "author": "El Hadji Malick Sy",
+                "context_fr": "Sur l'amour prophétique",
+                "context_en": "On prophetic love",
+                "active": True,
+                "order": 3
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "text_fr": "Le savoir est une lumière qui illumine le cœur du croyant.",
+                "text_en": "Knowledge is a light that illuminates the heart of the believer.",
+                "text_ar": "العلم نور يضيء قلب المؤمن.",
+                "text_wo": "Xam-xam dafa nekk leer buy leer xol mu gëm.",
+                "author": "El Hadji Malick Sy",
+                "context_fr": "Sur la quête du savoir",
+                "context_en": "On seeking knowledge",
+                "active": True,
+                "order": 4
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "text_fr": "La patience dans l'épreuve est le signe de la foi sincère.",
+                "text_en": "Patience in trial is the sign of sincere faith.",
+                "text_ar": "الصبر على البلاء علامة الإيمان الصادق.",
+                "text_wo": "Muñ ci épreuve mooy xàmme gëm bu dëgg.",
+                "author": "El Hadji Malick Sy",
+                "context_fr": "Sur la patience",
+                "context_en": "On patience",
+                "active": True,
+                "order": 5
+            }
+        ]
+        await db.quotes.insert_many(quotes)
+        seeded["quotes"] = len(quotes)
+    
+    if events_count == 0:
+        # Seed events
+        events = [
+            {
+                "id": str(uuid.uuid4()),
+                "name_fr": "Gamou 2025",
+                "name_en": "Gamou 2025",
+                "name_ar": "المولد 2025",
+                "name_wo": "Gamou 2025",
+                "description_fr": "Célébration annuelle de la naissance du Prophète Muhammad (PSL) à Tivaouane",
+                "description_en": "Annual celebration of the birth of Prophet Muhammad (PBUH) in Tivaouane",
+                "description_ar": "الاحتفال السنوي بمولد النبي محمد (ص) في تيفاوان",
+                "description_wo": "Bëgg-bëgg at juddu Yonent Muhammad (YWS) ci Tiwaawaan",
+                "date": "2025-09-05",
+                "location": "Tivaouane",
+                "event_type": "gamou",
+                "recurring": True,
+                "recurrence_pattern": "annual",
+                "active": True
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "name_fr": "Ziarra Générale 2025",
+                "name_en": "General Ziarra 2025",
+                "name_ar": "الزيارة العامة 2025",
+                "name_wo": "Ziarra Générale 2025",
+                "description_fr": "Grande ziarra annuelle rassemblant des centaines de milliers de disciples",
+                "description_en": "Great annual ziarra gathering hundreds of thousands of disciples",
+                "description_ar": "الزيارة السنوية الكبرى التي تجمع مئات الآلاف من المريدين",
+                "description_wo": "Ziarra bu mag bu at buy dajale ay téeméer mille taalibe",
+                "date": "2025-04-20",
+                "location": "Tivaouane",
+                "event_type": "ziarra",
+                "recurring": True,
+                "recurrence_pattern": "annual",
+                "active": True
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "name_fr": "Hadratoul Joumah",
+                "name_en": "Hadratoul Joumah",
+                "name_ar": "حضرة الجمعة",
+                "name_wo": "Hadratoul Joumah",
+                "description_fr": "Séance hebdomadaire de dhikr et prières collectives à la Zawiya",
+                "description_en": "Weekly session of dhikr and collective prayers at the Zawiya",
+                "description_ar": "جلسة أسبوعية للذكر والصلوات الجماعية في الزاوية",
+                "description_wo": "Séance ci ayu-bés ci dhikr ak julli mbooloo ci Zawiya bi",
+                "date": "2025-02-07",
+                "location": "Zawiya de Tivaouane",
+                "event_type": "hadratoul_joumah",
+                "recurring": True,
+                "recurrence_pattern": "weekly",
+                "active": True
+            }
+        ]
+        await db.events.insert_many(events)
+        seeded["events"] = len(events)
+    
+    return {
+        "message": "Base de données initialisée",
+        "seeded": seeded,
+        "existing": {
+            "quotes": quotes_count,
+            "events": events_count
+        }
+    }
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
