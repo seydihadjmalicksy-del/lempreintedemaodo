@@ -30,6 +30,10 @@ const translations = {
     search: "Rechercher...",
     learnMore: "En savoir plus",
     discover: "Découvrir",
+    exploreGallery: "Explorer la Galerie",
+    viewAllVideos: "Voir toutes les vidéos",
+    noFeaturedVideos: "Aucune vidéo en vedette disponible",
+    spiritualPath: "Sur la voie de la purification spirituelle",
     
     // Home
     heroTitle: "L'empreinte de Tivaouane",
@@ -40,6 +44,8 @@ const translations = {
     featuredVideos: "Vidéos en Vedette",
     welcomeMessage: "Bienvenue sur le portail officiel de la Tariqa Tidiane de Tivaouane",
     exploreHistory: "Explorer l'Histoire",
+    discoverContent: "Découvrez nos contenus les plus populaires et inspirants",
+    aboutDescription: "Le Foyer Tidiane de Tivaouane est une confrérie soufie fondée par Cheikh El Hadj Malick Sy, un grand érudit et guide spirituel. Elle représente une voie de purification spirituelle et d'élévation de l'âme à travers le dhikr et les enseignements prophétiques.",
     
     // Newsletter
     stayInformed: "Restez Informé",
@@ -47,6 +53,10 @@ const translations = {
     enterEmail: "Entrez votre adresse email",
     subscribing: "Inscription...",
     thankYou: "Merci pour votre inscription !",
+    privacyNote: "Nous respectons votre vie privée. Désabonnement possible à tout moment.",
+    subscribers: "Abonnés",
+    frequency: "Fréquence",
+    free: "Gratuit",
     
     // Footer
     allRightsReserved: "Tous droits réservés",
@@ -63,7 +73,142 @@ const translations = {
     
     // Pages
     pageNotFound: "Page non trouvée",
-    backToHome: "Retour à l'accueil"
+    backToHome: "Retour à l'accueil",
+    
+    // Maodo Page
+    theFounder: "Le Fondateur",
+    scholarSaint: "Érudit, Saint, Fondateur de la Zawiya de Tivaouane et Vivificateur de la Sunna du Prophète (PSL)",
+    maodoIntro: "El Hadji Malick Sy, affectueusement appelé Maodo (terme wolof signifiant \"le Vénéré\"), fut l'un des plus grands érudits musulmans de l'Afrique de l'Ouest. Chef de la confrérie Tijaniyya au Sénégal, il transforma Tivaouane en un centre spirituel rayonnant dont l'influence perdure jusqu'à nos jours.",
+    maodoBio: "Né en 1855 dans le village de Gaya au nord du Sénégal, il consacra sa vie entière à l'apprentissage, l'enseignement et la diffusion de l'Islam selon la voie du Prophète Muhammad (PSL). Son érudition exceptionnelle, sa piété exemplaire et sa sagesse firent de lui une référence incontournable pour des générations de musulmans.",
+    maodoQuote: "Chez Maodo, la dualité l'emporte sur l'alternative : il fut à la fois homme de science et homme d'action, mystique et pragmatique, traditionaliste et moderniste.",
+    historicPhotos: "Photos Historiques",
+    portraitsOfMaodo: "Portraits de Maodo",
+    lifePath: "Parcours de Vie",
+    majorContributions: "Ses Contributions Majeures",
+    literaryWorks: "Ses Œuvres Littéraires",
+    literaryHeritage: "Maodo a laissé un héritage littéraire inestimable",
+    viewAllWorks: "Voir tous les ouvrages",
+    wordsOfWisdom: "Paroles de Sagesse",
+    eternalLegacy: "Son Héritage Éternel",
+    legacyText: "Aujourd'hui, plus d'un siècle après son rappel à Dieu, l'influence de Maodo continue de rayonner. La Tariqa Tijaniyya est devenue la principale confrérie soufie au Sénégal, et le Gamou de Tivaouane rassemble chaque année plus de 5 millions de fidèles. Ses enseignements, transmis par ses successeurs, continuent d'éclairer les cœurs et les esprits de millions de musulmans à travers le monde.",
+    hisSuccessors: "Ses Successeurs",
+    theGamou: "Le Gamou",
+    mayAllahBePleasedWithHim: "Que Dieu soit satisfait de lui et le rende satisfait",
+    
+    // Timeline
+    birth: "Naissance",
+    birthDesc: "Naissance dans le quartier de Daw Fall à Gaya, département de Dagana, au nord du Sénégal.",
+    quranMemorization: "Mémorisation du Coran",
+    quranMemorizationDesc: "Mémorisation complète du Saint Coran en sept ans, démontrant une intelligence et une dévotion exceptionnelles.",
+    islamicStudies: "Études islamiques",
+    islamicStudiesDesc: "25 années d'études approfondies en fiqh maliki, théologie, exégèse et sciences islamiques dans différents centres.",
+    saintLouisSettlement: "Installation à Saint-Louis",
+    saintLouisSettlementDesc: "Installation à Saint-Louis pour enseigner. Il adopte le nom de Malick Fawade en hommage à sa pieuse mère.",
+    hajjPilgrimage: "Pèlerinage à La Mecque",
+    hajjPilgrimageDesc: "Accomplissement du Hajj à 31 ans. Séjour de deux ans à La Mecque, passage par Marseille et Alexandrie.",
+    zawiyaNdar: "Construction de la Zawiya de Ndar",
+    zawiyaNdarDesc: "Édification de la première zawiya à Saint-Louis (Ndar), centre d'enseignement et de spiritualité.",
+    tivaouaneSettlement: "Installation à Tivaouane",
+    tivaouaneSettlementDesc: "Sur invitation de Djibril Guèye, il s'établit définitivement à Tivaouane après un séjour à Ndiarndé.",
+    zawiyaTivaouane: "Fondation de la Zawiya de Tivaouane",
+    zawiyaTivaouaneDesc: "Création de la zawiya principale de Tivaouane et institution de la première célébration du Mawlid (Gamou).",
+    returnToGod: "Rappel à Dieu",
+    returnToGodDesc: "Le 27 juin 1922, El Hadji Malick Sy rejoint son Seigneur à Tivaouane, où il est inhumé.",
+    
+    // Contributions
+    gamouFounder: "Fondateur du Gamou",
+    gamouFounderDesc: "Institution de la première célébration organisée du Mawlid Nabi au Sénégal en 1902",
+    schoolBuilder: "Bâtisseur d'écoles",
+    schoolBuilderDesc: "Fondation de nombreuses écoles coraniques au Djolof et au Walo",
+    tijaniyyaSpreader: "Diffuseur de la Tijaniyya",
+    tijaniyyaSpreaderDesc: "Propagation de la Tariqa Tijaniyya, devenue la principale confrérie soufie au Sénégal",
+    manOfPeace: "Homme de paix",
+    manOfPeaceDesc: "Dialogue pacifique avec les colonisateurs plutôt que confrontation armée",
+    prolificAuthor: "Auteur prolifique",
+    prolificAuthorDesc: "Rédaction d'ouvrages majeurs sur la théologie, le soufisme et la sunna prophétique",
+    sunnaReviver: "Vivificateur de la Sunna",
+    sunnaReviverDesc: "Modèle achevé de piété, incarnant les enseignements du Prophète (PSL)",
+    
+    // Quotes context
+    onAction: "Sur l'importance de l'action",
+    onDivineKnowledge: "Sur la connaissance divine",
+    onPropheticLove: "Sur l'amour prophétique",
+    
+    // Khalifes Page
+    lineageOfHeirs: "La Lignée des Héritiers",
+    heirsSubtitle: "Les Successeurs de Maodo : Gardiens de l'Héritage Spirituel",
+    heirsIntro: "Depuis le rappel à Dieu d'El Hadji Malick Sy en 1922, plusieurs khalifes se sont succédé à la tête de la Tariqa Tidiane de Tivaouane. Chacun d'eux a apporté sa pierre à l'édifice, contribuant à faire rayonner l'enseignement de Maodo à travers le temps et l'espace.",
+    successionPrinciple: "Le principe de succession (Khilafa) dans la Tariqa Tidiane de Tivaouane suit une logique de primogéniture spirituelle, privilégiant généralement les fils de Maodo, tout en tenant compte des qualités de science et de piété.",
+    majorContributionsLabel: "Contributions Majeures :",
+    currentKhalife: "Khalife Actuel",
+    unbrokenChain: "Une Chaîne Spirituelle Ininterrompue",
+    chainText: "De Maodo à nos jours, la transmission de la Baraka (grâce spirituelle) s'est poursuivie sans rupture. Chaque Khalife a été le maillon d'une chaîne qui remonte au Prophète Muhammad (PSL) à travers Cheikh Ahmed Tijani.",
+    continuityGuarantee: "Cette continuité est le gage de l'authenticité de la voie et de la fidélité à l'enseignement originel.",
+    mayAllahBePleasedWithThemAll: "Que Allah les agrée tous",
+    
+    // Khalifes titles
+    firstKhalife: "Le Premier Khalife",
+    multidimensionalScholar: "Le Savant Multidimensionnel",
+    socialRegulator: "Le Régulateur Social",
+    tirelessServant: "L'Infatigable Serviteur",
+    ascetOfFass: "L'Ascète de Fass - Borom Fass",
+    protectorOfKnowledge: "Le Protecteur du Savoir",
+    multidimensionalVisionary: "Le Visionnaire Multidimensionnel",
+    builderAndDiplomat: "Le Bâtisseur et Diplomate",
+    currentGuide: "Le Guide Actuel",
+    
+    // Family Tree Page
+    spiritualLineage: "Lignée Spirituelle",
+    familyTreeTitle: "Arbre Généalogique",
+    familyTreeSubtitle: "La descendance d'El Hadji Malick Sy et la succession des Khalifes",
+    clickToExpand: "Cliquez sur un membre de la famille pour voir ses descendants",
+    aboutThisTree: "À propos de cet arbre",
+    treeDescription: "Cet arbre généalogique présente une vue simplifiée de la descendance d'El Hadji Malick Sy, en mettant l'accent sur la lignée des Khalifes et les figures majeures de la famille.",
+    extendedFamily: "La famille de Maodo est très étendue, avec des centaines de descendants répartis à travers le Sénégal et le monde entier.",
+    viewDetailedPage: "Voir la page détaillée des Héritiers",
+    legend: "Légende",
+    founder: "Fondateur (Maodo)",
+    descendants: "Descendants",
+    
+    // Interactive Map Page
+    sacredPlaces: "Lieux Saints",
+    mapTitle: "Carte Interactive de Tivaouane",
+    mapSubtitle: "Découvrez les lieux saints et historiques de la cité spirituelle",
+    placesToDiscover: "Lieux à Découvrir",
+    grandMosque: "Grande Mosquée",
+    grandMosqueDesc: "Centre spirituel et lieu de rassemblement principal",
+    mausoleum: "Mausolée de Maodo",
+    mausoleumDesc: "Lieu de repos éternel d'El Hadji Malick Sy",
+    mainZawiya: "Zawiya Principale",
+    mainZawiyaDesc: "Centre d'enseignement et de spiritualité",
+    library: "Bibliothèque Islamique",
+    libraryDesc: "Conservation des manuscrits et ouvrages",
+    
+    // Contact Page
+    contactUs: "Contactez-nous",
+    contactSubtitle: "Nous sommes à votre écoute",
+    yourName: "Votre nom",
+    yourEmail: "Votre email",
+    subject: "Sujet",
+    message: "Message",
+    send: "Envoyer",
+    sending: "Envoi en cours...",
+    messageSent: "Message envoyé avec succès !",
+    address: "Adresse",
+    phone: "Téléphone",
+    
+    // Events
+    ziarraGenerale: "Ziarra Générale 2025",
+    gamou2025: "Gamou 2025",
+    hadratoulJoumah: "Hadratoul Joumah",
+    everyFriday: "Tous les vendredis",
+    
+    // Citations
+    quote1: "La science sans la pratique est comme un arbre sans fruit.",
+    quote2: "Celui qui connaît Dieu, son cœur trouve la paix.",
+    quote3: "L'amour du Prophète (PSL) est la clé de tout bien.",
+    quote4: "Le savoir est une lumière qui illumine le cœur du croyant.",
+    quote5: "La patience dans l'épreuve est le signe de la foi sincère."
   },
   en: {
     // Navigation
@@ -94,6 +239,10 @@ const translations = {
     search: "Search...",
     learnMore: "Learn more",
     discover: "Discover",
+    exploreGallery: "Explore Gallery",
+    viewAllVideos: "View all videos",
+    noFeaturedVideos: "No featured videos available",
+    spiritualPath: "On the path of spiritual purification",
     
     // Home
     heroTitle: "The Legacy of Tivaouane",
@@ -104,6 +253,8 @@ const translations = {
     featuredVideos: "Featured Videos",
     welcomeMessage: "Welcome to the official portal of the Tidiane Tariqa of Tivaouane",
     exploreHistory: "Explore History",
+    discoverContent: "Discover our most popular and inspiring content",
+    aboutDescription: "The Tidiane Foyer of Tivaouane is a Sufi brotherhood founded by Sheikh El Hadj Malick Sy, a great scholar and spiritual guide. It represents a path of spiritual purification and elevation of the soul through dhikr and prophetic teachings.",
     
     // Newsletter
     stayInformed: "Stay Informed",
@@ -111,6 +262,10 @@ const translations = {
     enterEmail: "Enter your email address",
     subscribing: "Subscribing...",
     thankYou: "Thank you for subscribing!",
+    privacyNote: "We respect your privacy. Unsubscribe anytime.",
+    subscribers: "Subscribers",
+    frequency: "Frequency",
+    free: "Free",
     
     // Footer
     allRightsReserved: "All rights reserved",
@@ -127,7 +282,142 @@ const translations = {
     
     // Pages
     pageNotFound: "Page not found",
-    backToHome: "Back to home"
+    backToHome: "Back to home",
+    
+    // Maodo Page
+    theFounder: "The Founder",
+    scholarSaint: "Scholar, Saint, Founder of the Zawiya of Tivaouane and Reviver of the Sunna of the Prophet (PBUH)",
+    maodoIntro: "El Hadji Malick Sy, affectionately called Maodo (a Wolof term meaning \"the Venerated\"), was one of the greatest Muslim scholars of West Africa. Head of the Tijaniyya brotherhood in Senegal, he transformed Tivaouane into a radiant spiritual center whose influence endures to this day.",
+    maodoBio: "Born in 1855 in the village of Gaya in northern Senegal, he devoted his entire life to learning, teaching, and spreading Islam according to the way of Prophet Muhammad (PBUH). His exceptional scholarship, exemplary piety, and wisdom made him an indispensable reference for generations of Muslims.",
+    maodoQuote: "In Maodo, duality prevails over the alternative: he was at once a man of science and action, mystic and pragmatic, traditionalist and modernist.",
+    historicPhotos: "Historic Photos",
+    portraitsOfMaodo: "Portraits of Maodo",
+    lifePath: "Life Journey",
+    majorContributions: "His Major Contributions",
+    literaryWorks: "His Literary Works",
+    literaryHeritage: "Maodo left an invaluable literary heritage",
+    viewAllWorks: "View all works",
+    wordsOfWisdom: "Words of Wisdom",
+    eternalLegacy: "His Eternal Legacy",
+    legacyText: "Today, more than a century after his return to God, Maodo's influence continues to radiate. The Tijaniyya Tariqa has become the main Sufi brotherhood in Senegal, and the Gamou of Tivaouane gathers more than 5 million faithful every year. His teachings, transmitted by his successors, continue to enlighten the hearts and minds of millions of Muslims around the world.",
+    hisSuccessors: "His Successors",
+    theGamou: "The Gamou",
+    mayAllahBePleasedWithHim: "May God be pleased with him and make him satisfied",
+    
+    // Timeline
+    birth: "Birth",
+    birthDesc: "Birth in the Daw Fall neighborhood of Gaya, Dagana department, northern Senegal.",
+    quranMemorization: "Quran Memorization",
+    quranMemorizationDesc: "Complete memorization of the Holy Quran in seven years, demonstrating exceptional intelligence and devotion.",
+    islamicStudies: "Islamic Studies",
+    islamicStudiesDesc: "25 years of in-depth studies in Maliki fiqh, theology, exegesis, and Islamic sciences in various centers.",
+    saintLouisSettlement: "Settlement in Saint-Louis",
+    saintLouisSettlementDesc: "Settlement in Saint-Louis to teach. He adopted the name Malick Fawade in tribute to his pious mother.",
+    hajjPilgrimage: "Pilgrimage to Mecca",
+    hajjPilgrimageDesc: "Completion of Hajj at age 31. Two-year stay in Mecca, passing through Marseille and Alexandria.",
+    zawiyaNdar: "Construction of Zawiya of Ndar",
+    zawiyaNdarDesc: "Building of the first zawiya in Saint-Louis (Ndar), center of teaching and spirituality.",
+    tivaouaneSettlement: "Settlement in Tivaouane",
+    tivaouaneSettlementDesc: "At the invitation of Djibril Guèye, he permanently settled in Tivaouane after a stay in Ndiarndé.",
+    zawiyaTivaouane: "Foundation of Zawiya of Tivaouane",
+    zawiyaTivaouaneDesc: "Creation of the main zawiya of Tivaouane and institution of the first Mawlid (Gamou) celebration.",
+    returnToGod: "Return to God",
+    returnToGodDesc: "On June 27, 1922, El Hadji Malick Sy returned to his Lord in Tivaouane, where he is buried.",
+    
+    // Contributions
+    gamouFounder: "Founder of the Gamou",
+    gamouFounderDesc: "Institution of the first organized celebration of Mawlid Nabi in Senegal in 1902",
+    schoolBuilder: "School Builder",
+    schoolBuilderDesc: "Foundation of numerous Quranic schools in Djolof and Walo",
+    tijaniyyaSpreader: "Spreader of Tijaniyya",
+    tijaniyyaSpreaderDesc: "Propagation of the Tijaniyya Tariqa, which became the main Sufi brotherhood in Senegal",
+    manOfPeace: "Man of Peace",
+    manOfPeaceDesc: "Peaceful dialogue with colonizers rather than armed confrontation",
+    prolificAuthor: "Prolific Author",
+    prolificAuthorDesc: "Writing of major works on theology, Sufism, and prophetic sunna",
+    sunnaReviver: "Reviver of the Sunna",
+    sunnaReviverDesc: "Perfect model of piety, embodying the teachings of the Prophet (PBUH)",
+    
+    // Quotes context
+    onAction: "On the importance of action",
+    onDivineKnowledge: "On divine knowledge",
+    onPropheticLove: "On prophetic love",
+    
+    // Khalifes Page
+    lineageOfHeirs: "The Lineage of Heirs",
+    heirsSubtitle: "The Successors of Maodo: Guardians of the Spiritual Heritage",
+    heirsIntro: "Since the return to God of El Hadji Malick Sy in 1922, several khalifes have succeeded at the head of the Tidiane Tariqa of Tivaouane. Each of them has contributed to the edifice, helping to spread Maodo's teaching through time and space.",
+    successionPrinciple: "The principle of succession (Khilafa) in the Tidiane Tariqa of Tivaouane follows a logic of spiritual primogeniture, generally favoring the sons of Maodo, while taking into account qualities of science and piety.",
+    majorContributionsLabel: "Major Contributions:",
+    currentKhalife: "Current Khalife",
+    unbrokenChain: "An Unbroken Spiritual Chain",
+    chainText: "From Maodo to the present day, the transmission of Baraka (spiritual grace) has continued without interruption. Each Khalife has been a link in a chain that goes back to Prophet Muhammad (PBUH) through Sheikh Ahmed Tijani.",
+    continuityGuarantee: "This continuity is the guarantee of the authenticity of the path and faithfulness to the original teaching.",
+    mayAllahBePleasedWithThemAll: "May Allah be pleased with them all",
+    
+    // Khalifes titles
+    firstKhalife: "The First Khalife",
+    multidimensionalScholar: "The Multidimensional Scholar",
+    socialRegulator: "The Social Regulator",
+    tirelessServant: "The Tireless Servant",
+    ascetOfFass: "The Ascetic of Fass - Borom Fass",
+    protectorOfKnowledge: "The Protector of Knowledge",
+    multidimensionalVisionary: "The Multidimensional Visionary",
+    builderAndDiplomat: "The Builder and Diplomat",
+    currentGuide: "The Current Guide",
+    
+    // Family Tree Page
+    spiritualLineage: "Spiritual Lineage",
+    familyTreeTitle: "Family Tree",
+    familyTreeSubtitle: "The descendants of El Hadji Malick Sy and the succession of Khalifes",
+    clickToExpand: "Click on a family member to see their descendants",
+    aboutThisTree: "About this tree",
+    treeDescription: "This family tree presents a simplified view of the descendants of El Hadji Malick Sy, focusing on the lineage of Khalifes and major figures of the family.",
+    extendedFamily: "Maodo's family is very extensive, with hundreds of descendants spread across Senegal and the entire world.",
+    viewDetailedPage: "View the detailed Heirs page",
+    legend: "Legend",
+    founder: "Founder (Maodo)",
+    descendants: "Descendants",
+    
+    // Interactive Map Page
+    sacredPlaces: "Sacred Places",
+    mapTitle: "Interactive Map of Tivaouane",
+    mapSubtitle: "Discover the holy and historic sites of the spiritual city",
+    placesToDiscover: "Places to Discover",
+    grandMosque: "Grand Mosque",
+    grandMosqueDesc: "Spiritual center and main gathering place",
+    mausoleum: "Mausoleum of Maodo",
+    mausoleumDesc: "Eternal resting place of El Hadji Malick Sy",
+    mainZawiya: "Main Zawiya",
+    mainZawiyaDesc: "Center of teaching and spirituality",
+    library: "Islamic Library",
+    libraryDesc: "Preservation of manuscripts and works",
+    
+    // Contact Page
+    contactUs: "Contact Us",
+    contactSubtitle: "We are here to help",
+    yourName: "Your name",
+    yourEmail: "Your email",
+    subject: "Subject",
+    message: "Message",
+    send: "Send",
+    sending: "Sending...",
+    messageSent: "Message sent successfully!",
+    address: "Address",
+    phone: "Phone",
+    
+    // Events
+    ziarraGenerale: "General Ziarra 2025",
+    gamou2025: "Gamou 2025",
+    hadratoulJoumah: "Hadratoul Joumah",
+    everyFriday: "Every Friday",
+    
+    // Citations
+    quote1: "Knowledge without practice is like a tree without fruit.",
+    quote2: "He who knows God, his heart finds peace.",
+    quote3: "Love for the Prophet (PBUH) is the key to all goodness.",
+    quote4: "Knowledge is a light that illuminates the heart of the believer.",
+    quote5: "Patience in trial is the sign of sincere faith."
   },
   ar: {
     // Navigation
@@ -158,6 +448,10 @@ const translations = {
     search: "بحث...",
     learnMore: "اعرف المزيد",
     discover: "اكتشف",
+    exploreGallery: "استكشف المعرض",
+    viewAllVideos: "عرض جميع الفيديوهات",
+    noFeaturedVideos: "لا تتوفر فيديوهات مميزة",
+    spiritualPath: "على طريق التزكية الروحية",
     
     // Home
     heroTitle: "بصمة تيفاوان",
@@ -168,6 +462,8 @@ const translations = {
     featuredVideos: "فيديوهات مميزة",
     welcomeMessage: "مرحبا بكم في البوابة الرسمية للطريقة التجانية في تيفاوان",
     exploreHistory: "استكشف التاريخ",
+    discoverContent: "اكتشف محتوانا الأكثر شعبية وإلهاماً",
+    aboutDescription: "مركز التجانية في تيفاوان هو طريقة صوفية أسسها الشيخ الحاج مالك سي، العالم الكبير والمرشد الروحي. وهي تمثل طريق التزكية الروحية والارتقاء بالنفس من خلال الذكر والتعاليم النبوية.",
     
     // Newsletter
     stayInformed: "ابق على اطلاع",
@@ -175,6 +471,10 @@ const translations = {
     enterEmail: "أدخل بريدك الإلكتروني",
     subscribing: "جاري التسجيل...",
     thankYou: "شكرا لاشتراكك!",
+    privacyNote: "نحن نحترم خصوصيتك. يمكنك إلغاء الاشتراك في أي وقت.",
+    subscribers: "المشتركون",
+    frequency: "التكرار",
+    free: "مجاني",
     
     // Footer
     allRightsReserved: "جميع الحقوق محفوظة",
@@ -191,7 +491,142 @@ const translations = {
     
     // Pages
     pageNotFound: "الصفحة غير موجودة",
-    backToHome: "العودة للرئيسية"
+    backToHome: "العودة للرئيسية",
+    
+    // Maodo Page
+    theFounder: "المؤسس",
+    scholarSaint: "عالم، ولي، مؤسس زاوية تيفاوان ومحيي سنة النبي (ص)",
+    maodoIntro: "الحاج مالك سي، الملقب بحب مودو (كلمة ولوفية تعني \"المبجل\")، كان أحد أعظم علماء المسلمين في غرب أفريقيا. رئيس الطريقة التجانية في السنغال، حول تيفاوان إلى مركز روحي مشع لا يزال تأثيره مستمرا حتى اليوم.",
+    maodoBio: "ولد عام 1855 في قرية غايا شمال السنغال، كرس حياته كلها للتعلم والتدريس ونشر الإسلام وفق سنة النبي محمد (ص). جعلته علمه الاستثنائي وتقواه المثالي وحكمته مرجعا لا غنى عنه لأجيال من المسلمين.",
+    maodoQuote: "في مودو، تسود الثنائية على البديل: كان في آن واحد رجل علم وعمل، صوفي وعملي، تقليدي وحداثي.",
+    historicPhotos: "صور تاريخية",
+    portraitsOfMaodo: "صور مودو",
+    lifePath: "مسيرة الحياة",
+    majorContributions: "إسهاماته الكبرى",
+    literaryWorks: "مؤلفاته الأدبية",
+    literaryHeritage: "ترك مودو إرثا أدبيا لا يقدر بثمن",
+    viewAllWorks: "عرض جميع المؤلفات",
+    wordsOfWisdom: "كلمات الحكمة",
+    eternalLegacy: "إرثه الخالد",
+    legacyText: "اليوم، بعد أكثر من قرن من رحيله إلى الله، لا يزال تأثير مودو يشع. أصبحت الطريقة التجانية الطريقة الصوفية الرئيسية في السنغال، ويجمع المولد في تيفاوان أكثر من 5 ملايين مؤمن كل عام. تعاليمه، التي نقلها خلفاؤه، تواصل إنارة قلوب وعقول ملايين المسلمين حول العالم.",
+    hisSuccessors: "خلفاؤه",
+    theGamou: "المولد",
+    mayAllahBePleasedWithHim: "رضي الله عنه وأرضاه",
+    
+    // Timeline
+    birth: "الميلاد",
+    birthDesc: "ولد في حي داو فال بغايا، محافظة داغانا، شمال السنغال.",
+    quranMemorization: "حفظ القرآن",
+    quranMemorizationDesc: "حفظ القرآن الكريم كاملا في سبع سنوات، مما يدل على ذكاء وتفان استثنائيين.",
+    islamicStudies: "الدراسات الإسلامية",
+    islamicStudiesDesc: "25 عاما من الدراسات المعمقة في الفقه المالكي والعقيدة والتفسير والعلوم الإسلامية في مراكز مختلفة.",
+    saintLouisSettlement: "الاستقرار في سان لويس",
+    saintLouisSettlementDesc: "استقر في سان لويس للتدريس. اتخذ اسم مالك فواد تكريما لوالدته التقية.",
+    hajjPilgrimage: "الحج إلى مكة",
+    hajjPilgrimageDesc: "أداء الحج في سن 31 عاما. إقامة لمدة عامين في مكة، مرورا بمرسيليا والإسكندرية.",
+    zawiyaNdar: "بناء زاوية ندار",
+    zawiyaNdarDesc: "بناء أول زاوية في سان لويس (ندار)، مركز للتعليم والروحانية.",
+    tivaouaneSettlement: "الاستقرار في تيفاوان",
+    tivaouaneSettlementDesc: "بدعوة من جبريل غي، استقر نهائيا في تيفاوان بعد إقامة في نديارندي.",
+    zawiyaTivaouane: "تأسيس زاوية تيفاوان",
+    zawiyaTivaouaneDesc: "إنشاء الزاوية الرئيسية في تيفاوان وإقامة أول احتفال بالمولد النبوي (القمو).",
+    returnToGod: "الرحيل إلى الله",
+    returnToGodDesc: "في 27 يونيو 1922، عاد الحاج مالك سي إلى ربه في تيفاوان، حيث دفن.",
+    
+    // Contributions
+    gamouFounder: "مؤسس المولد",
+    gamouFounderDesc: "إقامة أول احتفال منظم بالمولد النبوي في السنغال عام 1902",
+    schoolBuilder: "باني المدارس",
+    schoolBuilderDesc: "تأسيس العديد من المدارس القرآنية في جولوف ووالو",
+    tijaniyyaSpreader: "ناشر التجانية",
+    tijaniyyaSpreaderDesc: "نشر الطريقة التجانية التي أصبحت الطريقة الصوفية الرئيسية في السنغال",
+    manOfPeace: "رجل السلام",
+    manOfPeaceDesc: "الحوار السلمي مع المستعمرين بدلا من المواجهة المسلحة",
+    prolificAuthor: "مؤلف غزير الإنتاج",
+    prolificAuthorDesc: "تأليف أعمال كبرى في العقيدة والتصوف والسنة النبوية",
+    sunnaReviver: "محيي السنة",
+    sunnaReviverDesc: "نموذج كامل للتقوى، مجسدا تعاليم النبي (ص)",
+    
+    // Quotes context
+    onAction: "عن أهمية العمل",
+    onDivineKnowledge: "عن المعرفة الإلهية",
+    onPropheticLove: "عن حب النبي",
+    
+    // Khalifes Page
+    lineageOfHeirs: "سلالة الورثة",
+    heirsSubtitle: "خلفاء مودو: حراس الإرث الروحي",
+    heirsIntro: "منذ رحيل الحاج مالك سي إلى الله عام 1922، تعاقب عدة خلفاء على رأس الطريقة التجانية في تيفاوان. كل واحد منهم أضاف لبنة للبناء، مساهما في نشر تعاليم مودو عبر الزمان والمكان.",
+    successionPrinciple: "يتبع مبدأ الخلافة في الطريقة التجانية بتيفاوان منطق الأولوية الروحية، مفضلا عادة أبناء مودو، مع مراعاة صفات العلم والتقوى.",
+    majorContributionsLabel: "الإسهامات الكبرى:",
+    currentKhalife: "الخليفة الحالي",
+    unbrokenChain: "سلسلة روحية متصلة",
+    chainText: "من مودو إلى يومنا هذا، استمر نقل البركة (النعمة الروحية) دون انقطاع. كل خليفة كان حلقة في سلسلة تعود إلى النبي محمد (ص) عبر الشيخ أحمد التجاني.",
+    continuityGuarantee: "هذه الاستمرارية ضمان لأصالة الطريق والوفاء للتعليم الأصلي.",
+    mayAllahBePleasedWithThemAll: "رضي الله عنهم أجمعين",
+    
+    // Khalifes titles
+    firstKhalife: "الخليفة الأول",
+    multidimensionalScholar: "العالم متعدد الأبعاد",
+    socialRegulator: "المنظم الاجتماعي",
+    tirelessServant: "الخادم الدؤوب",
+    ascetOfFass: "زاهد فاس - بوروم فاس",
+    protectorOfKnowledge: "حامي المعرفة",
+    multidimensionalVisionary: "الرؤيوي متعدد الأبعاد",
+    builderAndDiplomat: "الباني والدبلوماسي",
+    currentGuide: "المرشد الحالي",
+    
+    // Family Tree Page
+    spiritualLineage: "السلالة الروحية",
+    familyTreeTitle: "شجرة العائلة",
+    familyTreeSubtitle: "ذرية الحاج مالك سي وتعاقب الخلفاء",
+    clickToExpand: "انقر على أحد أفراد العائلة لرؤية ذريته",
+    aboutThisTree: "عن هذه الشجرة",
+    treeDescription: "تقدم شجرة العائلة هذه عرضا مبسطا لذرية الحاج مالك سي، مع التركيز على سلالة الخلفاء والشخصيات البارزة في العائلة.",
+    extendedFamily: "عائلة مودو واسعة جدا، مع مئات الأحفاد المنتشرين في السنغال والعالم بأسره.",
+    viewDetailedPage: "عرض صفحة الورثة المفصلة",
+    legend: "المفتاح",
+    founder: "المؤسس (مودو)",
+    descendants: "الذرية",
+    
+    // Interactive Map Page
+    sacredPlaces: "الأماكن المقدسة",
+    mapTitle: "الخريطة التفاعلية لتيفاوان",
+    mapSubtitle: "اكتشف الأماكن المقدسة والتاريخية للمدينة الروحية",
+    placesToDiscover: "أماكن للاستكشاف",
+    grandMosque: "المسجد الكبير",
+    grandMosqueDesc: "المركز الروحي ومكان التجمع الرئيسي",
+    mausoleum: "ضريح مودو",
+    mausoleumDesc: "مثوى الحاج مالك سي الأخير",
+    mainZawiya: "الزاوية الرئيسية",
+    mainZawiyaDesc: "مركز التعليم والروحانية",
+    library: "المكتبة الإسلامية",
+    libraryDesc: "حفظ المخطوطات والمؤلفات",
+    
+    // Contact Page
+    contactUs: "اتصل بنا",
+    contactSubtitle: "نحن هنا لمساعدتك",
+    yourName: "اسمك",
+    yourEmail: "بريدك الإلكتروني",
+    subject: "الموضوع",
+    message: "الرسالة",
+    send: "إرسال",
+    sending: "جاري الإرسال...",
+    messageSent: "تم إرسال الرسالة بنجاح!",
+    address: "العنوان",
+    phone: "الهاتف",
+    
+    // Events
+    ziarraGenerale: "الزيارة العامة 2025",
+    gamou2025: "المولد 2025",
+    hadratoulJoumah: "حضرة الجمعة",
+    everyFriday: "كل جمعة",
+    
+    // Citations
+    quote1: "العلم بلا عمل كالشجرة بلا ثمر.",
+    quote2: "من عرف الله سكن قلبه.",
+    quote3: "حب النبي (ص) مفتاح كل خير.",
+    quote4: "العلم نور يضيء قلب المؤمن.",
+    quote5: "الصبر على البلاء علامة الإيمان الصادق."
   },
   wo: {
     // Navigation - Wolof
@@ -222,6 +657,10 @@ const translations = {
     search: "Seet...",
     learnMore: "Gën a xam",
     discover: "Gis",
+    exploreGallery: "Seetlu galerie bi",
+    viewAllVideos: "Xool bidiyo yépp",
+    noFeaturedVideos: "Amul bidiyo rafet",
+    spiritualPath: "Ci yoon wu sell wu ruu bi",
     
     // Home
     heroTitle: "Tiwaawaan",
@@ -232,6 +671,8 @@ const translations = {
     featuredVideos: "Bidiyo yu rafet",
     welcomeMessage: "Dalal jàmm ci portal Tariqa Tijaan Tiwaawaan",
     exploreHistory: "Seetlu taariix bi",
+    discoverContent: "Gis li gën a baax ci li nu am",
+    aboutDescription: "Foyer Tijaan Tiwaawaan dafa nekk tariqa suufi bu El Hadji Maalik Si tëkki, borom xam-xam bu mag ak guide spirituel. Moo di yoon wu sell wu ruu bi di ko yokk ci jëfandikoo dikr ak jàng yi ñu jël ci Yonent bi.",
     
     // Newsletter
     stayInformed: "Xam li am",
@@ -239,6 +680,10 @@ const translations = {
     enterEmail: "Dugal sa email",
     subscribing: "Bindu...",
     thankYou: "Jërëjëf!",
+    privacyNote: "Nu wara sàmm sa yoon. Mën nga génn balaa.",
+    subscribers: "Ñi bindu",
+    frequency: "Léegi-léegi",
+    free: "Jàkkarloo",
     
     // Footer
     allRightsReserved: "Sañ-sañ yi ci kow",
@@ -251,7 +696,146 @@ const translations = {
     pilgrims: "Ajibi Gamou gi",
     onlineFollowers: "Taalibe ci internet",
     daysOfDevotion: "Bés ibaada yi",
-    countriesRepresented: "Réew yi"
+    countriesRepresented: "Réew yi",
+    
+    // Pages
+    pageNotFound: "Xëtu bi gisuwul",
+    backToHome: "Dellu ci ndakaaru",
+    
+    // Maodo Page
+    theFounder: "Ki Tëkki",
+    scholarSaint: "Borom xam-xam, Waliyyu, Tëkkikat Zawiya Tiwaawaan ak Yëngukat Sunna Yonent bi (YWS)",
+    maodoIntro: "El Hadji Maalik Si, ñu bëgg ko wax Maodo (kàddu wolof bu tekki \"ki ñu ràng\"), mooy benn ci boroom xam-xam yu mag yu Afrik àll-géej. Boroom Tariqa Tijaan ci Senegaal, moo wàcce Tiwaawaan ba nekk ab senter bu sell bu ndaw bi amul.",
+    maodoBio: "Juddu ci 1855 ci dëkk bi ñuy wax Gaya ci penku Senegaal, daldi jëfandikoo dundu bi yépp ci jàng, jàngale ak yëngu Islaam ci yoon wu Yonent Muhammad (YWS). Xam-xam bu baax, diine bu sell ak xel bu baax moo def ko ab référence bu dul soxla ci jamano yu bari.",
+    maodoQuote: "Ci Maodo, ñaari yoon moo gën: mooy nit ku xam-xam te ku liggéey, suufi te pragmatik, traditionnel te modern.",
+    historicPhotos: "Nataal yu yàgg",
+    portraitsOfMaodo: "Nataal Maodo",
+    lifePath: "Yoon wu dund bi",
+    majorContributions: "Jëf yu mag ya muy def",
+    literaryWorks: "Téere yi muy bind",
+    literaryHeritage: "Maodo bayyi njàmbaar yu téere yu dul feeñ",
+    viewAllWorks: "Xool téere yépp",
+    wordsOfWisdom: "Kàddu yu xel",
+    eternalLegacy: "Njàmbaar bu dul jeex",
+    legacyText: "Tey, ginnaaw téeméer at ci dellusiku bi Yàlla, ndaw Maodo di wéy woon. Tariqa Tijaan nekk na tariqa suufi bu gën mag ci Senegaal, te Gamou Tiwaawaan di dajale ay million yu nit ñépp at. Jàng yi, yi warisaay yi di jox, di leer ay xol ak xel ay million Muslimaan ci àdduna bi yépp.",
+    hisSuccessors: "Warisaay yi",
+    theGamou: "Gamou gi",
+    mayAllahBePleasedWithHim: "Yàlla nangu ko te bëgg ko",
+    
+    // Timeline
+    birth: "Juddoo",
+    birthDesc: "Juddu ci kër Daw Fall ci Gaya, département Dagana, ci penku Senegaal.",
+    quranMemorization: "Màndarga Alxuraan",
+    quranMemorizationDesc: "Màndarga Alxuraan bi yépp ci juróom ñaari at, mu wone xel bu baax ak diine bu sell.",
+    islamicStudies: "Jàng Islaam",
+    islamicStudiesDesc: "Ñaar-fukki at ak juróom ci jàng buy xool fiqh maliki, théologie, tafsir ak xam-xam Islaam ci ay senter yu bari.",
+    saintLouisSettlement: "Toog ci Ndar",
+    saintLouisSettlementDesc: "Toog ci Ndar ngir jàngale. Jël tur Maalik Fawade ngir hormale ndey ji ku sell.",
+    hajjPilgrimage: "Ajji Makka",
+    hajjPilgrimageDesc: "Def Hajj ci 31 at. Toog ñaari at ci Makka, tëral Marseille ak Alexandrie.",
+    zawiyaNdar: "Tabaxal Zawiya Ndar",
+    zawiyaNdarDesc: "Tabax zawiya bu njëkk ci Ndar, senter jàngale ak diine.",
+    tivaouaneSettlement: "Toog ci Tiwaawaan",
+    tivaouaneSettlementDesc: "Ci woowaali Djibril Gueye, mu toog ba pare ci Tiwaawaan ginnaaw toog ci Ndiarndé.",
+    zawiyaTivaouane: "Tëkkili Zawiya Tiwaawaan",
+    zawiyaTivaouaneDesc: "Sos zawiya bu mag bi ci Tiwaawaan ak njëkk Gamou.",
+    returnToGod: "Dellu ci Yàlla",
+    returnToGodDesc: "Ci 27 juin 1922, El Hadji Maalik Si dellu ci Boroom bi ci Tiwaawaan, fi ñu ko nebbi.",
+    
+    // Contributions
+    gamouFounder: "Tëkkikat Gamou gi",
+    gamouFounderDesc: "Njëkk Gamou bu njëkk organise ci Senegaal ci 1902",
+    schoolBuilder: "Tabaxkat daara",
+    schoolBuilderDesc: "Tëkki daara yu bari ci Djolof ak Walo",
+    tijaniyyaSpreader: "Yëngukat Tijaan",
+    tijaniyyaSpreaderDesc: "Yëngu Tariqa Tijaan, nekk tariqa suufi bu gën mag ci Senegaal",
+    manOfPeace: "Nit ku jàmm",
+    manOfPeaceDesc: "Waxtan ak kolonikatër yi ci jàmm te du xare",
+    prolificAuthor: "Bindikat bu bari",
+    prolificAuthorDesc: "Bind téere yu mag ci théologie, tasawwuf ak sunna",
+    sunnaReviver: "Yëngukat Sunna",
+    sunnaReviverDesc: "Modèle bu pare bu diine, muy jël ci jàng Yonent bi (YWS)",
+    
+    // Quotes context
+    onAction: "Ci njariñ liggéey",
+    onDivineKnowledge: "Ci xam Yàlla",
+    onPropheticLove: "Ci sopp Yonent bi",
+    
+    // Khalifes Page
+    lineageOfHeirs: "Warisaay yi",
+    heirsSubtitle: "Warisaay Maodo: Sàmmukat njàmbaar bu sell bi",
+    heirsIntro: "Ginnaaw dellusiku Yàlla bi El Hadji Maalik Si ci 1922, ay xaliifa jàppu ndaw Tariqa Tijaan Tiwaawaan. Ñu nekk ñépp jàppale na tàbbi bi, di jëlsi jàng Maodo ci jamano ak suuf.",
+    successionPrinciple: "Yoon xilafa ci Tariqa Tijaan Tiwaawaan di topp njëkk bu diine, di gën a tànn doom Maodo, te di xool itam xam-xam ak diine.",
+    majorContributionsLabel: "Jëf yu mag:",
+    currentKhalife: "Xaliifa tey",
+    unbrokenChain: "Silsila bu sell bu duggul",
+    chainText: "Ci Maodo ba tey, yónneef baraka (ndam bu sell) duggul. Xaliifa bu nekk mooy benn xaaj ci silsila buy dellu Yonent Muhammad (YWS) jëm Cheikh Ahmed Tijani.",
+    continuityGuarantee: "Doxin bii moo di garantie bu dëgg yoon bi ak topp jàng bu njëkk bi.",
+    mayAllahBePleasedWithThemAll: "Yàlla nangu leen ñépp",
+    
+    // Khalifes titles
+    firstKhalife: "Xaliifa bu njëkk",
+    multidimensionalScholar: "Borom xam-xam bu bari",
+    socialRegulator: "Régulateur social",
+    tirelessServant: "Jaam bu dul sew",
+    ascetOfFass: "Zahid Fass - Borom Fass",
+    protectorOfKnowledge: "Sàmmukat xam-xam",
+    multidimensionalVisionary: "Visionnaire bu bari",
+    builderAndDiplomat: "Tabaxkat ak diplomate",
+    currentGuide: "Guide tey",
+    
+    // Family Tree Page
+    spiritualLineage: "Silsila bu sell",
+    familyTreeTitle: "Garab njàmbaar",
+    familyTreeSubtitle: "Doomu El Hadji Maalik Si ak jàppuwaay xaliifa yi",
+    clickToExpand: "Bës ci benn nit ci waa kër gi ngir gis doom yi",
+    aboutThisTree: "Ci biir garab bii",
+    treeDescription: "Garab njàmbaar bii di wone ab xool bu gaaw ci doomu El Hadji Maalik Si, di gën a wone xaliifa yi ak nit yu mag ci waa kër gi.",
+    extendedFamily: "Waa kër Maodo dafa metti lool, ay téeméer doom yu séddale ci Senegaal ak àdduna bi yépp.",
+    viewDetailedPage: "Xool xëtu warisaay yi bu sedd",
+    legend: "Légende",
+    founder: "Tëkkikat (Maodo)",
+    descendants: "Doomu",
+    
+    // Interactive Map Page
+    sacredPlaces: "Paxas yu sell",
+    mapTitle: "Kart Tiwaawaan",
+    mapSubtitle: "Gis paxas yu sell ak yu taariix ci dëkk bu sell bi",
+    placesToDiscover: "Paxas yu gis",
+    grandMosque: "Jàkka bu mag bi",
+    grandMosqueDesc: "Senter diine ak paxas ndaje",
+    mausoleum: "Mausolée Maodo",
+    mausoleumDesc: "Fi El Hadji Maalik Si nebbi",
+    mainZawiya: "Zawiya bu mag bi",
+    mainZawiyaDesc: "Senter jàngale ak diine",
+    library: "Bibliothèque Islaam",
+    libraryDesc: "Sàmm téere yi ak manuscrit yi",
+    
+    // Contact Page
+    contactUs: "Jokkoo ak nu",
+    contactSubtitle: "Noo ngi fi ngir la dimbali",
+    yourName: "Sa tur",
+    yourEmail: "Sa email",
+    subject: "Sujet",
+    message: "Bataaxal",
+    send: "Yónnee",
+    sending: "Di yónnee...",
+    messageSent: "Bataaxal bi yónnee na bu baax!",
+    address: "Adress",
+    phone: "Telefon",
+    
+    // Events
+    ziarraGenerale: "Ziarra Générale 2025",
+    gamou2025: "Gamou 2025",
+    hadratoulJoumah: "Hadratoul Joumah",
+    everyFriday: "Ajjuma bu nekk",
+    
+    // Citations
+    quote1: "Xam-xam te liggéeyul dafa ni garab bu amul xob.",
+    quote2: "Ku xam Yàlla, xol am mu dal.",
+    quote3: "Sopp Yonent bi (YWS) mooy caabi bu nekk baax.",
+    quote4: "Xam-xam dafa nekk leer buy leer xol mu gëm.",
+    quote5: "Muñ ci épreuve mooy xàmme gëm bu dëgg."
   }
 };
 
