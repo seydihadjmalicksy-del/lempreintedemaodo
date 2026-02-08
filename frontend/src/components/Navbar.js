@@ -79,8 +79,7 @@ const Navbar = () => {
                 <span className="text-[#D4AF37] text-2xl font-bold">T</span>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-[#004D33]">Tariqa Tidiane</h1>
-                <p className="text-xs text-[#4A4A4A]">L'empreinte de Maodo</p>
+                <h1 className="text-xl font-bold text-[#004D33]">L'empreinte de Maodo</h1>
               </div>
             </Link>
 
