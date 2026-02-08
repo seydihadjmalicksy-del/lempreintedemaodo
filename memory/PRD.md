@@ -8,7 +8,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - **Backend**: FastAPI (Python) + MongoDB (via Motor async driver)
 - **Base de données**: MongoDB
 - **Authentification**: JWT avec sessions stockées en MongoDB
-- **URL Preview**: https://tisoweb.preview.emergentagent.com
+- **URL Preview**: https://tariqa-hub.preview.emergentagent.com
 
 ## ✅ Fonctionnalités Implémentées
 
