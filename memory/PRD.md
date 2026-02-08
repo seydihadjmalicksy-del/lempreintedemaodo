@@ -152,7 +152,13 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 
 ## 📅 Historique des mises à jour
 
-### Février 2025
+### Février 2025 (Session Actuelle)
+- ✅ **P0 - Branding** : Nom du site changé à "L'empreinte de Maodo", copyright changé à "© 2025 CRAT"
+- ✅ **P1 - Migration Khalifes** : Page `/histoire/khalifes` migrée vers MongoDB
+  - Nouvelle collection `khalifes` avec 11 profils complets
+  - Endpoints API CRUD (`/api/khalifes`, `/api/khalifes/current`, etc.)
+  - Support multilingue complet (FR, EN, AR, WO)
+  - Tests automatisés validés à 100%
 - ✅ **Enriched Content** : 16 sections de contenu dynamique (Maodo: 7, Gamou: 5, École: 4)
 - ✅ **Dynamic Pages** : Intégration usePageContent dans Maodo, Gamou, EcoleTivaouane (4 langues)
 - ✅ **Content CMS** : Migration du contenu vers MongoDB, hook usePageContent, onglet admin
