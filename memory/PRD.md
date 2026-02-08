@@ -118,7 +118,8 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 ## 📝 Backlog
 
 ### P1 - Prochaines étapes prioritaires
-- [ ] **Migrer les autres pages** : Khalifes, Ziarra, Origines, GeographieSacree vers MongoDB
+- [x] ~~**Migrer page Khalifes** vers MongoDB~~ ✅ Complété (Février 2025)
+- [ ] **Migrer les autres pages** : Ziarra, Origines, GeographieSacree vers MongoDB
 
 ### P2 - Améliorations
 - [ ] Simplifier `LanguageContext.js` (supprimer le contenu migré vers MongoDB)
