@@ -1490,6 +1490,196 @@ const AdminPanel = () => {
               )}
             </div>
           )}
+
+          {/* Heritiers (Khalifes) List */}
+          {activeTab === "heritiers" && (
+            <div className="space-y-4">
+              {khalifes.length > 0 ? khalifes.map((khalife, index) => (
+                <div key={khalife.id || index}>
+                  {editingItem?.id === khalife.id ? (
+                    <div className="bg-[#F9F7F2] rounded-lg p-4">
+                      <h4 className="font-bold text-[#004D33] mb-4">{t.editHeritier}</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.name}</label>
+                          <input
+                            type="text"
+                            value={editingItem.name}
+                            onChange={(e) => setEditingItem({...editingItem, name: e.target.value})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.period}</label>
+                          <input
+                            type="text"
+                            value={editingItem.period}
+                            onChange={(e) => setEditingItem({...editingItem, period: e.target.value})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.titleLabel} ({t.french})</label>
+                          <input
+                            type="text"
+                            value={editingItem.title?.fr || ''}
+                            onChange={(e) => setEditingItem({...editingItem, title: {...editingItem.title, fr: e.target.value}})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.titleLabel} ({t.english})</label>
+                          <input
+                            type="text"
+                            value={editingItem.title?.en || ''}
+                            onChange={(e) => setEditingItem({...editingItem, title: {...editingItem.title, en: e.target.value}})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                          />
+                        </div>
+                        <div className="md:col-span-2">
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.image}</label>
+                          <input
+                            type="text"
+                            value={editingItem.image || ''}
+                            onChange={(e) => setEditingItem({...editingItem, image: e.target.value})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.description} ({t.french})</label>
+                          <textarea
+                            value={editingItem.description?.fr || ''}
+                            onChange={(e) => setEditingItem({...editingItem, description: {...editingItem.description, fr: e.target.value}})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                            rows={3}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.description} ({t.english})</label>
+                          <textarea
+                            value={editingItem.description?.en || ''}
+                            onChange={(e) => setEditingItem({...editingItem, description: {...editingItem.description, en: e.target.value}})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                            rows={3}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contributions} ({t.french})</label>
+                          <textarea
+                            value={Array.isArray(editingItem.contributions?.fr) ? editingItem.contributions.fr.join('\n') : editingItem.contributions?.fr || ''}
+                            onChange={(e) => setEditingItem({...editingItem, contributions: {...editingItem.contributions, fr: e.target.value}})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                            rows={3}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contributions} ({t.english})</label>
+                          <textarea
+                            value={Array.isArray(editingItem.contributions?.en) ? editingItem.contributions.en.join('\n') : editingItem.contributions?.en || ''}
+                            onChange={(e) => setEditingItem({...editingItem, contributions: {...editingItem.contributions, en: e.target.value}})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                            rows={3}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.order}</label>
+                          <input
+                            type="number"
+                            value={editingItem.order || 0}
+                            onChange={(e) => setEditingItem({...editingItem, order: parseInt(e.target.value) || 0})}
+                            className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                          />
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            id="editCurrentKhalife"
+                            checked={editingItem.current || false}
+                            onChange={(e) => setEditingItem({...editingItem, current: e.target.checked})}
+                            className="w-5 h-5"
+                          />
+                          <label htmlFor="editCurrentKhalife" className="text-sm font-medium text-[#4A4A4A]">{t.currentKhalife}</label>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 mt-4">
+                        <button
+                          onClick={() => handleUpdateKhalife(khalife.id)}
+                          disabled={actionLoading}
+                          className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+                        >
+                          <Save className="w-4 h-4" />
+                          {actionLoading ? "..." : t.save}
+                        </button>
+                        <button
+                          onClick={() => setEditingItem(null)}
+                          className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+                        >
+                          <X className="w-4 h-4" />
+                          {t.cancel}
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div
+                      className={`border rounded-lg p-4 ${khalife.active ? 'bg-white' : 'bg-gray-50'} ${khalife.current ? 'ring-2 ring-[#D4AF37]' : ''}`}
+                      data-testid={`khalife-admin-${index}`}
+                    >
+                      <div className="flex justify-between items-start">
+                        <div className="flex gap-4">
+                          {khalife.image && (
+                            <img
+                              src={khalife.image}
+                              alt={khalife.name}
+                              className="w-16 h-20 object-cover rounded-lg"
+                            />
+                          )}
+                          <div>
+                            <div className="flex items-center gap-2 mb-1">
+                              <h3 className="font-bold text-[#004D33]">{khalife.name}</h3>
+                              {khalife.current && (
+                                <span className="px-2 py-0.5 bg-[#D4AF37] text-[#004D33] text-xs font-bold rounded-full">
+                                  {t.currentKhalife}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-[#D4AF37] text-sm font-medium">{khalife.title?.fr || khalife.title?.en}</p>
+                            <p className="text-[#888888] text-sm">{khalife.period}</p>
+                            <p className="text-[#4A4A4A] text-sm mt-2 line-clamp-2">
+                              {khalife.description?.fr?.substring(0, 150)}...
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs text-[#888888]">#{khalife.order}</span>
+                          <span className={`px-2 py-1 rounded-full text-xs ${
+                            khalife.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
+                          }`}>
+                            {khalife.active ? t.active : t.inactive}
+                          </span>
+                          <button
+                            onClick={() => setEditingItem({...khalife})}
+                            className="p-2 text-[#004D33] hover:bg-[#E8F5E9] rounded-lg transition-colors"
+                            title={t.edit}
+                          >
+                            <Edit2 className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => setDeleteConfirm({ type: 'khalife', id: khalife.id })}
+                            className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                            title={t.delete}
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )) : (
+                <p className="text-center text-[#888888] py-8">Aucun héritier</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
