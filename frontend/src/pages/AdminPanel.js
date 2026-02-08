@@ -1057,7 +1057,7 @@ const AdminPanel = () => {
                     </button>
                   </div>
                 </div>
-              ) : (
+              ) : activeTab === "events" ? (
                 <div className="space-y-4">
                   <h3 className="font-bold text-[#004D33] mb-4">{t.newEvent}</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1148,7 +1148,135 @@ const AdminPanel = () => {
                     </button>
                   </div>
                 </div>
-              )}
+              ) : activeTab === "heritiers" ? (
+                <div className="space-y-4">
+                  <h3 className="font-bold text-[#004D33] mb-4">{t.newHeritier}</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.name}</label>
+                      <input
+                        type="text"
+                        value={newKhalife.name}
+                        onChange={(e) => setNewKhalife({...newKhalife, name: e.target.value})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        placeholder="Serigne..."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.period}</label>
+                      <input
+                        type="text"
+                        value={newKhalife.period}
+                        onChange={(e) => setNewKhalife({...newKhalife, period: e.target.value})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        placeholder="1900 - 2000"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.titleLabel} ({t.french})</label>
+                      <input
+                        type="text"
+                        value={newKhalife.title.fr}
+                        onChange={(e) => setNewKhalife({...newKhalife, title: {...newKhalife.title, fr: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.titleLabel} ({t.english})</label>
+                      <input
+                        type="text"
+                        value={newKhalife.title.en}
+                        onChange={(e) => setNewKhalife({...newKhalife, title: {...newKhalife.title, en: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                      />
+                    </div>
+                    <div className="md:col-span-2">
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.image}</label>
+                      <input
+                        type="text"
+                        value={newKhalife.image}
+                        onChange={(e) => setNewKhalife({...newKhalife, image: e.target.value})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        placeholder="https://..."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.description} ({t.french})</label>
+                      <textarea
+                        value={newKhalife.description.fr}
+                        onChange={(e) => setNewKhalife({...newKhalife, description: {...newKhalife.description, fr: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        rows={3}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.description} ({t.english})</label>
+                      <textarea
+                        value={newKhalife.description.en}
+                        onChange={(e) => setNewKhalife({...newKhalife, description: {...newKhalife.description, en: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        rows={3}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contributions} ({t.french})</label>
+                      <textarea
+                        value={Array.isArray(newKhalife.contributions.fr) ? newKhalife.contributions.fr.join('\n') : newKhalife.contributions.fr}
+                        onChange={(e) => setNewKhalife({...newKhalife, contributions: {...newKhalife.contributions, fr: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        rows={3}
+                        placeholder="Contribution 1&#10;Contribution 2"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contributions} ({t.english})</label>
+                      <textarea
+                        value={Array.isArray(newKhalife.contributions.en) ? newKhalife.contributions.en.join('\n') : newKhalife.contributions.en}
+                        onChange={(e) => setNewKhalife({...newKhalife, contributions: {...newKhalife.contributions, en: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        rows={3}
+                        placeholder="Contribution 1&#10;Contribution 2"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.order}</label>
+                      <input
+                        type="number"
+                        value={newKhalife.order}
+                        onChange={(e) => setNewKhalife({...newKhalife, order: parseInt(e.target.value) || 0})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                      />
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        id="currentKhalife"
+                        checked={newKhalife.current}
+                        onChange={(e) => setNewKhalife({...newKhalife, current: e.target.checked})}
+                        className="w-5 h-5"
+                      />
+                      <label htmlFor="currentKhalife" className="text-sm font-medium text-[#4A4A4A]">{t.currentKhalife}</label>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 mt-4">
+                    <button
+                      onClick={handleAddKhalife}
+                      disabled={actionLoading}
+                      className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+                    >
+                      <Save className="w-4 h-4" />
+                      {actionLoading ? "..." : t.save}
+                    </button>
+                    <button
+                      onClick={() => setShowAddForm(false)}
+                      className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+                    >
+                      <X className="w-4 h-4" />
+                      {t.cancel}
+                    </button>
+                  </div>
+                </div>
+              ) : null}
             </div>
           )}
 
