@@ -101,7 +101,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-white/50 text-sm text-center md:text-left">
-              © 2025 Tariqa Tidiane de Tivaouane. Tous droits réservés.
+              © 2025 CRAT. Tous droits réservés.
             </p>
             <div className="flex items-center gap-4 text-sm">
               <a href="#" className="text-white/50 hover:text-[#D4AF37] transition-colors">

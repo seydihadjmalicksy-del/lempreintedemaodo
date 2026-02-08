@@ -34,8 +34,6 @@ const About = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl lg:text-6xl font-bold text-[#004D33] mb-6">
               <span className="text-[#D4AF37]">L'empreinte de Maodo</span>
-              <br />
-              dans la Tariqa Tidiane
             </h1>
             <p className="text-xl text-[#4A4A4A] max-w-3xl mx-auto">
               Une voie soufie authentique fondée sur les enseignements du Prophète Muhammad (PSL) 
