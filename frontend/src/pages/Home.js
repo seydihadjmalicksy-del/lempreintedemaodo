@@ -281,7 +281,7 @@ const Home = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-6">
-                {t('heroTitle')} {t('heroSubtitle')}
+                {t('heroTitle')}
               </h2>
               <p className="text-lg text-[#4A4A4A] mb-6 leading-relaxed">
                 {language === 'en' ? 
