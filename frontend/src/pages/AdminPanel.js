@@ -466,13 +466,23 @@ const AdminPanel = () => {
       no: "Cancel",
       newQuote: "New Quote",
       newEvent: "New Event",
+      newHeritier: "New Heir",
       editQuote: "Edit Quote",
       editEvent: "Edit Event",
       editContent: "Edit Content",
+      editHeritier: "Edit Heir",
       page: "Page",
       section: "Section",
       seedContent: "Seed content",
-      noContent: "No content. Initialize page content."
+      noContent: "No content. Initialize page content.",
+      name: "Name",
+      period: "Period",
+      titleLabel: "Title",
+      description: "Description",
+      contributions: "Contributions (one per line)",
+      image: "Image URL",
+      currentKhalife: "Current Khalife",
+      order: "Order"
     }
   };
 
