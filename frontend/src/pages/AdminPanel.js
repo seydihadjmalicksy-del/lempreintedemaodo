@@ -15,6 +15,7 @@ const AdminPanel = () => {
   const [quotes, setQuotes] = useState([]);
   const [events, setEvents] = useState([]);
   const [pageContent, setPageContent] = useState([]);
+  const [khalifes, setKhalifes] = useState([]);
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [editingItem, setEditingItem] = useState(null);
@@ -32,6 +33,19 @@ const AdminPanel = () => {
     name_fr: "", name_en: "", name_ar: "", name_wo: "",
     description_fr: "", description_en: "", description_ar: "", description_wo: "",
     date: "", location: "Tivaouane", event_type: "gamou", recurring: false, recurrence_pattern: "", active: true
+  });
+
+  const [newKhalife, setNewKhalife] = useState({
+    name: "",
+    title: { fr: "", en: "", ar: "", wo: "" },
+    period: "",
+    icon: "Crown",
+    description: { fr: "", en: "", ar: "", wo: "" },
+    contributions: { fr: [], en: [], ar: [], wo: [] },
+    image: "",
+    current: false,
+    order: 0,
+    active: true
   });
 
   // Check authentication on mount
