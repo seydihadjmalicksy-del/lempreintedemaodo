@@ -152,15 +152,19 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 
 ## 📅 Historique des mises à jour
 
-### Février 2025 (Session Actuelle)
-- ✅ **P0 - Branding** : Nom du site changé à "L'empreinte de Maodo", copyright changé à "© 2025 CRAT"
-- ✅ **P1 - Migration Khalifes** : Page `/histoire/khalifes` migrée vers MongoDB
+### Février 2026 (Session Actuelle)
+- ✅ **Branding** : 
+  - Nom du site "L'empreinte de Maodo" (titre simplifié dans navbar et pages)
+  - Copyright changé de "2025" à "2026 CRAT"
+  - "Tariqa Tidiane" remplacé par "Foyer Tidiane de Tivaouane"
+- ✅ **Admin Panel - Onglet Héritiers** : 
+  - Nouvel onglet "Héritiers" dans le panneau d'administration
+  - Fonctionnalités CRUD complètes (Créer, Lire, Mettre à jour, Supprimer)
+  - Formulaires d'édition multilingue (FR, EN, AR, WO)
+- ✅ **Migration Khalifes** : Page `/histoire/khalifes` migrée vers MongoDB
   - Nouvelle collection `khalifes` avec 11 profils complets
   - Endpoints API CRUD (`/api/khalifes`, `/api/khalifes/current`, etc.)
-  - Support multilingue complet (FR, EN, AR, WO)
-  - Tests automatisés validés à 100%
-- ✅ **Enriched Content** : 16 sections de contenu dynamique (Maodo: 7, Gamou: 5, École: 4)
-- ✅ **Dynamic Pages** : Intégration usePageContent dans Maodo, Gamou, EcoleTivaouane (4 langues)
+- ✅ **Tests** : Validés à 100%
 - ✅ **Content CMS** : Migration du contenu vers MongoDB, hook usePageContent, onglet admin
 - ✅ CRUD CMS complet (édition et suppression des citations/événements)
 - ✅ Authentification admin complète (login/logout/protection)
