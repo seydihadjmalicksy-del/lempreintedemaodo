@@ -526,6 +526,8 @@ const AdminPanel = () => {
                   handleDeleteEvent(deleteConfirm.id);
                 } else if (deleteConfirm.type === 'content') {
                   handleDeleteContent(deleteConfirm.id);
+                } else if (deleteConfirm.type === 'khalife') {
+                  handleDeleteKhalife(deleteConfirm.id);
                 }
               }}
               disabled={actionLoading}
