@@ -922,6 +922,15 @@ const AdminPanel = () => {
             {t.events} ({events.length})
           </button>
           <button
+            onClick={() => { setActiveTab("heritiers"); setShowAddForm(false); setEditingItem(null); }}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+              activeTab === "heritiers" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+            }`}
+          >
+            <Users className="w-5 h-5" />
+            {t.heritiers} ({khalifes.length})
+          </button>
+          <button
             onClick={() => { setActiveTab("content"); setShowAddForm(false); setEditingItem(null); }}
             className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
               activeTab === "content" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
@@ -934,7 +943,7 @@ const AdminPanel = () => {
 
         {/* Content Area */}
         <div className="bg-white rounded-xl shadow-md p-6">
-          {/* Add Button - only for quotes and events */}
+          {/* Add Button - only for quotes, events, and heritiers */}
           {activeTab !== "content" && (
             <div className="flex justify-end mb-6">
               <button
