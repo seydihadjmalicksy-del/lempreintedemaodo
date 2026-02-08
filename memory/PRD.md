@@ -100,6 +100,9 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 | `/api/notifications/subscribe` | POST | Abonnement push |
 | `/api/notifications/unsubscribe` | POST | Désabonnement push |
 | `/api/search` | GET | Recherche globale multilingue |
+| `/api/khalifes` | GET | **NOUVEAU** Liste des 11 héritiers (multilingue) |
+| `/api/khalifes/current` | GET | **NOUVEAU** Khalife actuel |
+| `/api/khalifes/seed` | POST | **NOUVEAU** Initialiser données khalifes |
 
 ### Base de Données MongoDB
 **Collections:**
@@ -110,6 +113,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 - `videos`: `{ id, title, description, youtube_id, category, is_featured, created_at }`
 - `admin_sessions`: `{ token, username, created_at, expires_at }`
 - `push_subscriptions`: `{ endpoint, keys, user_agent, language, preferences, active }`
+- `khalifes`: **NOUVEAU** `{ id, name, title{fr,en,ar,wo}, period, icon, description{fr,en,ar,wo}, contributions{fr,en,ar,wo}, image, current, order, active }`
 
 ## 📝 Backlog
 
