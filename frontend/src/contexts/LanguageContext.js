@@ -37,12 +37,12 @@ const translations = {
     
     // Home
     heroTitle: "L'empreinte de Maodo",
-    heroSubtitle: "dans la Tariqa Tidiane",
+    heroSubtitle: "",
     heroDescription: "Découvrez l'héritage spirituel d'El Hadji Malick Sy et les enseignements de la Tijaniyya",
     quoteOfDay: "Citation du Jour",
     upcomingEvents: "Événements à Venir",
     featuredVideos: "Vidéos en Vedette",
-    welcomeMessage: "Bienvenue sur le portail officiel de la Tariqa Tidiane de Tivaouane",
+    welcomeMessage: "Bienvenue sur le portail officiel du Foyer Tidiane de Tivaouane",
     exploreHistory: "Explorer l'Histoire",
     discoverContent: "Découvrez nos contenus les plus populaires et inspirants",
     aboutDescription: "Le Foyer Tidiane de Tivaouane est une confrérie soufie fondée par Cheikh El Hadj Malick Sy, un grand érudit et guide spirituel. Elle représente une voie de purification spirituelle et d'élévation de l'âme à travers le dhikr et les enseignements prophétiques.",
@@ -65,7 +65,7 @@ const translations = {
     aboutSite: "À propos du site",
     
     // Stats
-    statsTitle: "La Tariqa Tidiane en Chiffres",
+    statsTitle: "Le Foyer Tidiane en Chiffres",
     pilgrims: "Pèlerins au Gamou",
     onlineFollowers: "Disciples en ligne",
     daysOfDevotion: "Jours de dévotion",
