@@ -421,13 +421,13 @@ const translations = {
     spiritualPath: "On the path of spiritual purification",
     
     // Home
-    heroTitle: "The Legacy of Tivaouane",
-    heroSubtitle: "in the Tidiane Tariqa",
+    heroTitle: "The Legacy of Maodo",
+    heroSubtitle: "",
     heroDescription: "Discover the spiritual heritage of El Hadji Malick Sy and the teachings of the Tijaniyya",
     quoteOfDay: "Quote of the Day",
     upcomingEvents: "Upcoming Events",
     featuredVideos: "Featured Videos",
-    welcomeMessage: "Welcome to the official portal of the Tidiane Tariqa of Tivaouane",
+    welcomeMessage: "Welcome to the official portal of the Tidiane Foyer of Tivaouane",
     exploreHistory: "Explore History",
     discoverContent: "Discover our most popular and inspiring content",
     aboutDescription: "The Tidiane Foyer of Tivaouane is a Sufi brotherhood founded by Sheikh El Hadj Malick Sy, a great scholar and spiritual guide. It represents a path of spiritual purification and elevation of the soul through dhikr and prophetic teachings.",
@@ -450,7 +450,7 @@ const translations = {
     aboutSite: "About this site",
     
     // Stats
-    statsTitle: "The Tidiane Tariqa in Numbers",
+    statsTitle: "The Tidiane Foyer in Numbers",
     pilgrims: "Pilgrims at the Gamou",
     onlineFollowers: "Online followers",
     daysOfDevotion: "Days of devotion",
