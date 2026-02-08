@@ -115,8 +115,6 @@ const Home = () => {
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             <span className="text-[#D4AF37]">{t('heroTitle')}</span>
-            <br />
-            {t('heroSubtitle')}
           </h1>
 
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
