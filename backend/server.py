@@ -237,6 +237,50 @@ class NotificationPreferences(BaseModel):
     weekly_hadratoul: bool = False
 
 
+# Khalife (Heirs) Models for CMS
+class Khalife(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    title: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    period: str  # e.g., "1885 - 1957"
+    icon: str = "Crown"  # Icon name from lucide-react
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    contributions: dict  # {"fr": [...], "en": [...], "ar": [...], "wo": [...]}
+    image: str  # URL to the image
+    current: bool = False  # Is this the current Khalife?
+    order: int = 0  # For sorting
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class KhalifeCreate(BaseModel):
+    name: str
+    title: dict
+    period: str
+    icon: str = "Crown"
+    description: dict
+    contributions: dict
+    image: str
+    current: bool = False
+    order: int = 0
+    active: bool = True
+
+
+class KhalifeUpdate(BaseModel):
+    name: Optional[str] = None
+    title: Optional[dict] = None
+    period: Optional[str] = None
+    icon: Optional[str] = None
+    description: Optional[dict] = None
+    contributions: Optional[dict] = None
+    image: Optional[str] = None
+    current: Optional[bool] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
 # ============== AUTHENTICATION HELPERS ==============
 
 def verify_password(password: str) -> bool:
