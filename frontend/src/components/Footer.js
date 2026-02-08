@@ -25,7 +25,7 @@ const Footer = () => {
           {/* About */}
           <div className="lg:col-span-1">
             <h3 className="text-xl font-bold mb-4 text-[#D4AF37]">
-              Tariqa Tidiane
+              Foyer Tidiane de Tivaouane
             </h3>
             <p className="text-white/70 text-sm leading-relaxed mb-4">
               La Zawiya de Tivaouane, fondée par El Hadji Malick Sy, 
