@@ -3,6 +3,9 @@
 ## 📋 Original Problem Statement
 Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouane, l'héritage spirituel d'El Hadji Malick Sy (Maodo), les enseignements de la confrérie Tijaniyya, et les événements religieux de la cité sainte.
 
+**Nom du site**: L'empreinte de Maodo
+**Copyright**: © 2025 CRAT
+
 ## 🏗️ Architecture Technique
 - **Frontend**: React + Tailwind CSS + Shadcn UI + PWA
 - **Backend**: FastAPI (Python) + MongoDB (via Motor async driver)
@@ -17,7 +20,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 2. **Histoire**
    - `/histoire/origines` - Les Origines de la Tariqa
    - `/histoire/maodo` - ⭐ Page dédiée à El Hadji Malick Sy avec galerie photos (5 photos authentiques)
-   - `/histoire/khalifes` - Lignée des 9 Héritiers avec photos authentiques
+   - `/histoire/khalifes` - ⭐ **Lignée des 11 Héritiers** - **Dynamique depuis MongoDB** (11 profils avec photos)
    - `/histoire/geographie` - Géographie Sacrée
    - `/arbre-genealogique` - ⭐ Arbre généalogique interactif
    - `/carte` - ⭐ Carte interactive de Tivaouane avec Google Maps
