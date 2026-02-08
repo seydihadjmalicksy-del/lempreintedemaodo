@@ -1,10 +1,10 @@
 # Tariqa Tidiane de Tivaouane - PRD (Product Requirements Document)
 
 ## 📋 Original Problem Statement
-Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouane, l'héritage spirituel d'El Hadji Malick Sy (Maodo), les enseignements de la confrérie Tijaniyya, et les événements religieux de la cité sainte.
+Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane, l'héritage spirituel d'El Hadji Malick Sy (Maodo), les enseignements de la confrérie Tijaniyya, et les événements religieux de la cité sainte.
 
 **Nom du site**: L'empreinte de Maodo
-**Copyright**: © 2025 CRAT
+**Copyright**: © 2026 CRAT
 
 ## 🏗️ Architecture Technique
 - **Frontend**: React + Tailwind CSS + Shadcn UI + PWA
