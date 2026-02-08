@@ -105,18 +105,20 @@ const AdminPanel = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes] = await Promise.all([
+      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes, khalifesRes] = await Promise.all([
         axios.get(`${API}/quotes?active_only=false`),
         axios.get(`${API}/events?upcoming_only=false`),
         axios.get(`${API}/newsletter/subscribers`).catch(() => ({ data: { total_subscribers: 0 } })),
         axios.get(`${API}/contact/messages`).catch(() => ({ data: { count: 0 } })),
         axios.get(`${API}/videos`).catch(() => ({ data: [] })),
-        axios.get(`${API}/content?active_only=false`).catch(() => ({ data: { content: [] } }))
+        axios.get(`${API}/content?active_only=false`).catch(() => ({ data: { content: [] } })),
+        axios.get(`${API}/khalifes?active_only=false`).catch(() => ({ data: { khalifes: [] } }))
       ]);
 
       setQuotes(quotesRes.data?.quotes || []);
       setEvents(eventsRes.data?.events || []);
       setPageContent(contentRes.data?.content || []);
+      setKhalifes(khalifesRes.data?.khalifes || []);
       setStats({
         newsletter: newsletterRes.data?.total_subscribers || 0,
         contact: contactRes.data?.count || 0,
