@@ -334,7 +334,7 @@ const Home = () => {
           
           <div className="border-t border-[#D4AF37]/30 pt-6">
             <p className="text-white/60 text-sm">
-              © 2025 CRAT. {t('allRightsReserved')}.
+              © 2026 CRAT. {t('allRightsReserved')}.
             </p>
           </div>
         </div>
