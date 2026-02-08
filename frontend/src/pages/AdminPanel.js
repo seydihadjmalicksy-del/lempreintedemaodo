@@ -283,6 +283,102 @@ const AdminPanel = () => {
     }
   };
 
+  // ===== KHALIFES (HERITIERS) CRUD =====
+  const handleAddKhalife = async () => {
+    setActionLoading(true);
+    try {
+      // Parse contributions from string to array if needed
+      const khalifeData = {
+        ...newKhalife,
+        contributions: {
+          fr: typeof newKhalife.contributions.fr === 'string' 
+            ? newKhalife.contributions.fr.split('\n').filter(c => c.trim()) 
+            : newKhalife.contributions.fr,
+          en: typeof newKhalife.contributions.en === 'string'
+            ? newKhalife.contributions.en.split('\n').filter(c => c.trim())
+            : newKhalife.contributions.en,
+          ar: typeof newKhalife.contributions.ar === 'string'
+            ? newKhalife.contributions.ar.split('\n').filter(c => c.trim())
+            : newKhalife.contributions.ar,
+          wo: typeof newKhalife.contributions.wo === 'string'
+            ? newKhalife.contributions.wo.split('\n').filter(c => c.trim())
+            : newKhalife.contributions.wo
+        }
+      };
+      await axios.post(`${API}/khalifes`, khalifeData, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Héritier ajouté avec succès");
+      setShowAddForm(false);
+      setNewKhalife({
+        name: "",
+        title: { fr: "", en: "", ar: "", wo: "" },
+        period: "",
+        icon: "Crown",
+        description: { fr: "", en: "", ar: "", wo: "" },
+        contributions: { fr: [], en: [], ar: [], wo: [] },
+        image: "",
+        current: false,
+        order: 0,
+        active: true
+      });
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de l'ajout de l'héritier");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleUpdateKhalife = async (khalifeId) => {
+    setActionLoading(true);
+    try {
+      const khalifeData = {
+        ...editingItem,
+        contributions: editingItem.contributions ? {
+          fr: typeof editingItem.contributions.fr === 'string'
+            ? editingItem.contributions.fr.split('\n').filter(c => c.trim())
+            : editingItem.contributions.fr,
+          en: typeof editingItem.contributions.en === 'string'
+            ? editingItem.contributions.en.split('\n').filter(c => c.trim())
+            : editingItem.contributions.en,
+          ar: typeof editingItem.contributions.ar === 'string'
+            ? editingItem.contributions.ar.split('\n').filter(c => c.trim())
+            : editingItem.contributions.ar,
+          wo: typeof editingItem.contributions.wo === 'string'
+            ? editingItem.contributions.wo.split('\n').filter(c => c.trim())
+            : editingItem.contributions.wo
+        } : editingItem.contributions
+      };
+      await axios.put(`${API}/khalifes/${khalifeId}`, khalifeData, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Héritier mis à jour");
+      setEditingItem(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la mise à jour");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleDeleteKhalife = async (khalifeId) => {
+    setActionLoading(true);
+    try {
+      await axios.delete(`${API}/khalifes/${khalifeId}`, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Héritier supprimé");
+      setDeleteConfirm(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la suppression");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
   const labels = {
     fr: {
       title: "Panneau d'Administration",
