@@ -147,7 +147,7 @@ Création d'un portail web complet pour présenter la Tariqa Tidiane de Tivaouan
 | **PWA** | ✅ 100% | Service Worker, Manifest, Notifications |
 | **CRUD CMS** | ✅ 100% | Édition/Suppression citations et événements |
 | **Content CMS** | ✅ 100% | Gestion contenu des pages (9 sections, 3 pages) |
-| **Dynamic Pages** | ✅ 100% | Maodo, Gamou, École affichent contenu MongoDB |
+| **Dynamic Pages** | ✅ 100% | Maodo, Gamou, École, **Khalifes** affichent contenu MongoDB |
 | **Enriched Content** | ✅ 100% | **NOUVEAU** - 16 sections (timeline, contributions, oeuvres, program, cycles) |
 
 ## 📅 Historique des mises à jour
