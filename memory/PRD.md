@@ -103,6 +103,10 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 | `/api/khalifes` | GET | **NOUVEAU** Liste des 11 héritiers (multilingue) |
 | `/api/khalifes/current` | GET | **NOUVEAU** Khalife actuel |
 | `/api/khalifes/seed` | POST | **NOUVEAU** Initialiser données khalifes |
+|| `/api/pages` | GET | **NOUVEAU** Liste toutes les pages avec leurs sections |
+|| `/api/content` | GET/POST | Liste/Créer contenu de pages |
+|| `/api/content/{id}` | PUT/DELETE | Modifier/Supprimer contenu |
+|| `/health` | GET | Health check pour déploiement K8s |
 
 ### Base de Données MongoDB
 **Collections:**
