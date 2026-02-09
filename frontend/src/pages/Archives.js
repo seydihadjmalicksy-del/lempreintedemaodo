@@ -558,7 +558,7 @@ const Archives = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
               <Mic className="w-8 h-8 text-[#D4AF37]" />
-              <h2 className="text-3xl font-bold text-[#004D33]">Archives Sonores - Khassaides</h2>
+              <h2 className="text-3xl font-bold text-[#004D33]">{t.audioTitle}</h2>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -573,15 +573,13 @@ const Archives = () => {
               
               {/* Audio Info */}
               <div className="bg-white rounded-xl p-6 shadow-md">
-                <h3 className="text-xl font-bold text-[#004D33] mb-4">À propos des Khassaides</h3>
+                <h3 className="text-xl font-bold text-[#004D33] mb-4">{t.aboutKhassaides}</h3>
                 <p className="text-[#4A4A4A] mb-4">
-                  Les khassaides d'El Hadji Malick Sy sont des poèmes religieux composés en arabe, 
-                  récités lors des cérémonies religieuses et méditations spirituelles. Ils expriment 
-                  l'amour du Prophète (PSL) et les enseignements de la voie soufie Tijaniyya.
+                  {t.khassaidesDesc}
                 </p>
                 
                 <div className="space-y-3">
-                  <h4 className="font-semibold text-[#004D33]">Sources des enregistrements :</h4>
+                  <h4 className="font-semibold text-[#004D33]">{t.audioSources}</h4>
                   <a 
                     href="https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/"
                     target="_blank"
@@ -619,7 +617,7 @@ const Archives = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
               <Play className="w-8 h-8 text-[#D4AF37]" />
-              <h2 className="text-3xl font-bold text-[#004D33]">Vidéothèque - Documentaires</h2>
+              <h2 className="text-3xl font-bold text-[#004D33]">{t.videosTitle}</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -641,7 +639,7 @@ const Archives = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
               <FileText className="w-8 h-8 text-[#D4AF37]" />
-              <h2 className="text-3xl font-bold text-[#004D33]">Sources Académiques</h2>
+              <h2 className="text-3xl font-bold text-[#004D33]">{t.sourcesTitle}</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
