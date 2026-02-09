@@ -100,7 +100,7 @@ const PiliersTariqa = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Les Piliers de la Tariqa Tidiane
+              Les Piliers de la Tijaniyya
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto mb-4">
               Les Fondements de la Voie Spirituelle
@@ -115,7 +115,7 @@ const PiliersTariqa = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              La Tariqa Tidiane repose sur des <strong className="text-[#004D33]">pratiques spirituelles 
+              La Tijaniyya repose sur des <strong className="text-[#004D33]">pratiques spirituelles 
               précises</strong> transmises directement par le Prophète Muhammad (PSL) à Cheikh Ahmed Tijani. 
               Ces pratiques, appelées <strong className="text-[#004D33]">Awrad</strong> (litanies), constituent 
               l'essence même de la voie.
@@ -123,7 +123,7 @@ const PiliersTariqa = () => {
 
             <div className="bg-[#E8F5E9] border-l-4 border-[#D4AF37] p-6 rounded-lg my-8">
               <p className="text-[#004D33] italic mb-0">
-                <strong>Principe fondamental :</strong> "La Tariqa Tidiane ne demande ni retraite spirituelle 
+                <strong>Principe fondamental :</strong> "La Tijaniyya ne demande ni retraite spirituelle 
                 (Khalwa), ni jeûnes surérogatoires excessifs. Elle mise sur la simplicité et la régularité 
                 dans l'invocation d'Allah, accessible à tout musulman sincère."
               </p>
