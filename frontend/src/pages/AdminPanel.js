@@ -195,6 +195,49 @@ const AdminPanel = () => {
     }
   };
 
+  // Fetch Family Tree
+  const fetchFamilyTree = async () => {
+    try {
+      const response = await axios.get(`${API}/family-tree`);
+      setFamilyTree(response.data?.members || []);
+    } catch (error) {
+      console.error("Error fetching family tree:", error);
+    }
+  };
+
+  // Seed Family Tree
+  const handleSeedFamilyTree = async () => {
+    setActionLoading(true);
+    try {
+      await axios.post(`${API}/family-tree/seed`, {}, { headers: getAuthHeaders() });
+      toast.success("Arbre généalogique initialisé avec succès");
+      fetchFamilyTree();
+    } catch (error) {
+      if (error.response?.data?.skipped) {
+        toast.info("L'arbre généalogique existe déjà");
+      } else {
+        toast.error("Erreur lors de l'initialisation de l'arbre");
+      }
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Delete Family Member
+  const handleDeleteFamilyMember = async (nodeId) => {
+    setActionLoading(true);
+    try {
+      await axios.delete(`${API}/family-tree/${nodeId}`, { headers: getAuthHeaders() });
+      toast.success("Membre supprimé");
+      fetchFamilyTree();
+    } catch (error) {
+      toast.error("Erreur lors de la suppression");
+    } finally {
+      setActionLoading(false);
+      setDeleteConfirm(null);
+    }
+  };
+
   // Delete Archive Item
   const handleDeleteArchiveItem = async (type, id) => {
     setActionLoading(true);
