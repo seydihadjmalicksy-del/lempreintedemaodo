@@ -65,7 +65,7 @@ const About = () => {
               
               <div className="space-y-4 text-[#4A4A4A] leading-relaxed">
                 <p>
-                  La <strong className="text-[#004D33]">Tariqa Tidiane</strong> a été fondée par 
+                  La <strong className="text-[#004D33]">Tijaniyya</strong> a été fondée par 
                   Cheikh Ahmed Tijani (1737-1815) au Maroc. Cette voie soufie authentique s'est 
                   répandue en Afrique de l'Ouest grâce aux efforts de grands maîtres spirituels.
                 </p>
