@@ -164,7 +164,6 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 ### P3 - Futures
 - [ ] **Notifications Push depuis l'Admin** : Interface pour envoyer des notifications push
 - [ ] **Transcriptions des Khassaides** : Intégrer les textes des poèmes à côté des lecteurs audio
-- [ ] **Migration Arbre Généalogique vers MongoDB** : Migrer ArbreGenealogique.js vers MongoDB pour gestion CMS
 - [ ] **Migration Ouvrages vers MongoDB** : Migrer OuvragesReference.js vers MongoDB pour gestion CMS
 - [ ] Intégration réseaux sociaux (flux Twitter/Facebook)
 - [ ] Statistiques de visite dans le panneau admin
