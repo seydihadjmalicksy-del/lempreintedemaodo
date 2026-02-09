@@ -195,6 +195,12 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
   - Meta tags SEO (Open Graph, Twitter) mis à jour
   - Manifest.json pour PWA mis à jour (short_name: "Maodo")
   - Copyright : "© 2026 CRAT"
+- ✅ **Traductions Multilingues Complètes** (9 février 2026):
+  - Français : 100% traduit (langue de base)
+  - Anglais : 100% traduit (toutes les sections : Origines, Géographie, Ziarra, Gamou, etc.)
+  - Arabe : 100% traduit avec support RTL (right-to-left)
+  - Wolof : 100% traduit (langue locale du Sénégal)
+  - Plus de 200 clés de traduction par langue
 - ✅ **Branding** : 
   - Nom du site "L'empreinte de Maodo" (titre simplifié dans navbar et pages)
   - Copyright changé de "2025" à "2026 CRAT"
