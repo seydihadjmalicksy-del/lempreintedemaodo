@@ -27,16 +27,16 @@ const translations = {
     originesTitle: "Les Origines",
     originesSubtitle: "De Fès à Tivaouane",
     originesHeroDesc: "L'histoire d'une voie soufie qui a traversé les siècles et les continents",
-    originesGenesisTitle: "La Genèse de la Tariqa Tidiane",
+    originesGenesisTitle: "La Genèse de la Tijaniyya",
     foundingEvent: "L'événement fondateur",
     foundingEventDesc: "En 1781, à l'âge de 44 ans, Cheikh Ahmed Tijani reçoit en état de veille (yaqdha) la visite spirituelle du Prophète Muhammad (PSL) qui lui ordonne de fonder une nouvelle voie soufie et lui transmet directement le Wird (litanies quotidiennes).",
     directTransmissionDesc: "Cette révélation marque la naissance d'une Tariqa unique dans l'histoire du soufisme : contrairement aux autres voies qui s'appuient sur une chaîne (silsila) de maîtres remontant au Prophète, la Tidjanidya revendique une transmission directe, sans intermédiaire humain.",
     expansionChronology: "Chronologie de l'Expansion",
     tariqaSpecificities: "Les Spécificités de la Tariqa",
     arrivalWestAfrica: "L'Arrivée en Afrique de l'Ouest",
-    arrivalIntro: "La Tariqa Tidiane arrive en Afrique de l'Ouest au début du 19e siècle par plusieurs voies :",
+    arrivalIntro: "La Tijaniyya arrive en Afrique de l'Ouest au début du 19e siècle par plusieurs voies :",
     universalHeritage: "Un Héritage Universel",
-    universalHeritageDesc: "Aujourd'hui, la Tariqa Tidiane compte des millions de disciples à travers le monde, du Maroc au Nigeria, de la Mauritanie au Soudan. Tivaouane demeure l'un de ses centres spirituels les plus rayonnants, perpétuant l'enseignement authentique de Cheikh Ahmed Tijani à travers la lignée de Maodo.",
+    universalHeritageDesc: "Aujourd'hui, la Tijaniyya compte des millions de disciples à travers le monde, du Maroc au Nigeria, de la Mauritanie au Soudan. Tivaouane demeure l'un de ses centres spirituels les plus rayonnants, perpétuant l'enseignement authentique de Cheikh Ahmed Tijani à travers la lignée de Maodo.",
     
     // Page Géographie Sacrée
     holyCity: "Tivaouane, la Cité Sainte",
@@ -408,8 +408,8 @@ const translations = {
     
     // Mediatheque Page
     mediathequeTitle: "Médiathèque",
-    mediathequeSubtitle: "Explorez notre collection multimédia sur la Tariqa Tidiane",
-    mediathequeIntro: "La médiathèque de Tivaouane rassemble une collection exhaustive de contenus audiovisuels, photographiques et écrits sur l'histoire, les enseignements et la vie spirituelle de la Tariqa Tidiane. Notre objectif est de rendre accessible ce patrimoine au plus grand nombre.",
+    mediathequeSubtitle: "Explorez notre collection multimédia sur L'empreinte de Maodo",
+    mediathequeIntro: "La médiathèque de Tivaouane rassemble une collection exhaustive de contenus audiovisuels, photographiques et écrits sur l'histoire, les enseignements et la vie spirituelle de la Tijaniyya. Notre objectif est de rendre accessible ce patrimoine au plus grand nombre.",
     videos: "Vidéos",
     videosDesc: "Conférences, enseignements et événements de Tivaouane",
     photoLibrary: "Photothèque",
