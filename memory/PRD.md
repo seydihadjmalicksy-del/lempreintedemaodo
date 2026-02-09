@@ -167,6 +167,14 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 ## 📅 Historique des mises à jour
 
 ### Février 2026 (Session Actuelle)
+- ✅ **Système CMS de Pages Complet** (9 février 2026):
+  - Nouvel onglet "Pages" dans l'Admin Panel avec vue en grille
+  - 6 pages gérables dynamiquement (ecole, gamou, geographie, maodo, origines, ziarra)
+  - 26 sections de contenu multilingue (FR, EN, AR, WO)
+  - CRUD complet : Créer page, Ajouter section, Modifier section, Supprimer section
+  - Support RTL pour l'arabe
+  - API `/api/pages` pour lister toutes les pages avec leurs sections
+  - Tests automatisés : 100% passés (17 tests backend, validation frontend complète)
 - ✅ **Branding** : 
   - Nom du site "L'empreinte de Maodo" (titre simplifié dans navbar et pages)
   - Copyright changé de "2025" à "2026 CRAT"
