@@ -19,6 +19,7 @@ const AdminPanel = () => {
   const [khalifes, setKhalifes] = useState([]);
   const [archives, setArchives] = useState({ manuscripts: [], photos: [], audio: [], videos: [], sources: [] });
   const [archivesStats, setArchivesStats] = useState({ total: 0 });
+  const [familyTree, setFamilyTree] = useState([]);
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [editingItem, setEditingItem] = useState(null);
