@@ -658,7 +658,7 @@ const Archives = () => {
                   <p className="text-sm text-[#4A4A4A] mb-4">{source.description}</p>
                   <div className="flex items-center gap-2 text-[#D4AF37] font-medium text-sm">
                     <ExternalLink className="w-4 h-4" />
-                    Consulter
+                    {t.consultSource}
                   </div>
                 </a>
               ))}
@@ -671,17 +671,16 @@ const Archives = () => {
       <section className="py-16 bg-gradient-to-r from-[#004D33] to-[#003d29] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Contribuez à la Préservation du Patrimoine
+            {t.contributeTitle}
           </h2>
           <p className="text-lg text-white/90 mb-8">
-            Si vous possédez des documents, photos, enregistrements ou témoignages relatifs à l'histoire 
-            de Tivaouane et d'El Hadji Malick Sy, nous serions honorés de les intégrer à notre collection.
+            {t.contributeDesc}
           </p>
           <a 
             href="/contact"
             className="inline-block bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl"
           >
-            Soumettre un Document
+            {t.submitDoc}
           </a>
         </div>
       </section>
