@@ -197,13 +197,13 @@ const Navbar = () => {
                 link.dropdown ? (
                   <div key={index}>
                     <button
-                      onClick={() => setOpenDropdown(openDropdown === link.label ? null : link.label)}
+                      onClick={() => setOpenMobileDropdown(openMobileDropdown === link.label ? null : link.label)}
                       className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
                     >
                       {link.label}
-                      <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${openMobileDropdown === link.label ? 'rotate-180' : ''}`} />
                     </button>
-                    {openDropdown === link.label && (
+                    {openMobileDropdown === link.label && (
                       <div className="ml-4 mt-1 space-y-1">
                         {link.dropdown.map((subLink) => (
                           <Link
