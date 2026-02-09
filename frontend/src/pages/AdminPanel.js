@@ -1125,6 +1125,15 @@ const AdminPanel = () => {
             <FileText className="w-5 h-5" />
             {t.content} ({pageContent.length})
           </button>
+          <button
+            onClick={() => { setActiveTab("archives"); setShowAddForm(false); setEditingItem(null); fetchArchives(); }}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+              activeTab === "archives" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+            }`}
+          >
+            <Archive className="w-5 h-5" />
+            Archives ({archivesStats.total || 0})
+          </button>
         </div>
 
         {/* Content Area */}
