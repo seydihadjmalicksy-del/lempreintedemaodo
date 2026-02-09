@@ -2191,6 +2191,186 @@ const AdminPanel = () => {
               )}
             </div>
           )}
+
+          {/* Archives Tab */}
+          {activeTab === "archives" && (
+            <div className="space-y-6">
+              {/* Seed Button if empty */}
+              {archivesStats.total === 0 && (
+                <div className="p-4 bg-[#FFF8E1] rounded-lg">
+                  <p className="text-[#4A4A4A] mb-4">Aucune archive. Cliquez pour initialiser les données.</p>
+                  <button
+                    onClick={handleSeedArchives}
+                    disabled={actionLoading}
+                    className="px-4 py-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] rounded-lg font-medium disabled:opacity-50"
+                  >
+                    {actionLoading ? "..." : "Initialiser les Archives"}
+                  </button>
+                </div>
+              )}
+
+              {/* Archives Stats */}
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                <div className="bg-[#E8F5E9] rounded-lg p-4 text-center">
+                  <Book className="w-6 h-6 text-[#004D33] mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#004D33]">{archivesStats.manuscripts || 0}</div>
+                  <div className="text-sm text-[#4A4A4A]">Manuscrits</div>
+                </div>
+                <div className="bg-[#E8F5E9] rounded-lg p-4 text-center">
+                  <Image className="w-6 h-6 text-[#004D33] mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#004D33]">{archivesStats.photos || 0}</div>
+                  <div className="text-sm text-[#4A4A4A]">Photos</div>
+                </div>
+                <div className="bg-[#E8F5E9] rounded-lg p-4 text-center">
+                  <Mic className="w-6 h-6 text-[#004D33] mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#004D33]">{archivesStats.audio || 0}</div>
+                  <div className="text-sm text-[#4A4A4A]">Audio</div>
+                </div>
+                <div className="bg-[#E8F5E9] rounded-lg p-4 text-center">
+                  <Play className="w-6 h-6 text-[#004D33] mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#004D33]">{archivesStats.videos || 0}</div>
+                  <div className="text-sm text-[#4A4A4A]">Vidéos</div>
+                </div>
+                <div className="bg-[#D4AF37]/20 rounded-lg p-4 text-center">
+                  <Archive className="w-6 h-6 text-[#D4AF37] mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#D4AF37]">{archivesStats.total || 0}</div>
+                  <div className="text-sm text-[#4A4A4A]">Total</div>
+                </div>
+              </div>
+
+              {/* Manuscripts List */}
+              {archives.manuscripts.length > 0 && (
+                <div className="border rounded-lg p-4">
+                  <h3 className="font-bold text-[#004D33] mb-4 flex items-center gap-2">
+                    <Book className="w-5 h-5" /> Manuscrits ({archives.manuscripts.length})
+                  </h3>
+                  <div className="space-y-2">
+                    {archives.manuscripts.map((item) => (
+                      <div key={item.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <div>
+                          <p className="font-medium text-[#004D33]">{item.title?.fr || item.title}</p>
+                          <p className="text-sm text-[#888]">{item.type} - {item.date}</p>
+                        </div>
+                        <button
+                          onClick={() => setDeleteConfirm({ type: 'manuscripts', id: item.id })}
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Photos List */}
+              {archives.photos.length > 0 && (
+                <div className="border rounded-lg p-4">
+                  <h3 className="font-bold text-[#004D33] mb-4 flex items-center gap-2">
+                    <Image className="w-5 h-5" /> Photos ({archives.photos.length})
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    {archives.photos.map((item) => (
+                      <div key={item.id} className="relative group">
+                        <img src={item.image} alt={item.title?.fr} className="w-full h-32 object-cover rounded-lg" />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+                          <button
+                            onClick={() => setDeleteConfirm({ type: 'photos', id: item.id })}
+                            className="p-2 bg-red-600 text-white rounded-lg"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                        <p className="text-sm font-medium mt-1 truncate">{item.title?.fr}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Audio List */}
+              {archives.audio.length > 0 && (
+                <div className="border rounded-lg p-4">
+                  <h3 className="font-bold text-[#004D33] mb-4 flex items-center gap-2">
+                    <Mic className="w-5 h-5" /> Audio - Khassaides ({archives.audio.length})
+                  </h3>
+                  <div className="space-y-2">
+                    {archives.audio.map((item) => (
+                      <div key={item.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <div>
+                          <p className="font-medium text-[#004D33]">{item.title}</p>
+                          <p className="text-sm text-[#888]">{item.author} - {item.duration}</p>
+                        </div>
+                        <button
+                          onClick={() => setDeleteConfirm({ type: 'audio', id: item.id })}
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Videos List */}
+              {archives.videos.length > 0 && (
+                <div className="border rounded-lg p-4">
+                  <h3 className="font-bold text-[#004D33] mb-4 flex items-center gap-2">
+                    <Play className="w-5 h-5" /> Vidéos ({archives.videos.length})
+                  </h3>
+                  <div className="space-y-2">
+                    {archives.videos.map((item) => (
+                      <div key={item.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <div className="flex items-center gap-3">
+                          <img 
+                            src={`https://img.youtube.com/vi/${item.youtubeId}/mqdefault.jpg`} 
+                            alt={item.title?.fr} 
+                            className="w-24 h-14 object-cover rounded" 
+                          />
+                          <div>
+                            <p className="font-medium text-[#004D33]">{item.title?.fr || item.title}</p>
+                            <p className="text-sm text-[#888]">{item.duration} - {item.views?.toLocaleString()} vues</p>
+                          </div>
+                        </div>
+                        <button
+                          onClick={() => setDeleteConfirm({ type: 'videos', id: item.id })}
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Sources List */}
+              {archives.sources.length > 0 && (
+                <div className="border rounded-lg p-4">
+                  <h3 className="font-bold text-[#004D33] mb-4 flex items-center gap-2">
+                    <FileText className="w-5 h-5" /> Sources Académiques ({archives.sources.length})
+                  </h3>
+                  <div className="space-y-2">
+                    {archives.sources.map((item) => (
+                      <div key={item.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                        <div>
+                          <p className="font-medium text-[#004D33]">{item.title?.fr || item.title}</p>
+                          <p className="text-sm text-[#888]">{item.source?.fr || item.source}</p>
+                        </div>
+                        <button
+                          onClick={() => setDeleteConfirm({ type: 'sources', id: item.id })}
+                          className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
