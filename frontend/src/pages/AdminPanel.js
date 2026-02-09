@@ -758,6 +758,8 @@ const AdminPanel = () => {
                   handleDeleteKhalife(deleteConfirm.id);
                 } else if (['manuscripts', 'photos', 'audio', 'videos', 'sources'].includes(deleteConfirm.type)) {
                   handleDeleteArchiveItem(deleteConfirm.type, deleteConfirm.id);
+                } else if (deleteConfirm.type === 'family') {
+                  handleDeleteFamilyMember(deleteConfirm.id);
                 }
               }}
               disabled={actionLoading}
