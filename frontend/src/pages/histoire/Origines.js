@@ -7,12 +7,12 @@ const iconMap = { Globe, Users, Book };
 
 const Origines = () => {
   const { t, language } = useLanguage();
-  const { content, loading, error, getSection, getSectionMetadata } = usePageContent("origines");
+  const { content, loading, error } = usePageContent("origines", language);
 
   // Parse timeline data
   const timeline = (() => {
     try {
-      const data = getSection("timeline");
+      const data = content?.timeline?.text;
       return data ? JSON.parse(data) : [];
     } catch { return []; }
   })();
@@ -20,7 +20,7 @@ const Origines = () => {
   // Parse characteristics data
   const characteristics = (() => {
     try {
-      const data = getSection("characteristics");
+      const data = content?.characteristics?.text;
       return data ? JSON.parse(data) : [];
     } catch { return []; }
   })();
@@ -28,12 +28,12 @@ const Origines = () => {
   // Parse expansion data
   const expansion = (() => {
     try {
-      const data = getSection("expansion");
+      const data = content?.expansion?.text;
       return data ? JSON.parse(data) : [];
     } catch { return []; }
   })();
 
-  const introduction = getSection("introduction") || "";
+  const introduction = content?.introduction?.text || "";
 
   if (loading) {
     return (
