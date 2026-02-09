@@ -106,6 +106,13 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 || `/api/pages` | GET | **NOUVEAU** Liste toutes les pages avec leurs sections |
 || `/api/content` | GET/POST | Liste/Créer contenu de pages |
 || `/api/content/{id}` | PUT/DELETE | Modifier/Supprimer contenu |
+|| `/api/archives/manuscripts` | GET/POST | **NOUVEAU** Manuscrits numérisés (multilingue) |
+|| `/api/archives/photos` | GET/POST | **NOUVEAU** Photos historiques (multilingue) |
+|| `/api/archives/audio` | GET/POST | **NOUVEAU** Khassaides audio |
+|| `/api/archives/videos` | GET/POST | **NOUVEAU** Vidéos documentaires (multilingue) |
+|| `/api/archives/sources` | GET/POST | **NOUVEAU** Sources académiques (multilingue) |
+|| `/api/archives/stats` | GET | **NOUVEAU** Statistiques des archives |
+|| `/api/archives/seed` | POST | **NOUVEAU** Initialiser données archives |
 || `/health` | GET | Health check pour déploiement K8s |
 
 ### Base de Données MongoDB
