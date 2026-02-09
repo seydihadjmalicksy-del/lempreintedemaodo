@@ -134,6 +134,12 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 ## 📝 Backlog
 
 ### P0 - Complétées récemment
+- [x] ~~**Migration Archives vers MongoDB**~~ ✅ Complété (9 Février 2026)
+  - 5 nouvelles collections : `archive_manuscripts`, `archive_photos`, `archive_audio`, `archive_videos`, `archive_sources`
+  - API CRUD complète avec authentification admin
+  - Onglet "Archives" dans le panneau d'administration
+  - Frontend mis à jour pour charger depuis MongoDB
+  - 31 éléments migrés (8 manuscrits, 6 photos, 5 audios, 6 vidéos, 6 sources)
 - [x] ~~**Titre Serigne Babacar Sy corrigé** sur l'arbre généalogique~~ ✅ Complété (9 Février 2026)
   - Titre changé en "Second fils de Maodo - Premier Khalife (1922-1957)"
   - Traduit dans les 4 langues (FR, EN, AR, WO)
