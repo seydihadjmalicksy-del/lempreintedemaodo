@@ -851,6 +851,36 @@ async def get_all_page_content(slug: Optional[str] = None, active_only: bool = T
     return {"content": content, "count": len(content)}
 
 
+@api_router.get("/pages")
+async def get_all_pages():
+    """Get list of all unique pages with their sections"""
+    pipeline = [
+        {"$group": {
+            "_id": "$slug",
+            "sections": {"$push": {
+                "id": "$id",
+                "section": "$section",
+                "order": "$order",
+                "active": "$active",
+                "metadata": "$metadata"
+            }},
+            "section_count": {"$sum": 1}
+        }},
+        {"$sort": {"_id": 1}}
+    ]
+    
+    results = await db.page_content.aggregate(pipeline).to_list(100)
+    pages = []
+    for r in results:
+        pages.append({
+            "slug": r["_id"],
+            "sections": sorted(r["sections"], key=lambda x: x.get("order", 0)),
+            "section_count": r["section_count"]
+        })
+    
+    return {"pages": pages, "count": len(pages)}
+
+
 @api_router.get("/content/{slug}")
 async def get_page_content(slug: str, lang: str = "fr"):
     """Get all content sections for a specific page"""
