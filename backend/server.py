@@ -3409,6 +3409,316 @@ async def get_archives_stats():
     }
 
 
+# ============== FAMILY TREE API ==============
+
+@api_router.get("/family-tree")
+async def get_family_tree():
+    """Get all family members"""
+    members = await db.family_tree.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
+    return {"members": members, "count": len(members)}
+
+@api_router.get("/family-tree/tree")
+async def get_family_tree_structured():
+    """Get family tree in hierarchical structure"""
+    members = await db.family_tree.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
+    
+    # Build a lookup dictionary
+    members_dict = {m["node_id"]: m for m in members}
+    
+    # Build tree structure
+    def build_tree(node_id):
+        member = members_dict.get(node_id)
+        if not member:
+            return None
+        
+        # Find children
+        children = [m for m in members if m.get("parent_id") == node_id]
+        children.sort(key=lambda x: x.get("order", 0))
+        
+        tree_node = {
+            "id": member["node_id"],
+            "nom": member["nom"],
+            "surnom": member.get("surnom"),
+            "dates": member["dates"],
+            "titre": member["titre"],
+            "image": member["image"],
+            "epouses": member.get("epouses"),
+            "current": member.get("is_current_khalife", False),
+            "enfants": [build_tree(child["node_id"]) for child in children]
+        }
+        return tree_node
+    
+    # Find root (member with no parent)
+    root = next((m for m in members if not m.get("parent_id")), None)
+    if root:
+        tree = build_tree(root["node_id"])
+        return tree
+    
+    return {"error": "No root member found"}
+
+@api_router.post("/family-tree")
+async def create_family_member(member: FamilyMemberCreate, is_admin: bool = Depends(verify_admin_token)):
+    """Create a new family member (admin only)"""
+    # Check if node_id already exists
+    existing = await db.family_tree.find_one({"node_id": member.node_id})
+    if existing:
+        raise HTTPException(status_code=400, detail="Un membre avec ce node_id existe déjà")
+    
+    new_member = FamilyMember(**member.model_dump())
+    await db.family_tree.insert_one(new_member.model_dump())
+    return {"success": True, "id": new_member.id, "message": "Membre créé"}
+
+@api_router.put("/family-tree/{node_id}")
+async def update_family_member(node_id: str, member: FamilyMemberUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update a family member (admin only)"""
+    update_data = {k: v for k, v in member.model_dump().items() if v is not None}
+    if not update_data:
+        raise HTTPException(status_code=400, detail="Aucune donnée à mettre à jour")
+    
+    result = await db.family_tree.update_one({"node_id": node_id}, {"$set": update_data})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Membre non trouvé")
+    
+    return {"success": True, "message": "Membre mis à jour"}
+
+@api_router.delete("/family-tree/{node_id}")
+async def delete_family_member(node_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete a family member (admin only)"""
+    result = await db.family_tree.delete_one({"node_id": node_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Membre non trouvé")
+    
+    return {"success": True, "message": "Membre supprimé"}
+
+@api_router.post("/family-tree/seed")
+async def seed_family_tree(is_admin: bool = Depends(verify_admin_token)):
+    """Seed initial family tree data (admin only)"""
+    
+    # Check if data already exists
+    existing = await db.family_tree.count_documents({})
+    if existing > 0:
+        return {"message": "L'arbre généalogique existe déjà", "skipped": True}
+    
+    # Family tree data - flat structure with parent references
+    family_data = [
+        # Root - Maodo
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "maodo",
+            "nom": "El Hadji Malick Sy",
+            "surnom": "Maodo",
+            "dates": "1855 - 1922",
+            "titre": {
+                "fr": "Fondateur de la Zawiya de Tivaouane",
+                "en": "Founder of the Zawiya of Tivaouane",
+                "ar": "مؤسس زاوية تيفاوان",
+                "wo": "Tëkkikat Zawiya Tiwaawaan"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
+            "parent_id": None,
+            "epouses": [
+                {"nom": "Sokhna Rokhaya Ndiaye", "enfants": ["babacar"]},
+                {"nom": "Sokhna Safiétou Niang", "enfants": ["habib"]}
+            ],
+            "is_current_khalife": False,
+            "order": 0,
+            "active": True
+        },
+        # Children of Maodo
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "babacar",
+            "nom": "Serigne Babacar Sy",
+            "surnom": None,
+            "dates": "1885 - 1957",
+            "titre": {
+                "fr": "Second fils de Maodo - Premier Khalife (1922-1957)",
+                "en": "Second son of Maodo - First Khalife (1922-1957)",
+                "ar": "الابن الثاني لمودو - الخليفة الأول (1922-1957)",
+                "wo": "Ñaareelu doom Maodo - Njëkk Xaliifa (1922-1957)"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg",
+            "parent_id": "maodo",
+            "is_current_khalife": False,
+            "order": 1,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "mansour_balkhawmi",
+            "nom": "Serigne Mansour Sy",
+            "surnom": "Balkhawmi",
+            "dates": "1900 - 1957",
+            "titre": {
+                "fr": "Le Savant (Khalife quelques mois en 1957)",
+                "en": "The Scholar (Khalife for a few months in 1957)",
+                "ar": "العالم (خليفة لبضعة أشهر في 1957)",
+                "wo": "Borom xam-xam (Xaliifa ay weer ci 1957)"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
+            "parent_id": "maodo",
+            "is_current_khalife": False,
+            "order": 2,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "dabakh",
+            "nom": "Serigne Abdoul Aziz Sy",
+            "surnom": "Dabakh",
+            "dates": "1904 - 1997",
+            "titre": {
+                "fr": "Khalife (1957-1997)",
+                "en": "Khalife (1957-1997)",
+                "ar": "الخليفة (1957-1997)",
+                "wo": "Xaliifa (1957-1997)"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg",
+            "parent_id": "maodo",
+            "is_current_khalife": False,
+            "order": 3,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "habib",
+            "nom": "Serigne Mouhammadoul Habib Sy",
+            "surnom": None,
+            "dates": "1906 - 1992",
+            "titre": {
+                "fr": "Fils cadet de Maodo",
+                "en": "Youngest son of Maodo",
+                "ar": "الابن الأصغر لمودو",
+                "wo": "Doom bu ndaw Maodo"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/zk7vtiqg_FB_IMG_1770340169935.jpg",
+            "parent_id": "maodo",
+            "is_current_khalife": False,
+            "order": 4,
+            "active": True
+        },
+        # Children of Babacar
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "djamil",
+            "nom": "Serigne Moustapha Sy Djamil",
+            "surnom": "Borom Fass",
+            "dates": "1916 - 1993",
+            "titre": {
+                "fr": "Borom Fass",
+                "en": "Borom Fass",
+                "ar": "بوروم فاس",
+                "wo": "Borom Fass"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/p7vxoses_FB_IMG_1770340283848.jpg",
+            "parent_id": "babacar",
+            "is_current_khalife": False,
+            "order": 1,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "mansour_daradji",
+            "nom": "Serigne Mansour Sy",
+            "surnom": "Borom Daradji",
+            "dates": "1925 - 2012",
+            "titre": {
+                "fr": "Khalife (1997-2012)",
+                "en": "Khalife (1997-2012)",
+                "ar": "الخليفة (1997-2012)",
+                "wo": "Xaliifa (1997-2012)"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg",
+            "parent_id": "babacar",
+            "is_current_khalife": False,
+            "order": 2,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "maktoum",
+            "nom": "Serigne Cheikh Ahmed Tidiane Sy",
+            "surnom": "Al Maktoum",
+            "dates": "1925 - 2017",
+            "titre": {
+                "fr": "Fondateur Moustarchidine",
+                "en": "Founder Moustarchidine",
+                "ar": "مؤسس مسترشدين",
+                "wo": "Tëkkikat Moustarchidine"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/jtrbkp29_IMG-20260206-WA0053.jpg",
+            "parent_id": "babacar",
+            "is_current_khalife": False,
+            "order": 3,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "alamine",
+            "nom": "Serigne Abdoul Aziz Sy",
+            "surnom": "Al Amine",
+            "dates": "1928 - 2017",
+            "titre": {
+                "fr": "Khalife (2012-2017)",
+                "en": "Khalife (2012-2017)",
+                "ar": "الخليفة (2012-2017)",
+                "wo": "Xaliifa (2012-2017)"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/dwimysfs_FB_IMG_1770340522540.jpg",
+            "parent_id": "babacar",
+            "is_current_khalife": False,
+            "order": 4,
+            "active": True
+        },
+        # Child of Mansour Balkhawmi
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "babacar_mansour",
+            "nom": "Serigne Babacar Sy Mansour",
+            "surnom": None,
+            "dates": "1932 -",
+            "titre": {
+                "fr": "Khalife Actuel (depuis 2017)",
+                "en": "Current Khalife (since 2017)",
+                "ar": "الخليفة الحالي (منذ 2017)",
+                "wo": "Xaliifa tey (dale 2017)"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
+            "parent_id": "mansour_balkhawmi",
+            "is_current_khalife": True,
+            "order": 1,
+            "active": True
+        },
+        # Child of Maktoum
+        {
+            "id": str(uuid.uuid4()),
+            "node_id": "moustapha_maktoum",
+            "nom": "Serigne Moustapha Sy",
+            "surnom": None,
+            "dates": "1956 -",
+            "titre": {
+                "fr": "Guide Moustarchidine Wal Moustarchidati",
+                "en": "Guide Moustarchidine Wal Moustarchidati",
+                "ar": "مرشد مسترشدين ومسترشدات",
+                "wo": "Guide Moustarchidine Wal Moustarchidati"
+            },
+            "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
+            "parent_id": "maktoum",
+            "is_current_khalife": False,
+            "order": 1,
+            "active": True
+        }
+    ]
+    
+    # Insert all data
+    await db.family_tree.insert_many(family_data)
+    
+    return {
+        "message": "Arbre généalogique initialisé avec succès",
+        "count": len(family_data)
+    }
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
