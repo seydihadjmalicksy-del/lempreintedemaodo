@@ -122,11 +122,16 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 ## 📝 Backlog
 
 ### P0 - Complétées récemment
+- [x] ~~**Titre Serigne Babacar Sy corrigé** sur l'arbre généalogique~~ ✅ Complété (9 Février 2026)
+  - Titre changé en "Second fils de Maodo - Premier Khalife (1922-1957)"
+  - Traduit dans les 4 langues (FR, EN, AR, WO)
+- [x] ~~**Traductions page Archives complètes**~~ ✅ Complété (9 Février 2026)
+  - Interface utilisateur traduite (titres, boutons, labels)
+  - Manuscrits : 8 items traduits (FR, EN, AR, WO)
+  - Photos : 6 items traduits (FR, EN, AR, WO)
+  - Vidéos : 6 documentaires traduits (FR, EN, AR, WO)
+  - Sources académiques : 6 items traduits (FR, EN, AR, WO)
 - [x] ~~**Système CMS de Pages** dans l'Admin Panel~~ ✅ Complété (Février 2026)
-  - Onglet "Pages" avec vue en grille des 6 pages
-  - Création de nouvelles pages dynamiques
-  - Ajout/modification/suppression de sections
-  - Support multilingue (FR, EN, AR, WO) avec RTL arabe
 - [x] ~~**Migrer page Khalifes** vers MongoDB~~ ✅ Complété (Février 2026)
 - [x] ~~**Migrer les autres pages** : Ziarra, Origines, GeographieSacree vers MongoDB~~ ✅ Complété (Février 2026)
 
