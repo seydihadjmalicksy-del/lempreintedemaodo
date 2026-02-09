@@ -1,13 +1,62 @@
-import { Book, Image, Mic, Newspaper, Filter, Play, Download, ExternalLink, FileText, Users, Calendar } from "lucide-react";
-import { useState } from "react";
+import { Book, Image, Mic, Newspaper, Filter, Play, Download, ExternalLink, FileText, Users, Calendar, Loader2 } from "lucide-react";
+import { useState, useEffect } from "react";
 import { AudioPlayer, VideoPlayerModal, VideoCard } from "../components/MediaPlayer";
 import { useLanguage } from "../contexts/LanguageContext";
+
+const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const Archives = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentAudioTrack, setCurrentAudioTrack] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [archiveData, setArchiveData] = useState({
+    manuscripts: [],
+    photos: [],
+    audio: [],
+    videos: [],
+    sources: []
+  });
   const { language } = useLanguage();
+
+  // Fetch archives data from API
+  useEffect(() => {
+    const fetchArchives = async () => {
+      try {
+        setLoading(true);
+        const [manuscriptsRes, photosRes, audioRes, videosRes, sourcesRes] = await Promise.all([
+          fetch(`${API_URL}/api/archives/manuscripts`),
+          fetch(`${API_URL}/api/archives/photos`),
+          fetch(`${API_URL}/api/archives/audio`),
+          fetch(`${API_URL}/api/archives/videos`),
+          fetch(`${API_URL}/api/archives/sources`)
+        ]);
+        
+        const [manuscripts, photos, audio, videos, sources] = await Promise.all([
+          manuscriptsRes.ok ? manuscriptsRes.json() : [],
+          photosRes.ok ? photosRes.json() : [],
+          audioRes.ok ? audioRes.json() : [],
+          videosRes.ok ? videosRes.json() : [],
+          sourcesRes.ok ? sourcesRes.json() : []
+        ]);
+        
+        setArchiveData({ manuscripts, photos, audio, videos, sources });
+      } catch (error) {
+        console.error('Error fetching archives:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchArchives();
+  }, []);
+
+  // Helper function to get translated text
+  const getTranslatedText = (item, field) => {
+    if (!item || !item[field]) return '';
+    if (typeof item[field] === 'string') return item[field];
+    return item[field][language] || item[field].fr || '';
+  };
 
   // Translations for UI elements
   const ui = {
