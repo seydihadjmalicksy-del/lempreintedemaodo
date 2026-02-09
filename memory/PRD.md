@@ -175,6 +175,12 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
   - Support RTL pour l'arabe
   - API `/api/pages` pour lister toutes les pages avec leurs sections
   - Tests automatisés : 100% passés (17 tests backend, validation frontend complète)
+- ✅ **Enrichissement du Contenu sur Maodo** (9 février 2026):
+  - 12 nouvelles vidéos YouTube réelles sur El Hadj Malick Sy (documentaires, Gamou 2024, Khassaides)
+  - 10 documents PDF téléchargeables (thèses, exposés, biographies, manuscrits)
+  - 6 sources académiques ajoutées (BnF, OpenEdition, UCAD, Timbuktu Institute, Les Cahiers de l'Islam)
+  - Nouvelle section "Archives Académiques et Sources de Recherche" sur la page Ouvrages
+  - Médiathèque mise à jour avec les vraies vidéos de Maodo
 - ✅ **Branding** : 
   - Nom du site "L'empreinte de Maodo" (titre simplifié dans navbar et pages)
   - Copyright changé de "2025" à "2026 CRAT"
