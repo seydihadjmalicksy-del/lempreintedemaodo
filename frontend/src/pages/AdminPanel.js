@@ -120,14 +120,15 @@ const AdminPanel = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes, khalifesRes] = await Promise.all([
+      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes, khalifesRes, pagesRes] = await Promise.all([
         axios.get(`${API}/quotes?active_only=false`),
         axios.get(`${API}/events?upcoming_only=false`),
         axios.get(`${API}/newsletter/subscribers`).catch(() => ({ data: { total_subscribers: 0 } })),
         axios.get(`${API}/contact/messages`).catch(() => ({ data: { count: 0 } })),
         axios.get(`${API}/videos`).catch(() => ({ data: [] })),
         axios.get(`${API}/content?active_only=false`).catch(() => ({ data: { content: [] } })),
-        axios.get(`${API}/khalifes?active_only=false`).catch(() => ({ data: { khalifes: [] } }))
+        axios.get(`${API}/khalifes?active_only=false`).catch(() => ({ data: { khalifes: [] } })),
+        axios.get(`${API}/pages`).catch(() => ({ data: { pages: [] } }))
       ]);
 
       setQuotes(quotesRes.data?.quotes || []);
