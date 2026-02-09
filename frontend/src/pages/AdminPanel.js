@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, LogOut, AlertTriangle, FileText } from "lucide-react";
+import { Settings, Quote, Calendar, Video, Users, Plus, Trash2, Edit2, Save, X, RefreshCw, LogOut, AlertTriangle, FileText, FilePlus, Layers } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -15,6 +15,7 @@ const AdminPanel = () => {
   const [quotes, setQuotes] = useState([]);
   const [events, setEvents] = useState([]);
   const [pageContent, setPageContent] = useState([]);
+  const [pages, setPages] = useState([]);
   const [khalifes, setKhalifes] = useState([]);
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
@@ -22,6 +23,9 @@ const AdminPanel = () => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
   const [actionLoading, setActionLoading] = useState(false);
+  const [selectedPage, setSelectedPage] = useState(null);
+  const [showNewPageForm, setShowNewPageForm] = useState(false);
+  const [showNewSectionForm, setShowNewSectionForm] = useState(false);
 
   // New item forms
   const [newQuote, setNewQuote] = useState({
@@ -44,6 +48,17 @@ const AdminPanel = () => {
     contributions: { fr: [], en: [], ar: [], wo: [] },
     image: "",
     current: false,
+    order: 0,
+    active: true
+  });
+
+  // New page/section form
+  const [newPage, setNewPage] = useState({ slug: "", title: "" });
+  const [newSection, setNewSection] = useState({
+    slug: "",
+    section: "",
+    content: { fr: "", en: "", ar: "", wo: "" },
+    metadata: { type: "text" },
     order: 0,
     active: true
   });
