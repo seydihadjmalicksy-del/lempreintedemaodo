@@ -1527,90 +1527,406 @@ const AdminPanel = () => {
             </div>
           )}
 
-          {/* Page Content List */}
+          {/* Page Content Management - IMPROVED CMS */}
           {activeTab === "content" && (
-            <div className="space-y-4">
-              {/* Group content by page */}
-              {pageContent.length > 0 ? (
-                Object.entries(
-                  pageContent.reduce((acc, item) => {
-                    if (!acc[item.slug]) acc[item.slug] = [];
-                    acc[item.slug].push(item);
-                    return acc;
-                  }, {})
-                ).map(([slug, sections]) => (
-                  <div key={slug} className="border rounded-lg overflow-hidden">
-                    <div className="bg-[#004D33] text-white px-4 py-2 font-semibold capitalize">
-                      {t.page}: {slug}
+            <div className="space-y-6">
+              {/* Header with actions */}
+              <div className="flex flex-wrap justify-between items-center gap-4 pb-4 border-b">
+                {selectedPage ? (
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => { setSelectedPage(null); setShowNewSectionForm(false); }}
+                      className="flex items-center gap-2 text-[#004D33] hover:text-[#003d29]"
+                    >
+                      ← {t.backToPages}
+                    </button>
+                    <h3 className="text-xl font-bold text-[#004D33] capitalize">
+                      {t.page}: {selectedPage}
+                    </h3>
+                  </div>
+                ) : (
+                  <h3 className="text-xl font-bold text-[#004D33]">
+                    {t.allPages} ({pages.length})
+                  </h3>
+                )}
+                
+                <div className="flex gap-2">
+                  {selectedPage ? (
+                    <button
+                      onClick={() => setShowNewSectionForm(!showNewSectionForm)}
+                      className="flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-4 py-2 rounded-lg font-medium"
+                    >
+                      <Plus className="w-5 h-5" />
+                      {t.addSection}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setShowNewPageForm(!showNewPageForm)}
+                      className="flex items-center gap-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] px-4 py-2 rounded-lg font-medium"
+                    >
+                      <FilePlus className="w-5 h-5" />
+                      {t.createPage}
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* New Page Form */}
+              {showNewPageForm && !selectedPage && (
+                <div className="bg-[#F9F7F2] rounded-lg p-6">
+                  <h4 className="font-bold text-[#004D33] mb-4">{t.newPage}</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.slug} *</label>
+                      <input
+                        type="text"
+                        value={newPage.slug}
+                        onChange={(e) => setNewPage({...newPage, slug: e.target.value.toLowerCase().replace(/\s+/g, '-')})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        placeholder="ma-nouvelle-page"
+                      />
+                      <p className="text-xs text-[#888888] mt-1">Identifiant unique (ex: ma-page, about-us)</p>
                     </div>
-                    <div className="divide-y">
-                      {sections.sort((a, b) => a.order - b.order).map((item, index) => (
-                        <div key={item.id}>
-                          {editingItem?.id === item.id ? (
-                            <EditContentForm item={item} />
-                          ) : (
-                            <div
-                              className={`p-4 ${item.active ? 'bg-white' : 'bg-gray-50'}`}
-                              data-testid={`content-item-${slug}-${index}`}
-                            >
-                              <div className="flex justify-between items-start">
-                                <div className="flex-1">
-                                  <div className="flex items-center gap-2 mb-2">
-                                    <span className="px-2 py-1 bg-[#E8F5E9] text-[#004D33] text-xs font-semibold rounded">
-                                      {item.section}
-                                    </span>
-                                    <span className="text-xs text-[#888888]">Order: {item.order}</span>
-                                  </div>
-                                  <p className="text-[#4A4A4A] text-sm line-clamp-2">
-                                    {item.content?.fr?.substring(0, 200)}...
-                                  </p>
-                                </div>
-                                <div className="flex items-center gap-2 ml-4">
-                                  <span className={`px-2 py-1 rounded-full text-xs ${
-                                    item.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
-                                  }`}>
-                                    {item.active ? t.active : t.inactive}
-                                  </span>
-                                  <button
-                                    onClick={() => setEditingItem({...item})}
-                                    className="p-2 text-[#004D33] hover:bg-[#E8F5E9] rounded-lg transition-colors"
-                                    title={t.edit}
-                                    data-testid={`edit-content-${slug}-${index}`}
-                                  >
-                                    <Edit2 className="w-4 h-4" />
-                                  </button>
-                                  <button
-                                    onClick={() => setDeleteConfirm({ type: 'content', id: item.id })}
-                                    className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                                    title={t.delete}
-                                    data-testid={`delete-content-${slug}-${index}`}
-                                  >
-                                    <Trash2 className="w-4 h-4" />
-                                  </button>
-                                </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.titleLabel}</label>
+                      <input
+                        type="text"
+                        value={newPage.title}
+                        onChange={(e) => setNewPage({...newPage, title: e.target.value})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        placeholder="Ma Nouvelle Page"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex gap-2 mt-4">
+                    <button
+                      onClick={handleCreatePage}
+                      disabled={actionLoading || !newPage.slug.trim()}
+                      className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+                    >
+                      <Save className="w-4 h-4" />
+                      {actionLoading ? "..." : t.save}
+                    </button>
+                    <button
+                      onClick={() => setShowNewPageForm(false)}
+                      className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+                    >
+                      <X className="w-4 h-4" />
+                      {t.cancel}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* New Section Form */}
+              {showNewSectionForm && selectedPage && (
+                <div className="bg-[#F9F7F2] rounded-lg p-6">
+                  <h4 className="font-bold text-[#004D33] mb-4">{t.newSection}</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.section} *</label>
+                      <input
+                        type="text"
+                        value={newSection.section}
+                        onChange={(e) => setNewSection({...newSection, section: e.target.value.toLowerCase().replace(/\s+/g, '_')})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        placeholder="introduction, gallery, timeline..."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.sectionType}</label>
+                      <select
+                        value={newSection.metadata?.type || 'text'}
+                        onChange={(e) => setNewSection({...newSection, metadata: {...newSection.metadata, type: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                      >
+                        <option value="text">Texte</option>
+                        <option value="list">Liste</option>
+                        <option value="timeline">Chronologie</option>
+                        <option value="features">Caractéristiques</option>
+                        <option value="gallery">Galerie</option>
+                        <option value="json">JSON personnalisé</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.order}</label>
+                      <input
+                        type="number"
+                        value={newSection.order}
+                        onChange={(e) => setNewSection({...newSection, order: parseInt(e.target.value) || 0})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                      />
+                    </div>
+                    <div className="flex items-center gap-2 pt-8">
+                      <input
+                        type="checkbox"
+                        id="newSectionActive"
+                        checked={newSection.active}
+                        onChange={(e) => setNewSection({...newSection, active: e.target.checked})}
+                        className="w-5 h-5"
+                      />
+                      <label htmlFor="newSectionActive" className="text-sm font-medium text-[#4A4A4A]">{t.active}</label>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contentText} ({t.french})</label>
+                      <textarea
+                        value={newSection.content?.fr || ''}
+                        onChange={(e) => setNewSection({...newSection, content: {...newSection.content, fr: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        rows={4}
+                        placeholder="Contenu en français..."
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contentText} ({t.english})</label>
+                      <textarea
+                        value={newSection.content?.en || ''}
+                        onChange={(e) => setNewSection({...newSection, content: {...newSection.content, en: e.target.value}})}
+                        className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] focus:border-transparent"
+                        rows={4}
+                        placeholder="Content in English..."
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-2 mt-4">
+                    <button
+                      onClick={handleAddSection}
+                      disabled={actionLoading || !newSection.section.trim()}
+                      className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+                    >
+                      <Save className="w-4 h-4" />
+                      {actionLoading ? "..." : t.save}
+                    </button>
+                    <button
+                      onClick={() => setShowNewSectionForm(false)}
+                      className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+                    >
+                      <X className="w-4 h-4" />
+                      {t.cancel}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Pages Grid (when no page selected) */}
+              {!selectedPage && (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {pages.length > 0 ? pages.map((page) => (
+                    <div
+                      key={page.slug}
+                      onClick={() => setSelectedPage(page.slug)}
+                      className="bg-white border rounded-xl p-6 hover:shadow-lg hover:border-[#D4AF37] transition-all cursor-pointer group"
+                      data-testid={`page-card-${page.slug}`}
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="w-12 h-12 bg-[#E8F5E9] rounded-lg flex items-center justify-center group-hover:bg-[#004D33] transition-colors">
+                          <Layers className="w-6 h-6 text-[#004D33] group-hover:text-[#D4AF37]" />
+                        </div>
+                        <span className="px-3 py-1 bg-[#E8F5E9] text-[#004D33] text-sm font-semibold rounded-full">
+                          {page.section_count} {t.sections}
+                        </span>
+                      </div>
+                      
+                      <h4 className="text-xl font-bold text-[#004D33] capitalize mb-2">
+                        {page.slug}
+                      </h4>
+                      
+                      <div className="flex flex-wrap gap-1">
+                        {page.sections.slice(0, 4).map((section, idx) => (
+                          <span key={idx} className="px-2 py-0.5 bg-gray-100 text-[#888888] text-xs rounded">
+                            {section.section}
+                          </span>
+                        ))}
+                        {page.sections.length > 4 && (
+                          <span className="px-2 py-0.5 bg-gray-100 text-[#888888] text-xs rounded">
+                            +{page.sections.length - 4}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  )) : (
+                    <div className="col-span-full text-center py-12">
+                      <Layers className="w-16 h-16 text-[#888888] mx-auto mb-4" />
+                      <p className="text-[#888888] mb-4">{t.noContent}</p>
+                      <button
+                        onClick={() => setShowNewPageForm(true)}
+                        className="px-6 py-3 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] rounded-lg font-medium"
+                      >
+                        <FilePlus className="w-5 h-5 inline mr-2" />
+                        {t.createPage}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Sections List (when page selected) */}
+              {selectedPage && (
+                <div className="space-y-4">
+                  {pageContent
+                    .filter(item => item.slug === selectedPage)
+                    .sort((a, b) => a.order - b.order)
+                    .map((item, index) => (
+                      <div key={item.id}>
+                        {editingItem?.id === item.id ? (
+                          <div className="bg-[#F9F7F2] rounded-lg p-6">
+                            <h4 className="font-bold text-[#004D33] mb-4">{t.editSection}: {item.section}</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                              <div>
+                                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.section}</label>
+                                <input
+                                  type="text"
+                                  value={editingItem.section}
+                                  onChange={(e) => setEditingItem({...editingItem, section: e.target.value})}
+                                  className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33]"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.order}</label>
+                                <input
+                                  type="number"
+                                  value={editingItem.order || 0}
+                                  onChange={(e) => setEditingItem({...editingItem, order: parseInt(e.target.value) || 0})}
+                                  className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33]"
+                                />
+                              </div>
+                              <div className="flex items-center gap-2 pt-8">
+                                <input
+                                  type="checkbox"
+                                  checked={editingItem.active}
+                                  onChange={(e) => setEditingItem({...editingItem, active: e.target.checked})}
+                                  className="w-5 h-5"
+                                />
+                                <label className="text-sm font-medium text-[#4A4A4A]">{t.active}</label>
                               </div>
                             </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="text-center py-8">
-                  <p className="text-[#888888] mb-4">{t.noContent}</p>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {["maodo", "gamou", "ecole"].map(slug => (
-                      <button
-                        key={slug}
-                        onClick={() => handleSeedContent(slug)}
-                        disabled={actionLoading}
-                        className="px-4 py-2 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] rounded-lg font-medium disabled:opacity-50"
-                      >
-                        {t.seedContent}: {slug}
-                      </button>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <div>
+                                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contentText} ({t.french})</label>
+                                <textarea
+                                  value={editingItem.content?.fr || ''}
+                                  onChange={(e) => setEditingItem({...editingItem, content: {...editingItem.content, fr: e.target.value}})}
+                                  className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33]"
+                                  rows={6}
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contentText} ({t.english})</label>
+                                <textarea
+                                  value={editingItem.content?.en || ''}
+                                  onChange={(e) => setEditingItem({...editingItem, content: {...editingItem.content, en: e.target.value}})}
+                                  className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33]"
+                                  rows={6}
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contentText} ({t.arabic})</label>
+                                <textarea
+                                  value={editingItem.content?.ar || ''}
+                                  onChange={(e) => setEditingItem({...editingItem, content: {...editingItem.content, ar: e.target.value}})}
+                                  className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33] text-right"
+                                  dir="rtl"
+                                  rows={6}
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-medium text-[#4A4A4A] mb-1">{t.contentText} ({t.wolof})</label>
+                                <textarea
+                                  value={editingItem.content?.wo || ''}
+                                  onChange={(e) => setEditingItem({...editingItem, content: {...editingItem.content, wo: e.target.value}})}
+                                  className="w-full border rounded-lg p-3 focus:ring-2 focus:ring-[#004D33]"
+                                  rows={6}
+                                />
+                              </div>
+                            </div>
+                            
+                            <div className="flex gap-2 mt-4">
+                              <button
+                                onClick={() => handleUpdateSection(item.id)}
+                                disabled={actionLoading}
+                                className="flex items-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white px-4 py-2 rounded-lg disabled:opacity-50"
+                              >
+                                <Save className="w-4 h-4" />
+                                {actionLoading ? "..." : t.save}
+                              </button>
+                              <button
+                                onClick={() => setEditingItem(null)}
+                                className="flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-[#4A4A4A] px-4 py-2 rounded-lg"
+                              >
+                                <X className="w-4 h-4" />
+                                {t.cancel}
+                              </button>
+                            </div>
+                          </div>
+                        ) : (
+                          <div
+                            className={`border rounded-lg p-4 ${item.active ? 'bg-white' : 'bg-gray-50 border-dashed'}`}
+                            data-testid={`section-item-${index}`}
+                          >
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <span className="px-3 py-1 bg-[#004D33] text-white text-sm font-semibold rounded-lg">
+                                    {item.section}
+                                  </span>
+                                  <span className="text-xs text-[#888888]">#{item.order}</span>
+                                  {item.metadata?.type && (
+                                    <span className="px-2 py-0.5 bg-[#E8F5E9] text-[#004D33] text-xs rounded">
+                                      {item.metadata.type}
+                                    </span>
+                                  )}
+                                </div>
+                                <p className="text-[#4A4A4A] text-sm line-clamp-2">
+                                  {typeof item.content?.fr === 'string' 
+                                    ? item.content.fr.substring(0, 200) 
+                                    : JSON.stringify(item.content?.fr).substring(0, 200)}...
+                                </p>
+                              </div>
+                              <div className="flex items-center gap-2 ml-4">
+                                <span className={`px-2 py-1 rounded-full text-xs ${
+                                  item.active ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'
+                                }`}>
+                                  {item.active ? t.active : t.inactive}
+                                </span>
+                                <button
+                                  onClick={() => setEditingItem({...item})}
+                                  className="p-2 text-[#004D33] hover:bg-[#E8F5E9] rounded-lg transition-colors"
+                                  title={t.edit}
+                                >
+                                  <Edit2 className="w-4 h-4" />
+                                </button>
+                                <button
+                                  onClick={() => setDeleteConfirm({ type: 'content', id: item.id })}
+                                  className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                                  title={t.delete}
+                                >
+                                  <Trash2 className="w-4 h-4" />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     ))}
-                  </div>
+                  
+                  {pageContent.filter(item => item.slug === selectedPage).length === 0 && (
+                    <div className="text-center py-12">
+                      <FileText className="w-16 h-16 text-[#888888] mx-auto mb-4" />
+                      <p className="text-[#888888] mb-4">Aucune section dans cette page</p>
+                      <button
+                        onClick={() => setShowNewSectionForm(true)}
+                        className="px-6 py-3 bg-[#D4AF37] hover:bg-[#b8952e] text-[#004D33] rounded-lg font-medium"
+                      >
+                        <Plus className="w-5 h-5 inline mr-2" />
+                        {t.addSection}
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
