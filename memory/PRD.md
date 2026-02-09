@@ -189,6 +189,12 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
   - **Manuscrits numérisés**: Khilassou Dhahab, Tayssir, Fâkihatou Toullâb (liens Scribd, Archive.org, PDF directs)
   - **Sources académiques**: BnF, Archive.org, UCAD, OpenEdition, Timbuktu Institute
   - Filtres par catégorie (Manuscrits, Photos, Audio, Vidéos)
+- ✅ **Branding Complet** (9 février 2026):
+  - Remplacement de "Tariqa Tidiane de Tivaouane" par "L'empreinte de Maodo" partout
+  - Titre du site dans l'onglet navigateur : "L'empreinte de Maodo - Héritage Spirituel d'El Hadji Malick Sy"
+  - Meta tags SEO (Open Graph, Twitter) mis à jour
+  - Manifest.json pour PWA mis à jour (short_name: "Maodo")
+  - Copyright : "© 2026 CRAT"
 - ✅ **Branding** : 
   - Nom du site "L'empreinte de Maodo" (titre simplifié dans navbar et pages)
   - Copyright changé de "2025" à "2026 CRAT"
