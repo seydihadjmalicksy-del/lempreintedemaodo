@@ -40,7 +40,7 @@
     "Frontend: Admin login with wrong credentials shows 'Invalid credentials' error",
     "Frontend: Error message displayed both in form and as toast notification",
     "PWA: Service Worker registered successfully",
-    "PWA: Service Worker scope is https://tidiane-portal.preview.emergentagent.com/",
+    "PWA: Service Worker scope is https://tidiani-portal.preview.emergentagent.com/",
     "PWA: Service Worker is active",
     "PWA: Notification API is available"
   ],
@@ -104,7 +104,7 @@
     },
     "service_worker": {
       "status": "Registered and active",
-      "scope": "https://tidiane-portal.preview.emergentagent.com/",
+      "scope": "https://tidiani-portal.preview.emergentagent.com/",
       "features": ["Caching", "Offline support", "Push notifications"]
     }
   }
