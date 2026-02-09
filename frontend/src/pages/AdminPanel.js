@@ -134,6 +134,7 @@ const AdminPanel = () => {
       setQuotes(quotesRes.data?.quotes || []);
       setEvents(eventsRes.data?.events || []);
       setPageContent(contentRes.data?.content || []);
+      setPages(pagesRes.data?.pages || []);
       setKhalifes(khalifesRes.data?.khalifes || []);
       setStats({
         newsletter: newsletterRes.data?.total_subscribers || 0,
