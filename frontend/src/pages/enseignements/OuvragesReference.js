@@ -386,6 +386,52 @@ const OuvragesReference = () => {
         </div>
       </section>
 
+      {/* Archives Académiques et Sources de Recherche */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#004D33] mb-4">
+              Archives Académiques et Sources de Recherche
+            </h2>
+            <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
+            <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
+              Ressources académiques et institutionnelles pour approfondir vos recherches sur El Hadji Malick Sy
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {archivesAcademiques.map((archive, index) => (
+              <div
+                key={index}
+                className="bg-[#F9F7F2] rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-[#E8F5E9]"
+              >
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 bg-[#004D33] text-white text-xs font-semibold rounded-full mb-3">
+                    {archive.source}
+                  </span>
+                  <h3 className="font-bold text-[#004D33] text-lg mb-2">
+                    {archive.titre}
+                  </h3>
+                  <p className="text-[#4A4A4A] text-sm">
+                    {archive.description}
+                  </p>
+                </div>
+
+                <a
+                  href={archive.lien}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[#004D33] hover:text-[#D4AF37] font-medium transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Consulter la source
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-b from-[#004D33] to-[#003d29] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
