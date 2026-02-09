@@ -54,6 +54,15 @@ const ArbreGenealogique = () => {
             enfants: []
           },
           {
+            id: 'mansour_daradji',
+            nom: "Serigne Mansour Sy",
+            surnom: "Borom Daradji",
+            dates: "1925 - 2012",
+            titre: { fr: "Khalife (1997-2012)", en: "Khalife (1997-2012)", ar: "الخليفة (1997-2012)", wo: "Xaliifa (1997-2012)" },
+            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg",
+            enfants: []
+          },
+          {
             id: 'maktoum',
             nom: "Serigne Cheikh Ahmed Tidiane Sy",
             surnom: "Al Maktoum",
@@ -67,30 +76,6 @@ const ArbreGenealogique = () => {
                 dates: "1956 -",
                 titre: { fr: "Guide Moustarchidine Wal Moustarchidati", en: "Guide Moustarchidine Wal Moustarchidati", ar: "مرشد مسترشدين ومسترشدات", wo: "Guide Moustarchidine Wal Moustarchidati" },
                 image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
-                enfants: []
-              }
-            ]
-          },
-          {
-            id: 'mansour_daradji',
-            nom: "Serigne Mansour Sy",
-            surnom: "Borom Daradji",
-            dates: "1925 - 2012",
-            titre: { fr: "Khalife (1997-2012)", en: "Khalife (1997-2012)", ar: "الخليفة (1997-2012)", wo: "Xaliifa (1997-2012)" },
-            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg",
-            enfants: [
-              {
-                id: 'babacar_mansour',
-                nom: "Serigne Babacar Sy Mansour",
-                dates: "1932 -",
-                titre: {
-                  fr: "Khalife Actuel (depuis 2017)",
-                  en: "Current Khalife (since 2017)",
-                  ar: "الخليفة الحالي (منذ 2017)",
-                  wo: "Xaliifa tey (dale 2017)"
-                },
-                image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
-                current: true,
                 enfants: []
               }
             ]
@@ -118,7 +103,22 @@ const ArbreGenealogique = () => {
           wo: "Borom xam-xam (Xaliifa ay weer ci 1957)"
         },
         image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
-        enfants: []
+        enfants: [
+          {
+            id: 'babacar_mansour',
+            nom: "Serigne Babacar Sy Mansour",
+            dates: "1932 -",
+            titre: {
+              fr: "Khalife Actuel (depuis 2017)",
+              en: "Current Khalife (since 2017)",
+              ar: "الخليفة الحالي (منذ 2017)",
+              wo: "Xaliifa tey (dale 2017)"
+            },
+            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
+            current: true,
+            enfants: []
+          }
+        ]
       },
       {
         id: 'dabakh',
