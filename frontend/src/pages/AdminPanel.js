@@ -122,7 +122,7 @@ const AdminPanel = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes, khalifesRes, pagesRes] = await Promise.all([
+      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes, khalifesRes, pagesRes, archivesStatsRes] = await Promise.all([
         axios.get(`${API}/quotes?active_only=false`),
         axios.get(`${API}/events?upcoming_only=false`),
         axios.get(`${API}/newsletter/subscribers`).catch(() => ({ data: { total_subscribers: 0 } })),
@@ -130,7 +130,8 @@ const AdminPanel = () => {
         axios.get(`${API}/videos`).catch(() => ({ data: [] })),
         axios.get(`${API}/content?active_only=false`).catch(() => ({ data: { content: [] } })),
         axios.get(`${API}/khalifes?active_only=false`).catch(() => ({ data: { khalifes: [] } })),
-        axios.get(`${API}/pages`).catch(() => ({ data: { pages: [] } }))
+        axios.get(`${API}/pages`).catch(() => ({ data: { pages: [] } })),
+        axios.get(`${API}/archives/stats`).catch(() => ({ data: { total: 0 } }))
       ]);
 
       setQuotes(quotesRes.data?.quotes || []);
@@ -138,6 +139,7 @@ const AdminPanel = () => {
       setPageContent(contentRes.data?.content || []);
       setPages(pagesRes.data?.pages || []);
       setKhalifes(khalifesRes.data?.khalifes || []);
+      setArchivesStats(archivesStatsRes.data || { total: 0 });
       setStats({
         newsletter: newsletterRes.data?.total_subscribers || 0,
         contact: contactRes.data?.count || 0,
@@ -148,6 +150,63 @@ const AdminPanel = () => {
       toast.error("Erreur lors du chargement des données");
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Fetch Archives Data
+  const fetchArchives = async () => {
+    try {
+      const [manuscriptsRes, photosRes, audioRes, videosRes, sourcesRes] = await Promise.all([
+        axios.get(`${API}/archives/manuscripts`),
+        axios.get(`${API}/archives/photos`),
+        axios.get(`${API}/archives/audio`),
+        axios.get(`${API}/archives/videos`),
+        axios.get(`${API}/archives/sources`)
+      ]);
+      setArchives({
+        manuscripts: manuscriptsRes.data || [],
+        photos: photosRes.data || [],
+        audio: audioRes.data || [],
+        videos: videosRes.data || [],
+        sources: sourcesRes.data || []
+      });
+    } catch (error) {
+      console.error("Error fetching archives:", error);
+    }
+  };
+
+  // Seed Archives
+  const handleSeedArchives = async () => {
+    setActionLoading(true);
+    try {
+      await axios.post(`${API}/archives/seed`, {}, { headers: getAuthHeaders() });
+      toast.success("Archives initialisées avec succès");
+      fetchArchives();
+      fetchData();
+    } catch (error) {
+      if (error.response?.data?.skipped) {
+        toast.info("Les archives existent déjà");
+      } else {
+        toast.error("Erreur lors de l'initialisation des archives");
+      }
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Delete Archive Item
+  const handleDeleteArchiveItem = async (type, id) => {
+    setActionLoading(true);
+    try {
+      await axios.delete(`${API}/archives/${type}/${id}`, { headers: getAuthHeaders() });
+      toast.success("Élément supprimé");
+      fetchArchives();
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la suppression");
+    } finally {
+      setActionLoading(false);
+      setDeleteConfirm(null);
     }
   };
 
