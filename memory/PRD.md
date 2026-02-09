@@ -134,6 +134,7 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 - `archive_audio`: **NOUVEAU** `{ id, title, author, duration, audioUrl, source, coverImage, order, active }`
 - `archive_videos`: **NOUVEAU** `{ id, title{fr,en,ar,wo}, description{fr,en,ar,wo}, youtubeId, duration, views, order, active }`
 - `archive_sources`: **NOUVEAU** `{ id, title{fr,en,ar,wo}, description{fr,en,ar,wo}, lien, source{fr,en,ar,wo}, order, active }`
+- `family_tree`: **NOUVEAU** `{ id, node_id, nom, surnom, dates, titre{fr,en,ar,wo}, image, parent_id, epouses, is_current_khalife, order, active }`
 
 ## 📝 Backlog
 
