@@ -1475,6 +1475,419 @@ async def enrich_page_content(slug: str, is_admin: bool = Depends(verify_admin_t
     return {"message": f"Contenu enrichi pour {slug}", "added": enriched_count}
 
 
+@api_router.post("/content/seed-page/{page_slug}")
+async def seed_page_content(page_slug: str, is_admin: bool = Depends(verify_admin_token)):
+    """Seed content for additional pages (origines, geographie, ziarra)"""
+    
+    # Check existing sections
+    existing = await db.page_content.find({"slug": page_slug}, {"section": 1, "_id": 0}).to_list(100)
+    existing_sections = [doc["section"] for doc in existing]
+    
+    new_sections = []
+    
+    if page_slug == "origines":
+        # Timeline section
+        if "timeline" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "origines",
+                "section": "timeline",
+                "content": {
+                    "fr": json.dumps([
+                        {"period": "1737-1815", "location": "Fès, Maroc", "title": "Cheikh Ahmed Tijani", "description": "Naissance et formation du fondateur de la Tariqa à Fès. Vision spirituelle du Prophète (PSL) qui lui confère la Tariqa directement."},
+                        {"period": "1781", "location": "Aïn Madhi, Algérie", "title": "Fondation de la Tariqa", "description": "Cheikh Ahmed Tijani reçoit l'ordre divin de fonder la Tariqa Tidiane. Il établit sa première zawiya à Aïn Madhi."},
+                        {"period": "19e siècle", "location": "Afrique de l'Ouest", "title": "Expansion vers l'Ouest", "description": "Des disciples mauritaniens et sénégalais ramènent la Tariqa en Afrique de l'Ouest, notamment à travers El Hadj Omar Tall."},
+                        {"period": "1902", "location": "Tivaouane, Sénégal", "title": "Implantation à Tivaouane", "description": "El Hadji Malick Sy établit Tivaouane comme centre majeur de la Tidjanidya au Sénégal."}
+                    ]),
+                    "en": json.dumps([
+                        {"period": "1737-1815", "location": "Fes, Morocco", "title": "Cheikh Ahmed Tijani", "description": "Birth and education of the Tariqa's founder in Fes. Spiritual vision of the Prophet (PBUH) who confers the Tariqa directly to him."},
+                        {"period": "1781", "location": "Aïn Madhi, Algeria", "title": "Foundation of the Tariqa", "description": "Cheikh Ahmed Tijani receives divine order to found the Tidiane Tariqa. He establishes his first zawiya in Aïn Madhi."},
+                        {"period": "19th century", "location": "West Africa", "title": "Westward Expansion", "description": "Mauritanian and Senegalese disciples bring the Tariqa to West Africa, notably through El Hadj Omar Tall."},
+                        {"period": "1902", "location": "Tivaouane, Senegal", "title": "Establishment in Tivaouane", "description": "El Hadji Malick Sy establishes Tivaouane as a major center of the Tijaniyya in Senegal."}
+                    ]),
+                    "ar": json.dumps([
+                        {"period": "1737-1815", "location": "فاس، المغرب", "title": "الشيخ أحمد التجاني", "description": "ولادة وتكوين مؤسس الطريقة في فاس. رؤية روحية للنبي (ص) الذي منحه الطريقة مباشرة."},
+                        {"period": "1781", "location": "عين ماضي، الجزائر", "title": "تأسيس الطريقة", "description": "يتلقى الشيخ أحمد التجاني الأمر الإلهي بتأسيس الطريقة التجانية. أسس أول زاويته في عين ماضي."},
+                        {"period": "القرن 19", "location": "غرب أفريقيا", "title": "التوسع غرباً", "description": "التلاميذ الموريتانيون والسنغاليون يجلبون الطريقة إلى غرب أفريقيا، خاصة عبر الحاج عمر تال."},
+                        {"period": "1902", "location": "تيفاوان، السنغال", "title": "التأسيس في تيفاوان", "description": "الحاج مالك سي يؤسس تيفاوان كمركز رئيسي للتجانية في السنغال."}
+                    ]),
+                    "wo": json.dumps([
+                        {"period": "1737-1815", "location": "Fès, Maroc", "title": "Cheikh Ahmed Tijani", "description": "Juddu ak jàng boroom Tariqa bi ci Fès. Gis Yonent bi (YWS) ci diine mu jox ko Tariqa bi."},
+                        {"period": "1781", "location": "Aïn Madhi, Algérie", "title": "Sos Tariqa bi", "description": "Cheikh Ahmed Tijani am ndigal Yàlla ngir sos Tariqa Tijaan. Mu tànn zawiya bi ci Aïn Madhi."},
+                        {"period": "19e siècle", "location": "Afrik sowwu jant", "title": "Yàgg ci sowwu jant", "description": "Taalibe Mauritanie ak Senegaal yóbbu Tariqa bi ci Afrik sowwu jant, ci biir El Hadj Omar Tall."},
+                        {"period": "1902", "location": "Tiwaawaan, Senegaal", "title": "Tànn ci Tiwaawaan", "description": "El Hadji Maalik Si tànn Tiwaawaan ni centre bu mag Tijaan ci Senegaal."}
+                    ])
+                },
+                "metadata": {"type": "timeline"},
+                "order": 1,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Characteristics section
+        if "characteristics" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "origines",
+                "section": "characteristics",
+                "content": {
+                    "fr": json.dumps([
+                        {"icon": "Book", "title": "Transmission Directe", "description": "La Tariqa Tidiane se distingue par sa transmission directe du Prophète (PSL) à Cheikh Ahmed Tijani, sans intermédiaire parmi les saints."},
+                        {"icon": "Users", "title": "Accessibilité", "description": "Une voie ouverte à tous, sans conditions préalables strictes, favorisant l'inclusion spirituelle des masses."},
+                        {"icon": "Globe", "title": "Universalité", "description": "Expansion rapide à travers le Maghreb et l'Afrique subsaharienne grâce à sa simplicité et son efficacité."}
+                    ]),
+                    "en": json.dumps([
+                        {"icon": "Book", "title": "Direct Transmission", "description": "The Tidiane Tariqa is distinguished by its direct transmission from the Prophet (PBUH) to Cheikh Ahmed Tijani, without intermediary among saints."},
+                        {"icon": "Users", "title": "Accessibility", "description": "A path open to all, without strict preconditions, fostering spiritual inclusion of the masses."},
+                        {"icon": "Globe", "title": "Universality", "description": "Rapid expansion across the Maghreb and sub-Saharan Africa thanks to its simplicity and effectiveness."}
+                    ]),
+                    "ar": json.dumps([
+                        {"icon": "Book", "title": "الإسناد المباشر", "description": "تتميز الطريقة التجانية بإسنادها المباشر من النبي (ص) إلى الشيخ أحمد التجاني، دون وسيط من الأولياء."},
+                        {"icon": "Users", "title": "سهولة الوصول", "description": "طريق مفتوح للجميع، بدون شروط مسبقة صارمة، مما يعزز الإدماج الروحي للجماهير."},
+                        {"icon": "Globe", "title": "العالمية", "description": "التوسع السريع عبر المغرب العربي وأفريقيا جنوب الصحراء بفضل بساطتها وفعاليتها."}
+                    ]),
+                    "wo": json.dumps([
+                        {"icon": "Book", "title": "Transmission bu jëkk", "description": "Tariqa Tijaan dafa am transmission bu jëkk ci Yonent bi (YWS) ba Cheikh Ahmed Tijani, te amul intermédiaire ci biir awliya yi."},
+                        {"icon": "Users", "title": "Neex ci dugg", "description": "Yoon bu ubbeek ngir ñépp, te amul conditions yu kawe, di def mbooloo yi nekk ci diine."},
+                        {"icon": "Globe", "title": "Universalité", "description": "Yàgg bu gaaw ci Maghreb ak Afrik ci suuf Sahara ngir simplicitéam ak efficacitéam."}
+                    ])
+                },
+                "metadata": {"type": "features"},
+                "order": 2,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Introduction section
+        if "introduction" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "origines",
+                "section": "introduction",
+                "content": {
+                    "fr": "La Tariqa Tidiane (ou Tijaniyya) tire son nom de son fondateur, Cheikh Ahmed Tijani (1737-1815), né à Aïn Madhi dans le sud de l'actuelle Algérie. Descendant du Prophète Muhammad (PSL) par sa mère, il grandit dans un environnement imprégné de science et de spiritualité.",
+                    "en": "The Tidiane Tariqa (or Tijaniyya) takes its name from its founder, Cheikh Ahmed Tijani (1737-1815), born in Aïn Madhi in the south of present-day Algeria. A descendant of Prophet Muhammad (PBUH) through his mother, he grew up in an environment steeped in knowledge and spirituality.",
+                    "ar": "تأخذ الطريقة التجانية اسمها من مؤسسها، الشيخ أحمد التجاني (1737-1815)، المولود في عين ماضي جنوب الجزائر الحالية. سليل النبي محمد (ص) من جهة أمه، نشأ في بيئة مشبعة بالعلم والروحانية.",
+                    "wo": "Tariqa Tijaan (walla Tijaniyya) jëlee tuuram ci ki ko tànn, Cheikh Ahmed Tijani (1737-1815), bu juddu ci Aïn Madhi ci bëj-saalum Algérie tey. Doom-u-doom Yonent Muhammed (YWS) ci yéené yaayam, mu mag ci ay paxas yu fees ci xam-xam ak diine."
+                },
+                "metadata": {"type": "text"},
+                "order": 0,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Expansion section
+        if "expansion" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "origines",
+                "section": "expansion",
+                "content": {
+                    "fr": json.dumps([
+                        {"name": "El Hadj Omar Tall (1794-1864)", "description": "Ce grand érudit peul originaire du Fouta Toro (Sénégal) fut initié à la Tariqa lors de son pèlerinage à La Mecque. Il devint le grand propagateur de la Tidjanidya dans la région soudano-sahélienne."},
+                        {"name": "Les commerçants mauritaniens", "description": "Les échanges commerciaux transsahariens ont permis la diffusion de la Tariqa par les marabouts et commerçants qui voyageaient entre le Maghreb et le Sahel."},
+                        {"name": "El Hadji Malick Sy (1855-1922)", "description": "C'est lui qui établira Tivaouane comme le centre majeur de la Tidjanidya au Sénégal, créant une branche distincte caractérisée par sa méthode pédagogique et son ouverture."}
+                    ]),
+                    "en": json.dumps([
+                        {"name": "El Hadj Omar Tall (1794-1864)", "description": "This great Fulani scholar from Fouta Toro (Senegal) was initiated into the Tariqa during his pilgrimage to Mecca. He became the great propagator of the Tijaniyya in the Sudano-Sahelian region."},
+                        {"name": "Mauritanian traders", "description": "Trans-Saharan commercial exchanges allowed the spread of the Tariqa by marabouts and traders traveling between the Maghreb and the Sahel."},
+                        {"name": "El Hadji Malick Sy (1855-1922)", "description": "He established Tivaouane as the major center of the Tijaniyya in Senegal, creating a distinct branch characterized by its pedagogical method and openness."}
+                    ]),
+                    "ar": json.dumps([
+                        {"name": "الحاج عمر تال (1794-1864)", "description": "هذا العالم الفولاني الكبير من فوتا تورو (السنغال) تلقى التلقين في الطريقة خلال حجه إلى مكة. أصبح الناشر الكبير للتجانية في المنطقة السودانية الساحلية."},
+                        {"name": "التجار الموريتانيون", "description": "سمحت التبادلات التجارية عبر الصحراء بانتشار الطريقة عبر المرابطين والتجار الذين يسافرون بين المغرب والساحل."},
+                        {"name": "الحاج مالك سي (1855-1922)", "description": "هو الذي أسس تيفاوان كمركز رئيسي للتجانية في السنغال، مؤسساً فرعاً متميزاً بمنهجه التربوي وانفتاحه."}
+                    ]),
+                    "wo": json.dumps([
+                        {"name": "El Hadj Omar Tall (1794-1864)", "description": "Boroom xam-xam bu mag Pulaaru bi jóge Fouta Toro (Senegaal) dugg ci Tariqa bi ci àjjam ci Maka. Mu nekk bu mag buy yéngu Tijaan ci région soudano-sahélienne."},
+                        {"name": "Jaaykat Mauritanie yi", "description": "Jëf jaay transsahariens moo def yéngu Tariqa bi ci sëriñ ak jaaykat yi di doxaan diggante Maghreb ak Sahel."},
+                        {"name": "El Hadji Maalik Si (1855-1922)", "description": "Moo tànn Tiwaawaan ni centre bu mag Tijaan ci Senegaal, di sos batal bu ànd ak méthode jàngale bi ak ubbi."}
+                    ])
+                },
+                "metadata": {"type": "list"},
+                "order": 3,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+    
+    elif page_slug == "geographie":
+        # Lieux section
+        if "lieux" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "geographie",
+                "section": "lieux",
+                "content": {
+                    "fr": json.dumps([
+                        {"icon": "Church", "title": "La Grande Mosquée", "description": "Cœur spirituel de Tivaouane, édifiée progressivement depuis 1902. Ses dômes dorés dominent la ville et accueillent des millions de fidèles lors du Gamou.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"},
+                        {"icon": "Home", "title": "La Zawiya (Daara)", "description": "L'école coranique fondée par El Hadji Malick Sy, où des milliers d'étudiants ont été formés aux sciences islamiques et à la spiritualité.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "Heart", "title": "Le Mausolée de Maodo", "description": "Lieu de recueillement où repose El Hadji Malick Sy. C'est le site de pèlerinage le plus visité après la Grande Mosquée.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "MapPin", "title": "Les Champs de Courses", "description": "Vaste esplanade qui accueille les millions de pèlerins durant le Gamou. C'est là que se tiennent les grandes causeries nocturnes.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"}
+                    ]),
+                    "en": json.dumps([
+                        {"icon": "Church", "title": "The Grand Mosque", "description": "Spiritual heart of Tivaouane, built progressively since 1902. Its golden domes dominate the city and welcome millions of faithful during the Gamou.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"},
+                        {"icon": "Home", "title": "The Zawiya (Daara)", "description": "The Quranic school founded by El Hadji Malick Sy, where thousands of students were trained in Islamic sciences and spirituality.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "Heart", "title": "Maodo's Mausoleum", "description": "Place of meditation where El Hadji Malick Sy rests. It is the most visited pilgrimage site after the Grand Mosque.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "MapPin", "title": "The Race Fields", "description": "Vast esplanade that welcomes millions of pilgrims during the Gamou. This is where the great night talks are held.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"}
+                    ]),
+                    "ar": json.dumps([
+                        {"icon": "Church", "title": "المسجد الكبير", "description": "القلب الروحي لتيفاوان، بُني تدريجياً منذ 1902. قبابه الذهبية تهيمن على المدينة وتستقبل ملايين المؤمنين خلال المولد.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"},
+                        {"icon": "Home", "title": "الزاوية (الدار)", "description": "المدرسة القرآنية التي أسسها الحاج مالك سي، حيث تدرب آلاف الطلاب على العلوم الإسلامية والروحانية.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "Heart", "title": "ضريح مودو", "description": "مكان للتأمل حيث يرقد الحاج مالك سي. إنه موقع الحج الأكثر زيارة بعد المسجد الكبير.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "MapPin", "title": "ساحة السباق", "description": "ساحة واسعة تستقبل ملايين الحجاج خلال المولد. هنا تُعقد الأحاديث الليلية الكبرى.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"}
+                    ]),
+                    "wo": json.dumps([
+                        {"icon": "Church", "title": "Jàkka bu mag bi", "description": "Xol bu sell Tiwaawaan, bu ñu tabax niaax-niaax dale 1902. Kuub yi wu wurus ñu ngi ci kaw dëkk bi te ñu jot ay milioŋ julli-kat ci Gamou.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg"},
+                        {"icon": "Home", "title": "Zawiya bi (Daara)", "description": "Daara Alxuraan bu El Hadji Maalik Si tànn, fu ay téeméer taalibe jàng xam-xam Lislaam ak diine.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "Heart", "title": "Mausolée Maodo", "description": "Paxas bu neex fu El Hadji Maalik Si nelaw. Mooy paxas ziarra bu ñu gis bu bari ginnaaw Jàkka bu mag bi.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"},
+                        {"icon": "MapPin", "title": "Champs de Courses yi", "description": "Paxas bu yaatu bu jot ay milioŋ ajibi ci Gamou. Foofu la ñu def ay waxtan bu mag bu guddi.", "image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"}
+                    ])
+                },
+                "metadata": {"type": "places"},
+                "order": 1,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Organisation section
+        if "organisation" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "geographie",
+                "section": "organisation",
+                "content": {
+                    "fr": json.dumps([
+                        {"title": "Le Centre Religieux", "description": "Autour de la Grande Mosquée et du mausolée de Maodo, c'est le cœur spirituel où se concentrent les activités religieuses quotidiennes."},
+                        {"title": "Le Quartier des Daaras", "description": "Zone résidentielle où sont implantées les nombreuses écoles coraniques qui perpétuent l'enseignement de Maodo."},
+                        {"title": "Le Centre Urbain Moderne", "description": "Développement récent avec commerces, écoles françaises, hôpitaux, qui coexiste harmonieusement avec le pôle religieux."}
+                    ]),
+                    "en": json.dumps([
+                        {"title": "The Religious Center", "description": "Around the Grand Mosque and Maodo's mausoleum, it is the spiritual heart where daily religious activities are concentrated."},
+                        {"title": "The Daara District", "description": "Residential area where the many Quranic schools that perpetuate Maodo's teaching are located."},
+                        {"title": "The Modern Urban Center", "description": "Recent development with shops, French schools, hospitals, that coexists harmoniously with the religious hub."}
+                    ]),
+                    "ar": json.dumps([
+                        {"title": "المركز الديني", "description": "حول المسجد الكبير وضريح مودو، هو القلب الروحي حيث تتركز الأنشطة الدينية اليومية."},
+                        {"title": "حي الدور", "description": "منطقة سكنية تقع فيها العديد من المدارس القرآنية التي تواصل تعاليم مودو."},
+                        {"title": "المركز الحضري الحديث", "description": "تطوير حديث مع المحلات التجارية والمدارس الفرنسية والمستشفيات، يتعايش بانسجام مع المركز الديني."}
+                    ]),
+                    "wo": json.dumps([
+                        {"title": "Centre bu diine bi", "description": "Ci wettu Jàkka bu mag bi ak mausolée Maodo, mooy xol bu sell fu liggéey diine bu bés-bu-bés bokk."},
+                        {"title": "Kër Daara yi", "description": "Paxas bu toog fu ñu tabax ay daara yu bari yu di topp jàng Maodo."},
+                        {"title": "Centre dëkk bu bees bi", "description": "Yàgg bu bees ak ay bitik, ekol tubaab, opital, yu bokk ak centre bu diine bi."}
+                    ])
+                },
+                "metadata": {"type": "list"},
+                "order": 2,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Introduction section
+        if "introduction" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "geographie",
+                "section": "introduction",
+                "content": {
+                    "fr": "Tivaouane (ou Tivawaan en wolof) est une ville du centre-ouest du Sénégal, située à environ 90 km à l'est de Dakar, dans la région de Thiès. Avant l'arrivée d'El Hadji Malick Sy en 1902, ce n'était qu'une bourgade agricole tranquille, peuplée principalement de Sérères et de Wolofs.",
+                    "en": "Tivaouane (or Tivawaan in Wolof) is a city in west-central Senegal, located about 90 km east of Dakar, in the Thiès region. Before El Hadji Malick Sy's arrival in 1902, it was just a quiet farming village, populated mainly by Serers and Wolofs.",
+                    "ar": "تيفاوان (أو تيواوان بالولوف) مدينة في وسط غرب السنغال، تقع على بعد حوالي 90 كم شرق داكار، في منطقة تيس. قبل وصول الحاج مالك سي في 1902، كانت مجرد قرية زراعية هادئة، يسكنها بشكل رئيسي السيرير والولوف.",
+                    "wo": "Tiwaawaan (walla Tivawaan ci Wolof) dëkk la ci diggante sowwu jant Senegaal, toog ci wettu 90 km ci penku Dakar, ci région Thiès. Balaa El Hadji Maalik Si ñëw ci 1902, dëkk bu ndaw bu neex la woon, fu Seereer ak Wolof dëkke."
+                },
+                "metadata": {"type": "text"},
+                "order": 0,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Demographics section
+        if "demographics" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "geographie",
+                "section": "demographics",
+                "content": {
+                    "fr": "L'impact d'El Hadji Malick Sy sur Tivaouane fut spectaculaire. D'un village de quelques centaines d'habitants au début du 20e siècle, Tivaouane compte aujourd'hui plus de 50 000 habitants permanents. Mais c'est lors du Gamou annuel que la ville révèle sa vraie dimension : pendant 10 jours, la population peut dépasser 2 millions de personnes, faisant de Tivaouane temporairement la deuxième ville du Sénégal après Dakar.",
+                    "en": "El Hadji Malick Sy's impact on Tivaouane was spectacular. From a village of a few hundred inhabitants at the beginning of the 20th century, Tivaouane now has more than 50,000 permanent residents. But it is during the annual Gamou that the city reveals its true dimension: for 10 days, the population can exceed 2 million people, temporarily making Tivaouane the second city of Senegal after Dakar.",
+                    "ar": "كان تأثير الحاج مالك سي على تيفاوان مذهلاً. من قرية بضع مئات من السكان في بداية القرن العشرين، أصبح في تيفاوان الآن أكثر من 50,000 ساكن دائم. لكن خلال المولد السنوي تكشف المدينة عن بُعدها الحقيقي: لمدة 10 أيام، يمكن أن يتجاوز عدد السكان 2 مليون شخص، مما يجعل تيفاوان مؤقتاً ثاني مدينة في السنغال بعد داكار.",
+                    "wo": "Jëf El Hadji Maalik Si ci Tiwaawaan dafa rafet lool. Ci dëkk bu ay téeméer nit ci ndoorte 20e siècle, Tiwaawaan am na tey lu ëpp 50 000 nit yu toog fii. Waaye ci Gamou at bu nekk la dëkk bi di won lu muy dëgg: ci 10 fan, mbooloo yi man na ëpp 2 milioŋ nit, di def Tiwaawaan dëkk 2e bu Senegaal ginnaaw Dakar."
+                },
+                "metadata": {"type": "text"},
+                "order": 3,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+    
+    elif page_slug == "ziarra":
+        # Ziarras list section
+        if "ziarras" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "ziarra",
+                "section": "ziarras",
+                "content": {
+                    "fr": json.dumps([
+                        {
+                            "nom": "La Ziarra Générale Annuelle",
+                            "date": "20 avril 2025",
+                            "icon": "Users",
+                            "description": "Le grand rassemblement annuel de tous les disciples, généralement en avril. Les fidèles de tout le Sénégal et de l'étranger convergent vers Tivaouane.",
+                            "programme": ["Samedi 19 avril : Arrivée des pèlerins et Gamou traditionnel", "Dimanche matin : Grande prière à la mosquée", "Dimanche : Renouvellement de l'allégeance des Dahiras", "Dimanche soir : Allocution du Khalife et bénédictions", "Forum sur les Dahiras comme vecteurs de développement"],
+                            "signification": "C'est le moment où chaque tidiane réaffirme son engagement spirituel et reçoit les orientations du guide pour l'année à venir."
+                        },
+                        {
+                            "nom": "La Ziarra de Maodo",
+                            "date": "27 juin (anniversaire du rappel à Dieu de Maodo)",
+                            "icon": "Heart",
+                            "description": "Commémoration du décès d'El Hadji Malick Sy. Une journée de prières et de méditation autour de son mausolée.",
+                            "programme": ["Récitation du Coran au mausolée", "Khoutba retraçant la vie de Maodo", "Chants de qasidas à sa gloire", "Prières collectives", "Distribution de nourriture (Hadiya)"],
+                            "signification": "Honorer la mémoire de Maodo et se rappeler ses enseignements et son exemple."
+                        },
+                        {
+                            "nom": "Ziarra des Khalifes",
+                            "date": "Dates variables selon le khalife commémoré",
+                            "icon": "Calendar",
+                            "description": "Commémorations dédiées aux différents khalifes qui ont succédé à Maodo, perpétuant ainsi leur mémoire et leur héritage.",
+                            "programme": ["Visites aux mausolées respectifs", "Récits sur les contributions de chaque khalife", "Prières et invocations", "Rencontres communautaires"],
+                            "signification": "Maintenir vivante la mémoire des guides successifs et leurs apports à la Tariqa."
+                        }
+                    ]),
+                    "en": json.dumps([
+                        {
+                            "nom": "The Annual General Ziarra",
+                            "date": "April 20, 2025",
+                            "icon": "Users",
+                            "description": "The great annual gathering of all disciples, usually in April. The faithful from all over Senegal and abroad converge on Tivaouane.",
+                            "programme": ["Saturday April 19: Arrival of pilgrims and traditional Gamou", "Sunday morning: Grand prayer at the mosque", "Sunday: Renewal of Dahiras' allegiance", "Sunday evening: Khalife's address and blessings", "Forum on Dahiras as vectors of development"],
+                            "signification": "This is the moment when every Tidiane reaffirms their spiritual commitment and receives guidance from the guide for the coming year."
+                        },
+                        {
+                            "nom": "Maodo's Ziarra",
+                            "date": "June 27 (anniversary of Maodo's passing)",
+                            "icon": "Heart",
+                            "description": "Commemoration of El Hadji Malick Sy's death. A day of prayers and meditation around his mausoleum.",
+                            "programme": ["Quran recitation at the mausoleum", "Sermon retracing Maodo's life", "Qasida chants in his glory", "Collective prayers", "Food distribution (Hadiya)"],
+                            "signification": "Honor Maodo's memory and remember his teachings and example."
+                        },
+                        {
+                            "nom": "Khalifes' Ziarra",
+                            "date": "Variable dates depending on the khalife commemorated",
+                            "icon": "Calendar",
+                            "description": "Commemorations dedicated to the different khalifes who succeeded Maodo, thus perpetuating their memory and legacy.",
+                            "programme": ["Visits to respective mausoleums", "Accounts of each khalife's contributions", "Prayers and invocations", "Community meetings"],
+                            "signification": "Keep alive the memory of successive guides and their contributions to the Tariqa."
+                        }
+                    ]),
+                    "ar": json.dumps([
+                        {
+                            "nom": "الزيارة السنوية العامة",
+                            "date": "20 أبريل 2025",
+                            "icon": "Users",
+                            "description": "التجمع السنوي الكبير لجميع التلاميذ، عادة في أبريل. يتوافد المؤمنون من جميع أنحاء السنغال والخارج إلى تيفاوان.",
+                            "programme": ["السبت 19 أبريل: وصول الحجاج والمولد التقليدي", "صباح الأحد: الصلاة الكبرى في المسجد", "الأحد: تجديد بيعة الدوائر", "مساء الأحد: خطاب الخليفة والبركات", "منتدى حول الدوائر كناقلات للتنمية"],
+                            "signification": "هذه هي اللحظة التي يؤكد فيها كل تجاني التزامه الروحي ويتلقى توجيهات المرشد للعام القادم."
+                        },
+                        {
+                            "nom": "زيارة مودو",
+                            "date": "27 يونيو (ذكرى وفاة مودو)",
+                            "icon": "Heart",
+                            "description": "إحياء ذكرى وفاة الحاج مالك سي. يوم للصلاة والتأمل حول ضريحه.",
+                            "programme": ["تلاوة القرآن في الضريح", "خطبة تستعرض حياة مودو", "أناشيد القصائد تمجيداً له", "صلوات جماعية", "توزيع الطعام (الهدية)"],
+                            "signification": "تكريم ذكرى مودو وتذكر تعاليمه ومثاله."
+                        },
+                        {
+                            "nom": "زيارة الخلفاء",
+                            "date": "تواريخ متغيرة حسب الخليفة المحتفى به",
+                            "icon": "Calendar",
+                            "description": "احتفالات مخصصة للخلفاء المختلفين الذين خلفوا مودو، وبالتالي إحياء ذكراهم وإرثهم.",
+                            "programme": ["زيارات للأضرحة المعنية", "روايات عن إسهامات كل خليفة", "الصلوات والأدعية", "لقاءات مجتمعية"],
+                            "signification": "الحفاظ على ذكرى المرشدين المتعاقبين وإسهاماتهم في الطريقة حية."
+                        }
+                    ]),
+                    "wo": json.dumps([
+                        {
+                            "nom": "Ziarra Générale bu at",
+                            "date": "20 avril 2025",
+                            "icon": "Users",
+                            "description": "Ndaje bu mag bu at yi taalibe yépp, jamono abril. Julli-kat yi ñu jóge Senegaal yépp ak biti ñu bokk ci Tiwaawaan.",
+                            "programme": ["Gàww 19 avril: Ñëw ajibi yi ak Gamou traditionnel", "Dibéer suba: Julli bu mag ci jàkka bi", "Dibéer: Soppisaat bay'a Dahira yi", "Dibéer ngoon: Wax Xaliifa bi ak baraka yi", "Forum ci Dahiras yi ni vecteurs développement"],
+                            "signification": "Mooy waxtu bu Tijaan bu nekk di soppisaat jëf am bu sell te am orientations guide bi ngir at buy ñëw."
+                        },
+                        {
+                            "nom": "Ziarra Maodo",
+                            "date": "27 juin (bés bu Maodo wéesu)",
+                            "icon": "Heart",
+                            "description": "Fàttaliku dee El Hadji Maalik Si. Bés bu julli ak xalaat ci wettu mausolée bam.",
+                            "programme": ["Jang Alxuraan ci mausolée bi", "Khoutba buy wax dund Maodo", "Chants qasidas ngir ko hormale", "Julli mbooloo", "Seddale lekk (Hadiya)"],
+                            "signification": "Hormale xam-xam Maodo ak fàttaliku jàng yi ak exemple am."
+                        },
+                        {
+                            "nom": "Ziarra Xaliifa yi",
+                            "date": "Bés yi dul mukk ci xaliifa bi ñu di fàttaliku",
+                            "icon": "Calendar",
+                            "description": "Fàttaliku ngir xaliifa yi topp Maodo, di sàmm xam-xam yi ak warisaay yi.",
+                            "programme": ["Ziarra ci mausolées yi", "Wax ci jëf yu xaliifa bu nekk", "Julli ak doua", "Ndaje communautaires"],
+                            "signification": "Sàmm fàttaliku guides yi topp ak li ñu jàpp ci Tariqa bi."
+                        }
+                    ])
+                },
+                "metadata": {"type": "ziarras"},
+                "order": 1,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+        
+        # Pilgrim guide section
+        if "pilgrim_guide" not in existing_sections:
+            new_sections.append({
+                "id": str(uuid.uuid4()),
+                "slug": "ziarra",
+                "section": "pilgrim_guide",
+                "content": {
+                    "fr": json.dumps([
+                        {"titre": "Préparation Spirituelle", "conseils": ["Formuler une intention sincère (Niya) avant le départ", "Se purifier spirituellement par le repentir", "Multiplier les prières sur le Prophète (PSL) durant le voyage"]},
+                        {"titre": "Préparation Logistique", "conseils": ["Réserver son hébergement à l'avance", "Prévoir des vêtements modestes et confortables", "Apporter son Wird et son chapelet", "Se munir d'argent pour les dons (Hadiya)"]},
+                        {"titre": "Sur Place", "conseils": ["Respecter les consignes des organisateurs", "Participer aux prières collectives", "Visiter les lieux saints avec recueillement", "Maintenir la propreté des espaces publics"]}
+                    ]),
+                    "en": json.dumps([
+                        {"titre": "Spiritual Preparation", "conseils": ["Formulate a sincere intention (Niya) before departure", "Purify yourself spiritually through repentance", "Multiply prayers upon the Prophet (PBUH) during the journey"]},
+                        {"titre": "Logistical Preparation", "conseils": ["Book accommodation in advance", "Plan modest and comfortable clothing", "Bring your Wird and prayer beads", "Bring money for donations (Hadiya)"]},
+                        {"titre": "On Site", "conseils": ["Follow the organizers' instructions", "Participate in collective prayers", "Visit holy places with reflection", "Maintain cleanliness of public spaces"]}
+                    ]),
+                    "ar": json.dumps([
+                        {"titre": "الإعداد الروحي", "conseils": ["صياغة نية صادقة قبل المغادرة", "التطهر روحياً بالتوبة", "الإكثار من الصلاة على النبي (ص) أثناء الرحلة"]},
+                        {"titre": "الإعداد اللوجستي", "conseils": ["حجز الإقامة مسبقاً", "تحضير ملابس محتشمة ومريحة", "إحضار الورد والسبحة", "إحضار المال للتبرعات (الهدية)"]},
+                        {"titre": "في الموقع", "conseils": ["اتباع تعليمات المنظمين", "المشاركة في الصلوات الجماعية", "زيارة الأماكن المقدسة بتأمل", "الحفاظ على نظافة الأماكن العامة"]}
+                    ]),
+                    "wo": json.dumps([
+                        {"titre": "Njëkkaale bu diine", "conseils": ["Am niya bu dëgg balaa dem", "Set sa xol ci tuub", "Yaatal julli ci Yonent bi (YWS) ci tukki bi"]},
+                        {"titre": "Njëkkaale bu logistik", "conseils": ["Réserve paxas toog balaa", "Jàpp yéré yu sell te yu neex", "Yóbbu sa Wird ak sa chapelet", "Yóbbu xaalis ngir don (Hadiya)"]},
+                        {"titre": "Ci paxas bi", "conseils": ["Topp consignes organisateurs yi", "Bokk ci julli mbooloo yi", "Ziarra paxas yu sell yi ak xel", "Sàmm set paxas yi"]}
+                    ])
+                },
+                "metadata": {"type": "guide"},
+                "order": 2,
+                "active": True,
+                "created_at": datetime.now(timezone.utc).isoformat(),
+                "updated_at": datetime.now(timezone.utc).isoformat()
+            })
+    
+    if new_sections:
+        await db.page_content.insert_many(new_sections)
+    
+    return {"message": f"Contenu créé pour {page_slug}", "added": len(new_sections)}
+
+
 # ============== SEARCH ENDPOINT ==============
 
 @api_router.get("/search")
