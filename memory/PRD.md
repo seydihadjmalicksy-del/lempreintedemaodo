@@ -134,6 +134,11 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 ## 📝 Backlog
 
 ### P0 - Complétées récemment
+- [x] ~~**Migration Arbre Généalogique vers MongoDB**~~ ✅ Complété (9 Février 2026)
+  - Nouvelle collection `family_tree` avec 11 membres
+  - API structurée retournant l'arbre hiérarchique
+  - Onglet "Arbre" dans le panneau d'administration
+  - Frontend mis à jour pour charger depuis MongoDB
 - [x] ~~**Migration Archives vers MongoDB**~~ ✅ Complété (9 Février 2026)
   - 5 nouvelles collections : `archive_manuscripts`, `archive_photos`, `archive_audio`, `archive_videos`, `archive_sources`
   - API CRUD complète avec authentification admin
