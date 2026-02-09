@@ -712,6 +712,8 @@ const AdminPanel = () => {
                   handleDeleteContent(deleteConfirm.id);
                 } else if (deleteConfirm.type === 'khalife') {
                   handleDeleteKhalife(deleteConfirm.id);
+                } else if (['manuscripts', 'photos', 'audio', 'videos', 'sources'].includes(deleteConfirm.type)) {
+                  handleDeleteArchiveItem(deleteConfirm.type, deleteConfirm.id);
                 }
               }}
               disabled={actionLoading}
