@@ -106,30 +106,37 @@ const Navbar = () => {
                 link.dropdown ? (
                   <div 
                     key={index}
-                    className="relative"
-                    onMouseEnter={() => setOpenDropdown(link.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    className="relative group"
+                    onMouseEnter={() => handleDropdownEnter(link.label)}
+                    onMouseLeave={handleDropdownLeave}
                   >
                     <button
                       className="flex items-center gap-1 text-base font-medium text-[#4A4A4A] hover:text-[#004D33] py-2 transition-colors"
                       data-testid={`nav-dropdown-${link.label.toLowerCase()}`}
                     >
                       {link.label}
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} />
                     </button>
                     
                     {openDropdown === link.label && (
-                      <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 z-50">
-                        {link.dropdown.map((subLink) => (
-                          <Link
-                            key={subLink.path}
-                            to={subLink.path}
-                            className="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
-                            data-testid={`nav-sublink-${subLink.label.toLowerCase().replace(/\s+/g, '-')}`}
-                          >
-                            {subLink.label}
-                          </Link>
-                        ))}
+                      <div 
+                        className="absolute top-full left-0 pt-2 w-56 z-50"
+                        onMouseEnter={() => handleDropdownEnter(link.label)}
+                        onMouseLeave={handleDropdownLeave}
+                      >
+                        <div className="bg-white rounded-lg shadow-xl border border-gray-100 py-2">
+                          {link.dropdown.map((subLink) => (
+                            <Link
+                              key={subLink.path}
+                              to={subLink.path}
+                              onClick={() => setOpenDropdown(null)}
+                              className="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
+                              data-testid={`nav-sublink-${subLink.label.toLowerCase().replace(/\s+/g, '-')}`}
+                            >
+                              {subLink.label}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
