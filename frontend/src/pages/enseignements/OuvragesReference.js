@@ -111,6 +111,88 @@ const OuvragesReference = () => {
       langue: "Français",
       disponible: true,
       lien: "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html"
+    },
+    {
+      titre: "Thèse du Pr. Rawane Mbaye - Vol. 1 (Pensée et Action)",
+      taille: "PDF",
+      langue: "Français",
+      disponible: true,
+      lien: "https://fr.scribd.com/document/655798719/These-Du-Pr-Rawane-Mbaye-Vol-1-Tome-1-3"
+    },
+    {
+      titre: "TAISSIR - Seydi El Hadji Malick Sy",
+      taille: "PDF",
+      langue: "Arabe",
+      disponible: true,
+      lien: "https://www.scribd.com/document/519357264/TAISSIR-Seydi-El-Hadji-Malick-Sy"
+    },
+    {
+      titre: "El Hadji Malick Sy et l'islamisation du Sénégal",
+      taille: "PDF",
+      langue: "Français",
+      disponible: true,
+      lien: "https://fr.scribd.com/document/526108125/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal"
+    },
+    {
+      titre: "Exposé complet sur Seydil Hadji Malick Sy",
+      taille: "PDF",
+      langue: "Français",
+      disponible: true,
+      lien: "https://fr.scribd.com/document/836834898/expose-sur-seydil-hadji-malick-sy"
+    },
+    {
+      titre: "El Hadji Malick Sy - Biographie (PDF)",
+      taille: "PDF",
+      langue: "Français",
+      disponible: true,
+      lien: "https://fr.scribd.com/document/409928831/El-Hadji-Malick-Sy-pdf"
+    },
+    {
+      titre: "Édition complète des œuvres - Université Maroc",
+      taille: "PDF Académique",
+      langue: "Arabe et Français",
+      disponible: true,
+      lien: "https://www.uir.ac.ma/upload/media/639c87022344a508686074.pdf"
+    }
+  ];
+
+  // Archives et Documents Académiques
+  const archivesAcademiques = [
+    {
+      titre: "BnF - Fiche d'autorité Malick Sy",
+      description: "Page officielle de la Bibliothèque nationale de France sur Malick Sy avec bibliographie complète",
+      lien: "https://data.bnf.fr/fr/14528700/malick_sy/",
+      source: "Bibliothèque nationale de France"
+    },
+    {
+      titre: "Les Cahiers de l'Islam - Islamisation du Sénégal",
+      description: "Article académique sur le rôle de la Tijaniyya dans l'islamisation du Sénégal",
+      lien: "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html",
+      source: "Les Cahiers de l'Islam"
+    },
+    {
+      titre: "OpenEdition - Revue des Mondes Musulmans",
+      description: "Article de recherche sur El Hadji Malick Sy dans la Revue des mondes musulmans et de la Méditerranée",
+      lien: "https://journals.openedition.org/remmm/21127",
+      source: "OpenEdition Journals"
+    },
+    {
+      titre: "Timbuktu Institute - Rôle diplomatique de Tivaouane",
+      description: "Analyse du rôle diplomatique pionnier de la zawiya de Tivaouane",
+      lien: "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe",
+      source: "Timbuktu Institute"
+    },
+    {
+      titre: "Éditions UCAD - El Hadji Malick Sy",
+      description: "Publication universitaire de l'Université Cheikh Anta Diop de Dakar",
+      lien: "https://editions.ucad.sn/ouvrages/65",
+      source: "UCAD Dakar"
+    },
+    {
+      titre: "Bibliothèque numérique UCAD - Thèses",
+      description: "Collection de thèses et mémoires sur El Hadji Malick Sy",
+      lien: "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses",
+      source: "UCAD Bibliothèque"
     }
   ];
 
