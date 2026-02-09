@@ -2019,6 +2019,157 @@ async def search_content(q: str, lang: str = "fr", limit: int = 20):
 
 # ============== SEED DATA ENDPOINT ==============
 
+@api_router.post("/admin/seed-videos-maodo")
+async def seed_maodo_videos():
+    """Replace placeholder videos with real YouTube videos about El Hadj Malick Sy (Maodo)"""
+    
+    # Delete all existing videos
+    await db.videos.delete_many({})
+    
+    # Real YouTube videos about Maodo and Tivaouane
+    maodo_videos = [
+        {
+            "id": str(uuid.uuid4()),
+            "title": "L'Histoire de El Hadji Maodo Malick Sy - Documentaire Complet",
+            "description": "Documentaire complet sur la vie d'El Hadji Malick Sy : son arrivée à l'islam, son instruction, son séjour à Saint-Louis, son pèlerinage à la Mecque, son installation à Ndiandé, son rôle à Tivaouane, ses relations avec l'autorité coloniale, le Gamou et son héritage.",
+            "youtube_id": "NpOPd8AsV_c",
+            "category": "histoire",
+            "duration": "45:00",
+            "views": 125000,
+            "featured": True,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "El Hadji Malick Sy - Une vie consacrée à la vulgarisation des enseignements du Prophète (RTS)",
+            "description": "Documentaire officiel de la RTS (Radio Télévision Sénégalaise) produit en septembre 2024, retraçant la vie et l'œuvre de Maodo.",
+            "youtube_id": "CQJ5rPB4baM",
+            "category": "histoire",
+            "duration": "35:00",
+            "views": 89000,
+            "featured": True,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Documentaire sur la vie de Seydil Hadji Malick Sy - Asfiyahi Television",
+            "description": "Documentaire de plus de 29 minutes produit par Asfiyahi Television sur la vie et l'héritage spirituel de Seydil Hadji Malick Sy.",
+            "youtube_id": "Q0KxcWiBbXE",
+            "category": "histoire",
+            "duration": "29:30",
+            "views": 67500,
+            "featured": True,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Gamou Tivaouane 2024 - Les pèlerins dans la ferveur du Mawlid (APS)",
+            "description": "Reportage de l'Agence de Presse Sénégalaise montrant l'ambiance et la ferveur des pèlerins lors du Gamou 2024 à Tivaouane.",
+            "youtube_id": "Db7B20Nkr94",
+            "category": "gamou",
+            "duration": "15:00",
+            "views": 45000,
+            "featured": True,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Direct Mawlid 2024 - Champ de courses Tivaouane avec Serigne Moustapha Sy",
+            "description": "Couverture en direct de la commémoration du Mawlid 2024 au champ de courses de Tivaouane avec Serigne Moustapha Sy.",
+            "youtube_id": "9NbQPtiD8ZI",
+            "category": "gamou",
+            "duration": "2:30:00",
+            "views": 230000,
+            "featured": False,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Cérémonie officielle Mawlid-Tivaouane 2024",
+            "description": "Vidéo présentant le thème officiel et les moments forts de la cérémonie officielle du Mawlid 2024 à Tivaouane.",
+            "youtube_id": "BLB5Ouz0f6M",
+            "category": "gamou",
+            "duration": "1:45:00",
+            "views": 156000,
+            "featured": False,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Khassida Lā Tarkanan - El Hadji Malick Sy (Traduction et Explication)",
+            "description": "Récitation de la Khassida 'Lā Tarkanan' d'El Hadji Malick Sy avec traduction en wolof et explications spirituelles en français. Ce poème invite à la confiance absolue en Allah.",
+            "youtube_id": "JWwRxPQPsCE",
+            "category": "dhikr",
+            "duration": "45:00",
+            "views": 34000,
+            "featured": True,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Récitation Khassaides El Hadji Malick - Nuit du Burd",
+            "description": "Nuit de récitation des khassaides d'El Hadji Malick Sy par Doudou Kende et Abou Aziz Mbaye.",
+            "youtube_id": "iz3ozGdQ5aQ",
+            "category": "dhikr",
+            "duration": "1:20:00",
+            "views": 28000,
+            "featured": False,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Hidaya Al Wildan - Khassida El Hadji Malick Sy",
+            "description": "Récitation de la Khassida 'Hidaya Al Wildan' (Le cadeau pour la jeunesse) composée par El Hadji Malick Sy.",
+            "youtube_id": "bhEA8ZuABns",
+            "category": "dhikr",
+            "duration": "25:00",
+            "views": 19500,
+            "featured": False,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Visite du Président de la République - Gamou Tivaouane 2024",
+            "description": "Stream de la visite officielle du Président de la République lors du Gamou Tivaouane 2024.",
+            "youtube_id": "uVJsmAG5kvo",
+            "category": "gamou",
+            "duration": "1:00:00",
+            "views": 78000,
+            "featured": False,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Célébration de la Nuit du Mawlid - Tivaouane 15 Septembre 2024",
+            "description": "Couverture complète de la nuit du Mawlid à Tivaouane par DAKARACTU TV HD - Dimanche 15 septembre 2024.",
+            "youtube_id": "AlUmZn_Deno",
+            "category": "gamou",
+            "duration": "3:00:00",
+            "views": 195000,
+            "featured": False,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "title": "Mame Maodo Malick Sy : Le Sénégal dans l'histoire",
+            "description": "Série documentaire présentant la véritable histoire de Maodo et son impact sur l'histoire du Sénégal.",
+            "youtube_id": "aviqRGqHnPo",
+            "category": "histoire",
+            "duration": "40:00",
+            "views": 52000,
+            "featured": False,
+            "created_at": datetime.now(timezone.utc).isoformat()
+        }
+    ]
+    
+    await db.videos.insert_many(maodo_videos)
+    
+    return {
+        "message": "Vidéos sur Maodo initialisées avec succès",
+        "count": len(maodo_videos),
+        "videos": [{"title": v["title"], "youtube_id": v["youtube_id"]} for v in maodo_videos]
+    }
+
 @api_router.post("/admin/seed")
 async def seed_database():
     """Seed database with initial content"""
