@@ -181,6 +181,14 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
   - 6 sources académiques ajoutées (BnF, OpenEdition, UCAD, Timbuktu Institute, Les Cahiers de l'Islam)
   - Nouvelle section "Archives Académiques et Sources de Recherche" sur la page Ouvrages
   - Médiathèque mise à jour avec les vraies vidéos de Maodo
+- ✅ **Système d'Archives Complet** (9 février 2026):
+  - Page Archives enrichie avec 8 manuscrits, 6 photos, 5 audio, 6 vidéos
+  - **Lecteur audio intégré** avec playlist des Khassaides (Tayssîr, Zajrul Qulûb, Yâ Kâchifad-Dâ-i, etc.)
+  - **Lecteur vidéo modal** YouTube avec autoplay
+  - **Galerie photos historiques** de Maodo et des Khalifes
+  - **Manuscrits numérisés**: Khilassou Dhahab, Tayssir, Fâkihatou Toullâb (liens Scribd, Archive.org, PDF directs)
+  - **Sources académiques**: BnF, Archive.org, UCAD, OpenEdition, Timbuktu Institute
+  - Filtres par catégorie (Manuscrits, Photos, Audio, Vidéos)
 - ✅ **Branding** : 
   - Nom du site "L'empreinte de Maodo" (titre simplifié dans navbar et pages)
   - Copyright changé de "2025" à "2026 CRAT"
