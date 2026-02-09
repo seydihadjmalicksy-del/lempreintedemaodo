@@ -72,39 +72,51 @@ const Mediatheque = () => {
   const videosRecentes = [
     {
       titre: {
-        fr: "Gamou 2024 - Nuit du Mawlid",
-        en: "Gamou 2024 - Mawlid Night",
-        ar: "المولد 2024 - ليلة المولد",
-        wo: "Gamou 2024 - Guddi Maouloud"
+        fr: "L'Histoire de El Hadji Maodo Malick Sy - Documentaire Complet",
+        en: "The History of El Hadji Maodo Malick Sy - Full Documentary",
+        ar: "تاريخ الحاج مودو مالك سي - وثائقي كامل",
+        wo: "Taariix El Hadji Maodo Malick Sy - Documentaire bu mat"
       },
-      duree: "3:45:00",
+      duree: "45:00",
       vues: 125000,
-      youtubeId: "BOxANuUYGbk",
-      thumbnail: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      youtubeId: "NpOPd8AsV_c",
+      thumbnail: "https://i.ytimg.com/vi/NpOPd8AsV_c/hqdefault.jpg"
     },
     {
       titre: {
-        fr: "Bourda 2024 - 10 Nuits",
-        en: "Bourda 2024 - 10 Nights",
-        ar: "البردة 2024 - 10 ليالٍ",
-        wo: "Bourda 2024 - 10 Guddi"
+        fr: "El Hadji Malick Sy - Une vie consacrée aux enseignements du Prophète (RTS)",
+        en: "El Hadji Malick Sy - A Life Dedicated to the Prophet's Teachings (RTS)",
+        ar: "الحاج مالك سي - حياة مكرسة لتعاليم النبي",
+        wo: "El Hadji Malick Sy - Aduna bu déglu ci jàng Yonent bi (RTS)"
       },
-      duree: "2:15:00",
-      vues: 54300,
-      youtubeId: "Gef2Tml5ea8",
-      thumbnail: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      duree: "35:00",
+      vues: 89000,
+      youtubeId: "CQJ5rPB4baM",
+      thumbnail: "https://i.ytimg.com/vi/CQJ5rPB4baM/hqdefault.jpg"
     },
     {
       titre: {
-        fr: "Hadratoul Joumah - Zawiya",
-        en: "Hadratoul Joumah - Zawiya",
-        ar: "حضرة الجمعة - الزاوية",
-        wo: "Hadratoul Joumah - Zawiya"
+        fr: "Gamou Tivaouane 2024 - Les pèlerins dans la ferveur du Mawlid",
+        en: "Gamou Tivaouane 2024 - Pilgrims in Mawlid Fervor",
+        ar: "مولد تيفاوان 2024 - الحجاج في حماسة المولد",
+        wo: "Gamou Tiwaawaan 2024 - Sëy yi ci leep bu Maouloud bi"
       },
-      duree: "1:20:00",
-      vues: 23400,
-      youtubeId: "tXNSmVriybU",
-      thumbnail: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg"
+      duree: "15:00",
+      vues: 45000,
+      youtubeId: "Db7B20Nkr94",
+      thumbnail: "https://i.ytimg.com/vi/Db7B20Nkr94/hqdefault.jpg"
+    },
+    {
+      titre: {
+        fr: "Khassida Lā Tarkanan - El Hadji Malick Sy (Traduction)",
+        en: "Khassida Lā Tarkanan - El Hadji Malick Sy (Translation)",
+        ar: "قصيدة لا تركنن - الحاج مالك سي",
+        wo: "Khassida Lā Tarkanan - El Hadji Malick Sy (Tekki)"
+      },
+      duree: "45:00",
+      vues: 34000,
+      youtubeId: "JWwRxPQPsCE",
+      thumbnail: "https://i.ytimg.com/vi/JWwRxPQPsCE/hqdefault.jpg"
     }
   ];
 
