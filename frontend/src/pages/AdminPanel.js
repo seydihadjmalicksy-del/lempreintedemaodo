@@ -1180,6 +1180,15 @@ const AdminPanel = () => {
             <Archive className="w-5 h-5" />
             Archives ({archivesStats.total || 0})
           </button>
+          <button
+            onClick={() => { setActiveTab("familyTree"); setShowAddForm(false); setEditingItem(null); fetchFamilyTree(); }}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+              activeTab === "familyTree" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+            }`}
+          >
+            <Users className="w-5 h-5" />
+            Arbre ({familyTree.length})
+          </button>
         </div>
 
         {/* Content Area */}
