@@ -1,18 +1,126 @@
 import { Book, Image, Mic, Newspaper, Filter, Play, Download, ExternalLink, FileText, Users, Calendar } from "lucide-react";
 import { useState } from "react";
 import { AudioPlayer, VideoPlayerModal, VideoCard } from "../components/MediaPlayer";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Archives = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [currentAudioTrack, setCurrentAudioTrack] = useState(0);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const { language } = useLanguage();
+
+  // Translations for UI elements
+  const ui = {
+    fr: {
+      title: "Les Archives de la Khadra",
+      subtitle: "« Préserver le passé pour éclairer le futur »",
+      intro1: "Bienvenue dans le sanctuaire documentaire de L'empreinte de Maodo.",
+      intro2: "Cette rubrique est la mémoire vive d'une épopée spirituelle qui a façonné l'Islam en Afrique de l'Ouest.",
+      note: "Note aux chercheurs et disciples : Ces archives proviennent de sources authentifiées : BnF, Archive.org, UCAD, Scribd, et bibliothèques soufies. Parcourez-les avec le respect (Adab) dû à l'héritage de nos prédécesseurs.",
+      manuscrits: "Manuscrits",
+      photos: "Photothèque",
+      audio: "Archives Sonores",
+      videos: "Vidéothèque",
+      all: "Tout",
+      manuscritsTitle: "Manuscrits Numérisés",
+      photosTitle: "Galerie Photos Historiques",
+      audioTitle: "Archives Sonores - Khassaides",
+      videosTitle: "Vidéothèque - Documentaires",
+      sourcesTitle: "Sources Académiques",
+      aboutKhassaides: "À propos des Khassaides",
+      khassaidesDesc: "Les khassaides d'El Hadji Malick Sy sont des poèmes religieux composés en arabe, récités lors des cérémonies religieuses et méditations spirituelles.",
+      audioSources: "Sources des enregistrements :",
+      contributeTitle: "Contribuez à la Préservation du Patrimoine",
+      contributeDesc: "Si vous possédez des documents, photos, enregistrements ou témoignages relatifs à l'histoire de Tivaouane et d'El Hadji Malick Sy, nous serions honorés de les intégrer à notre collection.",
+      submitDoc: "Soumettre un Document",
+      consult: "Consulter",
+      consultSource: "Consulter la source"
+    },
+    en: {
+      title: "The Archives of the Khadra",
+      subtitle: "« Preserving the past to illuminate the future »",
+      intro1: "Welcome to the documentary sanctuary of The Legacy of Maodo.",
+      intro2: "This section is the living memory of a spiritual epic that shaped Islam in West Africa.",
+      note: "Note to researchers and disciples: These archives come from authenticated sources: BnF, Archive.org, UCAD, Scribd, and Sufi libraries. Browse them with the respect (Adab) due to the heritage of our predecessors.",
+      manuscrits: "Manuscripts",
+      photos: "Photo Library",
+      audio: "Audio Archives",
+      videos: "Video Library",
+      all: "All",
+      manuscritsTitle: "Digitized Manuscripts",
+      photosTitle: "Historical Photo Gallery",
+      audioTitle: "Audio Archives - Khassaides",
+      videosTitle: "Video Library - Documentaries",
+      sourcesTitle: "Academic Sources",
+      aboutKhassaides: "About the Khassaides",
+      khassaidesDesc: "The khassaides of El Hadji Malick Sy are religious poems composed in Arabic, recited during religious ceremonies and spiritual meditations.",
+      audioSources: "Recording sources:",
+      contributeTitle: "Contribute to Heritage Preservation",
+      contributeDesc: "If you have documents, photos, recordings or testimonies related to the history of Tivaouane and El Hadji Malick Sy, we would be honored to include them in our collection.",
+      submitDoc: "Submit a Document",
+      consult: "View",
+      consultSource: "View source"
+    },
+    ar: {
+      title: "أرشيف الخضرة",
+      subtitle: "« الحفاظ على الماضي لإنارة المستقبل »",
+      intro1: "مرحباً بكم في المحفظة الوثائقية لبصمة مودو.",
+      intro2: "هذا القسم هو الذاكرة الحية لملحمة روحية شكّلت الإسلام في غرب أفريقيا.",
+      note: "ملاحظة للباحثين والمريدين: هذه الأرشيفات من مصادر موثقة: BnF، Archive.org، UCAD، Scribd، والمكتبات الصوفية. تصفحوها باحترام (الأدب) الواجب لإرث أسلافنا.",
+      manuscrits: "المخطوطات",
+      photos: "معرض الصور",
+      audio: "الأرشيف الصوتي",
+      videos: "مكتبة الفيديو",
+      all: "الكل",
+      manuscritsTitle: "المخطوطات الرقمية",
+      photosTitle: "معرض الصور التاريخية",
+      audioTitle: "الأرشيف الصوتي - القصائد",
+      videosTitle: "مكتبة الفيديو - الوثائقيات",
+      sourcesTitle: "المصادر الأكاديمية",
+      aboutKhassaides: "عن القصائد",
+      khassaidesDesc: "قصائد الحاج مالك سي هي قصائد دينية مؤلفة بالعربية، تُتلى في المراسم الدينية والتأملات الروحية.",
+      audioSources: "مصادر التسجيلات:",
+      contributeTitle: "ساهم في حفظ التراث",
+      contributeDesc: "إذا كنت تملك وثائق أو صور أو تسجيلات أو شهادات تتعلق بتاريخ تيفاوان والحاج مالك سي، سنكون مشرفين بإدراجها في مجموعتنا.",
+      submitDoc: "إرسال وثيقة",
+      consult: "عرض",
+      consultSource: "عرض المصدر"
+    },
+    wo: {
+      title: "Dëgg yi Xadra",
+      subtitle: "« Sàmm léegi ngir leer ëllëg »",
+      intro1: "Dalal jàmm ci kër téere yi L'empreinte de Maodo.",
+      intro2: "Rubrique bii mooy xel bu dund bu taariix bu sell bu sos diine Islaam ci Afrik àll-géej.",
+      note: "Kàddu ngir seetkat yi ak taalibe yi: Dëgg yii jóge ci source yu dëgg: BnF, Archive.org, UCAD, Scribd, ak bibliothèque soufi yi. Seetlu leen ak Adab bu war ngir njàmbaar yi nijaay.",
+      manuscrits: "Téere yi",
+      photos: "Nataal yi",
+      audio: "Dëgg baat yi",
+      videos: "Bidiyo yi",
+      all: "Lépp",
+      manuscritsTitle: "Téere yi bu numérise",
+      photosTitle: "Galerie Nataal yi bu yàgg",
+      audioTitle: "Dëgg Baat yi - Khassaides",
+      videosTitle: "Bidiyo yi - Documentaire",
+      sourcesTitle: "Source Académique yi",
+      aboutKhassaides: "Ci Khassaides yi",
+      khassaidesDesc: "Khassaides El Hadji Maalik Si mooy woy diine bu bind ci arab, di ko jàng ci bëgg-bëgg diine yi ak méditation bu sell.",
+      audioSources: "Source yi enregistrement:",
+      contributeTitle: "Bokk ci Sàmm Njàmbaar bi",
+      contributeDesc: "Su am nga téere, nataal, enregistrement walla seede bu jokk ci taariix Tiwaawaan ak El Hadji Maalik Si, dinanu bëgg ngir leen dugal ci collection bi.",
+      submitDoc: "Yónnee Téere",
+      consult: "Xool",
+      consultSource: "Xool source bi"
+    }
+  };
+
+  const t = ui[language] || ui.fr;
 
   const categories = [
-    { id: "all", label: "Tout", icon: Filter },
-    { id: "manuscrits", label: "Manuscrits", icon: Book },
-    { id: "photos", label: "Photothèque", icon: Image },
-    { id: "audio", label: "Archives Sonores", icon: Mic },
-    { id: "videos", label: "Vidéothèque", icon: Play }
+    { id: "all", label: t.all, icon: Filter },
+    { id: "manuscrits", label: t.manuscrits, icon: Book },
+    { id: "photos", label: t.photos, icon: Image },
+    { id: "audio", label: t.audio, icon: Mic },
+    { id: "videos", label: t.videos, icon: Play }
   ];
 
   // Manuscrits numérisés avec liens réels
