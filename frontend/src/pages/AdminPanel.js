@@ -396,6 +396,86 @@ const AdminPanel = () => {
     }
   };
 
+  // ===== PAGE CONTENT/SECTION CRUD =====
+  const handleAddSection = async () => {
+    setActionLoading(true);
+    try {
+      const sectionData = {
+        ...newSection,
+        slug: selectedPage || newSection.slug
+      };
+      await axios.post(`${API}/content`, sectionData, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Section ajoutée avec succès");
+      setShowNewSectionForm(false);
+      setNewSection({
+        slug: "",
+        section: "",
+        content: { fr: "", en: "", ar: "", wo: "" },
+        metadata: { type: "text" },
+        order: 0,
+        active: true
+      });
+      fetchData();
+    } catch (error) {
+      toast.error(error.response?.data?.detail || "Erreur lors de l'ajout de la section");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleUpdateSection = async (contentId) => {
+    setActionLoading(true);
+    try {
+      await axios.put(`${API}/content/${contentId}`, editingItem, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Section mise à jour");
+      setEditingItem(null);
+      fetchData();
+    } catch (error) {
+      toast.error("Erreur lors de la mise à jour");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleCreatePage = async () => {
+    if (!newPage.slug.trim()) {
+      toast.error("Le slug de la page est requis");
+      return;
+    }
+    setActionLoading(true);
+    try {
+      // Create initial section for the new page
+      const initialSection = {
+        slug: newPage.slug.toLowerCase().replace(/\s+/g, '-'),
+        section: "introduction",
+        content: { 
+          fr: `Contenu de la page ${newPage.title || newPage.slug}`, 
+          en: `Content of page ${newPage.title || newPage.slug}`,
+          ar: "",
+          wo: ""
+        },
+        metadata: { type: "text", title: newPage.title },
+        order: 0,
+        active: true
+      };
+      await axios.post(`${API}/content`, initialSection, {
+        headers: getAuthHeaders()
+      });
+      toast.success("Page créée avec succès");
+      setShowNewPageForm(false);
+      setNewPage({ slug: "", title: "" });
+      fetchData();
+    } catch (error) {
+      toast.error(error.response?.data?.detail || "Erreur lors de la création de la page");
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
   const labels = {
     fr: {
       title: "Panneau d'Administration",
