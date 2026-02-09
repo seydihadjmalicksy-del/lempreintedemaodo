@@ -475,7 +475,7 @@ const Archives = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
               <Book className="w-8 h-8 text-[#D4AF37]" />
-              <h2 className="text-3xl font-bold text-[#004D33]">Manuscrits Numérisés</h2>
+              <h2 className="text-3xl font-bold text-[#004D33]">{t.manuscritsTitle}</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -504,7 +504,7 @@ const Archives = () => {
                       className="inline-flex items-center gap-2 text-[#004D33] hover:text-[#D4AF37] font-medium text-sm transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Consulter
+                      {t.consult}
                     </a>
                   </div>
                 </div>
@@ -520,7 +520,7 @@ const Archives = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center gap-3 mb-8">
               <Image className="w-8 h-8 text-[#D4AF37]" />
-              <h2 className="text-3xl font-bold text-[#004D33]">Galerie Photos Historiques</h2>
+              <h2 className="text-3xl font-bold text-[#004D33]">{t.photosTitle}</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
