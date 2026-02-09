@@ -165,6 +165,12 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 - ✅ **Migration Khalifes** : Page `/histoire/khalifes` migrée vers MongoDB
   - Nouvelle collection `khalifes` avec 11 profils complets
   - Endpoints API CRUD (`/api/khalifes`, `/api/khalifes/current`, etc.)
+- ✅ **Migration Pages Restantes** :
+  - Page **Origines** (`/histoire/origines`) : 4 sections dynamiques (timeline, characteristics, expansion, introduction)
+  - Page **Géographie Sacrée** (`/histoire/geographie`) : 4 sections dynamiques (lieux, organisation, introduction, demographics)
+  - Page **Ziarra** (`/evenements/ziarra`) : 2 sections dynamiques (ziarras, pilgrim_guide)
+  - Nouvel endpoint API `/api/content/seed-page/{slug}` pour initialiser le contenu
+- ✅ **Deployment Fix** : Endpoint `/health` ajouté pour Kubernetes health checks
 - ✅ **Tests** : Validés à 100%
 - ✅ **Content CMS** : Migration du contenu vers MongoDB, hook usePageContent, onglet admin
 - ✅ CRUD CMS complet (édition et suppression des citations/événements)
