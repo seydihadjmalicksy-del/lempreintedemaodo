@@ -207,7 +207,7 @@ const Archives = () => {
   
   const photos = photosData[language] || photosData.fr;
 
-  // Archives sonores - Khassaides avec liens réels
+  // Archives sonores - Khassaides avec liens réels (les titres arabes restent identiques)
   const audioTracks = [
     {
       title: "Tayssîr (Wassîlatul Munâ)",
@@ -250,92 +250,84 @@ const Archives = () => {
       coverImage: null
     }
   ];
+  
+  // Note: Les titres des khassaides sont en arabe et restent identiques dans toutes les langues
 
-  // Vidéos documentaires
-  const videos = [
-    {
-      title: "L'Histoire de El Hadji Maodo Malick Sy - Documentaire Complet",
-      description: "Documentaire complet sur la vie d'El Hadji Malick Sy : son arrivée à l'islam, son instruction, son pèlerinage, son installation à Tivaouane.",
-      youtubeId: "NpOPd8AsV_c",
-      duration: "45:00",
-      views: 125000
-    },
-    {
-      title: "El Hadji Malick Sy - Documentaire RTS",
-      description: "Documentaire officiel de la RTS retraçant la vie et l'œuvre de Maodo (Septembre 2024).",
-      youtubeId: "CQJ5rPB4baM",
-      duration: "35:00",
-      views: 89000
-    },
-    {
-      title: "Documentaire Asfiyahi Television",
-      description: "Documentaire de 29 minutes sur la vie et l'héritage spirituel de Seydil Hadji Malick Sy.",
-      youtubeId: "Q0KxcWiBbXE",
-      duration: "29:30",
-      views: 67500
-    },
-    {
-      title: "Mame Maodo : Le Sénégal dans l'histoire",
-      description: "Série documentaire présentant l'histoire de Maodo et son impact sur l'histoire du Sénégal.",
-      youtubeId: "aviqRGqHnPo",
-      duration: "40:00",
-      views: 52000
-    },
-    {
-      title: "Khassida Lā Tarkanan - Traduction",
-      description: "Récitation de la Khassida avec traduction en wolof et explications spirituelles en français.",
-      youtubeId: "JWwRxPQPsCE",
-      duration: "45:00",
-      views: 34000
-    },
-    {
-      title: "Récitation Khassaides - Nuit du Burd",
-      description: "Nuit de récitation des khassaides par Doudou Kende et Abou Aziz Mbaye.",
-      youtubeId: "iz3ozGdQ5aQ",
-      duration: "1:20:00",
-      views: 28000
-    }
-  ];
+  // Vidéos documentaires avec traductions
+  const videosData = {
+    fr: [
+      { title: "L'Histoire de El Hadji Maodo Malick Sy - Documentaire Complet", description: "Documentaire complet sur la vie d'El Hadji Malick Sy : son arrivée à l'islam, son instruction, son pèlerinage, son installation à Tivaouane.", youtubeId: "NpOPd8AsV_c", duration: "45:00", views: 125000 },
+      { title: "El Hadji Malick Sy - Documentaire RTS", description: "Documentaire officiel de la RTS retraçant la vie et l'œuvre de Maodo (Septembre 2024).", youtubeId: "CQJ5rPB4baM", duration: "35:00", views: 89000 },
+      { title: "Documentaire Asfiyahi Television", description: "Documentaire de 29 minutes sur la vie et l'héritage spirituel de Seydil Hadji Malick Sy.", youtubeId: "Q0KxcWiBbXE", duration: "29:30", views: 67500 },
+      { title: "Mame Maodo : Le Sénégal dans l'histoire", description: "Série documentaire présentant l'histoire de Maodo et son impact sur l'histoire du Sénégal.", youtubeId: "aviqRGqHnPo", duration: "40:00", views: 52000 },
+      { title: "Khassida Lā Tarkanan - Traduction", description: "Récitation de la Khassida avec traduction en wolof et explications spirituelles en français.", youtubeId: "JWwRxPQPsCE", duration: "45:00", views: 34000 },
+      { title: "Récitation Khassaides - Nuit du Burd", description: "Nuit de récitation des khassaides par Doudou Kende et Abou Aziz Mbaye.", youtubeId: "iz3ozGdQ5aQ", duration: "1:20:00", views: 28000 }
+    ],
+    en: [
+      { title: "The History of El Hadji Maodo Malick Sy - Complete Documentary", description: "Complete documentary on the life of El Hadji Malick Sy: his arrival to Islam, his education, his pilgrimage, his establishment in Tivaouane.", youtubeId: "NpOPd8AsV_c", duration: "45:00", views: 125000 },
+      { title: "El Hadji Malick Sy - RTS Documentary", description: "Official RTS documentary tracing the life and work of Maodo (September 2024).", youtubeId: "CQJ5rPB4baM", duration: "35:00", views: 89000 },
+      { title: "Asfiyahi Television Documentary", description: "29-minute documentary on the life and spiritual legacy of Seydil Hadji Malick Sy.", youtubeId: "Q0KxcWiBbXE", duration: "29:30", views: 67500 },
+      { title: "Mame Maodo: Senegal in History", description: "Documentary series presenting the history of Maodo and his impact on Senegal's history.", youtubeId: "aviqRGqHnPo", duration: "40:00", views: 52000 },
+      { title: "Khassida Lā Tarkanan - Translation", description: "Recitation of the Khassida with Wolof translation and spiritual explanations in French.", youtubeId: "JWwRxPQPsCE", duration: "45:00", views: 34000 },
+      { title: "Khassaides Recitation - Night of Burd", description: "Night of khassaides recitation by Doudou Kende and Abou Aziz Mbaye.", youtubeId: "iz3ozGdQ5aQ", duration: "1:20:00", views: 28000 }
+    ],
+    ar: [
+      { title: "تاريخ الحاج مودو مالك سي - وثائقي كامل", description: "وثائقي كامل عن حياة الحاج مالك سي: وصوله للإسلام، تعليمه، حجه، استقراره في تيفاوان.", youtubeId: "NpOPd8AsV_c", duration: "45:00", views: 125000 },
+      { title: "الحاج مالك سي - وثائقي RTS", description: "وثائقي رسمي من RTS يروي حياة وأعمال مودو (سبتمبر 2024).", youtubeId: "CQJ5rPB4baM", duration: "35:00", views: 89000 },
+      { title: "وثائقي تلفزيون أصفياحي", description: "وثائقي مدته 29 دقيقة عن حياة وإرث السيدي الحاج مالك سي الروحي.", youtubeId: "Q0KxcWiBbXE", duration: "29:30", views: 67500 },
+      { title: "مام مودو: السنغال في التاريخ", description: "سلسلة وثائقية تعرض تاريخ مودو وأثره على تاريخ السنغال.", youtubeId: "aviqRGqHnPo", duration: "40:00", views: 52000 },
+      { title: "قصيدة لا تركنن - ترجمة", description: "تلاوة القصيدة مع ترجمة بالولوف وشروحات روحية بالفرنسية.", youtubeId: "JWwRxPQPsCE", duration: "45:00", views: 34000 },
+      { title: "تلاوة القصائد - ليلة البردة", description: "ليلة تلاوة القصائد بواسطة دودو كندي وأبو عزيز مباي.", youtubeId: "iz3ozGdQ5aQ", duration: "1:20:00", views: 28000 }
+    ],
+    wo: [
+      { title: "Taariix El Hadji Maodo Maalik Si - Documentaire bu mat", description: "Documentaire bu mat ci dund El Hadji Maalik Si: njëkk ci Lislaam, njàng bi, Hajj bi, taxaw ci Tiwaawaan.", youtubeId: "NpOPd8AsV_c", duration: "45:00", views: 125000 },
+      { title: "El Hadji Maalik Si - Documentaire RTS", description: "Documentaire sellal RTS di wax dund ak liggéey Maodo (Septembre 2024).", youtubeId: "CQJ5rPB4baM", duration: "35:00", views: 89000 },
+      { title: "Documentaire Asfiyahi Television", description: "Documentaire 29 minutes ci dund ak njàmbaar bu sell Seydil Hadji Maalik Si.", youtubeId: "Q0KxcWiBbXE", duration: "29:30", views: 67500 },
+      { title: "Maam Maodo: Senegaal ci taariix", description: "Série documentaire di won taariix Maodo ak njëkkit ci taariix Senegaal.", youtubeId: "aviqRGqHnPo", duration: "40:00", views: 52000 },
+      { title: "Khassida Lā Tarkanan - Tekki", description: "Jàng Khassida ak tekki wolof ak biral bu sell ci français.", youtubeId: "JWwRxPQPsCE", duration: "45:00", views: 34000 },
+      { title: "Jàng Khassaides - Guddi Burd", description: "Guddi jàng khassaides bu Doudou Kende ak Abou Aziz Mbaye.", youtubeId: "iz3ozGdQ5aQ", duration: "1:20:00", views: 28000 }
+    ]
+  };
+  
+  const videos = videosData[language] || videosData.fr;
 
-  // Sources académiques
-  const sourcesAcademiques = [
-    {
-      title: "BnF - Fiche d'autorité Malick Sy",
-      description: "Page officielle de la Bibliothèque nationale de France avec bibliographie complète.",
-      lien: "https://data.bnf.fr/fr/14528700/malick_sy/",
-      source: "Bibliothèque nationale de France"
-    },
-    {
-      title: "Les Cahiers de l'Islam",
-      description: "Article académique sur le rôle de la Tijaniyya dans l'islamisation du Sénégal.",
-      lien: "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html",
-      source: "Recherche Académique"
-    },
-    {
-      title: "OpenEdition Journals",
-      description: "Article de recherche dans la Revue des mondes musulmans et de la Méditerranée.",
-      lien: "https://journals.openedition.org/remmm/21127",
-      source: "OpenEdition"
-    },
-    {
-      title: "Archive.org - Collection Audio",
-      description: "Collection audio 'Sidi El Hadj Malick SY Rta' disponible en streaming et téléchargement.",
-      lien: "https://archive.org/details/sidi-el-hadj-malick-sy-rta",
-      source: "Internet Archive"
-    },
-    {
-      title: "Thèses UCAD",
-      description: "Collection de thèses et mémoires de l'Université Cheikh Anta Diop sur El Hadji Malick Sy.",
-      lien: "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses",
-      source: "UCAD Dakar"
-    },
-    {
-      title: "Timbuktu Institute",
-      description: "Analyse du rôle diplomatique pionnier de la zawiya de Tivaouane.",
-      lien: "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe",
-      source: "Think Tank"
-    }
-  ];
+  // Sources académiques avec traductions
+  const sourcesAcademiquesData = {
+    fr: [
+      { title: "BnF - Fiche d'autorité Malick Sy", description: "Page officielle de la Bibliothèque nationale de France avec bibliographie complète.", lien: "https://data.bnf.fr/fr/14528700/malick_sy/", source: "Bibliothèque nationale de France" },
+      { title: "Les Cahiers de l'Islam", description: "Article académique sur le rôle de la Tijaniyya dans l'islamisation du Sénégal.", lien: "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html", source: "Recherche Académique" },
+      { title: "OpenEdition Journals", description: "Article de recherche dans la Revue des mondes musulmans et de la Méditerranée.", lien: "https://journals.openedition.org/remmm/21127", source: "OpenEdition" },
+      { title: "Archive.org - Collection Audio", description: "Collection audio 'Sidi El Hadj Malick SY Rta' disponible en streaming et téléchargement.", lien: "https://archive.org/details/sidi-el-hadj-malick-sy-rta", source: "Internet Archive" },
+      { title: "Thèses UCAD", description: "Collection de thèses et mémoires de l'Université Cheikh Anta Diop sur El Hadji Malick Sy.", lien: "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses", source: "UCAD Dakar" },
+      { title: "Timbuktu Institute", description: "Analyse du rôle diplomatique pionnier de la zawiya de Tivaouane.", lien: "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe", source: "Think Tank" }
+    ],
+    en: [
+      { title: "BnF - Malick Sy Authority Record", description: "Official page of the National Library of France with complete bibliography.", lien: "https://data.bnf.fr/fr/14528700/malick_sy/", source: "National Library of France" },
+      { title: "Les Cahiers de l'Islam", description: "Academic article on the role of Tijaniyya in the Islamization of Senegal.", lien: "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html", source: "Academic Research" },
+      { title: "OpenEdition Journals", description: "Research article in the Review of Muslim Worlds and the Mediterranean.", lien: "https://journals.openedition.org/remmm/21127", source: "OpenEdition" },
+      { title: "Archive.org - Audio Collection", description: "Audio collection 'Sidi El Hadj Malick SY Rta' available for streaming and download.", lien: "https://archive.org/details/sidi-el-hadj-malick-sy-rta", source: "Internet Archive" },
+      { title: "UCAD Theses", description: "Collection of theses and dissertations from Cheikh Anta Diop University on El Hadji Malick Sy.", lien: "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses", source: "UCAD Dakar" },
+      { title: "Timbuktu Institute", description: "Analysis of the pioneering diplomatic role of the Zawiya of Tivaouane.", lien: "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe", source: "Think Tank" }
+    ],
+    ar: [
+      { title: "BnF - سجل سلطة مالك سي", description: "الصفحة الرسمية للمكتبة الوطنية الفرنسية مع ببليوغرافيا كاملة.", lien: "https://data.bnf.fr/fr/14528700/malick_sy/", source: "المكتبة الوطنية الفرنسية" },
+      { title: "دفاتر الإسلام", description: "مقال أكاديمي عن دور التجانية في أسلمة السنغال.", lien: "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html", source: "بحث أكاديمي" },
+      { title: "مجلات OpenEdition", description: "مقال بحثي في مجلة العوالم الإسلامية والمتوسط.", lien: "https://journals.openedition.org/remmm/21127", source: "OpenEdition" },
+      { title: "Archive.org - مجموعة صوتية", description: "مجموعة صوتية 'سيدي الحاج مالك سي' متاحة للبث والتحميل.", lien: "https://archive.org/details/sidi-el-hadj-malick-sy-rta", source: "أرشيف الإنترنت" },
+      { title: "أطروحات UCAD", description: "مجموعة أطروحات ورسائل من جامعة الشيخ أنتا ديوب عن الحاج مالك سي.", lien: "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses", source: "UCAD داكار" },
+      { title: "معهد تمبكتو", description: "تحليل الدور الدبلوماسي الرائد لزاوية تيفاوان.", lien: "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe", source: "مركز أبحاث" }
+    ],
+    wo: [
+      { title: "BnF - Dossier Maalik Si", description: "Xët sellal bu Bibliothèque nationale France ak bibliographie bu mat.", lien: "https://data.bnf.fr/fr/14528700/malick_sy/", source: "Bibliothèque nationale France" },
+      { title: "Cahiers de l'Islam yi", description: "Jëf académique ci solo Tijaniyya ci Islamisation Senegaal.", lien: "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html", source: "Seet Académique" },
+      { title: "OpenEdition Journals", description: "Jëf seet ci Revue bi àdduna musulman yi ak Méditerranée.", lien: "https://journals.openedition.org/remmm/21127", source: "OpenEdition" },
+      { title: "Archive.org - Collection Audio", description: "Collection audio 'Sidi El Hadj Maalik SY Rta' am na ci streaming ak download.", lien: "https://archive.org/details/sidi-el-hadj-malick-sy-rta", source: "Internet Archive" },
+      { title: "Thèse UCAD yi", description: "Collection thèse ak mémoire bu Université Cheikh Anta Diop ci El Hadji Maalik Si.", lien: "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses", source: "UCAD Dakar" },
+      { title: "Timbuktu Institute", description: "Xellu ci solo diplomatique bu njëkk bu zawiya Tiwaawaan.", lien: "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe", source: "Think Tank" }
+    ]
+  };
+  
+  const sourcesAcademiques = sourcesAcademiquesData[language] || sourcesAcademiquesData.fr;
 
   return (
     <div className="min-h-screen bg-[#F9F7F2]" data-testid="archives-page" dir={language === 'ar' ? 'rtl' : 'ltr'}>
