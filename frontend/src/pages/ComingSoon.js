@@ -23,7 +23,7 @@ const ComingSoon = ({ title }) => {
           <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100 mb-8">
             <p className="text-lg text-[#4A4A4A] leading-relaxed">
               Nous travaillons avec soin pour vous offrir un contenu riche et authentique 
-              qui honore l'héritage spirituel de la Tariqa Tidiane de Tivaouane.
+              qui honore l'héritage spirituel de L'empreinte de Maodo.
             </p>
           </div>
           
