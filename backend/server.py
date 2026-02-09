@@ -302,6 +302,181 @@ class KhalifeUpdate(BaseModel):
     active: Optional[bool] = None
 
 
+# ============== ARCHIVES MODELS ==============
+
+class ArchiveManuscript(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    date: str  # e.g., "XIXe siècle"
+    langue: str  # e.g., "Arabe + Français"
+    lien: str  # URL to the document
+    type: str  # e.g., "PDF Scribd", "Archive.org"
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class ArchiveManuscriptCreate(BaseModel):
+    title: dict
+    description: dict
+    date: str
+    langue: str
+    lien: str
+    type: str
+    order: int = 0
+    active: bool = True
+
+
+class ArchiveManuscriptUpdate(BaseModel):
+    title: Optional[dict] = None
+    description: Optional[dict] = None
+    date: Optional[str] = None
+    langue: Optional[str] = None
+    lien: Optional[str] = None
+    type: Optional[str] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
+class ArchivePhoto(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    date: str  # e.g., "Début XXe siècle"
+    image: str  # URL to the image
+    source: dict  # {"fr": "Archives familiales", "en": "Family Archives", ...}
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class ArchivePhotoCreate(BaseModel):
+    title: dict
+    description: dict
+    date: str
+    image: str
+    source: dict
+    order: int = 0
+    active: bool = True
+
+
+class ArchivePhotoUpdate(BaseModel):
+    title: Optional[dict] = None
+    description: Optional[dict] = None
+    date: Optional[str] = None
+    image: Optional[str] = None
+    source: Optional[dict] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
+class ArchiveAudio(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: str  # Khassaide titles stay in Arabic
+    author: str
+    duration: str
+    audioUrl: str
+    source: str  # URL to source website
+    coverImage: Optional[str] = None
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class ArchiveAudioCreate(BaseModel):
+    title: str
+    author: str
+    duration: str
+    audioUrl: str
+    source: str
+    coverImage: Optional[str] = None
+    order: int = 0
+    active: bool = True
+
+
+class ArchiveAudioUpdate(BaseModel):
+    title: Optional[str] = None
+    author: Optional[str] = None
+    duration: Optional[str] = None
+    audioUrl: Optional[str] = None
+    source: Optional[str] = None
+    coverImage: Optional[str] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
+class ArchiveVideo(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    youtubeId: str
+    duration: str
+    views: int = 0
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class ArchiveVideoCreate(BaseModel):
+    title: dict
+    description: dict
+    youtubeId: str
+    duration: str
+    views: int = 0
+    order: int = 0
+    active: bool = True
+
+
+class ArchiveVideoUpdate(BaseModel):
+    title: Optional[dict] = None
+    description: Optional[dict] = None
+    youtubeId: Optional[str] = None
+    duration: Optional[str] = None
+    views: Optional[int] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
+class ArchiveSource(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    title: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    lien: str  # URL to the source
+    source: dict  # {"fr": "BnF", "en": "National Library of France", ...}
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class ArchiveSourceCreate(BaseModel):
+    title: dict
+    description: dict
+    lien: str
+    source: dict
+    order: int = 0
+    active: bool = True
+
+
+class ArchiveSourceUpdate(BaseModel):
+    title: Optional[dict] = None
+    description: Optional[dict] = None
+    lien: Optional[str] = None
+    source: Optional[dict] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
 # ============== AUTHENTICATION HELPERS ==============
 
 def verify_password(password: str) -> bool:
