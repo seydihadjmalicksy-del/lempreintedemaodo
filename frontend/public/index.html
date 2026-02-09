@@ -37,8 +37,31 @@
         
         <!-- Hide Emergent Badge -->
         <style>
-            #emergent-badge { display: none !important; }
+            #emergent-badge, 
+            a[href*="emergent.sh"],
+            [style*="position: fixed"][style*="bottom: 16px"][style*="right: 16px"] { 
+                display: none !important; 
+                visibility: hidden !important;
+                opacity: 0 !important;
+            }
         </style>
+        <script>
+            // Remove Emergent badge when DOM is ready
+            function removeEmergentBadge() {
+                var badge = document.getElementById('emergent-badge');
+                if (badge) badge.remove();
+                // Also remove by href
+                document.querySelectorAll('a[href*="emergent.sh"]').forEach(function(el) {
+                    if (el.textContent.includes('Made with') || el.textContent.includes('Emergent')) {
+                        el.remove();
+                    }
+                });
+            }
+            document.addEventListener('DOMContentLoaded', removeEmergentBadge);
+            // Also run after a delay in case it's injected later
+            setTimeout(removeEmergentBadge, 1000);
+            setTimeout(removeEmergentBadge, 3000);
+        </script>
         <!--
         manifest.json provides metadata used when your web app is installed on a
         user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
