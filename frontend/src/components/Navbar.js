@@ -1,35 +1,18 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Menu, X, ChevronDown, Search } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useLanguage();
-  const closeTimeoutRef = useRef(null);
 
   const isActive = (path) => location.pathname === path;
-
-  // Handle dropdown open with delay cancel
-  const handleDropdownEnter = (label) => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-    setOpenDropdown(label);
-  };
-
-  // Handle dropdown close with delay
-  const handleDropdownLeave = () => {
-    closeTimeoutRef.current = setTimeout(() => {
-      setOpenDropdown(null);
-    }, 300); // 300ms delay before closing
-  };
 
   const handleSearch = (e) => {
     e.preventDefault();
