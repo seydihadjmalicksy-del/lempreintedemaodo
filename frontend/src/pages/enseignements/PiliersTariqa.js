@@ -286,7 +286,7 @@ const PiliersTariqa = () => {
           </h2>
           
           <p className="text-xl text-white/90 leading-relaxed mb-8">
-            La Tariqa Tidiane incarne l'équilibre entre la Loi (Sharia) et la Vérité (Haqiqa), 
+            La Tijaniyya incarne l'équilibre entre la Loi (Sharia) et la Vérité (Haqiqa), 
             entre l'exigence spirituelle et la vie sociale, entre la science et l'amour divin. 
             C'est cette harmonie qui fait sa force et explique son expansion à travers le monde musulman.
           </p>
