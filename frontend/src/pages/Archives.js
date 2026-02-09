@@ -382,7 +382,7 @@ const Archives = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F9F7F2]" data-testid="archives-page">
+    <div className="min-h-screen bg-[#F9F7F2]" data-testid="archives-page" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Video Modal */}
       {selectedVideo && (
         <VideoPlayerModal 
@@ -396,10 +396,10 @@ const Archives = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-              Les Archives de la Khadra
+              {t.title}
             </h1>
             <p className="text-xl text-white/90 max-w-3xl mx-auto mb-4">
-              « Préserver le passé pour éclairer le futur »
+              {t.subtitle}
             </p>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-8"></div>
             
@@ -407,19 +407,19 @@ const Archives = () => {
             <div className="flex flex-wrap justify-center gap-8 mt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#D4AF37]">{manuscrits.length}</div>
-                <div className="text-sm text-white/70">Manuscrits</div>
+                <div className="text-sm text-white/70">{t.manuscrits}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#D4AF37]">{photos.length}</div>
-                <div className="text-sm text-white/70">Photos</div>
+                <div className="text-sm text-white/70">{t.photos}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#D4AF37]">{audioTracks.length}</div>
-                <div className="text-sm text-white/70">Audio</div>
+                <div className="text-sm text-white/70">{t.audio}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#D4AF37]">{videos.length}</div>
-                <div className="text-sm text-white/70">Vidéos</div>
+                <div className="text-sm text-white/70">{t.videos}</div>
               </div>
             </div>
           </div>
@@ -431,15 +431,12 @@ const Archives = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
-              Bienvenue dans le <strong className="text-[#004D33]">sanctuaire documentaire</strong> de L'empreinte de Maodo. 
-              Cette rubrique est la <strong className="text-[#004D33]">mémoire vive</strong> d'une épopée spirituelle 
-              qui a façonné l'Islam en Afrique de l'Ouest.
+              {t.intro1} {t.intro2}
             </p>
             
             <div className="bg-[#E8F5E9] border-l-4 border-[#D4AF37] p-6 rounded-lg my-8">
               <p className="text-base text-[#004D33] italic mb-0">
-                <strong>Note aux chercheurs et disciples :</strong> Ces archives proviennent de sources authentifiées : 
-                BnF, Archive.org, UCAD, Scribd, et bibliothèques soufies. Parcourez-les avec le respect (Adab) dû à l'héritage de nos prédécesseurs.
+                {t.note}
               </p>
             </div>
           </div>
