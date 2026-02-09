@@ -159,8 +159,9 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 | **Auth Admin** | ✅ 100% | Login/Logout/Protection routes |
 | **PWA** | ✅ 100% | Service Worker, Manifest, Notifications |
 | **CRUD CMS** | ✅ 100% | Édition/Suppression citations et événements |
-| **Content CMS** | ✅ 100% | Gestion contenu des pages (9 sections, 3 pages) |
-| **Dynamic Pages** | ✅ 100% | Maodo, Gamou, École, **Khalifes** affichent contenu MongoDB |
+| **Content CMS** | ✅ 100% | Gestion contenu des pages (26 sections, 6 pages) |
+| **Dynamic Pages** | ✅ 100% | Maodo, Gamou, École, Khalifes, Origines, Géographie, Ziarra affichent contenu MongoDB |
+| **Pages CMS** | ✅ 100% | **NOUVEAU** Système CMS complet pour créer/modifier/supprimer pages et sections |
 | **Enriched Content** | ✅ 100% | **NOUVEAU** - 16 sections (timeline, contributions, oeuvres, program, cycles) |
 
 ## 📅 Historique des mises à jour
