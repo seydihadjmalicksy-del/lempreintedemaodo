@@ -1,11 +1,37 @@
-import { useState } from "react";
-import { Users, ChevronDown, ChevronRight, Star, Crown, Heart } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Users, ChevronDown, ChevronRight, Star, Crown, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 const ArbreGenealogique = () => {
   const [expandedNodes, setExpandedNodes] = useState(['maodo']);
+  const [familyTree, setFamilyTree] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { t, language } = useLanguage();
+
+  // Fetch family tree from API
+  useEffect(() => {
+    const fetchFamilyTree = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`${API_URL}/api/family-tree/tree`);
+        if (response.ok) {
+          const data = await response.json();
+          if (data && !data.error) {
+            setFamilyTree(data);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching family tree:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchFamilyTree();
+  }, []);
 
   const toggleNode = (nodeId) => {
     setExpandedNodes(prev => 
@@ -15,137 +41,9 @@ const ArbreGenealogique = () => {
     );
   };
 
-  // Données de l'arbre généalogique
-  const familyTree = {
-    id: 'maodo',
-    nom: "El Hadji Malick Sy",
-    surnom: "Maodo",
-    dates: "1855 - 1922",
-    titre: {
-      fr: "Fondateur de la Zawiya de Tivaouane",
-      en: "Founder of the Zawiya of Tivaouane",
-      ar: "مؤسس زاوية تيفاوان",
-      wo: "Tëkkikat Zawiya Tiwaawaan"
-    },
-    image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
-    epouses: [
-      { nom: "Sokhna Rokhaya Ndiaye", enfants: ["babacar"] },
-      { nom: "Sokhna Safiétou Niang", enfants: ["habib"] }
-    ],
-    enfants: [
-      {
-        id: 'babacar',
-        nom: "Serigne Babacar Sy",
-        dates: "1885 - 1957",
-        titre: {
-          fr: "Second fils de Maodo - Premier Khalife (1922-1957)",
-          en: "Second son of Maodo - First Khalife (1922-1957)",
-          ar: "الابن الثاني لمودو - الخليفة الأول (1922-1957)",
-          wo: "Ñaareelu doom Maodo - Njëkk Xaliifa (1922-1957)"
-        },
-        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg",
-        enfants: [
-          {
-            id: 'djamil',
-            nom: "Serigne Moustapha Sy Djamil",
-            dates: "1916 - 1993",
-            titre: { fr: "Borom Fass", en: "Borom Fass", ar: "بوروم فاس", wo: "Borom Fass" },
-            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/p7vxoses_FB_IMG_1770340283848.jpg",
-            enfants: []
-          },
-          {
-            id: 'mansour_daradji',
-            nom: "Serigne Mansour Sy",
-            surnom: "Borom Daradji",
-            dates: "1925 - 2012",
-            titre: { fr: "Khalife (1997-2012)", en: "Khalife (1997-2012)", ar: "الخليفة (1997-2012)", wo: "Xaliifa (1997-2012)" },
-            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg",
-            enfants: []
-          },
-          {
-            id: 'maktoum',
-            nom: "Serigne Cheikh Ahmed Tidiane Sy",
-            surnom: "Al Maktoum",
-            dates: "1925 - 2017",
-            titre: { fr: "Fondateur Moustarchidine", en: "Founder Moustarchidine", ar: "مؤسس مسترشدين", wo: "Tëkkikat Moustarchidine" },
-            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/jtrbkp29_IMG-20260206-WA0053.jpg",
-            enfants: [
-              {
-                id: 'moustapha_maktoum',
-                nom: "Serigne Moustapha Sy",
-                dates: "1956 -",
-                titre: { fr: "Guide Moustarchidine Wal Moustarchidati", en: "Guide Moustarchidine Wal Moustarchidati", ar: "مرشد مسترشدين ومسترشدات", wo: "Guide Moustarchidine Wal Moustarchidati" },
-                image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
-                enfants: []
-              }
-            ]
-          },
-          {
-            id: 'alamine',
-            nom: "Serigne Abdoul Aziz Sy",
-            surnom: "Al Amine",
-            dates: "1928 - 2017",
-            titre: { fr: "Khalife (2012-2017)", en: "Khalife (2012-2017)", ar: "الخليفة (2012-2017)", wo: "Xaliifa (2012-2017)" },
-            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/dwimysfs_FB_IMG_1770340522540.jpg",
-            enfants: []
-          }
-        ]
-      },
-      {
-        id: 'mansour_balkhawmi',
-        nom: "Serigne Mansour Sy",
-        surnom: "Balkhawmi",
-        dates: "1900 - 1957",
-        titre: {
-          fr: "Le Savant (Khalife quelques mois en 1957)",
-          en: "The Scholar (Khalife for a few months in 1957)",
-          ar: "العالم (خليفة لبضعة أشهر في 1957)",
-          wo: "Borom xam-xam (Xaliifa ay weer ci 1957)"
-        },
-        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
-        enfants: [
-          {
-            id: 'babacar_mansour',
-            nom: "Serigne Babacar Sy Mansour",
-            dates: "1932 -",
-            titre: {
-              fr: "Khalife Actuel (depuis 2017)",
-              en: "Current Khalife (since 2017)",
-              ar: "الخليفة الحالي (منذ 2017)",
-              wo: "Xaliifa tey (dale 2017)"
-            },
-            image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
-            current: true,
-            enfants: []
-          }
-        ]
-      },
-      {
-        id: 'dabakh',
-        nom: "Serigne Abdoul Aziz Sy",
-        surnom: "Dabakh",
-        dates: "1904 - 1997",
-        titre: { fr: "Khalife (1957-1997)", en: "Khalife (1957-1997)", ar: "الخليفة (1957-1997)", wo: "Xaliifa (1957-1997)" },
-        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg",
-        enfants: []
-      },
-      {
-        id: 'habib',
-        nom: "Serigne Mouhammadoul Habib Sy",
-        dates: "1906 - 1992",
-        titre: {
-          fr: "Fils cadet de Maodo",
-          en: "Youngest son of Maodo",
-          ar: "الابن الأصغر لمودو",
-          wo: "Doom bu ndaw Maodo"
-        },
-        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/zk7vtiqg_FB_IMG_1770340169935.jpg",
-        enfants: []
-      }
-    ]
-  };
-
   const renderFamilyMember = (member, level = 0) => {
+    if (!member) return null;
+    
     const hasChildren = member.enfants && member.enfants.length > 0;
     const isExpanded = expandedNodes.includes(member.id);
     const isRoot = level === 0;
@@ -162,8 +60,9 @@ const ArbreGenealogique = () => {
                 : 'bg-white hover:bg-[#E8F5E9] shadow-md'
           }`}
           onClick={() => hasChildren && toggleNode(member.id)}
+          data-testid={`family-member-${member.id}`}
         >
-          {/* Ligne de connexion */}
+          {/* Connection line */}
           {level > 0 && (
             <div className="absolute -left-4 top-1/2 w-4 h-0.5 bg-[#D4AF37]"></div>
           )}
@@ -182,7 +81,7 @@ const ArbreGenealogique = () => {
             )}
           </div>
 
-          {/* Infos */}
+          {/* Info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
               <h3 className={`font-bold truncate ${isRoot ? 'text-white' : 'text-[#004D33]'}`}>
@@ -202,7 +101,7 @@ const ArbreGenealogique = () => {
             </p>
           </div>
 
-          {/* Indicateur d'expansion */}
+          {/* Expand indicator */}
           {hasChildren && (
             <div className={`flex-shrink-0 ${isRoot ? 'text-[#D4AF37]' : 'text-[#004D33]'}`}>
               {isExpanded ? (
@@ -214,7 +113,7 @@ const ArbreGenealogique = () => {
           )}
         </div>
 
-        {/* Enfants */}
+        {/* Children */}
         {hasChildren && isExpanded && (
           <div className="relative ml-8 mt-2 pl-4 border-l-2 border-[#D4AF37]/30">
             {member.enfants.map((child) => renderFamilyMember(child, level + 1))}
@@ -223,6 +122,17 @@ const ArbreGenealogique = () => {
       </div>
     );
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#F9F7F2] flex items-center justify-center" data-testid="arbre-loading">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 text-[#004D33] animate-spin mx-auto mb-4" />
+          <p className="text-[#4A4A4A]">{t('loading') || 'Chargement...'}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#F9F7F2]" data-testid="arbre-page">
@@ -255,10 +165,16 @@ const ArbreGenealogique = () => {
         </div>
       </section>
 
-      {/* Arbre */}
+      {/* Family Tree */}
       <section className="py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {renderFamilyMember(familyTree)}
+          {familyTree ? (
+            renderFamilyMember(familyTree)
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-[#888]">{t('noData') || 'Aucune donnée disponible'}</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -284,7 +200,7 @@ const ArbreGenealogique = () => {
         </div>
       </section>
 
-      {/* Légende */}
+      {/* Legend */}
       <section className="py-8 bg-[#F9F7F2]">
         <div className="max-w-4xl mx-auto px-4">
           <h3 className="text-center font-bold text-[#004D33] mb-4">{t('legend')}</h3>
@@ -298,8 +214,8 @@ const ArbreGenealogique = () => {
               <span className="text-sm text-[#4A4A4A]">{t('currentKhalife')}</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-white border border-gray-300 rounded"></div>
-              <span className="text-sm text-[#4A4A4A]">{t('descendants')}</span>
+              <div className="w-4 h-4 bg-white border-2 border-gray-200 rounded"></div>
+              <span className="text-sm text-[#4A4A4A]">{t('familyMembers')}</span>
             </div>
           </div>
         </div>
