@@ -210,7 +210,7 @@ const PiliersTariqa = () => {
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
             <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
-              Au-delà des pratiques rituelles, la Tariqa Tidiane impose un code de conduite (Adab) 
+              Au-delà des pratiques rituelles, la Tijaniyya impose un code de conduite (Adab) 
               qui façonne la personnalité du disciple.
             </p>
           </div>
@@ -244,7 +244,7 @@ const PiliersTariqa = () => {
             <div className="space-y-6 text-lg text-[#4A4A4A] leading-relaxed">
               <p>
                 Contrairement à d'autres voies soufies qui exigent des pratiques ascétiques rigoureuses, 
-                la Tariqa Tidiane se distingue par sa <strong className="text-[#004D33]">simplicité</strong> 
+                la Tijaniyya se distingue par sa <strong className="text-[#004D33]">simplicité</strong> 
                 et son <strong className="text-[#004D33]">accessibilité</strong>.
               </p>
 
