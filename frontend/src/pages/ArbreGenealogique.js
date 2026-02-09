@@ -70,31 +70,7 @@ const ArbreGenealogique = () => {
                 enfants: []
               }
             ]
-          }
-        ]
-      },
-      {
-        id: 'mansour_balkhawmi',
-        nom: "Serigne Mansour Sy",
-        surnom: "Balkhawmi",
-        dates: "1900 - 1957",
-        titre: {
-          fr: "Le Savant (Khalife quelques mois en 1957)",
-          en: "The Scholar (Khalife for a few months in 1957)",
-          ar: "العالم (خليفة لبضعة أشهر في 1957)",
-          wo: "Borom xam-xam (Xaliifa ay weer ci 1957)"
-        },
-        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
-        enfants: []
-      },
-      {
-        id: 'dabakh',
-        nom: "Serigne Abdoul Aziz Sy",
-        surnom: "Dabakh",
-        dates: "1904 - 1997",
-        titre: { fr: "Khalife (1957-1997)", en: "Khalife (1957-1997)", ar: "الخليفة (1957-1997)", wo: "Xaliifa (1957-1997)" },
-        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg",
-        enfants: [
+          },
           {
             id: 'mansour_daradji',
             nom: "Serigne Mansour Sy",
@@ -129,6 +105,29 @@ const ArbreGenealogique = () => {
             enfants: []
           }
         ]
+      },
+      {
+        id: 'mansour_balkhawmi',
+        nom: "Serigne Mansour Sy",
+        surnom: "Balkhawmi",
+        dates: "1900 - 1957",
+        titre: {
+          fr: "Le Savant (Khalife quelques mois en 1957)",
+          en: "The Scholar (Khalife for a few months in 1957)",
+          ar: "العالم (خليفة لبضعة أشهر في 1957)",
+          wo: "Borom xam-xam (Xaliifa ay weer ci 1957)"
+        },
+        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
+        enfants: []
+      },
+      {
+        id: 'dabakh',
+        nom: "Serigne Abdoul Aziz Sy",
+        surnom: "Dabakh",
+        dates: "1904 - 1997",
+        titre: { fr: "Khalife (1957-1997)", en: "Khalife (1957-1997)", ar: "الخليفة (1957-1997)", wo: "Xaliifa (1957-1997)" },
+        image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg",
+        enfants: []
       },
       {
         id: 'habib',
