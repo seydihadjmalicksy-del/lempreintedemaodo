@@ -21,7 +21,7 @@ const SearchResults = () => {
   const pagesContent = [
     {
       id: "histoire-origines",
-      title: "Les Origines de la Tariqa Tidiane",
+      title: "Les Origines de la Tijaniyya",
       path: "/histoire/origines",
       category: "Histoire",
       description: "De Cheikh Ahmed Tijani à Tivaouane. L'histoire d'une voie soufie qui a traversé les siècles.",
@@ -152,7 +152,7 @@ const SearchResults = () => {
             Rechercher dans le site
           </h1>
           <p className="text-lg text-[#4A4A4A]">
-            Utilisez la barre de recherche ci-dessus pour trouver des informations sur la Tariqa Tidiane, 
+            Utilisez la barre de recherche ci-dessus pour trouver des informations sur L'empreinte de Maodo, 
             l'histoire de Tivaouane, les enseignements et plus encore.
           </p>
         </div>
