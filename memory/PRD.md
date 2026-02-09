@@ -121,9 +121,17 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 
 ## 📝 Backlog
 
-### P1 - Prochaines étapes prioritaires
+### P0 - Complétées récemment
+- [x] ~~**Système CMS de Pages** dans l'Admin Panel~~ ✅ Complété (Février 2026)
+  - Onglet "Pages" avec vue en grille des 6 pages
+  - Création de nouvelles pages dynamiques
+  - Ajout/modification/suppression de sections
+  - Support multilingue (FR, EN, AR, WO) avec RTL arabe
 - [x] ~~**Migrer page Khalifes** vers MongoDB~~ ✅ Complété (Février 2026)
 - [x] ~~**Migrer les autres pages** : Ziarra, Origines, GeographieSacree vers MongoDB~~ ✅ Complété (Février 2026)
+
+### P1 - Prochaines étapes prioritaires
+- [ ] **Transformation PWA améliorée** : Améliorer l'expérience mobile avec mode hors-ligne complet
 
 ### P2 - Améliorations
 - [ ] Simplifier `LanguageContext.js` (supprimer le contenu migré vers MongoDB)
