@@ -38,10 +38,10 @@ const ArbreGenealogique = () => {
         nom: "Serigne Babacar Sy",
         dates: "1885 - 1957",
         titre: {
-          fr: "Premier Khalife (1922-1957)",
-          en: "First Khalife (1922-1957)",
-          ar: "الخليفة الأول (1922-1957)",
-          wo: "Njëkk Xaliifa (1922-1957)"
+          fr: "Second fils de Maodo - Premier Khalife (1922-1957)",
+          en: "Second son of Maodo - First Khalife (1922-1957)",
+          ar: "الابن الثاني لمودو - الخليفة الأول (1922-1957)",
+          wo: "Ñaareelu doom Maodo - Njëkk Xaliifa (1922-1957)"
         },
         image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg",
         enfants: [
