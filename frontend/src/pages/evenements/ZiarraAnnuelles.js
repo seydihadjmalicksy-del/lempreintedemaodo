@@ -7,12 +7,12 @@ const iconMap = { Calendar, Users, Heart };
 
 const ZiarraAnnuelles = () => {
   const { t, language } = useLanguage();
-  const { content, loading, error, getSection } = usePageContent("ziarra");
+  const { content, loading, error } = usePageContent("ziarra", language);
 
   // Parse ziarras data
   const ziarras = (() => {
     try {
-      const data = getSection("ziarras");
+      const data = content?.ziarras?.text;
       return data ? JSON.parse(data) : [];
     } catch { return []; }
   })();
@@ -20,7 +20,7 @@ const ZiarraAnnuelles = () => {
   // Parse pilgrim guide data
   const conseilsPelerins = (() => {
     try {
-      const data = getSection("pilgrim_guide");
+      const data = content?.pilgrim_guide?.text;
       return data ? JSON.parse(data) : [];
     } catch { return []; }
   })();
