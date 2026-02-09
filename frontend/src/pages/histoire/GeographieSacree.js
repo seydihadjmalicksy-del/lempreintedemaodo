@@ -7,12 +7,12 @@ const iconMap = { MapPin, Home, Church, Heart };
 
 const GeographieSacree = () => {
   const { t, language } = useLanguage();
-  const { content, loading, error, getSection } = usePageContent("geographie");
+  const { content, loading, error } = usePageContent("geographie", language);
 
   // Parse lieux data
   const lieux = (() => {
     try {
-      const data = getSection("lieux");
+      const data = content?.lieux?.text;
       return data ? JSON.parse(data) : [];
     } catch { return []; }
   })();
@@ -20,13 +20,13 @@ const GeographieSacree = () => {
   // Parse organisation data
   const organisation = (() => {
     try {
-      const data = getSection("organisation");
+      const data = content?.organisation?.text;
       return data ? JSON.parse(data) : [];
     } catch { return []; }
   })();
 
-  const introduction = getSection("introduction") || "";
-  const demographics = getSection("demographics") || "";
+  const introduction = content?.introduction?.text || "";
+  const demographics = content?.demographics?.text || "";
 
   if (loading) {
     return (
