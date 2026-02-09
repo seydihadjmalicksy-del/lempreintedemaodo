@@ -157,7 +157,7 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 | Support Multilingue | ✅ 100% | FR, EN, AR, WO avec RTL + détection auto |
 | Newsletter | ✅ 100% | Backend + Frontend fonctionnels |
 | Contact | ✅ 100% | Backend + Frontend fonctionnels |
-| Pages traduites | ✅ 95% | Principales pages traduites |
+| Pages traduites | ✅ 100% | Toutes les pages traduites (FR, EN, AR, WO) |
 | Contenu dynamique | ✅ 70% | Citations, événements, recherche depuis MongoDB |
 | Galerie photos | ✅ 100% | Avec filtres et lightbox |
 | CMS Admin | ✅ 100% | Gestion complète CRUD (lecture, ajout, édition, suppression) |
