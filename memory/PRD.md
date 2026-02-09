@@ -11,7 +11,7 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 - **Backend**: FastAPI (Python) + MongoDB (via Motor async driver)
 - **Base de données**: MongoDB
 - **Authentification**: JWT avec sessions stockées en MongoDB
-- **URL Preview**: https://tariqa-hub.preview.emergentagent.com
+- **URL Preview**: https://tidiane-portal.preview.emergentagent.com
 
 ## ✅ Fonctionnalités Implémentées
 
