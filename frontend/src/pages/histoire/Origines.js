@@ -81,7 +81,7 @@ const Origines = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-[#004D33] mb-6">
-              {t('originesGenesisTitle') || 'La Genèse de la Tariqa Tidiane'}
+              {t('originesGenesisTitle') || 'La Genèse de la Tijaniyya'}
             </h2>
             
             <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
@@ -192,7 +192,7 @@ const Origines = () => {
                 
                 <div className="space-y-6 text-lg text-[#4A4A4A] leading-relaxed">
                   <p>
-                    {t('arrivalIntro') || "La Tariqa Tidiane arrive en Afrique de l'Ouest au début du 19e siècle par plusieurs voies :"}
+                    {t('arrivalIntro') || "La Tijaniyya arrive en Afrique de l'Ouest au début du 19e siècle par plusieurs voies :"}
                   </p>
 
                   <ul className="space-y-4 ml-6">
@@ -220,7 +220,7 @@ const Origines = () => {
           </h2>
           
           <p className="text-xl text-white/90 leading-relaxed mb-8">
-            {t('universalHeritageDesc') || "Aujourd'hui, la Tariqa Tidiane compte des millions de disciples à travers le monde, du Maroc au Nigeria, de la Mauritanie au Soudan. Tivaouane demeure l'un de ses centres spirituels les plus rayonnants, perpétuant l'enseignement authentique de Cheikh Ahmed Tijani à travers la lignée de Maodo."}
+            {t('universalHeritageDesc') || "Aujourd'hui, la Tijaniyya compte des millions de disciples à travers le monde, du Maroc au Nigeria, de la Mauritanie au Soudan. Tivaouane demeure l'un de ses centres spirituels les plus rayonnants, perpétuant l'enseignement authentique de Cheikh Ahmed Tijani à travers la lignée de Maodo."}
           </p>
 
           <div className="mt-12">
