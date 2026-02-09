@@ -123,133 +123,89 @@ const Archives = () => {
     { id: "videos", label: t.videos, icon: Play }
   ];
 
-  // Manuscrits numérisés avec liens réels
-  const manuscrits = [
-    {
-      id: 1,
-      title: "Khilassou Dhahab - Chapitres Essentiels",
-      description: "Biographie poétique du Prophète (PSL) composée par El Hadji Malick Sy, récitée lors des Gamou. Texte arabe avec traduction française.",
-      date: "XIXe siècle",
-      langue: "Arabe + Français",
-      lien: "https://fr.scribd.com/document/669838264/khilass-zahab",
-      type: "PDF Scribd"
-    },
-    {
-      id: 2,
-      title: "Khilassou Zahab - Chapitre 1",
-      description: "Premier chapitre louant Dieu, la création et l'âme du Prophète comme miroir de toute existence.",
-      date: "XIXe siècle",
-      langue: "Arabe",
-      lien: "https://www.scribd.com/document/832319484/khilassou-Zahab-Chapitre-1",
-      type: "PDF Scribd"
-    },
-    {
-      id: 3,
-      title: "Khilassou Zahab - Chapitre 3",
-      description: "Sections sur les événements mecquois, prières et lignées ancestrales incluant Kinana, Khuzayma et Mudar.",
-      date: "XIXe siècle",
-      langue: "Arabe",
-      lien: "https://www.scribd.com/document/740233380/khilass-zahab-Chap-3",
-      type: "PDF Scribd"
-    },
-    {
-      id: 4,
-      title: "Tayssir (Wassilatoul Mouna) - Complet",
-      description: "Ouvrage majeur d'El Hadji Malick Sy sur la voie spirituelle soufie. Transcription complète et traduction.",
-      date: "Début XXe siècle",
-      langue: "Arabe + Français",
-      lien: "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf",
-      type: "PDF Direct"
-    },
-    {
-      id: 5,
-      title: "Tayssir - Version Scribd",
-      description: "Version alternative numérisée du Tayssir disponible sur Scribd.",
-      date: "Début XXe siècle",
-      langue: "Arabe",
-      lien: "https://fr.scribd.com/document/481857110/Tayssir-El-Hadj-Malick-Sy-pdf",
-      type: "PDF Scribd"
-    },
-    {
-      id: 6,
-      title: "Fâkihatou Toullâb (فاكهة الطلاب)",
-      description: "Le Fruit des Étudiants - Texte sur les principes généraux de la Tijaniyya et la discipline spirituelle des disciples.",
-      date: "Début XXe siècle",
-      langue: "Arabe",
-      lien: "https://archive.org/details/20240423_20240423_0141",
-      type: "Archive.org Audio"
-    },
-    {
-      id: 7,
-      title: "Ifhâm al-Munkir - Thèse Rawane Mbaye",
-      description: "Thèse universitaire du Pr. Rawane Mbaye sur l'œuvre apologétique d'El Hadji Malick Sy.",
-      date: "XXe siècle",
-      langue: "Arabe + Français",
-      lien: "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye",
-      type: "PDF Scribd"
-    },
-    {
-      id: 8,
-      title: "Le Nouveau Dîwân - 7 Tomes",
-      description: "Présentation et inventaire du nouveau Dîwân d'El Hadji Malick Sy, père fondateur de la Zawiya Tidiane de Tivaouane.",
-      date: "2020",
-      langue: "Français",
-      lien: "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html",
-      type: "Livre"
-    }
-  ];
+  // Manuscrits numérisés avec traductions
+  const manuscritsData = {
+    fr: [
+      { id: 1, title: "Khilassou Dhahab - Chapitres Essentiels", description: "Biographie poétique du Prophète (PSL) composée par El Hadji Malick Sy, récitée lors des Gamou. Texte arabe avec traduction française.", date: "XIXe siècle", langue: "Arabe + Français", lien: "https://fr.scribd.com/document/669838264/khilass-zahab", type: "PDF Scribd" },
+      { id: 2, title: "Khilassou Zahab - Chapitre 1", description: "Premier chapitre louant Dieu, la création et l'âme du Prophète comme miroir de toute existence.", date: "XIXe siècle", langue: "Arabe", lien: "https://www.scribd.com/document/832319484/khilassou-Zahab-Chapitre-1", type: "PDF Scribd" },
+      { id: 3, title: "Khilassou Zahab - Chapitre 3", description: "Sections sur les événements mecquois, prières et lignées ancestrales incluant Kinana, Khuzayma et Mudar.", date: "XIXe siècle", langue: "Arabe", lien: "https://www.scribd.com/document/740233380/khilass-zahab-Chap-3", type: "PDF Scribd" },
+      { id: 4, title: "Tayssir (Wassilatoul Mouna) - Complet", description: "Ouvrage majeur d'El Hadji Malick Sy sur la voie spirituelle soufie. Transcription complète et traduction.", date: "Début XXe siècle", langue: "Arabe + Français", lien: "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf", type: "PDF Direct" },
+      { id: 5, title: "Tayssir - Version Scribd", description: "Version alternative numérisée du Tayssir disponible sur Scribd.", date: "Début XXe siècle", langue: "Arabe", lien: "https://fr.scribd.com/document/481857110/Tayssir-El-Hadj-Malick-Sy-pdf", type: "PDF Scribd" },
+      { id: 6, title: "Fâkihatou Toullâb (فاكهة الطلاب)", description: "Le Fruit des Étudiants - Texte sur les principes généraux de la Tijaniyya et la discipline spirituelle des disciples.", date: "Début XXe siècle", langue: "Arabe", lien: "https://archive.org/details/20240423_20240423_0141", type: "Archive.org Audio" },
+      { id: 7, title: "Ifhâm al-Munkir - Thèse Rawane Mbaye", description: "Thèse universitaire du Pr. Rawane Mbaye sur l'œuvre apologétique d'El Hadji Malick Sy.", date: "XXe siècle", langue: "Arabe + Français", lien: "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye", type: "PDF Scribd" },
+      { id: 8, title: "Le Nouveau Dîwân - 7 Tomes", description: "Présentation et inventaire du nouveau Dîwân d'El Hadji Malick Sy, père fondateur de la Zawiya Tidiane de Tivaouane.", date: "2020", langue: "Français", lien: "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html", type: "Livre" }
+    ],
+    en: [
+      { id: 1, title: "Khilassou Dhahab - Essential Chapters", description: "Poetic biography of the Prophet (PBUH) composed by El Hadji Malick Sy, recited during Gamou celebrations. Arabic text with French translation.", date: "19th century", langue: "Arabic + French", lien: "https://fr.scribd.com/document/669838264/khilass-zahab", type: "PDF Scribd" },
+      { id: 2, title: "Khilassou Zahab - Chapter 1", description: "First chapter praising God, creation and the Prophet's soul as mirror of all existence.", date: "19th century", langue: "Arabic", lien: "https://www.scribd.com/document/832319484/khilassou-Zahab-Chapitre-1", type: "PDF Scribd" },
+      { id: 3, title: "Khilassou Zahab - Chapter 3", description: "Sections on Meccan events, prayers and ancestral lineages including Kinana, Khuzayma and Mudar.", date: "19th century", langue: "Arabic", lien: "https://www.scribd.com/document/740233380/khilass-zahab-Chap-3", type: "PDF Scribd" },
+      { id: 4, title: "Tayssir (Wassilatoul Mouna) - Complete", description: "Major work by El Hadji Malick Sy on the Sufi spiritual path. Complete transcription and translation.", date: "Early 20th century", langue: "Arabic + French", lien: "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf", type: "PDF Direct" },
+      { id: 5, title: "Tayssir - Scribd Version", description: "Alternative digitized version of Tayssir available on Scribd.", date: "Early 20th century", langue: "Arabic", lien: "https://fr.scribd.com/document/481857110/Tayssir-El-Hadj-Malick-Sy-pdf", type: "PDF Scribd" },
+      { id: 6, title: "Fâkihatou Toullâb (فاكهة الطلاب)", description: "The Fruit of Students - Text on general principles of Tijaniyya and spiritual discipline of disciples.", date: "Early 20th century", langue: "Arabic", lien: "https://archive.org/details/20240423_20240423_0141", type: "Archive.org Audio" },
+      { id: 7, title: "Ifhâm al-Munkir - Rawane Mbaye Thesis", description: "University thesis by Pr. Rawane Mbaye on the apologetic work of El Hadji Malick Sy.", date: "20th century", langue: "Arabic + French", lien: "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye", type: "PDF Scribd" },
+      { id: 8, title: "The New Dîwân - 7 Volumes", description: "Presentation and inventory of the new Dîwân of El Hadji Malick Sy, founding father of the Tidiane Zawiya of Tivaouane.", date: "2020", langue: "French", lien: "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html", type: "Book" }
+    ],
+    ar: [
+      { id: 1, title: "خلاص الذهب - الفصول الأساسية", description: "سيرة شعرية للنبي (ص) ألفها الحاج مالك سي، تُتلى في احتفالات المولد. نص عربي مع ترجمة فرنسية.", date: "القرن 19", langue: "عربي + فرنسي", lien: "https://fr.scribd.com/document/669838264/khilass-zahab", type: "PDF Scribd" },
+      { id: 2, title: "خلاص الذهب - الفصل الأول", description: "الفصل الأول في حمد الله والخلق وروح النبي كمرآة لكل الوجود.", date: "القرن 19", langue: "عربي", lien: "https://www.scribd.com/document/832319484/khilassou-Zahab-Chapitre-1", type: "PDF Scribd" },
+      { id: 3, title: "خلاص الذهب - الفصل الثالث", description: "أقسام عن أحداث مكة والصلوات والأنساب بما في ذلك كنانة وخزيمة ومضر.", date: "القرن 19", langue: "عربي", lien: "https://www.scribd.com/document/740233380/khilass-zahab-Chap-3", type: "PDF Scribd" },
+      { id: 4, title: "التيسير (وسيلة المنى) - كامل", description: "عمل رئيسي للحاج مالك سي عن الطريق الروحي الصوفي. نسخ وترجمة كاملة.", date: "أوائل القرن 20", langue: "عربي + فرنسي", lien: "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf", type: "PDF مباشر" },
+      { id: 5, title: "التيسير - نسخة Scribd", description: "نسخة رقمية بديلة من التيسير متوفرة على Scribd.", date: "أوائل القرن 20", langue: "عربي", lien: "https://fr.scribd.com/document/481857110/Tayssir-El-Hadj-Malick-Sy-pdf", type: "PDF Scribd" },
+      { id: 6, title: "فاكهة الطلاب", description: "ثمرة الطلاب - نص عن المبادئ العامة للتجانية والانضباط الروحي للمريدين.", date: "أوائل القرن 20", langue: "عربي", lien: "https://archive.org/details/20240423_20240423_0141", type: "Archive.org صوتي" },
+      { id: 7, title: "إفحام المنكر - أطروحة روان مباي", description: "أطروحة جامعية للبروفيسور روان مباي عن العمل الدفاعي للحاج مالك سي.", date: "القرن 20", langue: "عربي + فرنسي", lien: "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye", type: "PDF Scribd" },
+      { id: 8, title: "الديوان الجديد - 7 مجلدات", description: "عرض وجرد الديوان الجديد للحاج مالك سي، الأب المؤسس للزاوية التجانية في تيفاوان.", date: "2020", langue: "فرنسي", lien: "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html", type: "كتاب" }
+    ],
+    wo: [
+      { id: 1, title: "Khilassou Dhahab - Chapitre yu gën mag", description: "Taariix woy bu Yonent bi (YWS) bu El Hadji Maalik Si bind, di ko jàng ci Gamou yi. Téere arab ak tekki français.", date: "At 19ème", langue: "Arab + Français", lien: "https://fr.scribd.com/document/669838264/khilass-zahab", type: "PDF Scribd" },
+      { id: 2, title: "Khilassou Zahab - Chapitre 1", description: "Njëkk chapitre ci sant Yàlla, création ak ruu Yonent bi ci miroir bu àdduna bi yépp.", date: "At 19ème", langue: "Arab", lien: "https://www.scribd.com/document/832319484/khilassou-Zahab-Chapitre-1", type: "PDF Scribd" },
+      { id: 3, title: "Khilassou Zahab - Chapitre 3", description: "Xétu ci mbir Makka yi, julli yi ak njàmbaar yi di Kinana, Khuzayma ak Mudar.", date: "At 19ème", langue: "Arab", lien: "https://www.scribd.com/document/740233380/khilass-zahab-Chap-3", type: "PDF Scribd" },
+      { id: 4, title: "Tayssir (Wassilatoul Mouna) - Bu mat", description: "Téere bu mag bu El Hadji Maalik Si ci yoon bu sell soufi. Tekki bu mat.", date: "Njëkk at 20ème", langue: "Arab + Français", lien: "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf", type: "PDF Direct" },
+      { id: 5, title: "Tayssir - Version Scribd", description: "Version numérique bu yeneen bu Tayssir ci Scribd.", date: "Njëkk at 20ème", langue: "Arab", lien: "https://fr.scribd.com/document/481857110/Tayssir-El-Hadj-Malick-Sy-pdf", type: "PDF Scribd" },
+      { id: 6, title: "Fâkihatou Toullâb (فاكهة الطلاب)", description: "Màggal Taalibe yi - Téere ci principe Tijaniyya ak dicipline bu sell taalibe yi.", date: "Njëkk at 20ème", langue: "Arab", lien: "https://archive.org/details/20240423_20240423_0141", type: "Archive.org Audio" },
+      { id: 7, title: "Ifhâm al-Munkir - Thèse Rawane Mbaye", description: "Thèse université bu Pr. Rawane Mbaye ci liggéey bu El Hadji Maalik Si.", date: "At 20ème", langue: "Arab + Français", lien: "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye", type: "PDF Scribd" },
+      { id: 8, title: "Dîwân bu Bees bi - 7 Tomes", description: "Présentation ak inventaire Dîwân bu bees bu El Hadji Maalik Si, baay tëkkikat Zawiya Tijaan Tiwaawaan.", date: "2020", langue: "Français", lien: "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html", type: "Téere" }
+    ]
+  };
+  
+  const manuscrits = manuscritsData[language] || manuscritsData.fr;
 
-  // Photos historiques des Khalifes et de Tivaouane
-  const photos = [
-    {
-      id: 1,
-      title: "El Hadji Malick Sy - Portrait officiel",
-      description: "Portrait historique de Seydi El Hadji Malick Sy (1855-1922), fondateur de la Zawiya de Tivaouane.",
-      date: "Début XXe siècle",
-      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
-      source: "Archives familiales"
-    },
-    {
-      id: 2,
-      title: "El Hadji Malick Sy avec chapelet",
-      description: "Photo historique montrant El Hadji Malick Sy tenant son chapelet.",
-      date: "Début XXe siècle",
-      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg",
-      source: "Archives familiales"
-    },
-    {
-      id: 3,
-      title: "Maodo et ses disciples",
-      description: "El Hadji Malick Sy accompagné de ses disciples à Tivaouane.",
-      date: "Début XXe siècle",
-      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg",
-      source: "Archives Zawiya"
-    },
-    {
-      id: 4,
-      title: "Portrait sépia de Maodo",
-      description: "Portrait en sépia d'El Hadji Malick Sy.",
-      date: "Début XXe siècle",
-      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg",
-      source: "Archives historiques"
-    },
-    {
-      id: 5,
-      title: "La Grande Mosquée de Tivaouane",
-      description: "Vue de la Grande Mosquée de Tivaouane, site classé monument historique depuis 1902.",
-      date: "XXe siècle",
-      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
-      source: "Archives Zawiya"
-    },
-    {
-      id: 6,
-      title: "Serigne Babacar Sy (1er Khalife)",
-      description: "Serigne Khalifa Ababacar Sy (1885-1957), premier successeur de Maodo, fondateur des dahiras et initiateur de la ziarra générale en 1930.",
-      date: "1922-1957",
-      image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg",
-      source: "Archives Khalifat"
-    }
-  ];
+  // Photos historiques avec traductions
+  const photosData = {
+    fr: [
+      { id: 1, title: "El Hadji Malick Sy - Portrait officiel", description: "Portrait historique de Seydi El Hadji Malick Sy (1855-1922), fondateur de la Zawiya de Tivaouane.", date: "Début XXe siècle", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg", source: "Archives familiales" },
+      { id: 2, title: "El Hadji Malick Sy avec chapelet", description: "Photo historique montrant El Hadji Malick Sy tenant son chapelet.", date: "Début XXe siècle", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg", source: "Archives familiales" },
+      { id: 3, title: "Maodo et ses disciples", description: "El Hadji Malick Sy accompagné de ses disciples à Tivaouane.", date: "Début XXe siècle", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg", source: "Archives Zawiya" },
+      { id: 4, title: "Portrait sépia de Maodo", description: "Portrait en sépia d'El Hadji Malick Sy.", date: "Début XXe siècle", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg", source: "Archives historiques" },
+      { id: 5, title: "La Grande Mosquée de Tivaouane", description: "Vue de la Grande Mosquée de Tivaouane, site classé monument historique depuis 1902.", date: "XXe siècle", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg", source: "Archives Zawiya" },
+      { id: 6, title: "Serigne Babacar Sy (1er Khalife)", description: "Serigne Khalifa Ababacar Sy (1885-1957), premier successeur de Maodo, fondateur des dahiras et initiateur de la ziarra générale en 1930.", date: "1922-1957", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg", source: "Archives Khalifat" }
+    ],
+    en: [
+      { id: 1, title: "El Hadji Malick Sy - Official Portrait", description: "Historical portrait of Seydi El Hadji Malick Sy (1855-1922), founder of the Zawiya of Tivaouane.", date: "Early 20th century", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg", source: "Family Archives" },
+      { id: 2, title: "El Hadji Malick Sy with prayer beads", description: "Historical photo showing El Hadji Malick Sy holding his prayer beads.", date: "Early 20th century", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg", source: "Family Archives" },
+      { id: 3, title: "Maodo and his disciples", description: "El Hadji Malick Sy accompanied by his disciples in Tivaouane.", date: "Early 20th century", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg", source: "Zawiya Archives" },
+      { id: 4, title: "Sepia portrait of Maodo", description: "Sepia portrait of El Hadji Malick Sy.", date: "Early 20th century", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg", source: "Historical Archives" },
+      { id: 5, title: "The Great Mosque of Tivaouane", description: "View of the Great Mosque of Tivaouane, classified as a historical monument since 1902.", date: "20th century", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg", source: "Zawiya Archives" },
+      { id: 6, title: "Serigne Babacar Sy (1st Khalife)", description: "Serigne Khalifa Ababacar Sy (1885-1957), first successor of Maodo, founder of dahiras and initiator of the general ziarra in 1930.", date: "1922-1957", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg", source: "Khalifat Archives" }
+    ],
+    ar: [
+      { id: 1, title: "الحاج مالك سي - صورة رسمية", description: "صورة تاريخية للسيدي الحاج مالك سي (1855-1922)، مؤسس زاوية تيفاوان.", date: "أوائل القرن 20", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg", source: "أرشيف العائلة" },
+      { id: 2, title: "الحاج مالك سي مع السبحة", description: "صورة تاريخية تظهر الحاج مالك سي ممسكاً بسبحته.", date: "أوائل القرن 20", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg", source: "أرشيف العائلة" },
+      { id: 3, title: "مودو وتلاميذه", description: "الحاج مالك سي برفقة تلاميذه في تيفاوان.", date: "أوائل القرن 20", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg", source: "أرشيف الزاوية" },
+      { id: 4, title: "صورة بني داكن لمودو", description: "صورة بني داكن للحاج مالك سي.", date: "أوائل القرن 20", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg", source: "الأرشيف التاريخي" },
+      { id: 5, title: "المسجد الكبير في تيفاوان", description: "منظر المسجد الكبير في تيفاوان، المصنف كمعلم تاريخي منذ 1902.", date: "القرن 20", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg", source: "أرشيف الزاوية" },
+      { id: 6, title: "سرين باباكار سي (الخليفة الأول)", description: "سرين خليفة أباباكار سي (1885-1957)، أول خليفة لمودو، مؤسس الدوائر ومبتكر الزيارة العامة في 1930.", date: "1922-1957", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg", source: "أرشيف الخلافة" }
+    ],
+    wo: [
+      { id: 1, title: "El Hadji Maalik Si - Nataal bu sellal", description: "Nataal taariix bu Seydi El Hadji Maalik Si (1855-1922), tëkkikat Zawiya Tiwaawaan.", date: "Njëkk at 20ème", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg", source: "Dëgg kër gi" },
+      { id: 2, title: "El Hadji Maalik Si ak chapelet", description: "Nataal taariix di won El Hadji Maalik Si di moom sa chapelet.", date: "Njëkk at 20ème", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg", source: "Dëgg kër gi" },
+      { id: 3, title: "Maodo ak taalibe yi", description: "El Hadji Maalik Si ak taalibe yi ci Tiwaawaan.", date: "Njëkk at 20ème", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg", source: "Dëgg Zawiya" },
+      { id: 4, title: "Nataal sépia Maodo", description: "Nataal sépia El Hadji Maalik Si.", date: "Njëkk at 20ème", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg", source: "Dëgg taariix" },
+      { id: 5, title: "Jammi bu Mag bi Tiwaawaan", description: "Xool Jammi bu Mag bi Tiwaawaan, paxas taariix dale 1902.", date: "At 20ème", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg", source: "Dëgg Zawiya" },
+      { id: 6, title: "Serigne Babacar Sy (Njëkk Xaliifa)", description: "Serigne Khalifa Ababacar Sy (1885-1957), njëkk ki topp Maodo, tëkkikat dahira yi ak ziarra générale ci 1930.", date: "1922-1957", image: "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg", source: "Dëgg Xalifa" }
+    ]
+  };
+  
+  const photos = photosData[language] || photosData.fr;
 
   // Archives sonores - Khassaides avec liens réels
   const audioTracks = [
