@@ -3081,6 +3081,287 @@ END:VCALENDAR"""
     )
 
 
+# ============== ARCHIVES API ==============
+
+# --- Manuscripts ---
+@api_router.get("/archives/manuscripts")
+async def get_manuscripts():
+    """Get all manuscripts"""
+    manuscripts = await db.archive_manuscripts.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
+    return manuscripts
+
+@api_router.post("/archives/manuscripts")
+async def create_manuscript(manuscript: ArchiveManuscriptCreate, is_admin: bool = Depends(verify_admin_token)):
+    """Create a new manuscript (admin only)"""
+    new_manuscript = ArchiveManuscript(**manuscript.model_dump())
+    await db.archive_manuscripts.insert_one(new_manuscript.model_dump())
+    return {"success": True, "id": new_manuscript.id, "message": "Manuscrit créé"}
+
+@api_router.put("/archives/manuscripts/{manuscript_id}")
+async def update_manuscript(manuscript_id: str, manuscript: ArchiveManuscriptUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update a manuscript (admin only)"""
+    update_data = {k: v for k, v in manuscript.model_dump().items() if v is not None}
+    if not update_data:
+        raise HTTPException(status_code=400, detail="Aucune donnée à mettre à jour")
+    
+    result = await db.archive_manuscripts.update_one({"id": manuscript_id}, {"$set": update_data})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Manuscrit non trouvé")
+    
+    return {"success": True, "message": "Manuscrit mis à jour"}
+
+@api_router.delete("/archives/manuscripts/{manuscript_id}")
+async def delete_manuscript(manuscript_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete a manuscript (admin only)"""
+    result = await db.archive_manuscripts.delete_one({"id": manuscript_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Manuscrit non trouvé")
+    
+    return {"success": True, "message": "Manuscrit supprimé"}
+
+# --- Photos ---
+@api_router.get("/archives/photos")
+async def get_photos():
+    """Get all photos"""
+    photos = await db.archive_photos.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
+    return photos
+
+@api_router.post("/archives/photos")
+async def create_photo(photo: ArchivePhotoCreate, is_admin: bool = Depends(verify_admin_token)):
+    """Create a new photo (admin only)"""
+    new_photo = ArchivePhoto(**photo.model_dump())
+    await db.archive_photos.insert_one(new_photo.model_dump())
+    return {"success": True, "id": new_photo.id, "message": "Photo créée"}
+
+@api_router.put("/archives/photos/{photo_id}")
+async def update_photo(photo_id: str, photo: ArchivePhotoUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update a photo (admin only)"""
+    update_data = {k: v for k, v in photo.model_dump().items() if v is not None}
+    if not update_data:
+        raise HTTPException(status_code=400, detail="Aucune donnée à mettre à jour")
+    
+    result = await db.archive_photos.update_one({"id": photo_id}, {"$set": update_data})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Photo non trouvée")
+    
+    return {"success": True, "message": "Photo mise à jour"}
+
+@api_router.delete("/archives/photos/{photo_id}")
+async def delete_photo(photo_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete a photo (admin only)"""
+    result = await db.archive_photos.delete_one({"id": photo_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Photo non trouvée")
+    
+    return {"success": True, "message": "Photo supprimée"}
+
+# --- Audio ---
+@api_router.get("/archives/audio")
+async def get_audio():
+    """Get all audio tracks"""
+    audio = await db.archive_audio.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
+    return audio
+
+@api_router.post("/archives/audio")
+async def create_audio(audio: ArchiveAudioCreate, is_admin: bool = Depends(verify_admin_token)):
+    """Create a new audio track (admin only)"""
+    new_audio = ArchiveAudio(**audio.model_dump())
+    await db.archive_audio.insert_one(new_audio.model_dump())
+    return {"success": True, "id": new_audio.id, "message": "Audio créé"}
+
+@api_router.put("/archives/audio/{audio_id}")
+async def update_audio(audio_id: str, audio: ArchiveAudioUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update an audio track (admin only)"""
+    update_data = {k: v for k, v in audio.model_dump().items() if v is not None}
+    if not update_data:
+        raise HTTPException(status_code=400, detail="Aucune donnée à mettre à jour")
+    
+    result = await db.archive_audio.update_one({"id": audio_id}, {"$set": update_data})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Audio non trouvé")
+    
+    return {"success": True, "message": "Audio mis à jour"}
+
+@api_router.delete("/archives/audio/{audio_id}")
+async def delete_audio(audio_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete an audio track (admin only)"""
+    result = await db.archive_audio.delete_one({"id": audio_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Audio non trouvé")
+    
+    return {"success": True, "message": "Audio supprimé"}
+
+# --- Videos ---
+@api_router.get("/archives/videos")
+async def get_archive_videos():
+    """Get all archive videos"""
+    videos = await db.archive_videos.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
+    return videos
+
+@api_router.post("/archives/videos")
+async def create_archive_video(video: ArchiveVideoCreate, is_admin: bool = Depends(verify_admin_token)):
+    """Create a new archive video (admin only)"""
+    new_video = ArchiveVideo(**video.model_dump())
+    await db.archive_videos.insert_one(new_video.model_dump())
+    return {"success": True, "id": new_video.id, "message": "Vidéo créée"}
+
+@api_router.put("/archives/videos/{video_id}")
+async def update_archive_video(video_id: str, video: ArchiveVideoUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update an archive video (admin only)"""
+    update_data = {k: v for k, v in video.model_dump().items() if v is not None}
+    if not update_data:
+        raise HTTPException(status_code=400, detail="Aucune donnée à mettre à jour")
+    
+    result = await db.archive_videos.update_one({"id": video_id}, {"$set": update_data})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Vidéo non trouvée")
+    
+    return {"success": True, "message": "Vidéo mise à jour"}
+
+@api_router.delete("/archives/videos/{video_id}")
+async def delete_archive_video(video_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete an archive video (admin only)"""
+    result = await db.archive_videos.delete_one({"id": video_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Vidéo non trouvée")
+    
+    return {"success": True, "message": "Vidéo supprimée"}
+
+# --- Sources ---
+@api_router.get("/archives/sources")
+async def get_sources():
+    """Get all academic sources"""
+    sources = await db.archive_sources.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
+    return sources
+
+@api_router.post("/archives/sources")
+async def create_source(source: ArchiveSourceCreate, is_admin: bool = Depends(verify_admin_token)):
+    """Create a new academic source (admin only)"""
+    new_source = ArchiveSource(**source.model_dump())
+    await db.archive_sources.insert_one(new_source.model_dump())
+    return {"success": True, "id": new_source.id, "message": "Source créée"}
+
+@api_router.put("/archives/sources/{source_id}")
+async def update_source(source_id: str, source: ArchiveSourceUpdate, is_admin: bool = Depends(verify_admin_token)):
+    """Update an academic source (admin only)"""
+    update_data = {k: v for k, v in source.model_dump().items() if v is not None}
+    if not update_data:
+        raise HTTPException(status_code=400, detail="Aucune donnée à mettre à jour")
+    
+    result = await db.archive_sources.update_one({"id": source_id}, {"$set": update_data})
+    if result.matched_count == 0:
+        raise HTTPException(status_code=404, detail="Source non trouvée")
+    
+    return {"success": True, "message": "Source mise à jour"}
+
+@api_router.delete("/archives/sources/{source_id}")
+async def delete_source(source_id: str, is_admin: bool = Depends(verify_admin_token)):
+    """Delete an academic source (admin only)"""
+    result = await db.archive_sources.delete_one({"id": source_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Source non trouvée")
+    
+    return {"success": True, "message": "Source supprimée"}
+
+# --- Seed Archives Data ---
+@api_router.post("/archives/seed")
+async def seed_archives_data(is_admin: bool = Depends(verify_admin_token)):
+    """Seed initial archives data (admin only)"""
+    
+    # Check if data already exists
+    existing_manuscripts = await db.archive_manuscripts.count_documents({})
+    if existing_manuscripts > 0:
+        return {"message": "Les archives existent déjà", "skipped": True}
+    
+    # Manuscripts data
+    manuscripts_data = [
+        {"id": str(uuid.uuid4()), "title": {"fr": "Khilassou Dhahab - Chapitres Essentiels", "en": "Khilassou Dhahab - Essential Chapters", "ar": "خلاص الذهب - الفصول الأساسية", "wo": "Khilassou Dhahab - Chapitre yu gën mag"}, "description": {"fr": "Biographie poétique du Prophète (PSL) composée par El Hadji Malick Sy, récitée lors des Gamou. Texte arabe avec traduction française.", "en": "Poetic biography of the Prophet (PBUH) composed by El Hadji Malick Sy, recited during Gamou celebrations. Arabic text with French translation.", "ar": "سيرة شعرية للنبي (ص) ألفها الحاج مالك سي، تُتلى في احتفالات المولد. نص عربي مع ترجمة فرنسية.", "wo": "Taariix woy bu Yonent bi (YWS) bu El Hadji Maalik Si bind, di ko jàng ci Gamou yi. Téere arab ak tekki français."}, "date": "XIXe siècle", "langue": "Arabe + Français", "lien": "https://fr.scribd.com/document/669838264/khilass-zahab", "type": "PDF Scribd", "order": 1, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Khilassou Zahab - Chapitre 1", "en": "Khilassou Zahab - Chapter 1", "ar": "خلاص الذهب - الفصل الأول", "wo": "Khilassou Zahab - Chapitre 1"}, "description": {"fr": "Premier chapitre louant Dieu, la création et l'âme du Prophète comme miroir de toute existence.", "en": "First chapter praising God, creation and the Prophet's soul as mirror of all existence.", "ar": "الفصل الأول في حمد الله والخلق وروح النبي كمرآة لكل الوجود.", "wo": "Njëkk chapitre ci sant Yàlla, création ak ruu Yonent bi ci miroir bu àdduna bi yépp."}, "date": "XIXe siècle", "langue": "Arabe", "lien": "https://www.scribd.com/document/832319484/khilassou-Zahab-Chapitre-1", "type": "PDF Scribd", "order": 2, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Khilassou Zahab - Chapitre 3", "en": "Khilassou Zahab - Chapter 3", "ar": "خلاص الذهب - الفصل الثالث", "wo": "Khilassou Zahab - Chapitre 3"}, "description": {"fr": "Sections sur les événements mecquois, prières et lignées ancestrales incluant Kinana, Khuzayma et Mudar.", "en": "Sections on Meccan events, prayers and ancestral lineages including Kinana, Khuzayma and Mudar.", "ar": "أقسام عن أحداث مكة والصلوات والأنساب بما في ذلك كنانة وخزيمة ومضر.", "wo": "Xétu ci mbir Makka yi, julli yi ak njàmbaar yi di Kinana, Khuzayma ak Mudar."}, "date": "XIXe siècle", "langue": "Arabe", "lien": "https://www.scribd.com/document/740233380/khilass-zahab-Chap-3", "type": "PDF Scribd", "order": 3, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Tayssir (Wassilatoul Mouna) - Complet", "en": "Tayssir (Wassilatoul Mouna) - Complete", "ar": "التيسير (وسيلة المنى) - كامل", "wo": "Tayssir (Wassilatoul Mouna) - Bu mat"}, "description": {"fr": "Ouvrage majeur d'El Hadji Malick Sy sur la voie spirituelle soufie. Transcription complète et traduction.", "en": "Major work by El Hadji Malick Sy on the Sufi spiritual path. Complete transcription and translation.", "ar": "عمل رئيسي للحاج مالك سي عن الطريق الروحي الصوفي. نسخ وترجمة كاملة.", "wo": "Téere bu mag bu El Hadji Maalik Si ci yoon bu sell soufi. Tekki bu mat."}, "date": "Début XXe siècle", "langue": "Arabe + Français", "lien": "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf", "type": "PDF Direct", "order": 4, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Tayssir - Version Scribd", "en": "Tayssir - Scribd Version", "ar": "التيسير - نسخة Scribd", "wo": "Tayssir - Version Scribd"}, "description": {"fr": "Version alternative numérisée du Tayssir disponible sur Scribd.", "en": "Alternative digitized version of Tayssir available on Scribd.", "ar": "نسخة رقمية بديلة من التيسير متوفرة على Scribd.", "wo": "Version numérique bu yeneen bu Tayssir ci Scribd."}, "date": "Début XXe siècle", "langue": "Arabe", "lien": "https://fr.scribd.com/document/481857110/Tayssir-El-Hadj-Malick-Sy-pdf", "type": "PDF Scribd", "order": 5, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Fâkihatou Toullâb (فاكهة الطلاب)", "en": "Fâkihatou Toullâb (فاكهة الطلاب)", "ar": "فاكهة الطلاب", "wo": "Fâkihatou Toullâb (فاكهة الطلاب)"}, "description": {"fr": "Le Fruit des Étudiants - Texte sur les principes généraux de la Tijaniyya et la discipline spirituelle des disciples.", "en": "The Fruit of Students - Text on general principles of Tijaniyya and spiritual discipline of disciples.", "ar": "ثمرة الطلاب - نص عن المبادئ العامة للتجانية والانضباط الروحي للمريدين.", "wo": "Màggal Taalibe yi - Téere ci principe Tijaniyya ak dicipline bu sell taalibe yi."}, "date": "Début XXe siècle", "langue": "Arabe", "lien": "https://archive.org/details/20240423_20240423_0141", "type": "Archive.org Audio", "order": 6, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Ifhâm al-Munkir - Thèse Rawane Mbaye", "en": "Ifhâm al-Munkir - Rawane Mbaye Thesis", "ar": "إفحام المنكر - أطروحة روان مباي", "wo": "Ifhâm al-Munkir - Thèse Rawane Mbaye"}, "description": {"fr": "Thèse universitaire du Pr. Rawane Mbaye sur l'œuvre apologétique d'El Hadji Malick Sy.", "en": "University thesis by Pr. Rawane Mbaye on the apologetic work of El Hadji Malick Sy.", "ar": "أطروحة جامعية للبروفيسور روان مباي عن العمل الدفاعي للحاج مالك سي.", "wo": "Thèse université bu Pr. Rawane Mbaye ci liggéey bu El Hadji Maalik Si."}, "date": "XXe siècle", "langue": "Arabe + Français", "lien": "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye", "type": "PDF Scribd", "order": 7, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Le Nouveau Dîwân - 7 Tomes", "en": "The New Dîwân - 7 Volumes", "ar": "الديوان الجديد - 7 مجلدات", "wo": "Dîwân bu Bees bi - 7 Tomes"}, "description": {"fr": "Présentation et inventaire du nouveau Dîwân d'El Hadji Malick Sy, père fondateur de la Zawiya Tidiane de Tivaouane.", "en": "Presentation and inventory of the new Dîwân of El Hadji Malick Sy, founding father of the Tidiane Zawiya of Tivaouane.", "ar": "عرض وجرد الديوان الجديد للحاج مالك سي، الأب المؤسس للزاوية التجانية في تيفاوان.", "wo": "Présentation ak inventaire Dîwân bu bees bu El Hadji Maalik Si, baay tëkkikat Zawiya Tijaan Tiwaawaan."}, "date": "2020", "langue": "Français", "lien": "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html", "type": "Livre", "order": 8, "active": True}
+    ]
+    
+    # Photos data
+    photos_data = [
+        {"id": str(uuid.uuid4()), "title": {"fr": "El Hadji Malick Sy - Portrait officiel", "en": "El Hadji Malick Sy - Official Portrait", "ar": "الحاج مالك سي - صورة رسمية", "wo": "El Hadji Maalik Si - Nataal bu sellal"}, "description": {"fr": "Portrait historique de Seydi El Hadji Malick Sy (1855-1922), fondateur de la Zawiya de Tivaouane.", "en": "Historical portrait of Seydi El Hadji Malick Sy (1855-1922), founder of the Zawiya of Tivaouane.", "ar": "صورة تاريخية للسيدي الحاج مالك سي (1855-1922)، مؤسس زاوية تيفاوان.", "wo": "Nataal taariix bu Seydi El Hadji Maalik Si (1855-1922), tëkkikat Zawiya Tiwaawaan."}, "date": "Début XXe siècle", "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg", "source": {"fr": "Archives familiales", "en": "Family Archives", "ar": "أرشيف العائلة", "wo": "Dëgg kër gi"}, "order": 1, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "El Hadji Malick Sy avec chapelet", "en": "El Hadji Malick Sy with prayer beads", "ar": "الحاج مالك سي مع السبحة", "wo": "El Hadji Maalik Si ak chapelet"}, "description": {"fr": "Photo historique montrant El Hadji Malick Sy tenant son chapelet.", "en": "Historical photo showing El Hadji Malick Sy holding his prayer beads.", "ar": "صورة تاريخية تظهر الحاج مالك سي ممسكاً بسبحته.", "wo": "Nataal taariix di won El Hadji Maalik Si di moom sa chapelet."}, "date": "Début XXe siècle", "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg", "source": {"fr": "Archives familiales", "en": "Family Archives", "ar": "أرشيف العائلة", "wo": "Dëgg kër gi"}, "order": 2, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Maodo et ses disciples", "en": "Maodo and his disciples", "ar": "مودو وتلاميذه", "wo": "Maodo ak taalibe yi"}, "description": {"fr": "El Hadji Malick Sy accompagné de ses disciples à Tivaouane.", "en": "El Hadji Malick Sy accompanied by his disciples in Tivaouane.", "ar": "الحاج مالك سي برفقة تلاميذه في تيفاوان.", "wo": "El Hadji Maalik Si ak taalibe yi ci Tiwaawaan."}, "date": "Début XXe siècle", "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg", "source": {"fr": "Archives Zawiya", "en": "Zawiya Archives", "ar": "أرشيف الزاوية", "wo": "Dëgg Zawiya"}, "order": 3, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Portrait sépia de Maodo", "en": "Sepia portrait of Maodo", "ar": "صورة بني داكن لمودو", "wo": "Nataal sépia Maodo"}, "description": {"fr": "Portrait en sépia d'El Hadji Malick Sy.", "en": "Sepia portrait of El Hadji Malick Sy.", "ar": "صورة بني داكن للحاج مالك سي.", "wo": "Nataal sépia El Hadji Maalik Si."}, "date": "Début XXe siècle", "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg", "source": {"fr": "Archives historiques", "en": "Historical Archives", "ar": "الأرشيف التاريخي", "wo": "Dëgg taariix"}, "order": 4, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "La Grande Mosquée de Tivaouane", "en": "The Great Mosque of Tivaouane", "ar": "المسجد الكبير في تيفاوان", "wo": "Jammi bu Mag bi Tiwaawaan"}, "description": {"fr": "Vue de la Grande Mosquée de Tivaouane, site classé monument historique depuis 1902.", "en": "View of the Great Mosque of Tivaouane, classified as a historical monument since 1902.", "ar": "منظر المسجد الكبير في تيفاوان، المصنف كمعلم تاريخي منذ 1902.", "wo": "Xool Jammi bu Mag bi Tiwaawaan, paxas taariix dale 1902."}, "date": "XXe siècle", "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg", "source": {"fr": "Archives Zawiya", "en": "Zawiya Archives", "ar": "أرشيف الزاوية", "wo": "Dëgg Zawiya"}, "order": 5, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Serigne Babacar Sy (1er Khalife)", "en": "Serigne Babacar Sy (1st Khalife)", "ar": "سرين باباكار سي (الخليفة الأول)", "wo": "Serigne Babacar Sy (Njëkk Xaliifa)"}, "description": {"fr": "Serigne Khalifa Ababacar Sy (1885-1957), premier successeur de Maodo, fondateur des dahiras et initiateur de la ziarra générale en 1930.", "en": "Serigne Khalifa Ababacar Sy (1885-1957), first successor of Maodo, founder of dahiras and initiator of the general ziarra in 1930.", "ar": "سرين خليفة أباباكار سي (1885-1957)، أول خليفة لمودو، مؤسس الدوائر ومبتكر الزيارة العامة في 1930.", "wo": "Serigne Khalifa Ababacar Sy (1885-1957), njëkk ki topp Maodo, tëkkikat dahira yi ak ziarra générale ci 1930."}, "date": "1922-1957", "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg", "source": {"fr": "Archives Khalifat", "en": "Khalifat Archives", "ar": "أرشيف الخلافة", "wo": "Dëgg Xalifa"}, "order": 6, "active": True}
+    ]
+    
+    # Audio data
+    audio_data = [
+        {"id": str(uuid.uuid4()), "title": "Tayssîr (Wassîlatul Munâ)", "author": "El Hadji Malick Sy", "duration": "20:54", "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Tayssir.mp3", "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/", "coverImage": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg", "order": 1, "active": True},
+        {"id": str(uuid.uuid4()), "title": "Zajrul Qulûb (زَجْرُ الْقُلُوبْ)", "author": "El Hadji Malick Sy", "duration": "15:30", "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Zadjroul-khouloub.mp3", "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/", "coverImage": None, "order": 2, "active": True},
+        {"id": str(uuid.uuid4()), "title": "Yâ Kâchifad-Dâ-i", "author": "El Hadji Malick Sy", "duration": "12:45", "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Ya-kachifdaddahi.mp3", "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/", "coverImage": None, "order": 3, "active": True},
+        {"id": str(uuid.uuid4()), "title": "Fanâdjînâ", "author": "El Hadji Malick Sy", "duration": "08:20", "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Fanadjina.mp3", "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/", "coverImage": None, "order": 4, "active": True},
+        {"id": str(uuid.uuid4()), "title": "Al Munâjâ", "author": "El Hadji Malick Sy", "duration": "18:00", "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Al-Munaja.mp3", "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/", "coverImage": None, "order": 5, "active": True}
+    ]
+    
+    # Videos data
+    videos_data = [
+        {"id": str(uuid.uuid4()), "title": {"fr": "L'Histoire de El Hadji Maodo Malick Sy - Documentaire Complet", "en": "The History of El Hadji Maodo Malick Sy - Complete Documentary", "ar": "تاريخ الحاج مودو مالك سي - وثائقي كامل", "wo": "Taariix El Hadji Maodo Maalik Si - Documentaire bu mat"}, "description": {"fr": "Documentaire complet sur la vie d'El Hadji Malick Sy : son arrivée à l'islam, son instruction, son pèlerinage, son installation à Tivaouane.", "en": "Complete documentary on the life of El Hadji Malick Sy: his arrival to Islam, his education, his pilgrimage, his establishment in Tivaouane.", "ar": "وثائقي كامل عن حياة الحاج مالك سي: وصوله للإسلام، تعليمه، حجه، استقراره في تيفاوان.", "wo": "Documentaire bu mat ci dund El Hadji Maalik Si: njëkk ci Lislaam, njàng bi, Hajj bi, taxaw ci Tiwaawaan."}, "youtubeId": "NpOPd8AsV_c", "duration": "45:00", "views": 125000, "order": 1, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "El Hadji Malick Sy - Documentaire RTS", "en": "El Hadji Malick Sy - RTS Documentary", "ar": "الحاج مالك سي - وثائقي RTS", "wo": "El Hadji Maalik Si - Documentaire RTS"}, "description": {"fr": "Documentaire officiel de la RTS retraçant la vie et l'œuvre de Maodo (Septembre 2024).", "en": "Official RTS documentary tracing the life and work of Maodo (September 2024).", "ar": "وثائقي رسمي من RTS يروي حياة وأعمال مودو (سبتمبر 2024).", "wo": "Documentaire sellal RTS di wax dund ak liggéey Maodo (Septembre 2024)."}, "youtubeId": "CQJ5rPB4baM", "duration": "35:00", "views": 89000, "order": 2, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Documentaire Asfiyahi Television", "en": "Asfiyahi Television Documentary", "ar": "وثائقي تلفزيون أصفياحي", "wo": "Documentaire Asfiyahi Television"}, "description": {"fr": "Documentaire de 29 minutes sur la vie et l'héritage spirituel de Seydil Hadji Malick Sy.", "en": "29-minute documentary on the life and spiritual legacy of Seydil Hadji Malick Sy.", "ar": "وثائقي مدته 29 دقيقة عن حياة وإرث السيدي الحاج مالك سي الروحي.", "wo": "Documentaire 29 minutes ci dund ak njàmbaar bu sell Seydil Hadji Maalik Si."}, "youtubeId": "Q0KxcWiBbXE", "duration": "29:30", "views": 67500, "order": 3, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Mame Maodo : Le Sénégal dans l'histoire", "en": "Mame Maodo: Senegal in History", "ar": "مام مودو: السنغال في التاريخ", "wo": "Maam Maodo: Senegaal ci taariix"}, "description": {"fr": "Série documentaire présentant l'histoire de Maodo et son impact sur l'histoire du Sénégal.", "en": "Documentary series presenting the history of Maodo and his impact on Senegal's history.", "ar": "سلسلة وثائقية تعرض تاريخ مودو وأثره على تاريخ السنغال.", "wo": "Série documentaire di won taariix Maodo ak njëkkit ci taariix Senegaal."}, "youtubeId": "aviqRGqHnPo", "duration": "40:00", "views": 52000, "order": 4, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Khassida Lā Tarkanan - Traduction", "en": "Khassida Lā Tarkanan - Translation", "ar": "قصيدة لا تركنن - ترجمة", "wo": "Khassida Lā Tarkanan - Tekki"}, "description": {"fr": "Récitation de la Khassida avec traduction en wolof et explications spirituelles en français.", "en": "Recitation of the Khassida with Wolof translation and spiritual explanations in French.", "ar": "تلاوة القصيدة مع ترجمة بالولوف وشروحات روحية بالفرنسية.", "wo": "Jàng Khassida ak tekki wolof ak biral bu sell ci français."}, "youtubeId": "JWwRxPQPsCE", "duration": "45:00", "views": 34000, "order": 5, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Récitation Khassaides - Nuit du Burd", "en": "Khassaides Recitation - Night of Burd", "ar": "تلاوة القصائد - ليلة البردة", "wo": "Jàng Khassaides - Guddi Burd"}, "description": {"fr": "Nuit de récitation des khassaides par Doudou Kende et Abou Aziz Mbaye.", "en": "Night of khassaides recitation by Doudou Kende and Abou Aziz Mbaye.", "ar": "ليلة تلاوة القصائد بواسطة دودو كندي وأبو عزيز مباي.", "wo": "Guddi jàng khassaides bu Doudou Kende ak Abou Aziz Mbaye."}, "youtubeId": "iz3ozGdQ5aQ", "duration": "1:20:00", "views": 28000, "order": 6, "active": True}
+    ]
+    
+    # Sources data
+    sources_data = [
+        {"id": str(uuid.uuid4()), "title": {"fr": "BnF - Fiche d'autorité Malick Sy", "en": "BnF - Malick Sy Authority Record", "ar": "BnF - سجل سلطة مالك سي", "wo": "BnF - Dossier Maalik Si"}, "description": {"fr": "Page officielle de la Bibliothèque nationale de France avec bibliographie complète.", "en": "Official page of the National Library of France with complete bibliography.", "ar": "الصفحة الرسمية للمكتبة الوطنية الفرنسية مع ببليوغرافيا كاملة.", "wo": "Xët sellal bu Bibliothèque nationale France ak bibliographie bu mat."}, "lien": "https://data.bnf.fr/fr/14528700/malick_sy/", "source": {"fr": "Bibliothèque nationale de France", "en": "National Library of France", "ar": "المكتبة الوطنية الفرنسية", "wo": "Bibliothèque nationale France"}, "order": 1, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Les Cahiers de l'Islam", "en": "Les Cahiers de l'Islam", "ar": "دفاتر الإسلام", "wo": "Cahiers de l'Islam yi"}, "description": {"fr": "Article académique sur le rôle de la Tijaniyya dans l'islamisation du Sénégal.", "en": "Academic article on the role of Tijaniyya in the Islamization of Senegal.", "ar": "مقال أكاديمي عن دور التجانية في أسلمة السنغال.", "wo": "Jëf académique ci solo Tijaniyya ci Islamisation Senegaal."}, "lien": "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html", "source": {"fr": "Recherche Académique", "en": "Academic Research", "ar": "بحث أكاديمي", "wo": "Seet Académique"}, "order": 2, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "OpenEdition Journals", "en": "OpenEdition Journals", "ar": "مجلات OpenEdition", "wo": "OpenEdition Journals"}, "description": {"fr": "Article de recherche dans la Revue des mondes musulmans et de la Méditerranée.", "en": "Research article in the Review of Muslim Worlds and the Mediterranean.", "ar": "مقال بحثي في مجلة العوالم الإسلامية والمتوسط.", "wo": "Jëf seet ci Revue bi àdduna musulman yi ak Méditerranée."}, "lien": "https://journals.openedition.org/remmm/21127", "source": {"fr": "OpenEdition", "en": "OpenEdition", "ar": "OpenEdition", "wo": "OpenEdition"}, "order": 3, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Archive.org - Collection Audio", "en": "Archive.org - Audio Collection", "ar": "Archive.org - مجموعة صوتية", "wo": "Archive.org - Collection Audio"}, "description": {"fr": "Collection audio 'Sidi El Hadj Malick SY Rta' disponible en streaming et téléchargement.", "en": "Audio collection 'Sidi El Hadj Malick SY Rta' available for streaming and download.", "ar": "مجموعة صوتية 'سيدي الحاج مالك سي' متاحة للبث والتحميل.", "wo": "Collection audio 'Sidi El Hadj Maalik SY Rta' am na ci streaming ak download."}, "lien": "https://archive.org/details/sidi-el-hadj-malick-sy-rta", "source": {"fr": "Internet Archive", "en": "Internet Archive", "ar": "أرشيف الإنترنت", "wo": "Internet Archive"}, "order": 4, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Thèses UCAD", "en": "UCAD Theses", "ar": "أطروحات UCAD", "wo": "Thèse UCAD yi"}, "description": {"fr": "Collection de thèses et mémoires de l'Université Cheikh Anta Diop sur El Hadji Malick Sy.", "en": "Collection of theses and dissertations from Cheikh Anta Diop University on El Hadji Malick Sy.", "ar": "مجموعة أطروحات ورسائل من جامعة الشيخ أنتا ديوب عن الحاج مالك سي.", "wo": "Collection thèse ak mémoire bu Université Cheikh Anta Diop ci El Hadji Maalik Si."}, "lien": "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses", "source": {"fr": "UCAD Dakar", "en": "UCAD Dakar", "ar": "UCAD داكار", "wo": "UCAD Dakar"}, "order": 5, "active": True},
+        {"id": str(uuid.uuid4()), "title": {"fr": "Timbuktu Institute", "en": "Timbuktu Institute", "ar": "معهد تمبكتو", "wo": "Timbuktu Institute"}, "description": {"fr": "Analyse du rôle diplomatique pionnier de la zawiya de Tivaouane.", "en": "Analysis of the pioneering diplomatic role of the Zawiya of Tivaouane.", "ar": "تحليل الدور الدبلوماسي الرائد لزاوية تيفاوان.", "wo": "Xellu ci solo diplomatique bu njëkk bu zawiya Tiwaawaan."}, "lien": "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe", "source": {"fr": "Think Tank", "en": "Think Tank", "ar": "مركز أبحاث", "wo": "Think Tank"}, "order": 6, "active": True}
+    ]
+    
+    # Insert all data
+    await db.archive_manuscripts.insert_many(manuscripts_data)
+    await db.archive_photos.insert_many(photos_data)
+    await db.archive_audio.insert_many(audio_data)
+    await db.archive_videos.insert_many(videos_data)
+    await db.archive_sources.insert_many(sources_data)
+    
+    return {
+        "message": "Archives initialisées avec succès",
+        "counts": {
+            "manuscripts": len(manuscripts_data),
+            "photos": len(photos_data),
+            "audio": len(audio_data),
+            "videos": len(videos_data),
+            "sources": len(sources_data)
+        }
+    }
+
+# --- Get All Archives Stats ---
+@api_router.get("/archives/stats")
+async def get_archives_stats():
+    """Get archives statistics"""
+    manuscripts = await db.archive_manuscripts.count_documents({"active": True})
+    photos = await db.archive_photos.count_documents({"active": True})
+    audio = await db.archive_audio.count_documents({"active": True})
+    videos = await db.archive_videos.count_documents({"active": True})
+    sources = await db.archive_sources.count_documents({"active": True})
+    
+    return {
+        "manuscripts": manuscripts,
+        "photos": photos,
+        "audio": audio,
+        "videos": videos,
+        "sources": sources,
+        "total": manuscripts + photos + audio + videos + sources
+    }
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
