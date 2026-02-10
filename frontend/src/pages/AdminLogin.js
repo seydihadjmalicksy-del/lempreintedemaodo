@@ -170,11 +170,6 @@ const AdminLogin = () => {
               )}
             </button>
           </div>
-
-          {/* Hint */}
-          <p className="mt-6 text-center text-sm text-[#888888]">
-            {t.hint}
-          </p>
         </form>
 
         {/* Decorative Element */}
