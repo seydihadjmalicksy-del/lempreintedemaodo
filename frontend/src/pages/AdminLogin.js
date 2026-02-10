@@ -25,8 +25,7 @@ const AdminLogin = () => {
       password: "Mot de passe",
       login: "Se connecter",
       loggingIn: "Connexion...",
-      error: "Identifiants incorrects",
-      hint: "Mot de passe par défaut: tivaouane2025"
+      error: "Identifiants incorrects"
     },
     en: {
       title: "Administration",
@@ -35,8 +34,7 @@ const AdminLogin = () => {
       password: "Password",
       login: "Login",
       loggingIn: "Logging in...",
-      error: "Invalid credentials",
-      hint: "Default password: tivaouane2025"
+      error: "Invalid credentials"
     },
     ar: {
       title: "الإدارة",
@@ -45,8 +43,7 @@ const AdminLogin = () => {
       password: "كلمة المرور",
       login: "تسجيل الدخول",
       loggingIn: "جاري الدخول...",
-      error: "بيانات غير صحيحة",
-      hint: "كلمة المرور الافتراضية: tivaouane2025"
+      error: "بيانات غير صحيحة"
     },
     wo: {
       title: "Administration",
@@ -55,8 +52,7 @@ const AdminLogin = () => {
       password: "Baatu jàll",
       login: "Dugg",
       loggingIn: "Yiy dugg...",
-      error: "Identifiants yi baaxul",
-      hint: "Baatu jàll par défaut: tivaouane2025"
+      error: "Identifiants yi baaxul"
     }
   };
 
