@@ -171,17 +171,18 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 - [x] ~~**Migrer les autres pages** : Ziarra, Origines, GeographieSacree vers MongoDB~~ ✅ Complété (Février 2026)
 
 ### P1 - Prochaines étapes prioritaires
+- [ ] **Bannière "Bismillah"** sur la page d'accueil (détail visuel et spirituel important)
 - [ ] **Transformation PWA améliorée** : Améliorer l'expérience mobile avec mode hors-ligne complet pour audio/vidéo
 
 ### P2 - Améliorations
-- [ ] **Bannière "Bismillah"** sur la page d'accueil (détail visuel et spirituel important)
 - [ ] Simplifier `LanguageContext.js` (supprimer le contenu migré vers MongoDB)
 - [ ] Ajouter plus de contenu interactif (quiz, méditations guidées)
+- [ ] **Refactoring server.py** : Diviser le fichier monolithique en modules (models.py, routers/archives.py, etc.)
+- [ ] **Refactoring AdminPanel.js** : Décomposer en sous-composants (ArchiveManager.js, OuvragesManager.js, etc.)
 
 ### P3 - Futures
 - [ ] **Notifications Push depuis l'Admin** : Interface pour envoyer des notifications push
 - [ ] **Transcriptions des Khassaides** : Intégrer les textes des poèmes à côté des lecteurs audio
-- [ ] **Migration Ouvrages vers MongoDB** : Migrer OuvragesReference.js vers MongoDB pour gestion CMS
 - [ ] Intégration réseaux sociaux (flux Twitter/Facebook)
 - [ ] Statistiques de visite dans le panneau admin
 
