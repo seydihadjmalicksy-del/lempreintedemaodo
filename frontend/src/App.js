@@ -49,6 +49,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <PWAPrompt />
+        <OfflineManager />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchResults />} />
