@@ -216,12 +216,11 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 
 ### P1 - Prochaines étapes prioritaires
 - [ ] **Bannière "Bismillah"** sur la page d'accueil (détail visuel et spirituel important)
-- [ ] **Refactoring AdminPanel.js** : Décomposer en sous-composants (composants créés dans `/pages/admin/`)
 
 ### P2 - Améliorations
 - [ ] Simplifier `LanguageContext.js` (supprimer le contenu migré vers MongoDB)
 - [ ] Ajouter plus de contenu interactif (quiz, méditations guidées)
-- [ ] Intégrer les composants admin créés (OuvragesTab, ArchivesTab, FamilyTreeTab)
+- [ ] Créer des formulaires d'ajout dans les composants admin (actuellement lecture seule + suppression)
 
 ### P3 - Futures
 - [ ] **Notifications Push depuis l'Admin** : Interface pour envoyer des notifications push
