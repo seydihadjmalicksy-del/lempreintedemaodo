@@ -160,7 +160,7 @@ const PWAPrompt = () => {
     setIsLoading(true);
     
     // First, try the native install prompt if available
-    if (isInstallable && deferredPrompt) {
+    if (isInstallable) {
       try {
         const success = await installApp();
         if (success) {
@@ -174,14 +174,13 @@ const PWAPrompt = () => {
       }
     }
     
-    // For Chrome on desktop, try to trigger the browser's install UI
+    // For Chrome on desktop, show a helpful toast
     if (!isIOS && !isAndroid && isChrome) {
-      // Show a toast with instructions
       toast.info(
         language === 'fr' 
-          ? "Cliquez sur l'icône ⊕ dans la barre d'adresse de Chrome pour installer"
-          : "Click the ⊕ icon in Chrome's address bar to install",
-        { duration: 5000 }
+          ? "Regardez la barre d'adresse de Chrome - cliquez sur ⊕ pour installer"
+          : "Look at Chrome's address bar - click ⊕ to install",
+        { duration: 6000 }
       );
     }
     
@@ -189,9 +188,6 @@ const PWAPrompt = () => {
     setIsLoading(false);
     setShowInstructions(true);
   };
-
-  // Try to get the deferred prompt from the hook
-  const { deferredPrompt } = usePWA ? usePWA() : { deferredPrompt: null };
 
   const handleNotificationToggle = async () => {
     setIsLoading(true);
