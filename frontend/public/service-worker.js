@@ -1,8 +1,9 @@
 /* eslint-disable no-restricted-globals */
 
-const CACHE_NAME = 'maodo-pwa-v2';
-const STATIC_CACHE = 'maodo-static-v2';
-const MEDIA_CACHE = 'maodo-media-v2';
+const CACHE_NAME = 'maodo-pwa-v3';
+const STATIC_CACHE = 'maodo-static-v3';
+const MEDIA_CACHE = 'maodo-media-v3';
+const API_CACHE = 'maodo-api-v3';
 
 // Static assets to cache immediately
 const STATIC_ASSETS = [
@@ -14,9 +15,27 @@ const STATIC_ASSETS = [
   '/favicon.ico'
 ];
 
+// API routes to cache for offline access
+const CACHEABLE_API_ROUTES = [
+  '/api/quotes/daily',
+  '/api/quotes',
+  '/api/events',
+  '/api/khalifes',
+  '/api/archives/manuscripts',
+  '/api/archives/photos',
+  '/api/archives/audio',
+  '/api/archives/videos',
+  '/api/archives/sources',
+  '/api/family-tree',
+  '/api/ouvrages/majeurs',
+  '/api/ouvrages/autres',
+  '/api/ouvrages/bibliotheque',
+  '/api/ouvrages/archives-academiques'
+];
+
 // Install service worker
 self.addEventListener('install', (event) => {
-  console.log('[PWA] Installing service worker...');
+  console.log('[PWA] Installing service worker v3...');
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => {
@@ -32,13 +51,13 @@ self.addEventListener('install', (event) => {
 
 // Activate service worker
 self.addEventListener('activate', (event) => {
-  console.log('[PWA] Activating service worker...');
+  console.log('[PWA] Activating service worker v3...');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
-          // Delete old caches
-          if (!cacheName.includes('-v2')) {
+          // Delete old caches (v1, v2)
+          if (!cacheName.includes('-v3')) {
             console.log('[PWA] Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
@@ -57,8 +76,29 @@ self.addEventListener('fetch', (event) => {
   // Skip non-GET requests
   if (event.request.method !== 'GET') return;
   
-  // Handle API requests - network only
+  // Handle cacheable API requests - Network first, then cache
   if (url.pathname.startsWith('/api/')) {
+    const isCacheableRoute = CACHEABLE_API_ROUTES.some(route => url.pathname.includes(route));
+    
+    if (isCacheableRoute) {
+      event.respondWith(
+        caches.open(API_CACHE).then((cache) => {
+          return fetch(event.request)
+            .then((networkResponse) => {
+              if (networkResponse.ok) {
+                cache.put(event.request, networkResponse.clone());
+              }
+              return networkResponse;
+            })
+            .catch(() => {
+              console.log('[PWA] Serving API from cache:', url.pathname);
+              return cache.match(event.request);
+            });
+        })
+      );
+      return;
+    }
+    // Non-cacheable API routes - network only
     return;
   }
   
@@ -215,7 +255,29 @@ self.addEventListener('message', (event) => {
         if (response.ok) {
           cache.put(audioUrl, response);
           console.log('[PWA] Pre-cached audio:', audioUrl);
+          // Notify the client
+          event.source.postMessage({ type: 'AUDIO_CACHED', url: audioUrl });
         }
+      }).catch((err) => {
+        console.error('[PWA] Failed to cache audio:', err);
+        event.source.postMessage({ type: 'AUDIO_CACHE_FAILED', url: audioUrl, error: err.message });
+      });
+    });
+  }
+  
+  if (event.data && event.data.type === 'CACHE_ALL_AUDIO') {
+    const audioUrls = event.data.urls || [];
+    caches.open(MEDIA_CACHE).then((cache) => {
+      Promise.all(audioUrls.map(url => 
+        fetch(url).then((response) => {
+          if (response.ok) {
+            cache.put(url, response);
+            return { url, success: true };
+          }
+          return { url, success: false };
+        }).catch(() => ({ url, success: false }))
+      )).then((results) => {
+        event.source.postMessage({ type: 'ALL_AUDIO_CACHED', results });
       });
     });
   }
@@ -223,6 +285,40 @@ self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'CLEAR_MEDIA_CACHE') {
     caches.delete(MEDIA_CACHE).then(() => {
       console.log('[PWA] Media cache cleared');
+      event.source.postMessage({ type: 'MEDIA_CACHE_CLEARED' });
+    });
+  }
+  
+  if (event.data && event.data.type === 'GET_CACHE_STATUS') {
+    Promise.all([
+      caches.open(MEDIA_CACHE).then(cache => cache.keys()),
+      caches.open(API_CACHE).then(cache => cache.keys()),
+      caches.open(CACHE_NAME).then(cache => cache.keys())
+    ]).then(([mediaKeys, apiKeys, staticKeys]) => {
+      event.source.postMessage({ 
+        type: 'CACHE_STATUS', 
+        media: mediaKeys.length,
+        api: apiKeys.length,
+        static: staticKeys.length
+      });
+    });
+  }
+  
+  if (event.data && event.data.type === 'PRECACHE_API') {
+    caches.open(API_CACHE).then((cache) => {
+      Promise.all(CACHEABLE_API_ROUTES.map(route => {
+        const url = new URL(route, self.location.origin).href;
+        return fetch(url).then(response => {
+          if (response.ok) {
+            cache.put(url, response);
+            return { route, success: true };
+          }
+          return { route, success: false };
+        }).catch(() => ({ route, success: false }));
+      })).then((results) => {
+        console.log('[PWA] API pre-cache complete:', results);
+        event.source.postMessage({ type: 'API_PRECACHED', results });
+      });
     });
   }
 });
