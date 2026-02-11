@@ -117,6 +117,13 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 || `/api/family-tree/tree` | GET | **NOUVEAU** Arbre généalogique hiérarchique |
 || `/api/family-tree/{node_id}` | PUT/DELETE | **NOUVEAU** Modifier/Supprimer membre |
 || `/api/family-tree/seed` | POST | **NOUVEAU** Initialiser données arbre |
+|| `/api/ouvrages/majeurs` | GET/POST | **NOUVEAU** Ouvrages majeurs (6 items) |
+|| `/api/ouvrages/autres` | GET/POST | **NOUVEAU** Autres écrits (4 items) |
+|| `/api/ouvrages/bibliotheque` | GET/POST | **NOUVEAU** Bibliothèque numérique (10 items) |
+|| `/api/ouvrages/archives-academiques` | GET/POST | **NOUVEAU** Archives académiques (6 items) |
+|| `/api/ouvrages/stats` | GET | **NOUVEAU** Statistiques des ouvrages |
+|| `/api/ouvrages/seed` | POST | **NOUVEAU** Initialiser données ouvrages |
+|| `/api/ouvrages/{type}/{id}` | PUT/DELETE | **NOUVEAU** Modifier/Supprimer ouvrage |
 || `/health` | GET | Health check pour déploiement K8s |
 
 ### Base de Données MongoDB
