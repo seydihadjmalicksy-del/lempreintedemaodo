@@ -339,7 +339,7 @@ const PWAPrompt = () => {
                 className="px-4 py-2 bg-[#004D33] hover:bg-[#003d29] text-white text-sm rounded-lg font-medium transition-colors disabled:opacity-50 flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
-                {isInstallable ? t.install : t.howToInstall}
+                {t.install}
               </button>
             </div>
           </div>
