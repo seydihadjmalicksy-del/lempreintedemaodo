@@ -26,6 +26,7 @@ import EcoleTivaouane from "./pages/enseignements/EcoleTivaouane";
 import OuvragesReference from "./pages/enseignements/OuvragesReference";
 import Navbar from "./components/Navbar";
 import PWAPrompt from "./components/PWAPrompt";
+import OfflineManager from "./components/OfflineManager";
 import { Toaster } from "@/components/ui/sonner";
 import "@/App.css";
 
