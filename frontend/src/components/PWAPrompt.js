@@ -213,71 +213,91 @@ const PWAPrompt = () => {
                 <h3 className="font-bold text-lg">
                   {isIOS ? t.iosTitle : isAndroid ? t.androidTitle : t.desktopTitle}
                 </h3>
+                <p className="text-white/70 text-sm">L'empreinte de Maodo</p>
               </div>
             </div>
           </div>
 
           {/* Instructions */}
-          <div className="p-6 space-y-6">
+          <div className="p-6 space-y-4">
             {isIOS ? (
               // iOS Instructions
               <>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#007AFF] rounded-xl flex items-center justify-center">
+                <p className="text-[#4A4A4A] text-sm mb-4">Suivez ces étapes pour installer l'application :</p>
+                <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-12 h-12 bg-[#007AFF] rounded-xl flex items-center justify-center flex-shrink-0">
                     <Share className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="font-medium text-[#004D33]">{t.iosStep1}</p>
-                    <p className="text-[#D4AF37] font-bold">{t.iosStep2}</p>
+                    <p className="font-bold text-[#004D33]">Étape 1</p>
+                    <p className="text-[#4A4A4A]">Appuyez sur <span className="font-bold text-[#007AFF]">Partager</span> en bas de Safari</p>
                   </div>
                 </div>
-                <div className="border-l-2 border-dashed border-[#D4AF37] ml-6 h-4"></div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#E8F5E9] rounded-xl flex items-center justify-center">
+                <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-12 h-12 bg-[#E8F5E9] rounded-xl flex items-center justify-center flex-shrink-0">
                     <Plus className="w-6 h-6 text-[#004D33]" />
                   </div>
                   <div>
-                    <p className="font-medium text-[#004D33]">{t.iosStep3}</p>
-                    <p className="text-[#D4AF37] font-bold">{t.iosStep4}</p>
+                    <p className="font-bold text-[#004D33]">Étape 2</p>
+                    <p className="text-[#4A4A4A]">Sélectionnez <span className="font-bold text-[#004D33]">"Sur l'écran d'accueil"</span></p>
                   </div>
                 </div>
               </>
             ) : isAndroid ? (
               // Android Instructions
               <>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                <p className="text-[#4A4A4A] text-sm mb-4">Suivez ces étapes pour installer l'application :</p>
+                <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center flex-shrink-0">
                     <MoreVertical className="w-6 h-6 text-gray-700" />
                   </div>
                   <div>
-                    <p className="font-medium text-[#004D33]">{t.androidStep1}</p>
-                    <p className="text-[#888]">{t.androidStep2}</p>
+                    <p className="font-bold text-[#004D33]">Étape 1</p>
+                    <p className="text-[#4A4A4A]">Appuyez sur le <span className="font-bold">menu ⋮</span> en haut à droite</p>
                   </div>
                 </div>
-                <div className="border-l-2 border-dashed border-[#D4AF37] ml-6 h-4"></div>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-[#E8F5E9] rounded-xl flex items-center justify-center">
+                <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-12 h-12 bg-[#E8F5E9] rounded-xl flex items-center justify-center flex-shrink-0">
                     <Download className="w-6 h-6 text-[#004D33]" />
                   </div>
                   <div>
-                    <p className="font-medium text-[#004D33]">{t.androidStep3}</p>
-                    <p className="text-[#D4AF37] font-bold">{t.androidStep4}</p>
+                    <p className="font-bold text-[#004D33]">Étape 2</p>
+                    <p className="text-[#4A4A4A]">Sélectionnez <span className="font-bold text-[#004D33]">"Installer l'application"</span></p>
                   </div>
                 </div>
               </>
             ) : (
-              // Desktop Instructions
+              // Desktop Instructions (Chrome/Edge)
               <>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-2xl">
+                <p className="text-[#4A4A4A] text-sm mb-4">Pour installer l'application sur votre ordinateur :</p>
+                
+                <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center flex-shrink-0 text-2xl">
                     ⊕
                   </div>
                   <div>
-                    <p className="font-medium text-[#004D33]">{t.desktopStep1}</p>
-                    <p className="text-[#888]">{t.desktopStep2}</p>
+                    <p className="font-bold text-[#004D33]">Option 1</p>
+                    <p className="text-[#4A4A4A]">Cliquez sur l'icône <span className="font-bold">⊕</span> dans la barre d'adresse</p>
                   </div>
                 </div>
-                <p className="text-center text-[#888]">{t.desktopStep3}</p>
+                
+                <div className="text-center text-[#888] py-2">— ou —</div>
+                
+                <div className="flex items-center gap-4 p-3 bg-gray-50 rounded-xl">
+                  <div className="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MoreVertical className="w-6 h-6 text-gray-700" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#004D33]">Option 2</p>
+                    <p className="text-[#4A4A4A]">Menu <span className="font-bold">⋮</span> → <span className="font-bold text-[#004D33]">"Installer L'empreinte de Maodo"</span></p>
+                  </div>
+                </div>
+
+                <div className="mt-4 p-3 bg-yellow-50 rounded-xl border border-yellow-200">
+                  <p className="text-sm text-yellow-800">
+                    <strong>Note :</strong> Utilisez Chrome ou Edge pour installer. L'icône ⊕ apparaît après quelques secondes de navigation.
+                  </p>
+                </div>
               </>
             )}
           </div>
