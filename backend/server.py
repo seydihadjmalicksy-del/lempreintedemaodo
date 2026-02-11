@@ -3854,6 +3854,734 @@ async def seed_family_tree(is_admin: bool = Depends(verify_admin_token)):
     }
 
 
+# ============== OUVRAGES ROUTES ==============
+
+# --- Ouvrages Majeurs ---
+@api_router.get("/ouvrages/majeurs")
+async def get_ouvrages_majeurs():
+    """Get all major works"""
+    items = await db.ouvrages_majeurs.find({"active": True}).sort("order", 1).to_list(1000)
+    for item in items:
+        item.pop("_id", None)
+    return items
+
+
+@api_router.post("/ouvrages/majeurs")
+async def create_ouvrage_majeur(item: OuvrageMajeurCreate, admin: bool = Depends(verify_admin_token)):
+    """Create a new major work"""
+    new_item = OuvrageMajeur(**item.model_dump())
+    item_dict = new_item.model_dump()
+    await db.ouvrages_majeurs.insert_one(item_dict)
+    item_dict.pop("_id", None)
+    return item_dict
+
+
+@api_router.put("/ouvrages/majeurs/{item_id}")
+async def update_ouvrage_majeur(item_id: str, item: OuvrageMajeurUpdate, admin: bool = Depends(verify_admin_token)):
+    """Update a major work"""
+    update_data = {k: v for k, v in item.model_dump().items() if v is not None}
+    if update_data:
+        result = await db.ouvrages_majeurs.update_one({"id": item_id}, {"$set": update_data})
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Ouvrage non trouvé")
+    updated = await db.ouvrages_majeurs.find_one({"id": item_id}, {"_id": 0})
+    return updated
+
+
+@api_router.delete("/ouvrages/majeurs/{item_id}")
+async def delete_ouvrage_majeur(item_id: str, admin: bool = Depends(verify_admin_token)):
+    """Delete a major work"""
+    result = await db.ouvrages_majeurs.delete_one({"id": item_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Ouvrage non trouvé")
+    return {"message": "Ouvrage supprimé avec succès"}
+
+
+# --- Autres Ouvrages ---
+@api_router.get("/ouvrages/autres")
+async def get_autres_ouvrages():
+    """Get all other works"""
+    items = await db.autres_ouvrages.find({"active": True}).sort("order", 1).to_list(1000)
+    for item in items:
+        item.pop("_id", None)
+    return items
+
+
+@api_router.post("/ouvrages/autres")
+async def create_autre_ouvrage(item: AutreOuvrageCreate, admin: bool = Depends(verify_admin_token)):
+    """Create a new other work"""
+    new_item = AutreOuvrage(**item.model_dump())
+    item_dict = new_item.model_dump()
+    await db.autres_ouvrages.insert_one(item_dict)
+    item_dict.pop("_id", None)
+    return item_dict
+
+
+@api_router.put("/ouvrages/autres/{item_id}")
+async def update_autre_ouvrage(item_id: str, item: AutreOuvrageUpdate, admin: bool = Depends(verify_admin_token)):
+    """Update an other work"""
+    update_data = {k: v for k, v in item.model_dump().items() if v is not None}
+    if update_data:
+        result = await db.autres_ouvrages.update_one({"id": item_id}, {"$set": update_data})
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Ouvrage non trouvé")
+    updated = await db.autres_ouvrages.find_one({"id": item_id}, {"_id": 0})
+    return updated
+
+
+@api_router.delete("/ouvrages/autres/{item_id}")
+async def delete_autre_ouvrage(item_id: str, admin: bool = Depends(verify_admin_token)):
+    """Delete an other work"""
+    result = await db.autres_ouvrages.delete_one({"id": item_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Ouvrage non trouvé")
+    return {"message": "Ouvrage supprimé avec succès"}
+
+
+# --- Bibliothèque Numérique ---
+@api_router.get("/ouvrages/bibliotheque")
+async def get_bibliotheque():
+    """Get all digital library items"""
+    items = await db.bibliotheque.find({"active": True}).sort("order", 1).to_list(1000)
+    for item in items:
+        item.pop("_id", None)
+    return items
+
+
+@api_router.post("/ouvrages/bibliotheque")
+async def create_bibliotheque_item(item: BibliothequeItemCreate, admin: bool = Depends(verify_admin_token)):
+    """Create a new digital library item"""
+    new_item = BibliothequeItem(**item.model_dump())
+    item_dict = new_item.model_dump()
+    await db.bibliotheque.insert_one(item_dict)
+    item_dict.pop("_id", None)
+    return item_dict
+
+
+@api_router.put("/ouvrages/bibliotheque/{item_id}")
+async def update_bibliotheque_item(item_id: str, item: BibliothequeItemUpdate, admin: bool = Depends(verify_admin_token)):
+    """Update a digital library item"""
+    update_data = {k: v for k, v in item.model_dump().items() if v is not None}
+    if update_data:
+        result = await db.bibliotheque.update_one({"id": item_id}, {"$set": update_data})
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Document non trouvé")
+    updated = await db.bibliotheque.find_one({"id": item_id}, {"_id": 0})
+    return updated
+
+
+@api_router.delete("/ouvrages/bibliotheque/{item_id}")
+async def delete_bibliotheque_item(item_id: str, admin: bool = Depends(verify_admin_token)):
+    """Delete a digital library item"""
+    result = await db.bibliotheque.delete_one({"id": item_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Document non trouvé")
+    return {"message": "Document supprimé avec succès"}
+
+
+# --- Archives Académiques ---
+@api_router.get("/ouvrages/archives-academiques")
+async def get_archives_academiques():
+    """Get all academic archives"""
+    items = await db.archives_academiques.find({"active": True}).sort("order", 1).to_list(1000)
+    for item in items:
+        item.pop("_id", None)
+    return items
+
+
+@api_router.post("/ouvrages/archives-academiques")
+async def create_archive_academique(item: ArchiveAcademiqueCreate, admin: bool = Depends(verify_admin_token)):
+    """Create a new academic archive"""
+    new_item = ArchiveAcademique(**item.model_dump())
+    item_dict = new_item.model_dump()
+    await db.archives_academiques.insert_one(item_dict)
+    item_dict.pop("_id", None)
+    return item_dict
+
+
+@api_router.put("/ouvrages/archives-academiques/{item_id}")
+async def update_archive_academique(item_id: str, item: ArchiveAcademiqueUpdate, admin: bool = Depends(verify_admin_token)):
+    """Update an academic archive"""
+    update_data = {k: v for k, v in item.model_dump().items() if v is not None}
+    if update_data:
+        result = await db.archives_academiques.update_one({"id": item_id}, {"$set": update_data})
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Archive non trouvée")
+    updated = await db.archives_academiques.find_one({"id": item_id}, {"_id": 0})
+    return updated
+
+
+@api_router.delete("/ouvrages/archives-academiques/{item_id}")
+async def delete_archive_academique(item_id: str, admin: bool = Depends(verify_admin_token)):
+    """Delete an academic archive"""
+    result = await db.archives_academiques.delete_one({"id": item_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Archive non trouvée")
+    return {"message": "Archive supprimée avec succès"}
+
+
+# --- Seed Ouvrages Data ---
+@api_router.post("/ouvrages/seed")
+async def seed_ouvrages(admin: bool = Depends(verify_admin_token)):
+    """Seed all ouvrages data from static content"""
+    
+    # Clear existing data
+    await db.ouvrages_majeurs.delete_many({})
+    await db.autres_ouvrages.delete_many({})
+    await db.bibliotheque.delete_many({})
+    await db.archives_academiques.delete_many({})
+    
+    # Ouvrages Majeurs
+    ouvrages_majeurs_data = [
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Khilâçu-Dhahab (L'Or Décanté)",
+                "en": "Khilâçu-Dhahab (The Purified Gold)",
+                "ar": "خلاص الذهب",
+                "wo": "Khilâçu-Dhahab (Wurusu wu séllu)"
+            },
+            "sous_titre": "خلاص الذهب",
+            "auteur": "El Hadji Malick Sy",
+            "date": "Début du XXe siècle",
+            "description": {
+                "fr": "Chef-d'œuvre poétique composé de trente tableaux dédiés à la célébration de la vie du Prophète Muhammad (PSL). Tous les vers se terminent par la lettre 'M', d'où son nom populaire 'Mi-Mi-Ya'. Considéré comme un monument littéraire inégalé dans l'évocation de la vie du Prophète et les louanges qu'il lui adresse.",
+                "en": "A poetic masterpiece composed of thirty sections dedicated to celebrating the life of Prophet Muhammad (PBUH). All verses end with the letter 'M', hence its popular name 'Mi-Mi-Ya'. Considered an unparalleled literary monument in evoking the Prophet's life and praising him.",
+                "ar": "تحفة شعرية تتألف من ثلاثين لوحة مخصصة للاحتفال بحياة النبي محمد صلى الله عليه وسلم. تنتهي جميع الأبيات بحرف 'م'، ومن هنا جاء اسمها الشائع 'مي مي يا'. تعتبر صرحاً أدبياً لا مثيل له في استحضار حياة النبي ومدحه.",
+                "wo": "Téere wu baax bu am fukki xarit ak ñett yu nekk ndaje bu mag ci ngiir sàmm sa nguuru Yonent Muhammad (SPM). Bépp beesu dafay jeex ak lettre 'M', loolu moo tax ñu koy tuddee 'Mi-Mi-Ya'."
+            },
+            "themes": ["Éloge du Prophète", "Poésie soufie", "Sira (Biographie prophétique)"],
+            "importance": {
+                "fr": "Chanté, traduit et commenté lors des Gamous à travers tout le Sénégal. Traduit en français par El Hadji Idrissa Mbengue Salif et Maodo Mbengue.",
+                "en": "Sung, translated and commented during Gamou celebrations throughout Senegal. Translated into French by El Hadji Idrissa Mbengue Salif and Maodo Mbengue.",
+                "ar": "يُغنى ويُترجم ويُعلق عليه خلال احتفالات المولد النبوي في جميع أنحاء السنغال. تُرجم إلى الفرنسية بواسطة الحاج إدريسا مبنغي صالف ومادو مبنغي.",
+                "wo": "Dañu koy woy, yëngal te comment ci Gamou yi ci Sénégal gépp. Yëngalu ci Français by El Hadji Idrissa Mbengue Salif ak Maodo Mbengue."
+            },
+            "icon": "Scroll",
+            "order": 1,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Fâkihat at-Tullâb",
+                "en": "Fâkihat at-Tullâb",
+                "ar": "فاكهة الطلاب",
+                "wo": "Fâkihat at-Tullâb"
+            },
+            "sous_titre": "فاكهة الطلاب",
+            "auteur": "El Hadji Malick Sy",
+            "date": "Début du XXe siècle",
+            "description": {
+                "fr": "L'œuvre la plus célèbre de Maodo. Ce traité aborde les principes généraux de la Tariqa Tijaniyya et la discipline requise du murid (aspirant spirituel). L'ouvrage se conclut par une section sur 'La Divergence parmi les Saints de Dieu', reflétant l'ouverture d'esprit caractéristique de Maodo envers les différentes voies spirituelles.",
+                "en": "Maodo's most famous work. This treatise addresses the general principles of the Tijaniyya Tariqa and the discipline required of the murid (spiritual aspirant). The work concludes with a section on 'The Divergence among the Saints of God', reflecting Maodo's characteristic open-mindedness towards different spiritual paths.",
+                "ar": "العمل الأشهر لمودو. يتناول هذا الكتاب المبادئ العامة للطريقة التيجانية والانضباط المطلوب من المريد. يختتم الكتاب بقسم عن 'الاختلاف بين أولياء الله'، مما يعكس انفتاح مودو المميز تجاه الطرق الروحية المختلفة.",
+                "wo": "Téere bi gëna xam-xam ci Maodo. Bii traité dafay wax ci njuumte yu Tariqa Tijaniyya ak discipline buga am murid. Téere bi dafay jeex ak xëtt ci 'Njëg ci Waliyu Yàlla yi'."
+            },
+            "themes": ["Principes de la Tariqa", "Conduite du murid", "Tolérance spirituelle"],
+            "importance": {
+                "fr": "Texte fondamental étudié dans toutes les daaras tidjanes, guide pratique pour tout aspirant spirituel",
+                "en": "Fundamental text studied in all Tijani daaras, practical guide for any spiritual aspirant",
+                "ar": "نص أساسي يُدرس في جميع دور التيجانية، دليل عملي لأي طالب روحاني",
+                "wo": "Téere bu jëm ci ndaje ci daara Tijaan yi gépp, guide pratique ngir murid gépp"
+            },
+            "icon": "Book",
+            "order": 2,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Kifâyat ar-Râghibîn",
+                "en": "Kifâyat ar-Râghibîn",
+                "ar": "كفاية الراغبين",
+                "wo": "Kifâyat ar-Râghibîn"
+            },
+            "sous_titre": "كفاية الراغبين",
+            "auteur": "El Hadji Malick Sy",
+            "date": "Début du XXe siècle",
+            "description": {
+                "fr": "Traité essentiel couvrant un large éventail de thèmes soufis incluant l'ascétisme (Zuhd), les relations sociales (Mu'âmalât) et la relation avec Dieu. Maodo y emploie fréquemment le vers poétique à des fins pédagogiques pour faciliter la mémorisation.",
+                "en": "Essential treatise covering a wide range of Sufi themes including asceticism (Zuhd), social relations (Mu'amalat) and the relationship with God. Maodo frequently uses poetic verse for pedagogical purposes to facilitate memorization.",
+                "ar": "رسالة أساسية تغطي مجموعة واسعة من المواضيع الصوفية بما في ذلك الزهد والمعاملات والعلاقة مع الله. يستخدم مودو الشعر بشكل متكرر لأغراض تعليمية لتسهيل الحفظ.",
+                "wo": "Traité bu am solo bu ëmb ay thème soufi yu bari lu am ni Zuhd, Mu'âmalât ak jëf ak Yàlla. Maodo dafay jëfandikoo beesu poétique ngir jàngale te mu yomb xam-xam."
+            },
+            "themes": ["Ascétisme (Zuhd)", "Relations sociales", "Spiritualité"],
+            "importance": {
+                "fr": "Encyclopédie spirituelle servant de référence pour la formation des disciples",
+                "en": "Spiritual encyclopedia serving as a reference for the training of disciples",
+                "ar": "موسوعة روحية تستخدم كمرجع لتدريب التلاميذ",
+                "wo": "Encyclopédie spirituelle bu am solo ngir jàngale talibé yi"
+            },
+            "icon": "Book",
+            "order": 3,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Ifhâm al-Munkir al-Jânî",
+                "en": "Ifhâm al-Munkir al-Jânî",
+                "ar": "إفهام المنكر الجاني",
+                "wo": "Ifhâm al-Munkir al-Jânî"
+            },
+            "sous_titre": "إفهام المنكر الجاني",
+            "auteur": "El Hadji Malick Sy",
+            "date": "Début du XXe siècle",
+            "description": {
+                "fr": "Traité en arabe défendant la Tariqa Tijaniyya et le soufisme sunnite (tasawwuf as-sunnî) contre ses détracteurs. L'ouvrage commente la Jawharat al-Kamal pour mettre en lumière le soufisme orthodoxe et sa base textuelle, positionnant la Tijaniyya comme une voie légitime.",
+                "en": "Arabic treatise defending the Tijaniyya Tariqa and Sunni Sufism (tasawwuf as-sunni) against its detractors. The work comments on the Jawharat al-Kamal to highlight orthodox Sufism and its textual basis, positioning the Tijaniyya as a legitimate path.",
+                "ar": "رسالة بالعربية تدافع عن الطريقة التيجانية والتصوف السني ضد منتقديها. يعلق الكتاب على جوهرة الكمال لإبراز التصوف الأصيل وأساسه النصي، ويضع التيجانية كطريقة شرعية.",
+                "wo": "Traité ci Araab bu defe Tariqa Tijaniyya ak Soufisme Sunni. Téere bi dafay comment Jawharat al-Kamal ngir won Soufisme orthodoxe ak sa base textuelle."
+            },
+            "themes": ["Défense de la Tariqa", "Soufisme orthodoxe", "Réfutation"],
+            "importance": {
+                "fr": "Démonstration de l'érudition de Maodo et de sa maîtrise des sciences islamiques",
+                "en": "Demonstration of Maodo's erudition and mastery of Islamic sciences",
+                "ar": "إظهار لعلم مودو وإتقانه للعلوم الإسلامية",
+                "wo": "Woneel xam-xam Maodo ak sa maîtrise ci Sciences Islamiques"
+            },
+            "icon": "FileText",
+            "order": 4,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Wassilatoul Mouna (Tayssir)",
+                "en": "Wassilatoul Mouna (Tayssir)",
+                "ar": "وسيلة المنى (التيسير)",
+                "wo": "Wassilatoul Mouna (Tayssir)"
+            },
+            "sous_titre": "وسيلة المنى (التيسير)",
+            "auteur": "El Hadji Malick Sy",
+            "date": "Début du XXe siècle",
+            "description": {
+                "fr": "Khassida (poème panégyrique soufi) visant à obtenir la réalisation des vœux par l'invocation des Beaux Noms d'Allah. Ce poème exprime la soumission totale à Dieu et la quête spirituelle du croyant.",
+                "en": "Khassida (Sufi panegyric poem) aimed at achieving the fulfillment of wishes through the invocation of Allah's Beautiful Names. This poem expresses total submission to God and the believer's spiritual quest.",
+                "ar": "قصيدة مديح صوفية تهدف إلى تحقيق الأماني من خلال الدعاء بأسماء الله الحسنى. يعبر هذا الشعر عن الخضوع التام لله وسعي المؤمن الروحي.",
+                "wo": "Khassida (téere soufi) bu am solo ngir am sa soxla ci tuddu Yàlla yu rafet. Bii poème dafay won yéene bu mat ci Yàlla ak soxla spirituelle Jullit."
+            },
+            "themes": ["Invocation divine", "Noms d'Allah", "Supplication"],
+            "importance": {
+                "fr": "Récité régulièrement par les fidèles, disponible avec transcription et traduction française",
+                "en": "Regularly recited by the faithful, available with transcription and French translation",
+                "ar": "يُتلى بانتظام من قبل المؤمنين، متوفر مع النص والترجمة الفرنسية",
+                "wo": "Dafu jay woy ci Jullit yi, am na ak transcription ak yëngal ci Français"
+            },
+            "icon": "Scroll",
+            "order": 5,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Zajrul Qulûb",
+                "en": "Zajrul Qulûb",
+                "ar": "زجر القلوب",
+                "wo": "Zajrul Qulûb"
+            },
+            "sous_titre": "زجر القلوب",
+            "auteur": "El Hadji Malick Sy",
+            "date": "Début du XXe siècle",
+            "description": {
+                "fr": "Exhortation des cœurs. Traité spirituel sur la purification de l'âme et l'éveil des cœurs à la réalité divine.",
+                "en": "Exhortation of hearts. Spiritual treatise on the purification of the soul and the awakening of hearts to divine reality.",
+                "ar": "زجر القلوب. رسالة روحية عن تزكية النفس وإيقاظ القلوب للحقيقة الإلهية.",
+                "wo": "Zajrul Qulûb. Traité spirituel ci sellal xol ak feyyal xol ci dëgg Yàlla."
+            },
+            "themes": ["Purification spirituelle", "Éveil du cœur", "Rappel"],
+            "importance": {
+                "fr": "Guide pour la transformation intérieure du disciple",
+                "en": "Guide for the inner transformation of the disciple",
+                "ar": "دليل للتحول الداخلي للمريد",
+                "wo": "Guide ngir soppi ci biir talibé"
+            },
+            "icon": "FileText",
+            "order": 6,
+            "active": True
+        }
+    ]
+    
+    # Autres Ouvrages
+    autres_ouvrages_data = [
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Dîwân El Hadji Malick Sy",
+                "en": "Dîwân El Hadji Malick Sy",
+                "ar": "ديوان الحاج مالك سي",
+                "wo": "Dîwân El Hadji Malick Sy"
+            },
+            "description": {
+                "fr": "Recueil complet des poésies de Maodo, incluant des poèmes sur le Prophète, Cheikh Ahmed Tijani et El Hadji Oumar Foutiyou Tall. Nouvelle édition en sept tomes publiée au Maroc en 2022 pour le centenaire de sa disparition.",
+                "en": "Complete collection of Maodo's poetry, including poems about the Prophet, Sheikh Ahmed Tijani and El Hadji Oumar Foutiyou Tall. New seven-volume edition published in Morocco in 2022 for the centenary of his passing.",
+                "ar": "مجموعة كاملة لشعر مودو، تشمل قصائد عن النبي والشيخ أحمد التيجاني والحاج عمر فوتيو تال. طبعة جديدة في سبعة مجلدات نُشرت في المغرب عام 2022 بمناسبة مئوية وفاته.",
+                "wo": "Téere bu ëpp ci poésie Maodo, am na téere ci Yonent, Cheikh Ahmed Tijani ak El Hadji Oumar Foutiyou Tall. Édition bu bees ci juróom ñaar tome publié ci Maroc ci 2022."
+            },
+            "order": 1,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Abada Buruq",
+                "en": "Abada Buruq",
+                "ar": "أبدى بروق",
+                "wo": "Abada Buruq"
+            },
+            "description": {
+                "fr": "Ouvrage disponible en traduction française, faisant partie du corpus littéraire de Maodo.",
+                "en": "Work available in French translation, part of Maodo's literary corpus.",
+                "ar": "عمل متوفر بترجمة فرنسية، جزء من المجموعة الأدبية لمودو.",
+                "wo": "Téere bu am ci yëngal Français, ci biir téere yi Maodo."
+            },
+            "order": 2,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Khutbatul Jumu'a",
+                "en": "Khutbatul Jumu'a",
+                "ar": "خطبة الجمعة",
+                "wo": "Khutbatul Jumu'a"
+            },
+            "description": {
+                "fr": "Sermons du vendredi prononcés par Maodo, préservés et transmis à travers les générations.",
+                "en": "Friday sermons delivered by Maodo, preserved and transmitted through generations.",
+                "ar": "خطب الجمعة التي ألقاها مودو، حُفظت ونُقلت عبر الأجيال.",
+                "wo": "Khutba Jumu'a yi Maodo waxee, dañu ko téeg te yëgale ci at yi."
+            },
+            "order": 3,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Doua-oul Wazifa",
+                "en": "Doua-oul Wazifa",
+                "ar": "دعاء الوظيفة",
+                "wo": "Doua-oul Wazifa"
+            },
+            "description": {
+                "fr": "Invocations et prières de la Wazifa, pratique quotidienne des disciples tidjanes.",
+                "en": "Invocations and prayers of the Wazifa, daily practice of Tijani disciples.",
+                "ar": "أدعية وصلوات الوظيفة، الممارسة اليومية لتلاميذ التيجانية.",
+                "wo": "Ñaan yi ak Wazifa, jëf bu bés bu bés ci talibé Tijaan yi."
+            },
+            "order": 4,
+            "active": True
+        }
+    ]
+    
+    # Bibliothèque Numérique
+    bibliotheque_data = [
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Wassilatoul Mouna (Tayssir) - PDF Complet",
+                "en": "Wassilatoul Mouna (Tayssir) - Complete PDF",
+                "ar": "وسيلة المنى (التيسير) - PDF كامل",
+                "wo": "Wassilatoul Mouna (Tayssir) - PDF bu mat"
+            },
+            "taille": "PDF",
+            "langue": "Arabe, Translittération et Français",
+            "lien": "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf",
+            "disponible": True,
+            "order": 1,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Khilâçu-Dhahab - Version numérique",
+                "en": "Khilâçu-Dhahab - Digital Version",
+                "ar": "خلاص الذهب - النسخة الرقمية",
+                "wo": "Khilâçu-Dhahab - Version numérique"
+            },
+            "taille": "PDF",
+            "langue": "Arabe avec traduction française",
+            "lien": "https://www.calameo.com/books/0022411818a800b8305c6",
+            "disponible": True,
+            "order": 2,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Ifhâm al-Munkir - Thèse universitaire",
+                "en": "Ifhâm al-Munkir - University Thesis",
+                "ar": "إفهام المنكر - أطروحة جامعية",
+                "wo": "Ifhâm al-Munkir - Thèse universitaire"
+            },
+            "taille": "PDF",
+            "langue": "Arabe et Français",
+            "lien": "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye",
+            "disponible": True,
+            "order": 3,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Présentation du Nouveau Dîwân (7 tomes)",
+                "en": "Presentation of the New Dîwân (7 volumes)",
+                "ar": "تقديم الديوان الجديد (7 مجلدات)",
+                "wo": "Présentation bi Dîwân bu bees (7 tomes)"
+            },
+            "taille": "Livre",
+            "langue": "Français",
+            "lien": "https://senharmattan.com/fr/religion/5312-presentation-et-inventaire-du-nouveau-diwan-d-el-hadji-malick-sy-pere-fondateur-de-la-zawiya-tidjan-de-tivaouane.html",
+            "disponible": True,
+            "order": 4,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Thèse du Pr. Rawane Mbaye - Vol. 1 (Pensée et Action)",
+                "en": "Prof. Rawane Mbaye's Thesis - Vol. 1 (Thought and Action)",
+                "ar": "أطروحة الأستاذ رواني مباي - المجلد 1 (الفكر والعمل)",
+                "wo": "Thèse Pr. Rawane Mbaye - Vol. 1 (Xalaat ak Jëf)"
+            },
+            "taille": "PDF",
+            "langue": "Français",
+            "lien": "https://fr.scribd.com/document/655798719/These-Du-Pr-Rawane-Mbaye-Vol-1-Tome-1-3",
+            "disponible": True,
+            "order": 5,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "TAISSIR - Seydi El Hadji Malick Sy",
+                "en": "TAISSIR - Seydi El Hadji Malick Sy",
+                "ar": "التيسير - سيدي الحاج مالك سي",
+                "wo": "TAISSIR - Seydi El Hadji Malick Sy"
+            },
+            "taille": "PDF",
+            "langue": "Arabe",
+            "lien": "https://www.scribd.com/document/519357264/TAISSIR-Seydi-El-Hadji-Malick-Sy",
+            "disponible": True,
+            "order": 6,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "El Hadji Malick Sy et l'islamisation du Sénégal",
+                "en": "El Hadji Malick Sy and the Islamization of Senegal",
+                "ar": "الحاج مالك سي وأسلمة السنغال",
+                "wo": "El Hadji Malick Sy ak Islaamiyaasu Sénégal"
+            },
+            "taille": "PDF",
+            "langue": "Français",
+            "lien": "https://fr.scribd.com/document/526108125/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal",
+            "disponible": True,
+            "order": 7,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Exposé complet sur Seydil Hadji Malick Sy",
+                "en": "Complete Presentation on Seydil Hadji Malick Sy",
+                "ar": "عرض كامل عن سيدي الحاج مالك سي",
+                "wo": "Exposé bu mat ci Seydil Hadji Malick Sy"
+            },
+            "taille": "PDF",
+            "langue": "Français",
+            "lien": "https://fr.scribd.com/document/836834898/expose-sur-seydil-hadji-malick-sy",
+            "disponible": True,
+            "order": 8,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "El Hadji Malick Sy - Biographie (PDF)",
+                "en": "El Hadji Malick Sy - Biography (PDF)",
+                "ar": "الحاج مالك سي - السيرة الذاتية (PDF)",
+                "wo": "El Hadji Malick Sy - Biographie (PDF)"
+            },
+            "taille": "PDF",
+            "langue": "Français",
+            "lien": "https://fr.scribd.com/document/409928831/El-Hadji-Malick-Sy-pdf",
+            "disponible": True,
+            "order": 9,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Édition complète des œuvres - Université Maroc",
+                "en": "Complete Works Edition - Morocco University",
+                "ar": "الطبعة الكاملة للأعمال - جامعة المغرب",
+                "wo": "Édition bu mat ci téere yi - Université Maroc"
+            },
+            "taille": "PDF Académique",
+            "langue": "Arabe et Français",
+            "lien": "https://www.uir.ac.ma/upload/media/639c87022344a508686074.pdf",
+            "disponible": True,
+            "order": 10,
+            "active": True
+        }
+    ]
+    
+    # Archives Académiques
+    archives_academiques_data = [
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "BnF - Fiche d'autorité Malick Sy",
+                "en": "BnF - Authority Record Malick Sy",
+                "ar": "المكتبة الوطنية الفرنسية - سجل مالك سي",
+                "wo": "BnF - Fiche d'autorité Malick Sy"
+            },
+            "description": {
+                "fr": "Page officielle de la Bibliothèque nationale de France sur Malick Sy avec bibliographie complète",
+                "en": "Official page of the National Library of France on Malick Sy with complete bibliography",
+                "ar": "الصفحة الرسمية للمكتبة الوطنية الفرنسية عن مالك سي مع ببليوغرافيا كاملة",
+                "wo": "Page officiel bi Bibliothèque nationale de France ci Malick Sy ak bibliographie bu mat"
+            },
+            "lien": "https://data.bnf.fr/fr/14528700/malick_sy/",
+            "source": "Bibliothèque nationale de France",
+            "order": 1,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Les Cahiers de l'Islam - Islamisation du Sénégal",
+                "en": "Les Cahiers de l'Islam - Islamization of Senegal",
+                "ar": "دفاتر الإسلام - أسلمة السنغال",
+                "wo": "Les Cahiers de l'Islam - Islaamiyaasu Sénégal"
+            },
+            "description": {
+                "fr": "Article académique sur le rôle de la Tijaniyya dans l'islamisation du Sénégal",
+                "en": "Academic article on the role of Tijaniyya in the Islamization of Senegal",
+                "ar": "مقال أكاديمي عن دور التيجانية في أسلمة السنغال",
+                "wo": "Article académique ci rôle Tijaniyya ci Islaamiyaasu Sénégal"
+            },
+            "lien": "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html",
+            "source": "Les Cahiers de l'Islam",
+            "order": 2,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "OpenEdition - Revue des Mondes Musulmans",
+                "en": "OpenEdition - Review of Muslim Worlds",
+                "ar": "OpenEdition - مجلة العوالم الإسلامية",
+                "wo": "OpenEdition - Revue des Mondes Musulmans"
+            },
+            "description": {
+                "fr": "Article de recherche sur El Hadji Malick Sy dans la Revue des mondes musulmans et de la Méditerranée",
+                "en": "Research article on El Hadji Malick Sy in the Review of Muslim and Mediterranean Worlds",
+                "ar": "مقال بحثي عن الحاج مالك سي في مجلة العوالم الإسلامية والمتوسطية",
+                "wo": "Article recherche ci El Hadji Malick Sy ci Revue des mondes musulmans et de la Méditerranée"
+            },
+            "lien": "https://journals.openedition.org/remmm/21127",
+            "source": "OpenEdition Journals",
+            "order": 3,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Timbuktu Institute - Rôle diplomatique de Tivaouane",
+                "en": "Timbuktu Institute - Diplomatic Role of Tivaouane",
+                "ar": "معهد تمبكتو - الدور الدبلوماسي لتيفاوان",
+                "wo": "Timbuktu Institute - Rôle diplomatique bi Tivaouane"
+            },
+            "description": {
+                "fr": "Analyse du rôle diplomatique pionnier de la zawiya de Tivaouane",
+                "en": "Analysis of the pioneering diplomatic role of the Tivaouane zawiya",
+                "ar": "تحليل الدور الدبلوماسي الريادي لزاوية تيفاوان",
+                "wo": "Analyse bi rôle diplomatique pionnier zawiya Tivaouane"
+            },
+            "lien": "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe",
+            "source": "Timbuktu Institute",
+            "order": 4,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Éditions UCAD - El Hadji Malick Sy",
+                "en": "UCAD Editions - El Hadji Malick Sy",
+                "ar": "منشورات جامعة الشيخ أنتا ديوب - الحاج مالك سي",
+                "wo": "Éditions UCAD - El Hadji Malick Sy"
+            },
+            "description": {
+                "fr": "Publication universitaire de l'Université Cheikh Anta Diop de Dakar",
+                "en": "University publication from Cheikh Anta Diop University of Dakar",
+                "ar": "منشور جامعي من جامعة الشيخ أنتا ديوب بداكار",
+                "wo": "Publication universitaire bi Université Cheikh Anta Diop de Dakar"
+            },
+            "lien": "https://editions.ucad.sn/ouvrages/65",
+            "source": "UCAD Dakar",
+            "order": 5,
+            "active": True
+        },
+        {
+            "id": str(uuid.uuid4()),
+            "titre": {
+                "fr": "Bibliothèque numérique UCAD - Thèses",
+                "en": "UCAD Digital Library - Theses",
+                "ar": "المكتبة الرقمية لجامعة الشيخ أنتا ديوب - الأطروحات",
+                "wo": "Bibliothèque numérique UCAD - Thèses"
+            },
+            "description": {
+                "fr": "Collection de thèses et mémoires sur El Hadji Malick Sy",
+                "en": "Collection of theses and dissertations on El Hadji Malick Sy",
+                "ar": "مجموعة من الأطروحات والرسائل عن الحاج مالك سي",
+                "wo": "Collection thèses ak mémoires ci El Hadji Malick Sy"
+            },
+            "lien": "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses",
+            "source": "UCAD Bibliothèque",
+            "order": 6,
+            "active": True
+        }
+    ]
+    
+    # Insert all data
+    await db.ouvrages_majeurs.insert_many(ouvrages_majeurs_data)
+    await db.autres_ouvrages.insert_many(autres_ouvrages_data)
+    await db.bibliotheque.insert_many(bibliotheque_data)
+    await db.archives_academiques.insert_many(archives_academiques_data)
+    
+    return {
+        "message": "Données des ouvrages initialisées avec succès",
+        "counts": {
+            "ouvrages_majeurs": len(ouvrages_majeurs_data),
+            "autres_ouvrages": len(autres_ouvrages_data),
+            "bibliotheque": len(bibliotheque_data),
+            "archives_academiques": len(archives_academiques_data)
+        }
+    }
+
+
+# --- Get All Ouvrages Stats ---
+@api_router.get("/ouvrages/stats")
+async def get_ouvrages_stats():
+    """Get statistics for all ouvrages collections"""
+    majeurs_count = await db.ouvrages_majeurs.count_documents({"active": True})
+    autres_count = await db.autres_ouvrages.count_documents({"active": True})
+    bibliotheque_count = await db.bibliotheque.count_documents({"active": True})
+    archives_count = await db.archives_academiques.count_documents({"active": True})
+    
+    return {
+        "ouvrages_majeurs": majeurs_count,
+        "autres_ouvrages": autres_count,
+        "bibliotheque": bibliotheque_count,
+        "archives_academiques": archives_count,
+        "total": majeurs_count + autres_count + bibliotheque_count + archives_count
+    }
+
+
 # Include the router in the main app
 app.include_router(api_router)
 
