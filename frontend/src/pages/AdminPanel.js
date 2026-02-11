@@ -1249,6 +1249,15 @@ const AdminPanel = () => {
             <Users className="w-5 h-5" />
             Arbre ({familyTree.length})
           </button>
+          <button
+            onClick={() => { setActiveTab("ouvrages"); setShowAddForm(false); setEditingItem(null); fetchOuvrages(); }}
+            className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+              activeTab === "ouvrages" ? "bg-[#004D33] text-white" : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+            }`}
+          >
+            <Book className="w-5 h-5" />
+            Ouvrages ({ouvragesStats.total || 0})
+          </button>
         </div>
 
         {/* Content Area */}
