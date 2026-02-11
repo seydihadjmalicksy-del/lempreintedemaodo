@@ -122,8 +122,9 @@ const PWAPrompt = () => {
   // Don't show if user closed the prompt
   if (!showPrompt) return null;
 
-  // Don't show if nothing to offer
-  if (!isInstallable && notificationPermission === 'denied') return null;
+  // Always show on mobile to guide users (even if not directly installable via prompt)
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const showIOSInstructions = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
   return (
     <div className="fixed bottom-4 right-4 z-50 max-w-sm" data-testid="pwa-prompt">
