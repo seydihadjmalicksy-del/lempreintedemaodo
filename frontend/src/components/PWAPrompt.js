@@ -157,19 +157,22 @@ const PWAPrompt = () => {
   const t = labels[language] || labels.fr;
 
   const handleInstall = async () => {
+    setIsLoading(true);
+    
+    // First, try the native install prompt if available
     if (isInstallable) {
-      setIsLoading(true);
       const success = await installApp();
-      setIsLoading(false);
-      
       if (success) {
         toast.success(t.installed);
         setShowPrompt(false);
+        setIsLoading(false);
+        return;
       }
-    } else {
-      // Show instructions if direct install not available
-      setShowInstructions(true);
     }
+    
+    // If native install not available, show instructions
+    setIsLoading(false);
+    setShowInstructions(true);
   };
 
   const handleNotificationToggle = async () => {
