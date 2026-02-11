@@ -818,6 +818,14 @@ const AdminPanel = () => {
                   handleDeleteArchiveItem(deleteConfirm.type, deleteConfirm.id);
                 } else if (deleteConfirm.type === 'family') {
                   handleDeleteFamilyMember(deleteConfirm.id);
+                } else if (deleteConfirm.type === 'ouvrage-majeurs') {
+                  handleDeleteOuvrageItem('majeurs', deleteConfirm.id);
+                } else if (deleteConfirm.type === 'ouvrage-autres') {
+                  handleDeleteOuvrageItem('autres', deleteConfirm.id);
+                } else if (deleteConfirm.type === 'ouvrage-bibliotheque') {
+                  handleDeleteOuvrageItem('bibliotheque', deleteConfirm.id);
+                } else if (deleteConfirm.type === 'ouvrage-archives-academiques') {
+                  handleDeleteOuvrageItem('archives-academiques', deleteConfirm.id);
                 }
               }}
               disabled={actionLoading}
