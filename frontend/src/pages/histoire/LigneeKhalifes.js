@@ -30,7 +30,8 @@ const LigneeKhalifes = () => {
       try {
         setLoading(true);
         const response = await axios.get(`${API}/khalifes`);
-        setKhalifes(response.data.khalifes || []);
+        // API returns array directly, not {khalifes: [...]}
+        setKhalifes(Array.isArray(response.data) ? response.data : response.data.khalifes || []);
         setError(null);
       } catch (err) {
         console.error("Error fetching khalifes:", err);
