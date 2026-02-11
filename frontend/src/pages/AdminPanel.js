@@ -5,6 +5,12 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
 
+// Import refactored admin components
+import DeleteConfirmModal from "./admin/DeleteConfirmModal";
+import OuvragesTab from "./admin/OuvragesTab";
+import FamilyTreeTab from "./admin/FamilyTreeTab";
+import ArchivesTab from "./admin/ArchivesTab";
+
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
