@@ -8,10 +8,29 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 
 ## 🏗️ Architecture Technique
 - **Frontend**: React + Tailwind CSS + Shadcn UI + PWA
-- **Backend**: FastAPI (Python) + MongoDB (via Motor async driver)
+- **Backend**: FastAPI (Python) + MongoDB (via Motor async driver) - **REFACTORISÉ en modules**
 - **Base de données**: MongoDB
 - **Authentification**: JWT avec sessions stockées en MongoDB
 - **URL Preview**: https://maodo-legacy.preview.emergentagent.com
+
+### Structure Backend Refactorisée (11 Février 2026)
+```
+/app/backend/
+├── server.py          # Point d'entrée (~100 lignes)
+├── database.py        # Configuration MongoDB
+├── auth.py            # Authentification
+├── models/            # 12 fichiers de modèles Pydantic
+│   ├── video.py, newsletter.py, contact.py, quote.py
+│   ├── event.py, content.py, admin.py, khalife.py
+│   ├── archive.py, family_tree.py, ouvrage.py
+│   └── __init__.py
+└── routers/           # 14 fichiers de routes
+    ├── videos.py, newsletter.py, contact.py, quotes.py
+    ├── events.py, content.py, admin.py, khalifes.py
+    ├── archives.py, family_tree.py, ouvrages.py
+    ├── search.py, calendar.py, notifications.py
+    └── __init__.py
+```
 
 ## ✅ Fonctionnalités Implémentées
 
