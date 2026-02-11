@@ -158,7 +158,7 @@ const OfflineManager = () => {
       {/* Floating offline indicator */}
       <button
         onClick={() => setShowPanel(!showPanel)}
-        className={`fixed bottom-20 right-4 z-40 p-3 rounded-full shadow-lg transition-all ${
+        className={`fixed bottom-4 left-4 z-40 p-3 rounded-full shadow-lg transition-all ${
           isOnline 
             ? 'bg-green-500 hover:bg-green-600' 
             : 'bg-orange-500 hover:bg-orange-600 animate-pulse'
@@ -175,7 +175,7 @@ const OfflineManager = () => {
 
       {/* Offline management panel */}
       {showPanel && (
-        <div className="fixed bottom-36 right-4 z-40 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+        <div className="fixed bottom-20 left-4 z-40 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
           <div className="bg-[#004D33] text-white p-4">
             <div className="flex items-center justify-between">
               <h3 className="font-bold flex items-center gap-2">
