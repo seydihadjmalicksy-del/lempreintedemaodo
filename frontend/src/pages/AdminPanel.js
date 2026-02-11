@@ -20,6 +20,8 @@ const AdminPanel = () => {
   const [archives, setArchives] = useState({ manuscripts: [], photos: [], audio: [], videos: [], sources: [] });
   const [archivesStats, setArchivesStats] = useState({ total: 0 });
   const [familyTree, setFamilyTree] = useState([]);
+  const [ouvrages, setOuvrages] = useState({ majeurs: [], autres: [], bibliotheque: [], academiques: [] });
+  const [ouvragesStats, setOuvragesStats] = useState({ total: 0 });
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [editingItem, setEditingItem] = useState(null);
