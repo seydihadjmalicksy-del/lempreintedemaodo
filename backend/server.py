@@ -603,6 +603,62 @@ class BibliothequeItemUpdate(BaseModel):
     active: Optional[bool] = None
 
 
+class AutreOuvrage(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    titre: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class AutreOuvrageCreate(BaseModel):
+    titre: dict
+    description: dict
+    order: int = 0
+    active: bool = True
+
+
+class AutreOuvrageUpdate(BaseModel):
+    titre: Optional[dict] = None
+    description: Optional[dict] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
+class ArchiveAcademique(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    titre: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    lien: str  # URL
+    source: str  # e.g., "Bibliothèque nationale de France"
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class ArchiveAcademiqueCreate(BaseModel):
+    titre: dict
+    description: dict
+    lien: str
+    source: str
+    order: int = 0
+    active: bool = True
+
+
+class ArchiveAcademiqueUpdate(BaseModel):
+    titre: Optional[dict] = None
+    description: Optional[dict] = None
+    lien: Optional[str] = None
+    source: Optional[str] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
 # ============== AUTHENTICATION HELPERS ==============
 
 def verify_password(password: str) -> bool:
