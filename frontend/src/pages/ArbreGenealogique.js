@@ -20,12 +20,18 @@ const ArbreGenealogique = () => {
         if (response.ok) {
           const data = await response.json();
           if (data && data.tree) {
-            // Transform children to enfants for frontend compatibility
+            // Transform tree structure to match frontend expectations
             const transformTree = (node) => {
               if (!node) return null;
               return {
-                ...node,
-                enfants: node.children ? node.children.map(transformTree) : []
+                id: node.node_id || node.id,
+                nom: node.nom,
+                surnom: node.surnom,
+                dates: node.dates,
+                titre: node.titre,
+                image: node.image,
+                current: node.is_current_khalife || false,
+                enfants: node.children ? node.children.map(transformTree).filter(Boolean) : []
               };
             };
             setFamilyTree(transformTree(data.tree));
