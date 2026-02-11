@@ -169,6 +169,17 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 ## 📝 Backlog
 
 ### P0 - Complétées récemment
+- [x] ~~**Refactoring Backend server.py**~~ ✅ Complété (11 Février 2026)
+  - Divisé un fichier de 4605 lignes en 30+ modules
+  - Structure modulaire : models/, routers/, database.py, auth.py
+  - Aucun changement fonctionnel, toutes les APIs préservées
+  - Tests validés : toutes les routes fonctionnent
+- [x] ~~**Amélioration PWA Mode Hors-ligne**~~ ✅ Complété (11 Février 2026)
+  - Nouveau service worker v3 avec cache API
+  - Composant OfflineManager avec interface utilisateur
+  - Indicateur de connexion en temps réel
+  - Boutons "Télécharger pour hors-ligne" et "Vider le cache"
+  - 14 routes API cachées pour accès hors-ligne
 - [x] ~~**Migration Ouvrages vers MongoDB**~~ ✅ Complété (11 Février 2026)
   - 4 nouvelles collections : `ouvrages_majeurs` (6), `autres_ouvrages` (4), `bibliotheque` (10), `archives_academiques` (6)
   - API CRUD complète avec authentification admin pour DELETE
