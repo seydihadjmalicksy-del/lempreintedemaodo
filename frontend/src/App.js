@@ -69,6 +69,7 @@ function App() {
           <Route path="/histoire/maodo" element={<Maodo />} />
           <Route path="/histoire/khalifes" element={<LigneeKhalifes />} />
           <Route path="/histoire/geographie" element={<GeographieSacree />} />
+          <Route path="/histoire/arbre-genealogique" element={<ArbreGenealogique />} />
           
           {/* Enseignements Routes */}
           <Route path="/enseignements/piliers" element={<PiliersTariqa />} />
