@@ -19,8 +19,16 @@ const ArbreGenealogique = () => {
         const response = await fetch(`${API_URL}/api/family-tree/tree`);
         if (response.ok) {
           const data = await response.json();
-          if (data && !data.error) {
-            setFamilyTree(data);
+          if (data && data.tree) {
+            // Transform children to enfants for frontend compatibility
+            const transformTree = (node) => {
+              if (!node) return null;
+              return {
+                ...node,
+                enfants: node.children ? node.children.map(transformTree) : []
+              };
+            };
+            setFamilyTree(transformTree(data.tree));
           }
         }
       } catch (error) {
