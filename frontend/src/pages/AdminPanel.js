@@ -256,6 +256,62 @@ const AdminPanel = () => {
     }
   };
 
+  // ===== OUVRAGES CRUD =====
+  // Fetch Ouvrages Data
+  const fetchOuvrages = async () => {
+    try {
+      const [majeursRes, autresRes, biblioRes, academiquesRes, statsRes] = await Promise.all([
+        axios.get(`${API}/ouvrages/majeurs`),
+        axios.get(`${API}/ouvrages/autres`),
+        axios.get(`${API}/ouvrages/bibliotheque`),
+        axios.get(`${API}/ouvrages/archives-academiques`),
+        axios.get(`${API}/ouvrages/stats`)
+      ]);
+      setOuvrages({
+        majeurs: majeursRes.data || [],
+        autres: autresRes.data || [],
+        bibliotheque: biblioRes.data || [],
+        academiques: academiquesRes.data || []
+      });
+      setOuvragesStats(statsRes.data || { total: 0 });
+    } catch (error) {
+      console.error("Error fetching ouvrages:", error);
+    }
+  };
+
+  // Seed Ouvrages
+  const handleSeedOuvrages = async () => {
+    setActionLoading(true);
+    try {
+      await axios.post(`${API}/ouvrages/seed`, {}, { headers: getAuthHeaders() });
+      toast.success("Ouvrages initialisés avec succès");
+      fetchOuvrages();
+    } catch (error) {
+      if (error.response?.data?.skipped) {
+        toast.info("Les ouvrages existent déjà");
+      } else {
+        toast.error("Erreur lors de l'initialisation des ouvrages");
+      }
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Delete Ouvrage Item
+  const handleDeleteOuvrageItem = async (type, id) => {
+    setActionLoading(true);
+    try {
+      await axios.delete(`${API}/ouvrages/${type}/${id}`, { headers: getAuthHeaders() });
+      toast.success("Élément supprimé");
+      fetchOuvrages();
+    } catch (error) {
+      toast.error("Erreur lors de la suppression");
+    } finally {
+      setActionLoading(false);
+      setDeleteConfirm(null);
+    }
+  };
+
   // ===== QUOTES CRUD =====
   const handleAddQuote = async () => {
     setActionLoading(true);
