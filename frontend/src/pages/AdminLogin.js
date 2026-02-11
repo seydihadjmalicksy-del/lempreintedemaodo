@@ -69,7 +69,7 @@ const AdminLogin = () => {
         password
       });
 
-      if (response.data.success) {
+      if (response.data.token) {
         // Store token in localStorage
         localStorage.setItem("adminToken", response.data.token);
         localStorage.setItem("adminExpires", response.data.expires_at);
