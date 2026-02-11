@@ -524,6 +524,85 @@ class FamilyMemberUpdate(BaseModel):
     active: Optional[bool] = None
 
 
+# ============== OUVRAGES MODELS ==============
+
+class OuvrageMajeur(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    titre: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    sous_titre: Optional[str] = None  # Arabic title
+    auteur: str
+    date: str
+    description: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    themes: list  # List of themes
+    importance: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    icon: str = "Book"  # Icon name: Book, Scroll, FileText
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class OuvrageMajeurCreate(BaseModel):
+    titre: dict
+    sous_titre: Optional[str] = None
+    auteur: str
+    date: str
+    description: dict
+    themes: list
+    importance: dict
+    icon: str = "Book"
+    order: int = 0
+    active: bool = True
+
+
+class OuvrageMajeurUpdate(BaseModel):
+    titre: Optional[dict] = None
+    sous_titre: Optional[str] = None
+    auteur: Optional[str] = None
+    date: Optional[str] = None
+    description: Optional[dict] = None
+    themes: Optional[list] = None
+    importance: Optional[dict] = None
+    icon: Optional[str] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
+class BibliothequeItem(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+    
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    titre: dict  # {"fr": "...", "en": "...", "ar": "...", "wo": "..."}
+    taille: str  # e.g., "PDF", "Livre"
+    langue: str  # e.g., "Arabe, Français"
+    lien: str  # URL
+    disponible: bool = True
+    order: int = 0
+    active: bool = True
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class BibliothequeItemCreate(BaseModel):
+    titre: dict
+    taille: str
+    langue: str
+    lien: str
+    disponible: bool = True
+    order: int = 0
+    active: bool = True
+
+
+class BibliothequeItemUpdate(BaseModel):
+    titre: Optional[dict] = None
+    taille: Optional[str] = None
+    langue: Optional[str] = None
+    lien: Optional[str] = None
+    disponible: Optional[bool] = None
+    order: Optional[int] = None
+    active: Optional[bool] = None
+
+
 # ============== AUTHENTICATION HELPERS ==============
 
 def verify_password(password: str) -> bool:
