@@ -1,146 +1,294 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSearchParams, Link } from "react-router-dom";
-import { Search, FileText, Video, Archive, Book } from "lucide-react";
-import axios from "axios";
+import { Search, FileText, Video, Archive, Book, Users, Calendar, Download, Music, Loader2 } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const API_URL = process.env.REACT_APP_BACKEND_URL;
 
 const SearchResults = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q") || "";
-  const [results, setResults] = useState({
-    pages: [],
-    videos: [],
-    archives: [],
-    total: 0
-  });
+  const { language, t } = useLanguage();
+  const [results, setResults] = useState([]);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [activeFilter, setActiveFilter] = useState("all");
 
-  // Contenu des pages pour la recherche
+  // Static pages content for local search
   const pagesContent = [
     {
-      id: "histoire-origines",
+      type: "page",
       title: "Les Origines de la Tijaniyya",
-      path: "/histoire/origines",
-      category: "Histoire",
+      url: "/histoire/origines",
       description: "De Cheikh Ahmed Tijani à Tivaouane. L'histoire d'une voie soufie qui a traversé les siècles.",
-      keywords: ["cheikh ahmed tijani", "fès", "ain madhi", "tariqa", "tijaniyya", "fondation", "1781", "afrique ouest"]
+      keywords: ["cheikh ahmed tijani", "fès", "ain madhi", "tariqa", "tijaniyya", "fondation", "1781"]
     },
     {
-      id: "histoire-malick-sy",
+      type: "page",
       title: "El Hadji Malick Sy - Maodo",
-      path: "/histoire/el-hadji-malick-sy",
-      category: "Histoire",
+      url: "/histoire/maodo",
       description: "Biographie complète du fondateur de Tivaouane (1855-1922). Le Pôle Spirituel de l'Afrique de l'Ouest.",
-      keywords: ["malick sy", "maodo", "1855", "1922", "érudit", "saint-louis", "1902", "installation"]
+      keywords: ["malick sy", "maodo", "1855", "1922", "érudit", "saint-louis", "tivaouane"]
     },
     {
-      id: "histoire-khalifes",
+      type: "page",
       title: "La Lignée des Héritiers",
-      path: "/histoire/khalifes",
-      category: "Histoire",
-      description: "Les 6 héritiers d'El Hadji Malick Sy, gardiens de l'héritage spirituel.",
+      url: "/histoire/khalifes",
+      description: "Les héritiers d'El Hadji Malick Sy, gardiens de l'héritage spirituel.",
       keywords: ["khalife", "babacar sy", "mansour sy", "abdoul aziz sy", "dabakh", "succession"]
     },
     {
-      id: "histoire-geographie",
+      type: "page",
       title: "Géographie Sacrée de Tivaouane",
-      path: "/histoire/geographie",
-      category: "Histoire",
-      description: "Pourquoi Tivaouane est devenue le centre névralgique de la Tidjanidya.",
+      url: "/histoire/geographie",
+      description: "Pourquoi Tivaouane est devenue le centre névralgique de la Tijaniyya.",
       keywords: ["tivaouane", "géographie", "mosquée", "zawiya", "mausolée", "cité sainte"]
     },
     {
-      id: "enseignements-piliers",
+      type: "page",
       title: "Les Piliers de la Tariqa",
-      path: "/enseignements/piliers",
-      category: "Enseignements",
+      url: "/enseignements/piliers",
       description: "Wird, Wazifa, Hadratul Jummah : les fondements de la pratique spirituelle tidiane.",
       keywords: ["wird", "wazifa", "hadratul jummah", "dhikr", "litanie", "istighfar", "salat fatih"]
     },
     {
-      id: "evenements-gamou",
+      type: "page",
       title: "Le Gamou de Tivaouane",
-      path: "/evenements/gamou",
-      category: "Événements",
+      url: "/evenements/gamou",
       description: "Le plus grand rassemblement spirituel d'Afrique de l'Ouest en l'honneur du Prophète (PSL).",
-      keywords: ["gamou", "maouloud", "mawlid", "bourde", "célébration", "pèlerinage", "12 rabi"]
+      keywords: ["gamou", "maouloud", "mawlid", "bourde", "célébration", "pèlerinage"]
     },
     {
-      id: "archives",
+      type: "page",
+      title: "Ouvrages de Référence",
+      url: "/enseignements/ouvrages",
+      description: "Bibliothèque numérique des œuvres d'El Hadji Malick Sy et des savants de Tivaouane.",
+      keywords: ["ouvrages", "livres", "pdf", "télécharger", "bibliothèque", "manuscrits", "khassaide"]
+    },
+    {
+      type: "page",
+      title: "Arbre Généalogique",
+      url: "/histoire/arbre-genealogique",
+      description: "L'arbre généalogique de la famille d'El Hadji Malick Sy.",
+      keywords: ["arbre", "généalogie", "famille", "descendants", "lignée"]
+    },
+    {
+      type: "page",
       title: "Archives de la Khadra",
-      path: "/archives",
-      category: "Archives",
+      url: "/archives",
       description: "Manuscrits, photothèque, archives sonores et témoignages historiques.",
-      keywords: ["archives", "manuscrits", "photos", "audio", "kifayat", "documents", "patrimoine"]
+      keywords: ["archives", "manuscrits", "photos", "audio", "documents", "patrimoine"]
     },
     {
-      id: "gallery",
-      title: "Galerie Vidéos",
-      path: "/gallery",
-      category: "Médiathèque",
-      description: "Collection de vidéos sur les enseignements, événements et cérémonies de Tivaouane.",
-      keywords: ["vidéos", "conférences", "enseignements", "khoutba", "récitations"]
+      type: "page",
+      title: "Médiathèque",
+      url: "/mediatheque",
+      description: "Collection de vidéos, photos et ressources multimédias.",
+      keywords: ["vidéos", "photos", "conférences", "enseignements", "média"]
     }
   ];
+
+  // Translations
+  const translations = {
+    fr: {
+      searchTitle: "Résultats de recherche",
+      resultsFor: "pour",
+      resultsFound: "résultat(s) trouvé(s)",
+      noResults: "Aucun résultat trouvé",
+      tryOther: "Essayez avec d'autres mots-clés comme \"Maodo\", \"Gamou\", \"Wird\", \"Khalife\", etc.",
+      searchPrompt: "Rechercher dans le site",
+      searchHint: "Utilisez la barre de recherche pour trouver des informations sur L'empreinte de Maodo.",
+      all: "Tout",
+      ouvrages: "Ouvrages",
+      personnalites: "Personnalités",
+      pages: "Pages",
+      videos: "Vidéos",
+      events: "Événements",
+      archives: "Archives",
+      download: "Télécharger"
+    },
+    en: {
+      searchTitle: "Search Results",
+      resultsFor: "for",
+      resultsFound: "result(s) found",
+      noResults: "No results found",
+      tryOther: "Try other keywords like \"Maodo\", \"Gamou\", \"Wird\", \"Khalife\", etc.",
+      searchPrompt: "Search the site",
+      searchHint: "Use the search bar to find information about L'empreinte de Maodo.",
+      all: "All",
+      ouvrages: "Books",
+      personnalites: "Personalities",
+      pages: "Pages",
+      videos: "Videos",
+      events: "Events",
+      archives: "Archives",
+      download: "Download"
+    },
+    ar: {
+      searchTitle: "نتائج البحث",
+      resultsFor: "عن",
+      resultsFound: "نتيجة",
+      noResults: "لم يتم العثور على نتائج",
+      tryOther: "جرب كلمات أخرى مثل \"مودو\"، \"ورد\"، \"خليفة\"، إلخ.",
+      searchPrompt: "البحث في الموقع",
+      searchHint: "استخدم شريط البحث للعثور على معلومات.",
+      all: "الكل",
+      ouvrages: "الكتب",
+      personnalites: "الشخصيات",
+      pages: "الصفحات",
+      videos: "الفيديوهات",
+      events: "الأحداث",
+      archives: "الأرشيف",
+      download: "تحميل"
+    },
+    wo: {
+      searchTitle: "Résultats ci ceet",
+      resultsFor: "ci",
+      resultsFound: "résultat(s) gis",
+      noResults: "Amul dara",
+      tryOther: "Jéemaal beneen baat yu mel ni \"Maodo\", \"Gamou\", \"Wird\", \"Xaliifa\", etc.",
+      searchPrompt: "Seet ci site bi",
+      searchHint: "Jëfandikool barre recherche bi ngir gis xam-xam ci L'empreinte de Maodo.",
+      all: "Lépp",
+      ouvrages: "Téere yi",
+      personnalites: "Nit ñi",
+      pages: "Xët yi",
+      videos: "Vidéo yi",
+      events: "Événements yi",
+      archives: "Archives yi",
+      download: "Yéegal"
+    }
+  };
+
+  const txt = translations[language] || translations.fr;
+
+  const getTypeIcon = (type) => {
+    switch (type) {
+      case "ouvrage": return Download;
+      case "personnalite":
+      case "khalife":
+      case "family_member": return Users;
+      case "video": return Video;
+      case "evenement":
+      case "event": return Calendar;
+      case "audio": return Music;
+      case "citation":
+      case "quote": return FileText;
+      case "archive": return Archive;
+      default: return Book;
+    }
+  };
+
+  const getTypeLabel = (type) => {
+    switch (type) {
+      case "ouvrage": return txt.ouvrages;
+      case "personnalite":
+      case "khalife":
+      case "family_member": return txt.personnalites;
+      case "video": return txt.videos;
+      case "evenement":
+      case "event": return txt.events;
+      case "audio":
+      case "archive": return txt.archives;
+      default: return txt.pages;
+    }
+  };
+
+  const getTypeColor = (type) => {
+    switch (type) {
+      case "ouvrage": return "bg-emerald-100 text-emerald-700";
+      case "personnalite":
+      case "khalife": return "bg-amber-100 text-amber-700";
+      case "video": return "bg-blue-100 text-blue-700";
+      case "evenement":
+      case "event": return "bg-purple-100 text-purple-700";
+      case "audio": return "bg-pink-100 text-pink-700";
+      default: return "bg-gray-100 text-gray-700";
+    }
+  };
+
+  const performSearch = useCallback(async (searchQuery) => {
+    if (!searchQuery || searchQuery.length < 2) {
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+    const lowerQuery = searchQuery.toLowerCase();
+    let allResults = [];
+
+    try {
+      // Fetch from API
+      const response = await fetch(`${API_URL}/api/search?q=${encodeURIComponent(searchQuery)}&lang=${language}`);
+      if (response.ok) {
+        const data = await response.json();
+        allResults = data.results || [];
+      }
+    } catch (error) {
+      console.error("API search error:", error);
+    }
+
+    // Also search in local pages content
+    const localResults = pagesContent.filter(page => {
+      const titleMatch = page.title.toLowerCase().includes(lowerQuery);
+      const descMatch = page.description.toLowerCase().includes(lowerQuery);
+      const keywordMatch = page.keywords.some(k => k.toLowerCase().includes(lowerQuery));
+      return titleMatch || descMatch || keywordMatch;
+    }).map(page => ({
+      ...page,
+      score: 0.5
+    }));
+
+    // Merge and deduplicate results
+    const seenUrls = new Set(allResults.map(r => r.url));
+    const mergedResults = [...allResults];
+    
+    for (const local of localResults) {
+      if (!seenUrls.has(local.url)) {
+        mergedResults.push(local);
+        seenUrls.add(local.url);
+      }
+    }
+
+    // Sort by score
+    mergedResults.sort((a, b) => (b.score || 0) - (a.score || 0));
+
+    setResults(mergedResults);
+    setTotal(mergedResults.length);
+    setLoading(false);
+  }, [language]);
 
   useEffect(() => {
     if (query) {
       performSearch(query);
     } else {
+      setResults([]);
+      setTotal(0);
       setLoading(false);
     }
-  }, [query]);
+  }, [query, performSearch]);
 
-  const performSearch = async (searchQuery) => {
-    setLoading(true);
-    const lowerQuery = searchQuery.toLowerCase();
-
-    try {
-      // Recherche dans les pages
-      const pageResults = pagesContent.filter(page => {
-        const titleMatch = page.title.toLowerCase().includes(lowerQuery);
-        const descMatch = page.description.toLowerCase().includes(lowerQuery);
-        const keywordMatch = page.keywords.some(k => k.includes(lowerQuery));
-        return titleMatch || descMatch || keywordMatch;
+  // Filter results based on active filter
+  const filteredResults = activeFilter === "all" 
+    ? results 
+    : results.filter(r => {
+        if (activeFilter === "ouvrages") return r.type === "ouvrage";
+        if (activeFilter === "personnalites") return ["personnalite", "khalife", "family_member"].includes(r.type);
+        if (activeFilter === "videos") return r.type === "video";
+        if (activeFilter === "events") return ["evenement", "event"].includes(r.type);
+        if (activeFilter === "archives") return ["archive", "audio"].includes(r.type);
+        if (activeFilter === "pages") return r.type === "page";
+        return true;
       });
 
-      // Recherche dans les vidéos
-      let videoResults = [];
-      try {
-        const response = await axios.get(`${API}/videos`, {
-          params: { search: searchQuery }
-        });
-        videoResults = response.data;
-      } catch (error) {
-        console.error("Erreur recherche vidéos:", error);
-      }
-
-      // Simulation archives (à adapter selon votre backend)
-      const archiveResults = [];
-
-      setResults({
-        pages: pageResults,
-        videos: videoResults,
-        archives: archiveResults,
-        total: pageResults.length + videoResults.length + archiveResults.length
-      });
-    } catch (error) {
-      console.error("Erreur lors de la recherche:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const getCategoryIcon = (category) => {
-    switch (category) {
-      case "Histoire": return Book;
-      case "Enseignements": return FileText;
-      case "Événements": return Archive;
-      case "Médiathèque": return Video;
-      default: return FileText;
-    }
+  // Count by category
+  const counts = {
+    ouvrages: results.filter(r => r.type === "ouvrage").length,
+    personnalites: results.filter(r => ["personnalite", "khalife", "family_member"].includes(r.type)).length,
+    videos: results.filter(r => r.type === "video").length,
+    events: results.filter(r => ["evenement", "event"].includes(r.type)).length,
+    archives: results.filter(r => ["archive", "audio"].includes(r.type)).length,
+    pages: results.filter(r => r.type === "page").length
   };
 
   if (!query) {
@@ -149,11 +297,10 @@ const SearchResults = () => {
         <div className="text-center max-w-2xl px-4">
           <Search className="w-24 h-24 text-[#888888] mx-auto mb-6" />
           <h1 className="text-3xl font-bold text-[#004D33] mb-4">
-            Rechercher dans le site
+            {txt.searchPrompt}
           </h1>
           <p className="text-lg text-[#4A4A4A]">
-            Utilisez la barre de recherche ci-dessus pour trouver des informations sur L'empreinte de Maodo, 
-            l'histoire de Tivaouane, les enseignements et plus encore.
+            {txt.searchHint}
           </p>
         </div>
       </div>
@@ -166,104 +313,174 @@ const SearchResults = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-[#004D33] mb-4">
-            Résultats de recherche pour "{query}"
+            {txt.searchTitle} {txt.resultsFor} "<span className="text-[#D4AF37]">{query}</span>"
           </h1>
           {!loading && (
             <p className="text-lg text-[#888888]">
-              {results.total} résultat{results.total > 1 ? 's' : ''} trouvé{results.total > 1 ? 's' : ''}
+              {total} {txt.resultsFound}
             </p>
           )}
         </div>
 
+        {/* Filters */}
+        {!loading && total > 0 && (
+          <div className="flex flex-wrap gap-2 mb-8" data-testid="search-filters">
+            <button
+              onClick={() => setActiveFilter("all")}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeFilter === "all"
+                  ? "bg-[#004D33] text-white"
+                  : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+              }`}
+            >
+              {txt.all} ({total})
+            </button>
+            {counts.ouvrages > 0 && (
+              <button
+                onClick={() => setActiveFilter("ouvrages")}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === "ouvrages"
+                    ? "bg-[#004D33] text-white"
+                    : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+                }`}
+              >
+                {txt.ouvrages} ({counts.ouvrages})
+              </button>
+            )}
+            {counts.personnalites > 0 && (
+              <button
+                onClick={() => setActiveFilter("personnalites")}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === "personnalites"
+                    ? "bg-[#004D33] text-white"
+                    : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+                }`}
+              >
+                {txt.personnalites} ({counts.personnalites})
+              </button>
+            )}
+            {counts.pages > 0 && (
+              <button
+                onClick={() => setActiveFilter("pages")}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === "pages"
+                    ? "bg-[#004D33] text-white"
+                    : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+                }`}
+              >
+                {txt.pages} ({counts.pages})
+              </button>
+            )}
+            {counts.videos > 0 && (
+              <button
+                onClick={() => setActiveFilter("videos")}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === "videos"
+                    ? "bg-[#004D33] text-white"
+                    : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+                }`}
+              >
+                {txt.videos} ({counts.videos})
+              </button>
+            )}
+            {counts.events > 0 && (
+              <button
+                onClick={() => setActiveFilter("events")}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === "events"
+                    ? "bg-[#004D33] text-white"
+                    : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+                }`}
+              >
+                {txt.events} ({counts.events})
+              </button>
+            )}
+            {counts.archives > 0 && (
+              <button
+                onClick={() => setActiveFilter("archives")}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === "archives"
+                    ? "bg-[#004D33] text-white"
+                    : "bg-white text-[#4A4A4A] hover:bg-[#E8F5E9]"
+                }`}
+              >
+                {txt.archives} ({counts.archives})
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Results */}
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#004D33]"></div>
+            <Loader2 className="w-16 h-16 text-[#004D33] animate-spin" />
           </div>
-        ) : results.total === 0 ? (
+        ) : filteredResults.length === 0 ? (
           <div className="text-center py-20 bg-white rounded-xl">
             <Search className="w-16 h-16 text-[#888888] mx-auto mb-4" />
-            <p className="text-xl text-[#888888] mb-4">Aucun résultat trouvé</p>
-            <p className="text-[#4A4A4A]">
-              Essayez avec d'autres mots-clés comme "Maodo", "Gamou", "Wird", "Khalife", etc.
-            </p>
+            <p className="text-xl text-[#888888] mb-4">{txt.noResults}</p>
+            <p className="text-[#4A4A4A]">{txt.tryOther}</p>
           </div>
         ) : (
-          <div className="space-y-8">
-            {/* Pages Results */}
-            {results.pages.length > 0 && (
-              <div>
-                <h2 className="text-2xl font-bold text-[#004D33] mb-4 flex items-center gap-2">
-                  <FileText className="w-6 h-6" />
-                  Pages ({results.pages.length})
-                </h2>
-                <div className="grid grid-cols-1 gap-4">
-                  {results.pages.map((page) => {
-                    const Icon = getCategoryIcon(page.category);
-                    return (
-                      <Link
-                        key={page.id}
-                        to={page.path}
-                        className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-[#D4AF37]"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-[#E8F5E9] rounded-full flex items-center justify-center flex-shrink-0">
-                            <Icon className="w-6 h-6 text-[#004D33]" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="px-3 py-1 bg-[#E8F5E9] text-[#004D33] rounded-full text-xs font-bold">
-                                {page.category}
-                              </span>
-                            </div>
-                            <h3 className="text-xl font-bold text-[#004D33] mb-2 hover:text-[#D4AF37] transition-colors">
-                              {page.title}
-                            </h3>
-                            <p className="text-[#4A4A4A] leading-relaxed">
-                              {page.description}
-                            </p>
-                          </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+          <div className="space-y-4">
+            {filteredResults.map((result, index) => {
+              const Icon = getTypeIcon(result.type);
+              const isDownloadable = result.type === "ouvrage" && result.url?.startsWith("/ouvrages/");
+              
+              const ResultWrapper = isDownloadable ? 'a' : Link;
+              const wrapperProps = isDownloadable 
+                ? { href: result.url, download: true, target: "_blank", rel: "noopener noreferrer" }
+                : { to: result.url };
 
-            {/* Videos Results */}
-            {results.videos.length > 0 && (
-              <div>
-                <h2 className="text-2xl font-bold text-[#004D33] mb-4 flex items-center gap-2">
-                  <Video className="w-6 h-6" />
-                  Vidéos ({results.videos.length})
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {results.videos.map((video) => (
-                    <Link
-                      key={video.id}
-                      to={`/video/${video.id}`}
-                      className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
-                    >
-                      <div className="aspect-video bg-gray-100 overflow-hidden">
-                        <img
-                          src={video.thumbnail_url || `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`}
-                          alt={video.title}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              return (
+                <ResultWrapper
+                  key={`${result.type}-${result.url}-${index}`}
+                  {...wrapperProps}
+                  className="block bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border-l-4 border-[#D4AF37]"
+                  data-testid={`search-result-${index}`}
+                >
+                  <div className="flex items-start gap-4">
+                    {/* Icon or Image */}
+                    <div className="flex-shrink-0">
+                      {result.image ? (
+                        <img 
+                          src={result.image} 
+                          alt={result.title}
+                          className="w-16 h-16 rounded-full object-cover border-2 border-[#D4AF37]"
                         />
+                      ) : (
+                        <div className="w-12 h-12 bg-[#E8F5E9] rounded-full flex items-center justify-center">
+                          <Icon className="w-6 h-6 text-[#004D33]" />
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        <span className={`px-3 py-1 rounded-full text-xs font-bold ${getTypeColor(result.type)}`}>
+                          {getTypeLabel(result.type)}
+                        </span>
+                        {isDownloadable && (
+                          <span className="px-3 py-1 bg-[#004D33] text-white rounded-full text-xs font-bold flex items-center gap-1">
+                            <Download className="w-3 h-3" />
+                            PDF
+                          </span>
+                        )}
                       </div>
-                      <div className="p-4">
-                        <h3 className="font-semibold text-[#004D33] mb-2 line-clamp-2">
-                          {video.title}
-                        </h3>
-                        <p className="text-sm text-[#888888] line-clamp-2">
-                          {video.description}
+                      <h3 className="text-xl font-bold text-[#004D33] mb-2 hover:text-[#D4AF37] transition-colors">
+                        {result.title}
+                      </h3>
+                      {result.description && (
+                        <p className="text-[#4A4A4A] leading-relaxed line-clamp-2">
+                          {result.description}
                         </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
+                      )}
+                    </div>
+                  </div>
+                </ResultWrapper>
+              );
+            })}
           </div>
         )}
       </div>
