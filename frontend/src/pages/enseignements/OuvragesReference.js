@@ -381,17 +381,18 @@ const OuvragesReference = () => {
                 </div>
 
                 <a
-                  href={doc.lien}
+                  href={doc.lien.startsWith('/') ? doc.lien : doc.lien}
                   target="_blank"
                   rel="noopener noreferrer"
+                  download={doc.lien.startsWith('/ouvrages/') ? true : undefined}
                   className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
                     doc.disponible
                       ? "bg-[#004D33] hover:bg-[#003d29] text-white"
                       : "bg-gray-200 text-gray-500 cursor-not-allowed"
                   }`}
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  {txt.accessResource}
+                  {doc.lien.startsWith('/ouvrages/') ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
+                  {doc.lien.startsWith('/ouvrages/') ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
                 </a>
               </div>
             ))}
