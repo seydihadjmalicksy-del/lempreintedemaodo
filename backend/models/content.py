@@ -48,3 +48,4 @@ class SearchResult(BaseModel):
     description: str
     url: str
     score: float = 1.0
+    image: Optional[str] = None
