@@ -53,8 +53,8 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - Aucun bug critique actuel
 
 ### P1 - High Priority
-- [ ] Bannière "Bismillah" sur la page d'accueil
-- [ ] Recherche/filtrage dans la bibliothèque (66 ouvrages)
+- [x] ~~Bannière "Bismillah" sur la page d'accueil~~ (déjà présente)
+- [x] ~~Recherche/filtrage dans la bibliothèque~~ → Système de recherche global implémenté (Feb 12, 2026)
 
 ### P2 - Medium Priority
 - [ ] Finaliser refactoring AdminPanel.js (extraire Citations, Événements)
