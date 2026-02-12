@@ -11,7 +11,7 @@ Création d'un portail web complet pour présenter le Foyer Tidiane de Tivaouane
 - **Backend**: FastAPI (Python) + MongoDB (via Motor async driver) - **REFACTORISÉ en modules**
 - **Base de données**: MongoDB
 - **Authentification**: JWT avec sessions stockées en MongoDB
-- **URL Preview**: https://maodo-legacy.preview.emergentagent.com
+- **URL Preview**: https://dhikr-platform.preview.emergentagent.com
 
 ### Structure Backend Refactorisée (11 Février 2026)
 ```
