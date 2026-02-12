@@ -57,7 +57,7 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - [x] ~~Recherche/filtrage dans la bibliothèque~~ → Système de recherche global implémenté (Feb 12, 2026)
 
 ### P2 - Medium Priority
-- [ ] Finaliser refactoring AdminPanel.js (extraire Citations, Événements)
+- [x] ~~Finaliser refactoring AdminPanel.js~~ → Refactorisé: 2370 → 452 lignes + 8 composants (Feb 12, 2026)
 - [ ] Transcriptions des Khassaides
 
 ### P3 - Future Enhancements
