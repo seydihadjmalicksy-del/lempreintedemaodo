@@ -136,6 +136,35 @@ async def delete_bibliotheque_item(item_id: str, admin: bool = Depends(verify_ad
     return {"message": "Document supprimé avec succès"}
 
 
+@router.post("/bibliotheque/import-batch")
+async def import_bibliotheque_batch(items: list, admin: bool = Depends(verify_admin_token)):
+    """Import multiple digital library items at once (skip existing)"""
+    imported_count = 0
+    skipped_count = 0
+    
+    for item_data in items:
+        # Check if already exists by lien
+        existing = await db.bibliotheque.find_one({"lien": item_data.get("lien")})
+        if existing:
+            skipped_count += 1
+            continue
+        
+        # Ensure required fields
+        if "id" not in item_data:
+            item_data["id"] = str(uuid.uuid4())
+        if "active" not in item_data:
+            item_data["active"] = True
+        
+        await db.bibliotheque.insert_one(item_data)
+        imported_count += 1
+    
+    return {
+        "message": f"Import terminé: {imported_count} ajoutés, {skipped_count} ignorés (déjà existants)",
+        "imported": imported_count,
+        "skipped": skipped_count
+    }
+
+
 # ============== ARCHIVES ACADEMIQUES ==============
 @router.get("/archives-academiques")
 async def get_archives_academiques():
