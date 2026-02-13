@@ -151,9 +151,9 @@ const Home = () => {
           {/* Logo */}
           <div className="mb-8">
             <img 
-              src="/logo-empreinte-maodo.png" 
+              src="/logo-maodo-final.png" 
               alt="L'empreinte de Maodo - Logo" 
-              className="h-32 md:h-40 mx-auto"
+              className="h-40 md:h-48 mx-auto"
             />
           </div>
           
