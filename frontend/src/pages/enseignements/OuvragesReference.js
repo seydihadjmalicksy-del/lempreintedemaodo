@@ -390,8 +390,7 @@ const OuvragesReference = () => {
 
                   <a
                     href={documentUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    download
                     className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                   >
                     <Download className="w-4 h-4 inline-block mr-2" />
