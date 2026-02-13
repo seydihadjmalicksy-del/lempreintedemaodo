@@ -145,6 +145,65 @@ const Home = () => {
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></div>
       </section>
 
+      {/* Section Bienvenue avec Logo */}
+      <section className="py-16 bg-gradient-to-b from-[#F9F7F2] to-white" data-testid="welcome-section">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Logo */}
+          <div className="mb-8">
+            <img 
+              src="/logo-empreinte-maodo.png" 
+              alt="L'empreinte de Maodo - Logo" 
+              className="h-32 md:h-40 mx-auto"
+            />
+          </div>
+          
+          {/* Titre de bienvenue */}
+          <h2 className="text-3xl md:text-4xl font-bold text-[#004D33] mb-6">
+            {language === 'en' ? 'Welcome to L\'empreinte de Maodo' : 
+             language === 'ar' ? 'مرحباً بكم في بصمة مودو' : 
+             language === 'wo' ? 'Dalal ak jàmm ci L\'empreinte de Maodo' : 
+             'Bienvenue sur L\'empreinte de Maodo'}
+          </h2>
+          
+          {/* Texte de présentation */}
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg text-[#4A4A4A] leading-relaxed mb-6">
+              {language === 'en' 
+                ? 'This portal is dedicated to the preservation and transmission of the spiritual heritage of El Hadji Malick Sy (1855-1922), founder of the Khadra of Tivaouane and a major figure of the Tijaniyya in West Africa.'
+                : language === 'ar'
+                ? 'هذه البوابة مخصصة للحفاظ على التراث الروحي للحاج مالك سي (1855-1922) ونقله، مؤسس الخضراء في تيفاوان والشخصية البارزة في الطريقة التجانية في غرب أفريقيا.'
+                : language === 'wo'
+                ? 'Bii portal dañu ko sos ngir wattu ak yóbbu njàng bu El Hadji Malick Sy (1855-1922), ki sos Khadra gu Tivaouane te mooy kimm bu mag ci Tijâniyya ci Afrik sowwu jant.'
+                : 'Ce portail est dédié à la préservation et à la transmission de l\'héritage spirituel d\'El Hadji Malick Sy (1855-1922), fondateur de la Khadra de Tivaouane et figure majeure de la Tijaniyya en Afrique de l\'Ouest.'}
+            </p>
+            
+            <p className="text-lg text-[#4A4A4A] leading-relaxed mb-8">
+              {language === 'en'
+                ? 'Here, you will discover the teachings, writings, and wisdom of a man who dedicated his life to Islamic education, social peace, and the spiritual elevation of souls.'
+                : language === 'ar'
+                ? 'هنا، ستكتشفون تعاليم وكتابات وحكمة رجل كرّس حياته للتعليم الإسلامي والسلام الاجتماعي والرقي الروحي للنفوس.'
+                : language === 'wo'
+                ? 'Fii, dangay gis njàng yi, bindu yi ak xam-xam ku jëlee dundam ngir jàng Islaam, jamm ci àddina ak yokk bakkan yi.'
+                : 'Ici, vous découvrirez les enseignements, les écrits et la sagesse d\'un homme qui a consacré sa vie à l\'éducation islamique, à la paix sociale et à l\'élévation spirituelle des âmes.'}
+            </p>
+            
+            {/* Citation inspirante */}
+            <div className="bg-[#004D33]/5 border-l-4 border-[#D4AF37] rounded-r-lg p-6">
+              <p className="text-xl italic text-[#004D33] font-medium">
+                {language === 'en'
+                  ? '"Knowledge is a light that God places in the heart of whomever He wills."'
+                  : language === 'ar'
+                  ? '"العلم نور يقذفه الله في قلب من يشاء"'
+                  : language === 'wo'
+                  ? '"Xam-xam mooy leer bu Yàlla def ci xol ku ko neex."'
+                  : '"La connaissance est une lumière que Dieu dépose dans le cœur de qui Il veut."'}
+              </p>
+              <p className="text-[#D4AF37] font-semibold mt-3">— El Hadji Malick Sy</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Citation du Jour & Calendrier */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
