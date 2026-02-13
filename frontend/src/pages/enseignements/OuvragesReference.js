@@ -395,13 +395,12 @@ const OuvragesReference = () => {
 
                   {doc.disponible !== false && (
                     <a
-                      href={downloadUrl}
-                      target={isPdf ? "_self" : "_blank"}
+                      href={isPdf ? `${API_URL}/api/ouvrages/download/${doc.id}` : doc.lien}
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white"
+                      className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                     >
-                      {isPdf ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
-                      {isPdf ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
+                      {isPdf ? 'Télécharger PDF' : 'Accéder'}
                     </a>
                   )}
                 </div>
