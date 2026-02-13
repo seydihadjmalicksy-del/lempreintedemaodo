@@ -75,12 +75,11 @@ const Navbar = () => {
               className="flex items-center space-x-3"
               data-testid="logo-link"
             >
-              <div className="w-12 h-12 bg-[#004D33] rounded-full flex items-center justify-center">
-                <span className="text-[#D4AF37] text-2xl font-bold">T</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-[#004D33]">L'empreinte de Maodo</h1>
-              </div>
+              <img 
+                src="/logo-empreinte-maodo.png" 
+                alt="L'empreinte de Maodo" 
+                className="h-14 w-auto"
+              />
             </Link>
 
             {/* Desktop Navigation */}
