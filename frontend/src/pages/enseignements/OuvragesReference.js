@@ -359,43 +359,51 @@ const OuvragesReference = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {bibliothequeNumerique.map((doc, index) => (
-              <div
-                key={doc.id || index}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
-                data-testid={`bibliotheque-item-${index}`}
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 bg-[#E8F5E9] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Download className="w-6 h-6 text-[#004D33]" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="font-bold text-[#004D33] mb-2">
-                      {getLocalizedText(doc.titre)}
-                    </h3>
-                    <div className="space-y-1 text-sm text-[#888888]">
-                      <p>{txt.format} : {doc.taille}</p>
-                      <p>{txt.language} : {doc.langue}</p>
+            {bibliothequeNumerique.map((doc, index) => {
+              // Determine if this is a local PDF that should use watermark download
+              const isLocalPdf = doc.lien && doc.lien.startsWith('/ouvrages/');
+              const downloadUrl = isLocalPdf 
+                ? `${API_URL}/api/ouvrages/download/${doc.id}`
+                : doc.lien;
+              
+              return (
+                <div
+                  key={doc.id || index}
+                  className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300"
+                  data-testid={`bibliotheque-item-${index}`}
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-[#E8F5E9] rounded-full flex items-center justify-center flex-shrink-0">
+                      <Download className="w-6 h-6 text-[#004D33]" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-[#004D33] mb-2">
+                        {getLocalizedText(doc.titre)}
+                      </h3>
+                      <div className="space-y-1 text-sm text-[#888888]">
+                        <p>{txt.format} : {doc.taille}</p>
+                        <p>{txt.language} : {doc.langue}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <a
-                  href={doc.lien.startsWith('/') ? doc.lien : doc.lien}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download={doc.lien.startsWith('/ouvrages/') ? true : undefined}
-                  className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
-                    doc.disponible
-                      ? "bg-[#004D33] hover:bg-[#003d29] text-white"
-                      : "bg-gray-200 text-gray-500 cursor-not-allowed"
-                  }`}
-                >
-                  {doc.lien.startsWith('/ouvrages/') ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
-                  {doc.lien.startsWith('/ouvrages/') ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
-                </a>
-              </div>
-            ))}
+                  <a
+                    href={downloadUrl}
+                    target={isLocalPdf ? "_self" : "_blank"}
+                    rel="noopener noreferrer"
+                    download={isLocalPdf ? true : undefined}
+                    className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
+                      doc.disponible
+                        ? "bg-[#004D33] hover:bg-[#003d29] text-white"
+                        : "bg-gray-200 text-gray-500 cursor-not-allowed"
+                    }`}
+                  >
+                    {isLocalPdf ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
+                    {isLocalPdf ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
