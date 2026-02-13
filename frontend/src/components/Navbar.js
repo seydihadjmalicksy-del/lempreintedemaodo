@@ -76,9 +76,9 @@ const Navbar = () => {
               data-testid="logo-link"
             >
               <img 
-                src="/logo-empreinte-maodo.png" 
+                src="/logo-maodo-final.png" 
                 alt="L'empreinte de Maodo" 
-                className="h-14 w-auto"
+                className="h-16 w-auto"
               />
             </Link>
 
