@@ -359,28 +359,11 @@ const OuvragesReference = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* DEBUG: Added marker to verify code changes are being applied */}
             {bibliothequeNumerique.map((doc, index) => {
-              // Determine if this is a PDF document
-              const docTaille = doc.taille || '';
-              const docLien = doc.lien || '';
-              const docFormat = doc.format || '';
-              
-              const checkIsPdf = docLien.toLowerCase().endsWith('.pdf') || 
-                docFormat.toLowerCase() === 'pdf' ||
-                docTaille.toLowerCase().includes('pdf');
-              
-              // Build the URL - use watermark endpoint for PDFs
-              // Note: For PDFs, use the watermark download endpoint
-              const baseUrl = process.env.REACT_APP_BACKEND_URL || '';
-              const finalUrl = checkIsPdf 
-                ? baseUrl + '/api/ouvrages/download/' + doc.id
-                : docLien;
-              
-              // Determine button text
-              const buttonLabel = checkIsPdf 
-                ? 'Télécharger le PDF'
-                : 'Accéder à la ressource';
+              // Build download URL - always use the watermark download endpoint for documents with id
+              const downloadEndpoint = API_URL + '/api/ouvrages/download/' + doc.id;
+              // Fallback to direct link if no id
+              const linkUrl = doc.id ? downloadEndpoint : (doc.lien || '#');
               
               return (
                 <div
@@ -405,13 +388,13 @@ const OuvragesReference = () => {
 
                   {doc.disponible !== false && (
                     <a
-                      href={finalUrl}
+                      href={linkUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                     >
                       <Download className="w-4 h-4 inline-block mr-2" />
-                      {buttonLabel}
+                      {language === 'fr' ? 'Télécharger' : 'Download'}
                     </a>
                   )}
                 </div>
