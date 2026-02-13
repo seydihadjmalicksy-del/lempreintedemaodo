@@ -321,13 +321,28 @@ async def download_pdf_with_watermark(item_id: str):
     filename = filename[:50] or "document"  # Limit filename length
     
     try:
-        # Fetch the original PDF
-        async with httpx.AsyncClient(timeout=60.0) as client:
-            response = await client.get(pdf_url, follow_redirects=True)
-            if response.status_code != 200:
-                raise HTTPException(status_code=404, detail="Impossible de télécharger le PDF original")
-            
-            pdf_content = response.content
+        # Check if this is a local file or external URL
+        if pdf_url.startswith('/ouvrages/'):
+            # Local file - read from frontend/public directory
+            local_path = f"/app/frontend/public{pdf_url}"
+            if not os.path.exists(local_path):
+                raise HTTPException(status_code=404, detail=f"Fichier local non trouvé: {pdf_url}")
+            with open(local_path, 'rb') as f:
+                pdf_content = f.read()
+        elif pdf_url.startswith('http://') or pdf_url.startswith('https://'):
+            # External URL - fetch via HTTP
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                response = await client.get(pdf_url, follow_redirects=True)
+                if response.status_code != 200:
+                    raise HTTPException(status_code=404, detail="Impossible de télécharger le PDF original")
+                pdf_content = response.content
+        else:
+            # Unknown format - try as external URL with https
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                response = await client.get(f"https://{pdf_url}", follow_redirects=True)
+                if response.status_code != 200:
+                    raise HTTPException(status_code=404, detail="Impossible de télécharger le PDF")
+                pdf_content = response.content
         
         # Add watermark
         watermarked_pdf = await add_watermark_to_pdf(pdf_content)
