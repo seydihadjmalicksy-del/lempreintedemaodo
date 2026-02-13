@@ -232,14 +232,15 @@ async def get_ouvrages_stats():
 
 
 # ============== PDF DOWNLOAD WITH WATERMARK ==============
-WATERMARK_PATH = "/app/frontend/public/watermark-pdf.png"
+# Use the site logo as watermark
+WATERMARK_PATH = "/app/frontend/public/logo-new-source.png"
 
 def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
-    """Create a PDF page with watermark centered on it"""
+    """Create a PDF page with the site logo as watermark centered on it"""
     packet = io.BytesIO()
     can = canvas.Canvas(packet, pagesize=(page_width, page_height))
     
-    # Load watermark image
+    # Load watermark image (site logo)
     if os.path.exists(WATERMARK_PATH):
         try:
             # Open image with PIL and adjust opacity
@@ -263,8 +264,8 @@ def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
             watermark_img = ImageReader(img_buffer)
             img_width, img_height = img.size
             
-            # Scale watermark to fit nicely (max 30% of page width)
-            max_width = page_width * 0.30
+            # Scale watermark to fit nicely (max 25% of page width for logo)
+            max_width = page_width * 0.25
             scale = min(max_width / img_width, max_width / img_height)
             scaled_width = img_width * scale
             scaled_height = img_height * scale
