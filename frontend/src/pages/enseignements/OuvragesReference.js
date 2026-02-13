@@ -360,11 +360,6 @@ const OuvragesReference = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {bibliothequeNumerique.map((doc, index) => {
-              // Build download URL - always use the watermark download endpoint for documents with id
-              const downloadEndpoint = API_URL + '/api/ouvrages/download/' + doc.id;
-              // Fallback to direct link if no id
-              const linkUrl = doc.id ? downloadEndpoint : (doc.lien || '#');
-              
               return (
                 <div
                   key={doc.id || index}
@@ -388,13 +383,13 @@ const OuvragesReference = () => {
 
                   {doc.disponible !== false && (
                     <a
-                      href={linkUrl}
+                      href="https://ouvrage-deploy.preview.emergentagent.com/api/ouvrages/download/test"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                     >
                       <Download className="w-4 h-4 inline-block mr-2" />
-                      {language === 'fr' ? 'Télécharger' : 'Download'}
+                      Télécharger
                     </a>
                   )}
                 </div>
