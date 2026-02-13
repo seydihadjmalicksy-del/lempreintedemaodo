@@ -360,9 +360,14 @@ const OuvragesReference = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {bibliothequeNumerique.map((doc, index) => {
-              // Determine if this is a local PDF that should use watermark download
-              const isLocalPdf = doc.lien && doc.lien.startsWith('/ouvrages/');
-              const downloadUrl = isLocalPdf 
+              // Check if the document is a PDF (by checking lien extension or format field)
+              const isPdf = doc.lien && (
+                doc.lien.toLowerCase().endsWith('.pdf') || 
+                doc.format?.toLowerCase() === 'pdf' ||
+                doc.taille?.toLowerCase().includes('pdf')
+              );
+              // Use watermark download endpoint for PDFs, direct link for others
+              const downloadUrl = isPdf 
                 ? `${API_URL}/api/ouvrages/download/${doc.id}`
                 : doc.lien;
               
@@ -389,17 +394,17 @@ const OuvragesReference = () => {
 
                   <a
                     href={downloadUrl}
-                    target={isLocalPdf ? "_self" : "_blank"}
+                    target={isPdf ? "_self" : "_blank"}
                     rel="noopener noreferrer"
-                    download={isLocalPdf ? true : undefined}
+                    download={isPdf ? true : undefined}
                     className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
                       doc.disponible
                         ? "bg-[#004D33] hover:bg-[#003d29] text-white"
                         : "bg-gray-200 text-gray-500 cursor-not-allowed"
                     }`}
                   >
-                    {isLocalPdf ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
-                    {isLocalPdf ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
+                    {isPdf ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
+                    {isPdf ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
                   </a>
                 </div>
               );
