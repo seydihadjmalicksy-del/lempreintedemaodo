@@ -354,7 +354,7 @@ const OuvragesReference = () => {
             </h2>
             <div className="w-24 h-1 bg-[#D4AF37] mx-auto mb-6"></div>
             <p className="text-lg text-[#4A4A4A] max-w-3xl mx-auto">
-              {txt.digitalLibrarySubtitle}
+              {txt.digitalLibrarySubtitle} - [VERSION TEST 2024]
             </p>
           </div>
 
