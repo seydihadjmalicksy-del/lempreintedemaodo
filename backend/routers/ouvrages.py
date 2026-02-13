@@ -229,3 +229,115 @@ async def get_ouvrages_stats():
         "archives_academiques": archives_count,
         "total": majeurs_count + autres_count + bibliotheque_count + archives_count
     }
+
+
+# ============== PDF DOWNLOAD WITH WATERMARK ==============
+WATERMARK_PATH = "/app/frontend/public/watermark-pdf.png"
+
+def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
+    """Create a PDF page with watermark centered on it"""
+    packet = io.BytesIO()
+    can = canvas.Canvas(packet, pagesize=(page_width, page_height))
+    
+    # Load watermark image
+    if os.path.exists(WATERMARK_PATH):
+        try:
+            watermark_img = ImageReader(WATERMARK_PATH)
+            # Get image size
+            img_width, img_height = watermark_img.getSize()
+            
+            # Scale watermark to fit nicely (max 30% of page width)
+            max_width = page_width * 0.30
+            scale = min(max_width / img_width, max_width / img_height)
+            scaled_width = img_width * scale
+            scaled_height = img_height * scale
+            
+            # Center the watermark
+            x = (page_width - scaled_width) / 2
+            y = (page_height - scaled_height) / 2
+            
+            # Draw the watermark
+            can.drawImage(watermark_img, x, y, width=scaled_width, height=scaled_height, mask='auto')
+        except Exception as e:
+            print(f"Error adding watermark image: {e}")
+    
+    can.save()
+    packet.seek(0)
+    return packet
+
+
+async def add_watermark_to_pdf(pdf_content: bytes) -> bytes:
+    """Add watermark to all pages of a PDF"""
+    try:
+        # Read the original PDF
+        original_pdf = PdfReader(io.BytesIO(pdf_content))
+        output = PdfWriter()
+        
+        for page in original_pdf.pages:
+            # Get page dimensions
+            page_width = float(page.mediabox.width)
+            page_height = float(page.mediabox.height)
+            
+            # Create watermark for this page size
+            watermark_packet = create_watermark_pdf(page_width, page_height)
+            watermark_pdf = PdfReader(watermark_packet)
+            watermark_page = watermark_pdf.pages[0]
+            
+            # Merge watermark onto the original page
+            page.merge_page(watermark_page)
+            output.add_page(page)
+        
+        # Write to bytes
+        output_buffer = io.BytesIO()
+        output.write(output_buffer)
+        output_buffer.seek(0)
+        return output_buffer.getvalue()
+    except Exception as e:
+        print(f"Error adding watermark: {e}")
+        # Return original content if watermarking fails
+        return pdf_content
+
+
+@router.get("/download/{item_id}")
+async def download_pdf_with_watermark(item_id: str):
+    """Download a PDF with watermark applied dynamically"""
+    # Find the item in bibliotheque
+    item = await db.bibliotheque.find_one({"id": item_id}, {"_id": 0})
+    if not item:
+        raise HTTPException(status_code=404, detail="Document non trouvé")
+    
+    pdf_url = item.get("lien")
+    if not pdf_url:
+        raise HTTPException(status_code=404, detail="Lien du document non disponible")
+    
+    # Get the title for filename
+    title = item.get("titre", {})
+    filename = title.get("fr", title.get("ar", "document")) if isinstance(title, dict) else str(title)
+    filename = "".join(c for c in filename if c.isalnum() or c in (' ', '-', '_')).strip()
+    filename = filename[:50] or "document"  # Limit filename length
+    
+    try:
+        # Fetch the original PDF
+        async with httpx.AsyncClient(timeout=60.0) as client:
+            response = await client.get(pdf_url, follow_redirects=True)
+            if response.status_code != 200:
+                raise HTTPException(status_code=404, detail="Impossible de télécharger le PDF original")
+            
+            pdf_content = response.content
+        
+        # Add watermark
+        watermarked_pdf = await add_watermark_to_pdf(pdf_content)
+        
+        # Return as streaming response
+        return StreamingResponse(
+            io.BytesIO(watermarked_pdf),
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f'attachment; filename="{filename}.pdf"',
+                "Content-Type": "application/pdf"
+            }
+        )
+    except httpx.RequestError as e:
+        raise HTTPException(status_code=500, detail=f"Erreur lors du téléchargement: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erreur lors du traitement: {str(e)}")
