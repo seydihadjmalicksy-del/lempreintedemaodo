@@ -392,20 +392,17 @@ const OuvragesReference = () => {
                     </div>
                   </div>
 
-                  <a
-                    href={downloadUrl}
-                    target={isPdf ? "_self" : "_blank"}
-                    rel="noopener noreferrer"
-                    download={isPdf ? true : undefined}
-                    className={`w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 ${
-                      doc.disponible
-                        ? "bg-[#004D33] hover:bg-[#003d29] text-white"
-                        : "bg-gray-200 text-gray-500 cursor-not-allowed"
-                    }`}
-                  >
-                    {isPdf ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
-                    {isPdf ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
-                  </a>
+                  {doc.disponible !== false && (
+                    <a
+                      href={downloadUrl}
+                      target={isPdf ? "_self" : "_blank"}
+                      rel="noopener noreferrer"
+                      className="w-full py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 bg-[#004D33] hover:bg-[#003d29] text-white"
+                    >
+                      {isPdf ? <Download className="w-4 h-4" /> : <ExternalLink className="w-4 h-4" />}
+                      {isPdf ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF') : txt.accessResource}
+                    </a>
+                  )}
                 </div>
               );
             })}
