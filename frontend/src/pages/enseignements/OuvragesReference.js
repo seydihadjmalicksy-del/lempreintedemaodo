@@ -360,13 +360,13 @@ const OuvragesReference = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {bibliothequeNumerique.map((doc, index) => {
-              // Check if the document is a PDF (by checking lien extension or format field)
+              // All documents should have a download button
+              // For PDFs: use watermark endpoint, for others: direct link
               const isPdf = doc.lien && (
                 doc.lien.toLowerCase().endsWith('.pdf') || 
                 doc.format?.toLowerCase() === 'pdf' ||
-                doc.taille?.toLowerCase().includes('pdf')
+                (doc.taille && doc.taille.toLowerCase().includes('pdf'))
               );
-              // Use watermark download endpoint for PDFs, direct link for others
               const downloadUrl = isPdf 
                 ? `${API_URL}/api/ouvrages/download/${doc.id}`
                 : doc.lien;
