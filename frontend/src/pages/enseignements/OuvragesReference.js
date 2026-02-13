@@ -359,6 +359,7 @@ const OuvragesReference = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* DEBUG: Added marker to verify code changes are being applied */}
             {bibliothequeNumerique.map((doc, index) => {
               // All documents should have a download button
               // For PDFs: use watermark endpoint, for others: direct link
