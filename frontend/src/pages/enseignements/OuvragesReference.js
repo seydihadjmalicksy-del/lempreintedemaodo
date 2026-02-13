@@ -382,7 +382,7 @@ const OuvragesReference = () => {
                   </div>
 
                   <a
-                    href="https://google.com"
+                    href={"/api/ouvrages/download/" + doc.id}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
