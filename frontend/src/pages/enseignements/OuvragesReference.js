@@ -371,14 +371,16 @@ const OuvragesReference = () => {
                 docTaille.toLowerCase().includes('pdf');
               
               // Build the URL - use watermark endpoint for PDFs
+              // Note: For PDFs, use the watermark download endpoint
+              const baseUrl = process.env.REACT_APP_BACKEND_URL || '';
               const finalUrl = checkIsPdf 
-                ? `${API_URL}/api/ouvrages/download/${doc.id}`
+                ? baseUrl + '/api/ouvrages/download/' + doc.id
                 : docLien;
               
               // Determine button text
-              const buttonText = checkIsPdf 
-                ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF')
-                : (language === 'fr' ? 'Accéder à la ressource' : 'Access resource');
+              const buttonLabel = checkIsPdf 
+                ? 'Télécharger le PDF'
+                : 'Accéder à la ressource';
               
               return (
                 <div
@@ -409,7 +411,7 @@ const OuvragesReference = () => {
                       className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                     >
                       <Download className="w-4 h-4 inline-block mr-2" />
-                      {buttonText}
+                      {buttonLabel}
                     </a>
                   )}
                 </div>
