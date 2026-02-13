@@ -364,17 +364,8 @@ const OuvragesReference = () => {
               const isPdfDocument = (doc.taille || '').toLowerCase().includes('pdf');
               // For PDFs: use relative watermark endpoint, for others: use direct link
               const documentUrl = isPdfDocument 
-                ? ("/api/ouvrages/download/" + doc.id)
+                ? `/api/ouvrages/download/${doc.id}`
                 : doc.lien;
-              
-              // Handle click - navigate to download URL
-              const handleClick = (e) => {
-                if (isPdfDocument) {
-                  e.preventDefault();
-                  // Navigate to download URL in same window
-                  window.location.href = documentUrl;
-                }
-              };
               
               return (
                 <div
@@ -399,10 +390,10 @@ const OuvragesReference = () => {
 
                   <a
                     href={documentUrl}
-                    onClick={handleClick}
                     target={isPdfDocument ? "_self" : "_blank"}
                     rel="noopener noreferrer"
                     className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
+                    data-testid={`download-btn-${index}`}
                   >
                     <Download className="w-4 h-4 inline-block mr-2" />
                     {isPdfDocument ? 'Télécharger le PDF' : 'Accéder à la ressource'}
