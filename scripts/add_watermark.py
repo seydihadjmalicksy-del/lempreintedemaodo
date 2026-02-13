@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to add watermark to all PDF files in the ouvrages directory
+Uses pypdf instead of PyPDF2 for better compatibility
 """
 import os
 from PyPDF2 import PdfReader, PdfWriter
@@ -54,6 +55,7 @@ def create_watermark_pdf(page_width, page_height, watermark_image_path, opacity=
         os.unlink(tmp_path)
         
     except Exception as e:
+        print(f"    Image error: {e}, using text fallback")
         # Fallback: draw text watermark
         can.setFillColor(Color(0.83, 0.69, 0.22, alpha=opacity))  # Gold color
         can.setFont("Helvetica-Bold", 40)
@@ -83,9 +85,9 @@ def add_watermark_to_pdf(input_path, output_path, watermark_image_path, opacity=
             watermark_pdf = create_watermark_pdf(page_width, page_height, watermark_image_path, opacity)
             watermark_page = watermark_pdf.pages[0]
             
-            # Merge watermark under the content
-            page.merge_page(watermark_page, over=False)
-            writer.add_page(page)
+            # Merge watermark under the content (watermark first, then content on top)
+            watermark_page.merge_page(page)
+            writer.add_page(watermark_page)
         
         # Write output
         with open(output_path, 'wb') as output_file:
@@ -120,7 +122,7 @@ def process_all_pdfs():
         # Create temporary output path
         temp_output = input_path + '.tmp'
         
-        print(f"[{i}/{total}] Processing: {pdf_file}...", end=" ")
+        print(f"[{i}/{total}] Processing: {pdf_file}...", end=" ", flush=True)
         
         if add_watermark_to_pdf(input_path, temp_output, WATERMARK_IMAGE, OPACITY):
             # Replace original with watermarked version
