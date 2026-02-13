@@ -395,12 +395,12 @@ const OuvragesReference = () => {
 
                   {doc.disponible !== false && (
                     <a
-                      href={isPdf ? `${API_URL}/api/ouvrages/download/${doc.id}` : doc.lien}
+                      href={doc.lien}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                     >
-                      {isPdf ? 'Télécharger PDF' : 'Accéder'}
+                      Télécharger
                     </a>
                   )}
                 </div>
