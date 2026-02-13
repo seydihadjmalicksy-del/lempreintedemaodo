@@ -256,8 +256,12 @@ def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
             x = (page_width - scaled_width) / 2
             y = (page_height - scaled_height) / 2
             
-            # Draw the watermark
+            # Draw the watermark with 25% opacity
+            can.saveState()
+            can.setFillAlpha(0.25)
+            can.setStrokeAlpha(0.25)
             can.drawImage(watermark_img, x, y, width=scaled_width, height=scaled_height, mask='auto')
+            can.restoreState()
         except Exception as e:
             print(f"Error adding watermark image: {e}")
     
