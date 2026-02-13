@@ -367,30 +367,6 @@ const OuvragesReference = () => {
                 ? ("/api/ouvrages/download/" + doc.id)
                 : doc.lien;
               
-              // Handle download click for PDFs
-              const handleDownload = async (e) => {
-                if (!isPdfDocument) return; // Let normal link behavior for non-PDFs
-                
-                e.preventDefault();
-                try {
-                  const response = await fetch(documentUrl);
-                  if (!response.ok) throw new Error('Download failed');
-                  
-                  const blob = await response.blob();
-                  const url = window.URL.createObjectURL(blob);
-                  const a = document.createElement('a');
-                  a.href = url;
-                  a.download = (getLocalizedText(doc.titre) || 'document') + '.pdf';
-                  document.body.appendChild(a);
-                  a.click();
-                  window.URL.revokeObjectURL(url);
-                  document.body.removeChild(a);
-                } catch (error) {
-                  console.error('Download error:', error);
-                  alert('Erreur lors du téléchargement');
-                }
-              };
-              
               return (
                 <div
                   key={doc.id || index}
@@ -412,25 +388,15 @@ const OuvragesReference = () => {
                     </div>
                   </div>
 
-                  {isPdfDocument ? (
-                    <button
-                      onClick={handleDownload}
-                      className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4 cursor-pointer"
-                    >
-                      <Download className="w-4 h-4 inline-block mr-2" />
-                      Télécharger le PDF
-                    </button>
-                  ) : (
-                    <a
-                      href={documentUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
-                    >
-                      <Download className="w-4 h-4 inline-block mr-2" />
-                      Accéder à la ressource
-                    </a>
-                  )}
+                  <a
+                    href={documentUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
+                  >
+                    <Download className="w-4 h-4 inline-block mr-2" />
+                    {isPdfDocument ? 'Télécharger le PDF' : 'Accéder à la ressource'}
+                  </a>
                 </div>
               );
             })}
