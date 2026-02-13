@@ -361,16 +361,24 @@ const OuvragesReference = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* DEBUG: Added marker to verify code changes are being applied */}
             {bibliothequeNumerique.map((doc, index) => {
-              // All documents should have a download button
-              // For PDFs: use watermark endpoint, for others: direct link
-              const isPdf = doc.lien && (
-                doc.lien.toLowerCase().endsWith('.pdf') || 
-                doc.format?.toLowerCase() === 'pdf' ||
-                (doc.taille && doc.taille.toLowerCase().includes('pdf'))
-              );
-              const downloadUrl = isPdf 
+              // Determine if this is a PDF document
+              const docTaille = doc.taille || '';
+              const docLien = doc.lien || '';
+              const docFormat = doc.format || '';
+              
+              const checkIsPdf = docLien.toLowerCase().endsWith('.pdf') || 
+                docFormat.toLowerCase() === 'pdf' ||
+                docTaille.toLowerCase().includes('pdf');
+              
+              // Build the URL - use watermark endpoint for PDFs
+              const finalUrl = checkIsPdf 
                 ? `${API_URL}/api/ouvrages/download/${doc.id}`
-                : doc.lien;
+                : docLien;
+              
+              // Determine button text
+              const buttonText = checkIsPdf 
+                ? (language === 'fr' ? 'Télécharger le PDF' : 'Download PDF')
+                : (language === 'fr' ? 'Accéder à la ressource' : 'Access resource');
               
               return (
                 <div
@@ -395,12 +403,13 @@ const OuvragesReference = () => {
 
                   {doc.disponible !== false && (
                     <a
-                      href={doc.lien}
+                      href={finalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                     >
-                      Télécharger
+                      <Download className="w-4 h-4 inline-block mr-2" />
+                      {buttonText}
                     </a>
                   )}
                 </div>
