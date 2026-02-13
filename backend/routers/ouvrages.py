@@ -2,7 +2,15 @@
 Ouvrages (Reference Works) routes
 """
 from fastapi import APIRouter, HTTPException, Depends
+from fastapi.responses import StreamingResponse
 import uuid
+import os
+import io
+import httpx
+from PyPDF2 import PdfReader, PdfWriter
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
 
 from database import db
 from models import (
