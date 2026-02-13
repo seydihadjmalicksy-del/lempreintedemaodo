@@ -242,9 +242,26 @@ def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
     # Load watermark image
     if os.path.exists(WATERMARK_PATH):
         try:
-            watermark_img = ImageReader(WATERMARK_PATH)
-            # Get image size
-            img_width, img_height = watermark_img.getSize()
+            # Open image with PIL and adjust opacity
+            from PIL import Image
+            img = Image.open(WATERMARK_PATH)
+            
+            # Convert to RGBA if not already
+            if img.mode != 'RGBA':
+                img = img.convert('RGBA')
+            
+            # Adjust opacity to 25%
+            r, g, b, a = img.split()
+            a = a.point(lambda x: int(x * 0.25))  # 25% opacity
+            img = Image.merge('RGBA', (r, g, b, a))
+            
+            # Save to temporary buffer for reportlab
+            img_buffer = io.BytesIO()
+            img.save(img_buffer, format='PNG')
+            img_buffer.seek(0)
+            
+            watermark_img = ImageReader(img_buffer)
+            img_width, img_height = img.size
             
             # Scale watermark to fit nicely (max 30% of page width)
             max_width = page_width * 0.30
@@ -256,12 +273,8 @@ def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
             x = (page_width - scaled_width) / 2
             y = (page_height - scaled_height) / 2
             
-            # Draw the watermark with 25% opacity
-            can.saveState()
-            can.setFillAlpha(0.25)
-            can.setStrokeAlpha(0.25)
+            # Draw the watermark
             can.drawImage(watermark_img, x, y, width=scaled_width, height=scaled_height, mask='auto')
-            can.restoreState()
         except Exception as e:
             print(f"Error adding watermark image: {e}")
     
