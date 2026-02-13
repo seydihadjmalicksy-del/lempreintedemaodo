@@ -357,9 +357,8 @@ async def download_pdf_with_watermark(item_id: str):
                     raise HTTPException(status_code=404, detail="Impossible de télécharger le PDF")
                 pdf_content = response.content
         
-        # Skip watermark and return original PDF for debugging
-        # watermarked_pdf = await add_watermark_to_pdf(pdf_content)
-        watermarked_pdf = pdf_content  # Return original without watermark
+        # Add watermark
+        watermarked_pdf = await add_watermark_to_pdf(pdf_content)
         
         # Return as streaming response
         return StreamingResponse(
