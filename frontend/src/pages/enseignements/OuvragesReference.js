@@ -367,6 +367,15 @@ const OuvragesReference = () => {
                 ? ("/api/ouvrages/download/" + doc.id)
                 : doc.lien;
               
+              // Handle click - navigate to download URL
+              const handleClick = (e) => {
+                if (isPdfDocument) {
+                  e.preventDefault();
+                  // Navigate to download URL in same window
+                  window.location.href = documentUrl;
+                }
+              };
+              
               return (
                 <div
                   key={doc.id || index}
@@ -390,7 +399,8 @@ const OuvragesReference = () => {
 
                   <a
                     href={documentUrl}
-                    target="_blank"
+                    onClick={handleClick}
+                    target={isPdfDocument ? "_self" : "_blank"}
                     rel="noopener noreferrer"
                     className="block w-full py-3 rounded-lg font-medium bg-[#004D33] hover:bg-[#003d29] text-white text-center mt-4"
                   >
