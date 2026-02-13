@@ -41,9 +41,22 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - Sources: eutoutidjanneyi.wordpress.com
 - Fichiers stockés dans `/ouvrages/` avec téléchargement direct
 
+### Phase 5 - Logo & Watermark Integration ✅ (Feb 13, 2026)
+- **Logo final intégré**: Utilisateur a fourni logo avec Maodo + couleurs du site (#004D33, #D4AF37)
+- **Versions de logo créées**:
+  - `/logo.png` - Logo principal haute résolution
+  - `/logo-navbar.png` - Logo pour la navbar (150px)
+  - `/logo192.png` et `/logo512.png` - Logos PWA
+  - `/favicon.ico` - Favicon multi-tailles
+  - `/watermark.png` - Filigrane 25% opacité
+  - `/watermark-pdf.png` - Filigrane PDF 15% opacité (400px)
+- **Logo intégré dans**: Navbar, Page d'accueil (section bienvenue)
+- **Filigrane dynamique PDF**: Endpoint `/api/ouvrages/download/{id}` ajoute le filigrane à la volée lors du téléchargement
+
 ## Current Status
 - **App Name**: L'empreinte de Maodo (PWA, Safari, manifest)
-- **Ouvrages**: 66 documents PDF disponibles
+- **Logo**: Nouveau logo avec portrait de Maodo et couleurs du site intégré
+- **Ouvrages**: 66 documents PDF disponibles avec filigrane dynamique
 - **Arbre Généalogique**: Fonctionnel (membre Serigne Sidy Ahmed Sy visible)
 - **Affiche levée de fonds**: `/affiche-zawiya.html` créée
 
@@ -53,21 +66,24 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - Aucun bug critique actuel
 
 ### P1 - High Priority
-- [x] ~~Bannière "Bismillah" sur la page d'accueil~~ (déjà présente)
-- [x] ~~Recherche/filtrage dans la bibliothèque~~ → Système de recherche global implémenté (Feb 12, 2026)
+- [x] ~~Logo et filigrane intégrés~~ (Feb 13, 2026)
+- [x] ~~Filigrane dynamique sur les PDFs~~ (Feb 13, 2026)
 
 ### P2 - Medium Priority
-- [x] ~~Finaliser refactoring AdminPanel.js~~ → Refactorisé: 2370 → 452 lignes + 8 composants (Feb 12, 2026)
+- [ ] Bannière "Bismillah" stylisée sur la page d'accueil
 - [ ] Transcriptions des Khassaides
 
 ### P3 - Future Enhancements
 - [ ] Notifications Push depuis l'Admin
+- [ ] Recherche en temps réel avec auto-complétion
 - [ ] Intégration contenu xassida.sn (nécessite API)
 - [ ] Application mobile native
 
 ## API Endpoints
 - `GET /api/ouvrages/bibliotheque` - Liste des 66 ouvrages
+- `GET /api/ouvrages/download/{id}` - **NOUVEAU** Téléchargement PDF avec filigrane
 - `GET /api/family-tree/tree` - Arbre généalogique hiérarchique
+- `GET /api/search?q={query}` - Recherche globale
 - `POST /api/auth/login` - Authentification admin
 
 ## Credentials
@@ -78,16 +94,23 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 /app
 ├── backend/
 │   ├── routers/           # 15 fichiers de routes
+│   │   └── ouvrages.py    # Inclut téléchargement avec filigrane
 │   ├── models/            # 11 modèles Pydantic
 │   └── server.py          # Point d'entrée (allégé)
 └── frontend/
     ├── public/
-    │   ├── ouvrages/      # 56 PDFs (244 Mo)
+    │   ├── logo.png           # Logo principal
+    │   ├── logo-navbar.png    # Logo navbar
+    │   ├── watermark*.png     # Filigranes
+    │   ├── ouvrages/          # 56 PDFs (244 Mo)
     │   └── affiche-zawiya.html
     └── src/
+        ├── components/
+        │   └── Navbar.js      # Avec nouveau logo
         └── pages/
-            └── admin/     # Composants refactorisés
+            ├── Home.js        # Section bienvenue avec logo
+            └── admin/         # Composants refactorisés
 ```
 
 ## Last Updated
-February 12, 2026 - Intégration bibliothèque d'ouvrages
+February 13, 2026 - Intégration logo final et filigrane dynamique PDF
