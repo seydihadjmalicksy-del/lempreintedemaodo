@@ -23,7 +23,8 @@ from routers import (
     ouvrages_router,
     search_router,
     calendar_router,
-    notifications_router
+    notifications_router,
+    wattu_router
 )
 
 # Create the main app
