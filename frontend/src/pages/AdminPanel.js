@@ -123,7 +123,7 @@ const AdminPanel = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes, khalifesRes, pagesRes, archivesStatsRes, wattuStatsRes] = await Promise.all([
+      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, contentRes, khalifesRes, pagesRes, archivesStatsRes, wattuStatsRes, dynamicPagesStatsRes] = await Promise.all([
         axios.get(`${API}/quotes?active_only=false`),
         axios.get(`${API}/events?upcoming_only=false`),
         axios.get(`${API}/newsletter/subscribers`).catch(() => ({ data: { total_subscribers: 0 } })),
@@ -133,7 +133,8 @@ const AdminPanel = () => {
         axios.get(`${API}/khalifes?active_only=false`).catch(() => ({ data: { khalifes: [] } })),
         axios.get(`${API}/pages`).catch(() => ({ data: { pages: [] } })),
         axios.get(`${API}/archives/stats`).catch(() => ({ data: { total: 0 } })),
-        axios.get(`${API}/wattu/stats`).catch(() => ({ data: { total: 0 } }))
+        axios.get(`${API}/wattu/stats`).catch(() => ({ data: { total: 0 } })),
+        axios.get(`${API}/dynamic-pages/stats`).catch(() => ({ data: { total: 0 } }))
       ]);
 
       setQuotes(quotesRes.data?.quotes || []);
@@ -143,6 +144,7 @@ const AdminPanel = () => {
       setKhalifes(khalifesRes.data?.khalifes || []);
       setArchivesStats(archivesStatsRes.data || { total: 0 });
       setWattuStats(wattuStatsRes.data || { total: 0 });
+      setPagesStats(dynamicPagesStatsRes.data || { total: 0 });
       setStats({
         newsletter: newsletterRes.data?.total_subscribers || 0,
         contact: contactRes.data?.count || 0,
