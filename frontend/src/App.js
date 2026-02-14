@@ -24,6 +24,8 @@ import CeremoniesReligieuses from "./pages/evenements/CeremoniesReligieuses";
 import PiliersTariqa from "./pages/enseignements/PiliersTariqa";
 import EcoleTivaouane from "./pages/enseignements/EcoleTivaouane";
 import OuvragesReference from "./pages/enseignements/OuvragesReference";
+import Wattu from "./pages/Wattu";
+import WattuArticle from "./pages/WattuArticle";
 import LogoPreview from "./pages/LogoPreview";
 import Navbar from "./components/Navbar";
 import PWAPrompt from "./components/PWAPrompt";
