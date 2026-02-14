@@ -30,7 +30,6 @@ class WattuArticleCreate(BaseModel):
     auteur: str = ""
     image: Optional[str] = None
     categorie: str = "general"
-    date_publication: Optional[str] = None
     active: bool = True
     featured: bool = False
     order: int = 0
