@@ -461,6 +461,13 @@ const AdminPanel = () => {
                   onDelete={setDeleteConfirm}
                 />
               )}
+
+              {activeTab === "dynamicPages" && (
+                <DynamicPagesTab
+                  getAuthHeaders={getAuthHeaders}
+                  onDelete={setDeleteConfirm}
+                />
+              )}
             </>
           )}
         </div>
