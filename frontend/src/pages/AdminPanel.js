@@ -270,6 +270,7 @@ const AdminPanel = () => {
     { id: "heritiers", icon: Users, label: t.heritiers, count: khalifes.length },
     { id: "content", icon: FileText, label: t.content, count: pageContent.length },
     { id: "wattu", icon: MessageSquare, label: "Wattu", count: wattuStats.total || 0 },
+    { id: "dynamicPages", icon: Layout, label: "Pages", count: pagesStats.total || 0 },
     { id: "archives", icon: Archive, label: "Archives", count: archivesStats.total || 0, onSelect: fetchArchives },
     { id: "familyTree", icon: Users, label: "Arbre", count: familyTree.length, onSelect: fetchFamilyTree },
     { id: "ouvrages", icon: Book, label: "Ouvrages", count: ouvragesStats.total || 0, onSelect: fetchOuvrages }
