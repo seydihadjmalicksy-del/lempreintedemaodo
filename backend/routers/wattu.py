@@ -71,11 +71,10 @@ async def get_all_articles_admin(admin: bool = Depends(verify_admin_token)):
 @router.post("/admin/articles")
 async def create_article(item: WattuArticleCreate, admin: bool = Depends(verify_admin_token)):
     """Create a new opinion article"""
-    new_item = WattuArticle(**item.model_dump())
-    item_dict = new_item.model_dump()
-    item_dict['created_at'] = item_dict['created_at'].isoformat()
-    if not item_dict.get('date_publication'):
-        item_dict['date_publication'] = datetime.now(timezone.utc).isoformat()
+    item_dict = item.model_dump()
+    item_dict['id'] = str(uuid.uuid4())
+    item_dict['date_publication'] = datetime.now(timezone.utc).isoformat()
+    item_dict['created_at'] = datetime.now(timezone.utc).isoformat()
     await db.wattu_articles.insert_one(item_dict)
     item_dict.pop("_id", None)
     return item_dict
