@@ -243,18 +243,24 @@ def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
     # Load watermark image (site logo)
     if os.path.exists(WATERMARK_PATH):
         try:
-            # Open image with PIL and adjust opacity
             from PIL import Image
             img = Image.open(WATERMARK_PATH)
             
-            # Convert to RGBA if not already
+            # Convert to RGBA
             if img.mode != 'RGBA':
                 img = img.convert('RGBA')
             
-            # Adjust opacity to 25%
-            r, g, b, a = img.split()
-            a = a.point(lambda x: int(x * 0.25))  # 25% opacity
-            img = Image.merge('RGBA', (r, g, b, a))
+            # Create a new image with transparency applied uniformly
+            # This ensures the watermark is visible but subtle
+            datas = img.getdata()
+            new_data = []
+            opacity = int(255 * 0.25)  # 25% opacity
+            
+            for item in datas:
+                # Apply opacity to all pixels
+                new_data.append((item[0], item[1], item[2], min(item[3], opacity)))
+            
+            img.putdata(new_data)
             
             # Save to temporary buffer for reportlab
             img_buffer = io.BytesIO()
@@ -274,7 +280,7 @@ def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
             x = (page_width - scaled_width) / 2
             y = (page_height - scaled_height) / 2
             
-            # Draw the watermark
+            # Draw the watermark with transparency support
             can.drawImage(watermark_img, x, y, width=scaled_width, height=scaled_height, mask='auto')
         except Exception as e:
             print(f"Error adding watermark image: {e}")
