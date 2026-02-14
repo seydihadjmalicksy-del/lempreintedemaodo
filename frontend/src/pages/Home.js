@@ -153,7 +153,7 @@ const Home = () => {
             <img 
               src="/logo.png" 
               alt="L'empreinte de Maodo - Logo" 
-              className="h-40 md:h-48 mx-auto"
+              className="h-40 w-40 md:h-48 md:w-48 mx-auto rounded-full object-cover shadow-lg border-4 border-[#D4AF37]"
             />
           </div>
           
