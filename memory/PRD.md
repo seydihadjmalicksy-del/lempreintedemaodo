@@ -55,11 +55,25 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - **Filigrane supprimé**: Les PDFs sont maintenant téléchargés directement sans traitement
 - **Logo en format circulaire**: Logo affiché en rond avec bordure dorée dans la navbar et la page d'accueil
 
+### Phase 7 - Wattu & Logo Update ✅ (Feb 14, 2026)
+- **Nouveau logo intégré**: Logo médaillon classique fourni par l'utilisateur
+- **Page Wattu créée**: Nouvelle section pour les opinions et réflexions
+  - Backend: `/api/wattu/*` avec CRUD complet
+  - Frontend: Page de liste avec filtres par catégorie
+  - Page de détail pour chaque article
+  - 4 catégories: Général, Spiritualité, Actualités, Réflexions
+- **Admin Wattu**: Nouvel onglet dans le panel admin pour gérer les articles
+  - Création/édition/suppression d'articles
+  - Support multilingue (FR, EN, AR, WO)
+  - Options: actif/inactif, mis en avant
+  - Tags et images
+
 ## Current Status
 - **App Name**: L'empreinte de Maodo (PWA, Safari, manifest)
-- **Logo**: Nouveau logo circulaire avec portrait de Maodo et bordure dorée
+- **Logo**: Nouveau logo médaillon avec portrait de Maodo
 - **Ouvrages**: 66 documents PDF disponibles en téléchargement direct
-- **Arbre Généalogique**: Fonctionnel (membre Serigne Sidy Ahmed Sy visible)
+- **Wattu**: Section opinions avec gestion admin
+- **Arbre Généalogique**: Fonctionnel
 - **Affiche levée de fonds**: `/affiche-zawiya.html` créée
 
 ## Prioritized Backlog
@@ -71,6 +85,9 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - [x] ~~Logo et filigrane intégrés~~ (Feb 13, 2026)
 - [x] ~~Bug téléchargement PDF corrigé~~ (Feb 14, 2026)
 - [x] ~~Logo en format circulaire~~ (Feb 14, 2026)
+- [x] ~~Page Wattu créée~~ (Feb 14, 2026)
+- [x] ~~Admin Wattu~~ (Feb 14, 2026)
+- [ ] Rendre les autres pages dynamiques via admin
 
 ### P2 - Medium Priority
 - [ ] Transcriptions des Khassaides
@@ -84,7 +101,13 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 
 ## API Endpoints
 - `GET /api/ouvrages/bibliotheque` - Liste des 66 ouvrages
-- `GET /api/ouvrages/download/{id}` - **NOUVEAU** Téléchargement PDF avec filigrane
+- `GET /api/ouvrages/download/{id}` - Téléchargement PDF direct
+- `GET /api/wattu/articles` - Liste des articles Wattu
+- `GET /api/wattu/articles/{id}` - Détail d'un article
+- `GET /api/wattu/categories` - Catégories disponibles
+- `POST /api/wattu/admin/articles` - Créer un article (admin)
+- `PUT /api/wattu/admin/articles/{id}` - Modifier un article (admin)
+- `DELETE /api/wattu/admin/articles/{id}` - Supprimer un article (admin)
 - `GET /api/family-tree/tree` - Arbre généalogique hiérarchique
 - `GET /api/search?q={query}` - Recherche globale
 - `POST /api/auth/login` - Authentification admin
