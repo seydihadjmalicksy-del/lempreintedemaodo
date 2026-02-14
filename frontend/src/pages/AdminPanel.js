@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Settings, Quote, Calendar, Video, Users, RefreshCw, LogOut, FileText, Archive, Book, MessageSquare } from "lucide-react";
+import { Settings, Quote, Calendar, Video, Users, RefreshCw, LogOut, FileText, Archive, Book, MessageSquare, Layout } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
