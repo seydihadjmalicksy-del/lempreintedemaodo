@@ -233,6 +233,9 @@ const AdminPanel = () => {
           await axios.delete(`${API}/family-tree/${id}`, { headers: getAuthHeaders() });
           fetchFamilyTree();
           break;
+        case 'wattu_article':
+          await axios.delete(`${API}/wattu/admin/articles/${id}`, { headers: getAuthHeaders() });
+          break;
         default:
           // Handle archive types
           if (type.startsWith('archive_')) {
