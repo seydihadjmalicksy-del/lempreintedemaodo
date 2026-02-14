@@ -449,6 +449,13 @@ const AdminPanel = () => {
                   getAuthHeaders={getAuthHeaders}
                 />
               )}
+
+              {activeTab === "wattu" && (
+                <WattuTab
+                  getAuthHeaders={getAuthHeaders}
+                  onDelete={setDeleteConfirm}
+                />
+              )}
             </>
           )}
         </div>
