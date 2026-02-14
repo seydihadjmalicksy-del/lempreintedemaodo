@@ -7,7 +7,7 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - Support multilingue (Français, Anglais, Arabe, Wolof)
 - PWA avec fonctionnalités hors-ligne
 - CMS complet pour gestion du contenu
-- Sections: Histoire, Enseignements, Événements, Archives, Médiathèque, Contact
+- Sections: Histoire, Enseignements, Wattu, Événements, Archives, Médiathèque, Contact
 
 ## Tech Stack
 - **Frontend**: React, Tailwind CSS, Shadcn/UI
