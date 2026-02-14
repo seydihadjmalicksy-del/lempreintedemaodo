@@ -324,8 +324,8 @@ async def add_watermark_to_pdf(pdf_content: bytes) -> bytes:
 
 
 @router.get("/download/{item_id}")
-async def download_pdf_with_watermark(item_id: str):
-    """Download a PDF with watermark applied dynamically"""
+async def download_pdf(item_id: str):
+    """Download a PDF directly without watermark"""
     # Find the item in bibliotheque
     item = await db.bibliotheque.find_one({"id": item_id}, {"_id": 0})
     if not item:
@@ -365,12 +365,9 @@ async def download_pdf_with_watermark(item_id: str):
                     raise HTTPException(status_code=404, detail="Impossible de télécharger le PDF")
                 pdf_content = response.content
         
-        # Add watermark
-        watermarked_pdf = await add_watermark_to_pdf(pdf_content)
-        
-        # Return as streaming response
+        # Return PDF directly without watermark
         return StreamingResponse(
-            io.BytesIO(watermarked_pdf),
+            io.BytesIO(pdf_content),
             media_type="application/pdf",
             headers={
                 "Content-Disposition": f'attachment; filename="{filename}.pdf"',
