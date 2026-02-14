@@ -16,6 +16,7 @@ from .search import router as search_router
 from .calendar import router as calendar_router
 from .notifications import router as notifications_router
 from .wattu import router as wattu_router
+from .dynamic_pages import router as dynamic_pages_router
 
 __all__ = [
     "videos_router",
@@ -32,5 +33,6 @@ __all__ = [
     "search_router",
     "calendar_router",
     "notifications_router",
-    "wattu_router"
+    "wattu_router",
+    "dynamic_pages_router"
 ]
