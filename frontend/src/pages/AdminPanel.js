@@ -14,7 +14,8 @@ import {
   QuotesTab,
   EventsTab,
   KhalifesTab,
-  ContentTab
+  ContentTab,
+  WattuTab
 } from "./admin";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
