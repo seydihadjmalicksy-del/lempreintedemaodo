@@ -79,6 +79,10 @@ function App() {
           <Route path="/enseignements/ecole" element={<EcoleTivaouane />} />
           <Route path="/enseignements/ouvrages" element={<OuvragesReference />} />
           
+          {/* Wattu (Opinions) Routes */}
+          <Route path="/wattu" element={<Wattu />} />
+          <Route path="/wattu/:id" element={<WattuArticle />} />
+          
           {/* Événements Routes */}
           <Route path="/evenements/gamou" element={<Gamou />} />
           <Route path="/evenements/ziarra" element={<ZiarraAnnuelles />} />
