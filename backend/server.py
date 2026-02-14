@@ -24,7 +24,8 @@ from routers import (
     search_router,
     calendar_router,
     notifications_router,
-    wattu_router
+    wattu_router,
+    dynamic_pages_router
 )
 
 # Create the main app
