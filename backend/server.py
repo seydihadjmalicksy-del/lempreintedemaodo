@@ -79,6 +79,7 @@ api_router.include_router(ouvrages_router)
 api_router.include_router(search_router)
 api_router.include_router(calendar_router)
 api_router.include_router(notifications_router)
+api_router.include_router(wattu_router)
 
 # Include the API router in the main app
 app.include_router(api_router)
