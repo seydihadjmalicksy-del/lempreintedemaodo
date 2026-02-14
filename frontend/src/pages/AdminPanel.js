@@ -35,6 +35,7 @@ const AdminPanel = () => {
   const [familyTree, setFamilyTree] = useState([]);
   const [ouvrages, setOuvrages] = useState({ majeurs: [], autres: [], bibliotheque: [], academiques: [] });
   const [ouvragesStats, setOuvragesStats] = useState({ total: 0 });
+  const [wattuStats, setWattuStats] = useState({ total: 0 });
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
