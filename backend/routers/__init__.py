@@ -15,6 +15,7 @@ from .ouvrages import router as ouvrages_router
 from .search import router as search_router
 from .calendar import router as calendar_router
 from .notifications import router as notifications_router
+from .wattu import router as wattu_router
 
 __all__ = [
     "videos_router",
@@ -30,5 +31,6 @@ __all__ = [
     "ouvrages_router",
     "search_router",
     "calendar_router",
-    "notifications_router"
+    "notifications_router",
+    "wattu_router"
 ]
