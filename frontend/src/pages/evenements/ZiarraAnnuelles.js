@@ -1,4 +1,4 @@
-import DynamicPageRenderer from "../components/DynamicPageRenderer";
+import DynamicPageRenderer from "../../components/DynamicPageRenderer";
 
 const ZiarraAnnuelles = () => {
   return <DynamicPageRenderer slug="evenements/ziarra" />;

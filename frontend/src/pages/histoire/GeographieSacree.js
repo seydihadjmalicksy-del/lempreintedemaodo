@@ -1,4 +1,4 @@
-import DynamicPageRenderer from "../components/DynamicPageRenderer";
+import DynamicPageRenderer from "../../components/DynamicPageRenderer";
 
 const GeographieSacree = () => {
   return <DynamicPageRenderer slug="histoire/geographie" />;

@@ -87,3 +87,6 @@ frontend/node_modules/.cache/default-development/0.pack
 frontend/public/ouvrages/these-rawane-mbaye-vol-3.pdf
 frontend/public/ouvrages/rissala.pdf
 frontend/public/ouvrages/khilasou-zahab.pdf
+frontend/build/ouvrages/these-rawane-mbaye-vol-3.pdf
+frontend/build/ouvrages/rissala.pdf
+frontend/build/ouvrages/khilasou-zahab.pdf
