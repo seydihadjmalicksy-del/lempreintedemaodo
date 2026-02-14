@@ -98,7 +98,7 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - [x] ~~Système de pages dynamiques~~ (Feb 14, 2026)
 
 ### P2 - Medium Priority
-- [ ] Migrer le contenu des pages statiques vers les pages dynamiques
+- [x] ~~Migrer le contenu des pages statiques vers les pages dynamiques~~ (Feb 14, 2026)
 - [ ] Transcriptions des Khassaides
 - [ ] Amélioration UX bibliothèque numérique
 
@@ -117,12 +117,33 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - `POST /api/wattu/admin/articles` - Créer un article (admin)
 - `PUT /api/wattu/admin/articles/{id}` - Modifier un article (admin)
 - `DELETE /api/wattu/admin/articles/{id}` - Supprimer un article (admin)
+- `GET /api/dynamic-pages/` - Liste des pages dynamiques
+- `GET /api/dynamic-pages/by-slug/{slug}` - Page par slug
+- `POST /api/dynamic-pages/admin` - Créer une page (admin)
+- `PUT /api/dynamic-pages/admin/{id}` - Modifier une page (admin)
+- `DELETE /api/dynamic-pages/admin/{id}` - Supprimer une page (admin)
 - `GET /api/family-tree/tree` - Arbre généalogique hiérarchique
 - `GET /api/search?q={query}` - Recherche globale
 - `POST /api/auth/login` - Authentification admin
 
 ## Credentials
 - **Admin**: `admin` / `tivaouane2025`
+
+## Pages Dynamiques Créées (9 pages)
+### Histoire (4 pages)
+- `/histoire/origines` - Les Origines de la Tijaniyya
+- `/histoire/maodo` - El Hadji Malick Sy (Maodo)
+- `/histoire/khalifes` - La Lignée des Khalifes
+- `/histoire/geographie` - Géographie Sacrée
+
+### Enseignements (2 pages)
+- `/enseignements/piliers` - Les Piliers de la Tariqa
+- `/enseignements/ecole` - L'École de Tivaouane
+
+### Événements (3 pages)
+- `/evenements/gamou` - Le Gamou
+- `/evenements/ziarra` - Les Ziarra Annuelles
+- `/evenements/ceremonies` - Cérémonies Religieuses
 
 ## File Structure
 ```
