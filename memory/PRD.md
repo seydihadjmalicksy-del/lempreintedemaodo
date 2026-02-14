@@ -41,22 +41,24 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - Sources: eutoutidjanneyi.wordpress.com
 - Fichiers stockés dans `/ouvrages/` avec téléchargement direct
 
-### Phase 5 - Logo & Watermark Integration ✅ (Feb 13, 2026)
+### Phase 5 - Logo Integration ✅ (Feb 13, 2026)
 - **Logo final intégré**: Utilisateur a fourni logo avec Maodo + couleurs du site (#004D33, #D4AF37)
 - **Versions de logo créées**:
   - `/logo.png` - Logo principal haute résolution
   - `/logo-navbar.png` - Logo pour la navbar (150px)
   - `/logo192.png` et `/logo512.png` - Logos PWA
   - `/favicon.ico` - Favicon multi-tailles
-  - `/watermark.png` - Filigrane 25% opacité
-  - `/watermark-pdf.png` - Filigrane PDF 15% opacité (400px)
 - **Logo intégré dans**: Navbar, Page d'accueil (section bienvenue)
-- **Filigrane dynamique PDF**: Endpoint `/api/ouvrages/download/{id}` ajoute le filigrane à la volée lors du téléchargement
+
+### Phase 6 - Bug Fixes & Improvements ✅ (Feb 14, 2026)
+- **Bug téléchargement PDF corrigé**: Suppression du `event.preventDefault()` qui bloquait les liens
+- **Filigrane supprimé**: Les PDFs sont maintenant téléchargés directement sans traitement
+- **Logo en format circulaire**: Logo affiché en rond avec bordure dorée dans la navbar et la page d'accueil
 
 ## Current Status
 - **App Name**: L'empreinte de Maodo (PWA, Safari, manifest)
-- **Logo**: Nouveau logo avec portrait de Maodo et couleurs du site intégré
-- **Ouvrages**: 66 documents PDF disponibles avec filigrane dynamique
+- **Logo**: Nouveau logo circulaire avec portrait de Maodo et bordure dorée
+- **Ouvrages**: 66 documents PDF disponibles en téléchargement direct
 - **Arbre Généalogique**: Fonctionnel (membre Serigne Sidy Ahmed Sy visible)
 - **Affiche levée de fonds**: `/affiche-zawiya.html` créée
 
@@ -67,11 +69,12 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 
 ### P1 - High Priority
 - [x] ~~Logo et filigrane intégrés~~ (Feb 13, 2026)
-- [x] ~~Filigrane dynamique sur les PDFs~~ (Feb 13, 2026)
+- [x] ~~Bug téléchargement PDF corrigé~~ (Feb 14, 2026)
+- [x] ~~Logo en format circulaire~~ (Feb 14, 2026)
 
 ### P2 - Medium Priority
-- [ ] Bannière "Bismillah" stylisée sur la page d'accueil
 - [ ] Transcriptions des Khassaides
+- [ ] Amélioration UX bibliothèque numérique
 
 ### P3 - Future Enhancements
 - [ ] Notifications Push depuis l'Admin
