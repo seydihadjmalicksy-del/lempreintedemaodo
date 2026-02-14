@@ -85,6 +85,9 @@ function App() {
           {/* Admin Route */}
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/admin/login" element={<AdminLogin />} />
+          
+          {/* Logo Preview */}
+          <Route path="/logo-preview" element={<LogoPreview />} />
         </Routes>
         <Toaster />
       </BrowserRouter>
