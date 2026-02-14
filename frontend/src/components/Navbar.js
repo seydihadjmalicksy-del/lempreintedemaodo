@@ -78,7 +78,7 @@ const Navbar = () => {
               <img 
                 src="/logo.png" 
                 alt="L'empreinte de Maodo" 
-                className="h-16 w-auto"
+                className="h-16 w-16 rounded-full object-cover shadow-md border-2 border-[#D4AF37]"
               />
             </Link>
 
