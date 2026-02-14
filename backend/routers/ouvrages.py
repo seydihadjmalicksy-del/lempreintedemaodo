@@ -291,7 +291,7 @@ def create_watermark_pdf(page_width: float, page_height: float) -> io.BytesIO:
 
 
 async def add_watermark_to_pdf(pdf_content: bytes) -> bytes:
-    """Add watermark to all pages of a PDF"""
+    """Add watermark to all pages of a PDF - watermark goes under content"""
     try:
         # Read the original PDF
         original_pdf = PdfReader(io.BytesIO(pdf_content))
@@ -307,9 +307,10 @@ async def add_watermark_to_pdf(pdf_content: bytes) -> bytes:
             watermark_pdf = PdfReader(watermark_packet)
             watermark_page = watermark_pdf.pages[0]
             
-            # Merge watermark onto the original page
-            page.merge_page(watermark_page)
-            output.add_page(page)
+            # Put watermark UNDER the original content (not over)
+            # This preserves the original PDF rendering
+            watermark_page.merge_page(page)
+            output.add_page(watermark_page)
         
         # Write to bytes
         output_buffer = io.BytesIO()
