@@ -99,6 +99,7 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 
 ### P2 - Medium Priority
 - [x] ~~Migrer le contenu des pages statiques vers les pages dynamiques~~ (Feb 14, 2026)
+- [x] ~~Connecter les pages frontend au contenu dynamique~~ (Feb 14, 2026)
 - [ ] Transcriptions des Khassaides
 - [ ] Amélioration UX bibliothèque numérique
 
