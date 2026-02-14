@@ -62,17 +62,24 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
   - Frontend: Page de liste avec filtres par catégorie
   - Page de détail pour chaque article
   - 4 catégories: Général, Spiritualité, Actualités, Réflexions
+  - **5 articles exemples** ajoutés (Wird, Éducation, Gamou, Salat Fatihi, Jeunesse)
 - **Admin Wattu**: Nouvel onglet dans le panel admin pour gérer les articles
   - Création/édition/suppression d'articles
   - Support multilingue (FR, EN, AR, WO)
   - Options: actif/inactif, mis en avant
   - Tags et images
+- **Système de Pages Dynamiques**: Infrastructure pour rendre toutes les pages modifiables
+  - Backend: `/api/dynamic-pages/*` avec CRUD complet
+  - Admin: Nouvel onglet "Pages" pour gérer les pages du site
+  - Support pour sections de contenu (texte, image, citation, vidéo, cartes, chronologie)
+  - Bouton "Créer pages par défaut" pour initialiser les pages existantes
 
 ## Current Status
 - **App Name**: L'empreinte de Maodo (PWA, Safari, manifest)
 - **Logo**: Nouveau logo médaillon avec portrait de Maodo
 - **Ouvrages**: 66 documents PDF disponibles en téléchargement direct
-- **Wattu**: Section opinions avec gestion admin
+- **Wattu**: Section opinions avec 5 articles exemples et gestion admin
+- **Pages Dynamiques**: Système prêt à l'emploi via admin
 - **Arbre Généalogique**: Fonctionnel
 - **Affiche levée de fonds**: `/affiche-zawiya.html` créée
 
@@ -87,9 +94,11 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - [x] ~~Logo en format circulaire~~ (Feb 14, 2026)
 - [x] ~~Page Wattu créée~~ (Feb 14, 2026)
 - [x] ~~Admin Wattu~~ (Feb 14, 2026)
-- [ ] Rendre les autres pages dynamiques via admin
+- [x] ~~Articles exemples Wattu~~ (Feb 14, 2026)
+- [x] ~~Système de pages dynamiques~~ (Feb 14, 2026)
 
 ### P2 - Medium Priority
+- [ ] Migrer le contenu des pages statiques vers les pages dynamiques
 - [ ] Transcriptions des Khassaides
 - [ ] Amélioration UX bibliothèque numérique
 
