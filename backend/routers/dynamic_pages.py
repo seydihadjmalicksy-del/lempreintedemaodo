@@ -132,6 +132,14 @@ async def get_all_pages():
     return {"pages": items}
 
 
+@router.post("/auto-init")
+async def auto_init_pages():
+    """Public endpoint to auto-initialize default pages (no auth required)"""
+    created = await ensure_default_pages_exist()
+    total = await db.dynamic_pages.count_documents({})
+    return {"message": f"{created} pages créées", "total": total}
+
+
 @router.get("/menu")
 async def get_menu_pages():
     """Get pages grouped by menu for navigation"""
