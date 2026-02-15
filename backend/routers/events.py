@@ -14,8 +14,8 @@ router = APIRouter(prefix="/events", tags=["events"])
 
 @router.get("")
 async def get_events():
-    events = await db.events.find({"active": True}, {"_id": 0}).sort("date", 1).to_list(1000)
-    return events
+    events = await db.events.find({"active": True}, {"_id": 0}).sort("date", 1).limit(50).to_list(50)
+    return {"events": events}
 
 
 @router.get("/upcoming")

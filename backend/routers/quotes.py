@@ -15,13 +15,13 @@ router = APIRouter(prefix="/quotes", tags=["quotes"])
 
 @router.get("")
 async def get_quotes():
-    quotes = await db.quotes.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    quotes = await db.quotes.find({"active": True}, {"_id": 0}).sort("order", 1).limit(100).to_list(100)
     return quotes
 
 
 @router.get("/daily")
 async def get_daily_quote():
-    quotes = await db.quotes.find({"active": True}, {"_id": 0}).to_list(1000)
+    quotes = await db.quotes.find({"active": True}, {"_id": 0}).limit(365).to_list(365)
     if not quotes:
         return {
             "text_fr": "La science est une lumière que Dieu place dans le cœur de qui Il veut.",
