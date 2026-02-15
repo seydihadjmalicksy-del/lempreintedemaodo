@@ -110,9 +110,11 @@ DEFAULT_PAGES = [
 async def ensure_default_pages_exist():
     """Ensure default pages exist in database (called internally)"""
     created = 0
+    activated = 0
     for page_data in DEFAULT_PAGES:
         existing = await db.dynamic_pages.find_one({"slug": page_data["slug"]})
         if not existing:
+            # Create new page
             page_dict = page_data.copy()
             page_dict['id'] = str(uuid.uuid4())
             page_dict['active'] = True
@@ -121,7 +123,14 @@ async def ensure_default_pages_exist():
             page_dict['updated_at'] = datetime.now(timezone.utc).isoformat()
             await db.dynamic_pages.insert_one(page_dict)
             created += 1
-    return created
+        elif not existing.get('active', False):
+            # Page exists but is inactive - activate it
+            await db.dynamic_pages.update_one(
+                {"slug": page_data["slug"]},
+                {"$set": {"active": True, "updated_at": datetime.now(timezone.utc).isoformat()}}
+            )
+            activated += 1
+    return created + activated
 
 
 # ============== PUBLIC ENDPOINTS ==============
