@@ -83,6 +83,16 @@ async def api_health_check():
         return {"status": "unhealthy", "database": "disconnected", "error": str(e)}
 
 
+@api_router.post("/health")
+async def api_health_check_post():
+    """Health check POST endpoint via /api/health"""
+    try:
+        await db.command("ping")
+        return {"status": "healthy", "database": "connected", "method": "POST"}
+    except Exception as e:
+        return {"status": "unhealthy", "database": "disconnected", "error": str(e)}
+
+
 @api_router.get("/")
 async def root():
     return {"message": "Bienvenue sur le site de la Tariqa Tidiane de Tivaouane"}
