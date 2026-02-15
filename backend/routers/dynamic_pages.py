@@ -162,6 +162,17 @@ async def get_menu_pages():
 async def get_page_by_slug(slug: str):
     """Get a page by its slug (e.g., histoire/origines)"""
     item = await db.dynamic_pages.find_one({"slug": slug, "active": True}, {"_id": 0})
+    
+    # If page not found, try to auto-seed default pages
+    if not item:
+        # Check if this is a known default page slug
+        default_slugs = [p["slug"] for p in DEFAULT_PAGES]
+        if slug in default_slugs:
+            # Auto-seed default pages
+            await ensure_default_pages_exist()
+            # Try again
+            item = await db.dynamic_pages.find_one({"slug": slug, "active": True}, {"_id": 0})
+    
     if not item:
         raise HTTPException(status_code=404, detail="Page non trouvée")
     return item
