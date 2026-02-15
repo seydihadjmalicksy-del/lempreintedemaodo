@@ -25,7 +25,7 @@ const API = `${BACKEND_URL}/api`;
 const AdminPanel = () => {
   const navigate = useNavigate();
   const { language } = useLanguage();
-  const [activeTab, setActiveTab] = useState("quotes");
+  const [activeTab, setActiveTab] = useState("homepage");
   const [quotes, setQuotes] = useState([]);
   const [events, setEvents] = useState([]);
   const [khalifes, setKhalifes] = useState([]);
