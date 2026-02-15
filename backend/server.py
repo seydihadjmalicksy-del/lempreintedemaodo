@@ -78,6 +78,12 @@ async def root():
     return {"message": "Bienvenue sur le site de la Tariqa Tidiane de Tivaouane"}
 
 
+@api_router.post("/")
+async def root_post():
+    """Handle POST to /api/ - prevents 307 redirect in production"""
+    return {"message": "Bienvenue sur le site de la Tariqa Tidiane de Tivaouane", "method": "POST"}
+
+
 # ============== DATA INITIALIZATION ENDPOINTS ==============
 @api_router.post("/init-data")
 async def init_data():
