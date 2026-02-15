@@ -31,7 +31,7 @@ const DynamicPageRenderer = ({ slug, fallbackTitle, fallbackContent, children })
     );
   }
 
-  // If no dynamic content, render fallback
+  // If no dynamic content, render fallback or a styled placeholder
   if (error || !page) {
     if (fallbackContent) {
       return fallbackContent;
@@ -39,11 +39,40 @@ const DynamicPageRenderer = ({ slug, fallbackTitle, fallbackContent, children })
     if (children) {
       return children;
     }
+    // Render a styled "coming soon" placeholder instead of error
     return (
-      <div className="min-h-screen bg-[#F9F7F2] flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-[#004D33] text-xl">{fallbackTitle || "Page non trouvée"}</p>
-        </div>
+      <div className="min-h-screen bg-[#F9F7F2]">
+        <section className="relative h-[400px] lg:h-[500px] overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="w-full h-full bg-gradient-to-br from-[#004D33] to-[#006644]" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#004D33]/95 via-[#004D33]/85 to-[#004D33]/75"></div>
+          </div>
+          <div className="relative z-10 h-full flex items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl text-center mx-auto">
+                <div className="w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <BookOpen className="w-8 h-8 text-[#004D33]" />
+                </div>
+                <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                  {fallbackTitle || "Contenu en préparation"}
+                </h1>
+                <p className="text-xl text-white/90 leading-relaxed">
+                  {language === 'en' 
+                    ? "This page content is being prepared. Please check back soon."
+                    : "Le contenu de cette page est en cours de préparation. Veuillez revenir bientôt."}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="py-16 bg-gradient-to-b from-[#004D33] to-[#003d29] text-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="text-[#D4AF37] text-5xl mb-6">☪</div>
+            <p className="text-white/80 text-lg italic">
+              "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ الْفَاتِحِ لِمَا أُغْلِقَ"
+            </p>
+          </div>
+        </section>
       </div>
     );
   }
