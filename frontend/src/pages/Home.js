@@ -334,6 +334,98 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Section Wattu - Accès Rapide */}
+      <section className="py-16 bg-gradient-to-br from-[#004D33] to-[#003d29]" data-testid="wattu-section">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <BookOpen className="w-10 h-10 text-[#D4AF37]" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            {language === 'en' ? 'Wattu - Opinions & Reflections' : 
+             language === 'ar' ? 'واتو - آراء وتأملات' : 
+             language === 'wo' ? 'Wattu - Xalaat ak Xibaar' : 
+             'Wattu - Opinions & Réflexions'}
+          </h2>
+          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+            {language === 'en' ? 'Discover articles, analyses, and reflections on the Tidiane tradition and spirituality.' : 
+             language === 'ar' ? 'اكتشف المقالات والتحليلات والتأملات حول التقليد التجاني والروحانية.' : 
+             language === 'wo' ? 'Gis bindu yi, nataal yi ak xalaat yi ci tariqa Tijaan ak ruu.' : 
+             'Découvrez des articles, des analyses et des réflexions sur la tradition tidiane et la spiritualité.'}
+          </p>
+          <Link
+            to="/wattu"
+            data-testid="wattu-access-btn"
+            className="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#c9a432] text-[#004D33] font-bold text-lg px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+          >
+            <BookOpen className="w-6 h-6" />
+            {language === 'en' ? 'Access Wattu' : 
+             language === 'ar' ? 'الوصول إلى واتو' : 
+             language === 'wo' ? 'Jël Wattu' : 
+             'Accéder à Wattu'}
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Section Dons (Hadiya) */}
+      <section className="py-16 bg-[#F9F7F2]" data-testid="donations-section">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="bg-gradient-to-r from-[#D4AF37] to-[#c9a432] p-6 text-center">
+              <Heart className="w-12 h-12 text-white mx-auto mb-3" />
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
+                {language === 'en' ? 'Donations (Hadiya)' : 
+                 language === 'ar' ? 'التبرعات (الهدية)' : 
+                 language === 'wo' ? 'Ndimbal (Hadiya)' : 
+                 'Dons (Hadiya)'}
+              </h2>
+            </div>
+            
+            <div className="p-8">
+              <p className="text-lg text-[#4A4A4A] text-center mb-8 leading-relaxed">
+                {language === 'en' 
+                  ? 'Your generous contributions help us preserve and share the spiritual heritage of Maodo. Every donation is a blessing.' 
+                  : language === 'ar'
+                  ? 'تساعدنا مساهماتكم السخية في الحفاظ على التراث الروحي لمودو ونشره. كل تبرع هو بركة.'
+                  : language === 'wo'
+                  ? 'Sa ndimbal yi dañu nu dimbali ngir wattu ak yóbbu njàng bu Maodo. Bépp hadiya barke la.'
+                  : 'Vos généreuses contributions nous aident à préserver et partager l\'héritage spirituel de Maodo. Chaque don est une bénédiction.'}
+              </p>
+              
+              {/* Informations de paiement */}
+              <div className="bg-[#004D33]/5 rounded-xl p-6 text-center">
+                <h3 className="text-xl font-bold text-[#004D33] mb-4">
+                  {language === 'en' ? 'How to Donate' : 
+                   language === 'ar' ? 'كيفية التبرع' : 
+                   language === 'wo' ? 'Nan ngay jox' : 
+                   'Comment faire un don'}
+                </h3>
+                
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <div className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md">
+                    <Phone className="w-6 h-6 text-[#D4AF37]" />
+                    <div className="text-left">
+                      <p className="text-sm text-[#888888]">Wave / Orange Money</p>
+                      <p className="text-xl font-bold text-[#004D33]">77 338 90 95</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <p className="text-sm text-[#888888] mt-6 italic">
+                  {language === 'en' 
+                    ? '"The best of people are those who are most beneficial to others." - Hadith' 
+                    : language === 'ar'
+                    ? '"خير الناس أنفعهم للناس" - حديث'
+                    : language === 'wo'
+                    ? '"Ñi gën ci nit ñi, mooy ñi gën a am njariñ ci ñeneen ñi." - Hadiis'
+                    : '"Les meilleurs des gens sont ceux qui sont les plus bénéfiques pour les autres." - Hadith'}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Preview Section */}
       <section className="py-16 lg:py-24 bg-white" data-testid="about-preview-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
