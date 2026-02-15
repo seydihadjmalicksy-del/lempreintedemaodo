@@ -216,5 +216,21 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
             └── admin/         # Composants refactorisés
 ```
 
+### Phase 12 - Deployment Bug Fix ✅ (Feb 15, 2026)
+- **Bug 307 Temporary Redirect résolu**:
+  - Ajout handler POST pour `/api/` (racine de l'API)
+  - Ajout handler POST pour `/api/health` et `/health`
+  - Le paramètre `redirect_slashes=False` était déjà configuré
+  - Les sondes de santé en production peuvent maintenant utiliser POST ou GET
+- **Vérification du contenu des pages**:
+  - Toutes les 10 pages dynamiques sont accessibles et fonctionnelles
+  - Le système `DynamicPageRenderer` affiche correctement le contenu multilingue
+  - La page "La Lignée des Héritiers" utilise `/api/khalifes` avec un composant dédié
+
+## Current Status
+- **Deployment**: Le bug 307 redirect devrait être résolu avec les nouveaux handlers POST
+- **Pages dynamiques**: 10 pages actives avec contenu riche
+- **Admin Panel**: Gestion complète des sections d'accueil, pages, et contenu Wattu
+
 ## Last Updated
-February 15, 2026 - Nouveau logo intégré, sections Wattu et Dons dynamiques avec gestion admin
+February 15, 2026 - Correction du bug de déploiement (handlers POST ajoutés), vérification du contenu des pages dynamiques
