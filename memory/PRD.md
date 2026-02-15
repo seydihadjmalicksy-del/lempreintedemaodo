@@ -79,9 +79,19 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - **Logo**: Nouveau logo médaillon avec portrait de Maodo
 - **Ouvrages**: 66 documents PDF disponibles en téléchargement direct
 - **Wattu**: Section opinions avec 5 articles exemples et gestion admin
-- **Pages Dynamiques**: Système prêt à l'emploi via admin
+- **Pages Dynamiques**: 10 pages actives, toutes connectées au frontend
 - **Arbre Généalogique**: Fonctionnel
 - **Affiche levée de fonds**: `/affiche-zawiya.html` créée
+
+### Phase 8 - Full Dynamic Pages Integration ✅ (Feb 15, 2026)
+- **Toutes les pages de contenu maintenant dynamiques**:
+  - `ElHadjiMalickSy.js` converti pour utiliser `DynamicPageRenderer`
+  - 10 pages totales dans le système de gestion de contenu
+- **Pages converties**:
+  - Histoire: Origines, Maodo, El Hadji Malick Sy, Khalifes, Géographie
+  - Enseignements: Piliers, École
+  - Événements: Gamou, Ziarra, Cérémonies
+- **Test coverage**: Backend 87.5%, Frontend 100%
 
 ## Prioritized Backlog
 
