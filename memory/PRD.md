@@ -204,4 +204,4 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ```
 
 ## Last Updated
-February 13, 2026 - Nouveau logo avec couleurs du site (#004D33, #D4AF37) intégré comme logo et filigrane sur tout le site et les PDFs
+February 15, 2026 - Section Dons (Hadiya) et bouton Wattu ajoutés sur la page d'accueil
