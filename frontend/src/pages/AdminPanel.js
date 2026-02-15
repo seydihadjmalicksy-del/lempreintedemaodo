@@ -268,7 +268,6 @@ const AdminPanel = () => {
     { id: "quotes", icon: Quote, label: t.quotes, count: quotes.length },
     { id: "events", icon: Calendar, label: t.events, count: events.length },
     { id: "heritiers", icon: Users, label: t.heritiers, count: khalifes.length },
-    { id: "content", icon: FileText, label: t.content, count: pageContent.length },
     { id: "wattu", icon: MessageSquare, label: "Wattu", count: wattuStats.total || 0 },
     { id: "dynamicPages", icon: Layout, label: "Pages", count: pagesStats.total || 0 },
     { id: "archives", icon: Archive, label: "Archives", count: archivesStats.total || 0, onSelect: fetchArchives },
