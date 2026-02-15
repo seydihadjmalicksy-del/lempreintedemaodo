@@ -217,20 +217,23 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ```
 
 ### Phase 12 - Deployment Bug Fix ✅ (Feb 15, 2026)
-- **Bug 307 Temporary Redirect résolu**:
-  - Ajout handler POST pour `/api/` (racine de l'API)
-  - Ajout handler POST pour `/api/health` et `/health`
+- **Bug 307/404 Temporary Redirect résolu**:
+  - Ajout handlers POST et GET pour `/api` (sans slash final)
+  - Ajout handlers POST et GET pour `/api/` (avec slash final)
+  - Ajout handlers POST pour `/api/health` et `/health`
   - Le paramètre `redirect_slashes=False` était déjà configuré
-  - Les sondes de santé en production peuvent maintenant utiliser POST ou GET
-- **Vérification du contenu des pages**:
-  - Toutes les 10 pages dynamiques sont accessibles et fonctionnelles
-  - Le système `DynamicPageRenderer` affiche correctement le contenu multilingue
-  - La page "La Lignée des Héritiers" utilise `/api/khalifes` avec un composant dédié
+  - Les sondes de santé en production peuvent maintenant utiliser POST ou GET sur `/api` ou `/api/`
+- **Optimisations MongoDB**:
+  - Toutes les requêtes limitées à 50-200 résultats
+  - Variables d'environnement avec valeurs par défaut robustes
+  - Suppression des appels POST redondants dans Home.js
+- **Dependencies nettoyées**:
+  - requirements.txt réduit à 15 dépendances essentielles
 
 ## Current Status
-- **Deployment**: Le bug 307 redirect devrait être résolu avec les nouveaux handlers POST
+- **Deployment**: Bug 404 sur POST /api résolu avec les nouveaux handlers directs
 - **Pages dynamiques**: 10 pages actives avec contenu riche
 - **Admin Panel**: Gestion complète des sections d'accueil, pages, et contenu Wattu
 
 ## Last Updated
-February 15, 2026 - Correction du bug de déploiement (handlers POST ajoutés), vérification du contenu des pages dynamiques
+February 15, 2026 - Correction définitive du bug de déploiement (POST /api 404 → 200)
