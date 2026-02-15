@@ -14,7 +14,8 @@ import {
   QuotesTab,
   EventsTab,
   KhalifesTab,
-  WattuTab
+  WattuTab,
+  HomepageSectionsTab
 } from "./admin";
 import DynamicPagesTab from "./admin/DynamicPagesTab";
 
