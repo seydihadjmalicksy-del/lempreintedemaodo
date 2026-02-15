@@ -41,6 +41,15 @@ app = FastAPI(
 # Create API router with prefix
 api_router = APIRouter(prefix="/api")
 
+# CORS middleware - must be added before routes
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 # Health check endpoints
 @app.get("/health")
