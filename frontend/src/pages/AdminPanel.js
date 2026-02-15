@@ -27,8 +27,6 @@ const AdminPanel = () => {
   const [activeTab, setActiveTab] = useState("quotes");
   const [quotes, setQuotes] = useState([]);
   const [events, setEvents] = useState([]);
-  const [pageContent, setPageContent] = useState([]);
-  const [pages, setPages] = useState([]);
   const [khalifes, setKhalifes] = useState([]);
   const [archives, setArchives] = useState({ manuscripts: [], photos: [], audio: [], videos: [], sources: [] });
   const [archivesStats, setArchivesStats] = useState({ total: 0 });
