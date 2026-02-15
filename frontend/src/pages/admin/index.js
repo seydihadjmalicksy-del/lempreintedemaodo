@@ -8,3 +8,4 @@ export { default as EventsTab } from './EventsTab';
 export { default as KhalifesTab } from './KhalifesTab';
 export { default as ContentTab } from './ContentTab';
 export { default as WattuTab } from './WattuTab';
+export { default as HomepageSectionsTab } from './HomepageSectionsTab';
