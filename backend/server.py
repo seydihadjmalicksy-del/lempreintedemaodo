@@ -118,46 +118,70 @@ async def api_root_post_no_slash():
 
 
 # ============== DATA INITIALIZATION ENDPOINTS ==============
+# Simple in-memory flag to prevent repeated initialization calls
+_init_completed = False
+
 @api_router.post("/init-data")
 async def init_data():
-    """Initialize default data for production deployment"""
+    """Initialize default data for production deployment - runs only once"""
+    global _init_completed
+    
+    # Quick return if already initialized in this instance
+    if _init_completed:
+        return {"message": "Already initialized", "skipped": True}
+    
     results = {
         "dynamic_pages": 0,
         "admin_user": False,
         "message": "Initialization complete"
     }
     
-    # Seed default dynamic pages if none exist
-    pages_count = await db.dynamic_pages.count_documents({})
-    if pages_count == 0:
-        default_pages = get_default_pages()
-        for page_data in default_pages:
-            page_data['id'] = str(uuid.uuid4())
-            page_data['active'] = True
-            page_data['show_in_menu'] = True
-            page_data['created_at'] = datetime.now(timezone.utc).isoformat()
-            page_data['updated_at'] = datetime.now(timezone.utc).isoformat()
-            await db.dynamic_pages.insert_one(page_data)
-            results["dynamic_pages"] += 1
-    
-    # Ensure admin user exists
-    admin_exists = await db.admin_users.find_one({"username": "admin"})
-    if not admin_exists:
-        from passlib.hash import bcrypt
-        admin_user = {
-            "id": str(uuid.uuid4()),
-            "username": "admin",
-            "password_hash": bcrypt.hash("tivaouane2025"),
-            "created_at": datetime.now(timezone.utc).isoformat()
-        }
-        await db.admin_users.insert_one(admin_user)
-        results["admin_user"] = True
+    try:
+        # Check if data already exists (quick check)
+        pages_count = await db.dynamic_pages.count_documents({})
+        admin_exists = await db.admin_users.find_one({"username": "admin"}, {"_id": 1})
+        
+        # If both exist, mark as completed and return
+        if pages_count > 0 and admin_exists:
+            _init_completed = True
+            return {"message": "Data already exists", "skipped": True}
+        
+        # Seed default dynamic pages if none exist
+        if pages_count == 0:
+            default_pages = get_default_pages()
+            for page_data in default_pages:
+                page_data['id'] = str(uuid.uuid4())
+                page_data['active'] = True
+                page_data['show_in_menu'] = True
+                page_data['created_at'] = datetime.now(timezone.utc).isoformat()
+                page_data['updated_at'] = datetime.now(timezone.utc).isoformat()
+                await db.dynamic_pages.insert_one(page_data)
+                results["dynamic_pages"] += 1
+        
+        # Ensure admin user exists
+        if not admin_exists:
+            from passlib.hash import bcrypt
+            admin_user = {
+                "id": str(uuid.uuid4()),
+                "username": "admin",
+                "password_hash": bcrypt.hash("tivaouane2025"),
+                "created_at": datetime.now(timezone.utc).isoformat()
+            }
+            await db.admin_users.insert_one(admin_user)
+            results["admin_user"] = True
+        
+        _init_completed = True
+    except Exception as e:
+        logger.error(f"Init data error: {e}")
+        results["error"] = str(e)
     
     return results
 
 
 @api_router.post("/admin/seed")
 async def admin_seed():
+    """Alias for init-data - seed initial data (cached)"""
+    return await init_data()
     """Alias for init-data - seed initial data"""
     return await init_data()
 
