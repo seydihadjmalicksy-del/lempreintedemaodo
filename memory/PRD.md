@@ -116,6 +116,19 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
   - Texte descriptif multilingue
 - **Bouton Wattu dans la navigation** déjà présent
 
+### Phase 11 - Dynamic Homepage Sections & New Logo ✅ (Feb 15, 2026)
+- **Nouveau logo intégré**: Logo médaillon "L'empreinte de MAODO" avec portrait de Maodo
+  - Fond vert foncé (#004D33) avec bordure dorée
+  - Remplace l'ancien logo dans la navbar et la page d'accueil
+- **Sections dynamiques sur la page d'accueil**:
+  - Backend: `/api/homepage-sections/*` avec CRUD complet
+  - Section "Wattu" et "Dons" maintenant modifiables via l'admin
+  - Nouvel onglet "Accueil" dans le panneau d'administration
+  - Possibilité d'activer/désactiver, modifier le contenu, supprimer les sections
+- **Admin Panel**:
+  - Nouvel onglet "Accueil" pour gérer les sections de la page d'accueil
+  - Interface pour modifier les titres, descriptions, numéros de téléphone
+
 ## Prioritized Backlog
 
 ### P0 - Critical
