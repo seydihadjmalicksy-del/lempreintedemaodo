@@ -92,6 +92,16 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
   - Enseignements: Piliers, École
   - Événements: Gamou, Ziarra, Cérémonies
 - **Test coverage**: Backend 87.5%, Frontend 100%
+- **Fusion des onglets Pages** dans l'admin (un seul onglet au lieu de deux)
+
+### Phase 9 - Deployment Fixes ✅ (Feb 15, 2026)
+- **Corrections pour déploiement en production**:
+  - Ajout endpoint `/api/init-data` pour initialiser les données en production
+  - Ajout endpoint `/api/admin/seed` (alias de init-data)
+  - Ajout endpoint `/api/contact/messages/count` (public, pour stats admin)
+  - Correction du téléchargement PDF pour gérer fichiers locaux absents
+  - Amélioration de `DynamicPageRenderer` pour afficher "contenu en préparation" si page non trouvée
+  - Frontend utilise maintenant `/api/contact/messages/count` au lieu de `/api/contact/messages`
 
 ## Prioritized Backlog
 
