@@ -374,6 +374,13 @@ const AdminPanel = () => {
             </div>
           ) : (
             <>
+              {activeTab === "homepage" && (
+                <HomepageSectionsTab
+                  getAuthHeaders={getAuthHeaders}
+                  onDelete={setDeleteConfirm}
+                />
+              )}
+
               {activeTab === "quotes" && (
                 <QuotesTab
                   quotes={quotes}
