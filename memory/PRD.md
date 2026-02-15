@@ -140,9 +140,10 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ## Credentials
 - **Admin**: `admin` / `tivaouane2025`
 
-## Pages Dynamiques Créées (9 pages)
-### Histoire (4 pages)
+## Pages Dynamiques Créées (10 pages)
+### Histoire (5 pages)
 - `/histoire/origines` - Les Origines de la Tijaniyya
+- `/histoire/el-hadji-malick-sy` - El Hadji Malick Sy - Maodo ✅ NEW
 - `/histoire/maodo` - El Hadji Malick Sy (Maodo)
 - `/histoire/khalifes` - La Lignée des Khalifes
 - `/histoire/geographie` - Géographie Sacrée
