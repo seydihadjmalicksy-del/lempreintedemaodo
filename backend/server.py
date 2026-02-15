@@ -63,6 +63,16 @@ async def health_check():
         return {"status": "unhealthy", "database": "disconnected", "error": str(e)}
 
 
+@app.post("/health")
+async def health_check_post():
+    """Health check POST endpoint for production deployment probes"""
+    try:
+        await db.command("ping")
+        return {"status": "healthy", "database": "connected", "method": "POST"}
+    except Exception as e:
+        return {"status": "unhealthy", "database": "disconnected", "error": str(e)}
+
+
 @api_router.get("/health")
 async def api_health_check():
     """Health check endpoint accessible via /api/health"""
