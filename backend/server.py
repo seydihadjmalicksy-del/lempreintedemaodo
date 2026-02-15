@@ -104,6 +104,19 @@ async def root_post():
     return {"message": "Bienvenue sur le site de la Tariqa Tidiane de Tivaouane", "method": "POST"}
 
 
+# Direct routes for /api without trailing slash (some deployment probes call this)
+@app.get("/api")
+async def api_root_no_slash():
+    """Handle GET to /api without trailing slash"""
+    return {"message": "Bienvenue sur le site de la Tariqa Tidiane de Tivaouane"}
+
+
+@app.post("/api")
+async def api_root_post_no_slash():
+    """Handle POST to /api without trailing slash - for deployment probes"""
+    return {"message": "Bienvenue sur le site de la Tariqa Tidiane de Tivaouane", "method": "POST"}
+
+
 # ============== DATA INITIALIZATION ENDPOINTS ==============
 @api_router.post("/init-data")
 async def init_data():
