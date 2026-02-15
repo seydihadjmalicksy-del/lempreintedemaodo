@@ -43,7 +43,7 @@ DEFAULT_PAGES = [
     },
     {
         "slug": "histoire/khalifes",
-        "titre": {"fr": "La Lignée des Khalifes", "en": "The Lineage of Khalifs", "ar": "سلالة الخلفاء"},
+        "titre": {"fr": "La Lignée des Héritiers", "en": "The Lineage of Heirs", "ar": "سلالة الورثة"},
         "description": {"fr": "Les successeurs spirituels de Maodo", "en": "The spiritual successors of Maodo"},
         "hero_icon": "Users",
         "parent_menu": "histoire",
