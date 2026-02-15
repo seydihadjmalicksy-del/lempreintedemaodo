@@ -124,7 +124,7 @@ const AdminPanel = () => {
         axios.get(`${API}/quotes?active_only=false`),
         axios.get(`${API}/events?upcoming_only=false`),
         axios.get(`${API}/newsletter/subscribers`).catch(() => ({ data: { total_subscribers: 0 } })),
-        axios.get(`${API}/contact/messages`).catch(() => ({ data: { count: 0 } })),
+        axios.get(`${API}/contact/messages/count`).catch(() => ({ data: { count: 0 } })),
         axios.get(`${API}/videos`).catch(() => ({ data: [] })),
         axios.get(`${API}/khalifes?active_only=false`).catch(() => ({ data: { khalifes: [] } })),
         axios.get(`${API}/archives/stats`).catch(() => ({ data: { total: 0 } })),
