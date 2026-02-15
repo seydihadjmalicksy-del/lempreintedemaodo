@@ -178,17 +178,37 @@ async def get_menu_pages():
 @router.get("/by-slug/{slug:path}")
 async def get_page_by_slug(slug: str):
     """Get a page by its slug (e.g., histoire/origines)"""
+    # First try to find an active page
     item = await db.dynamic_pages.find_one({"slug": slug, "active": True}, {"_id": 0})
     
-    # If page not found, try to auto-seed default pages
+    # If page not found, check if it exists but is inactive
     if not item:
-        # Check if this is a known default page slug
+        inactive_page = await db.dynamic_pages.find_one({"slug": slug}, {"_id": 0})
+        if inactive_page:
+            # Page exists but is inactive - activate it
+            await db.dynamic_pages.update_one(
+                {"slug": slug},
+                {"$set": {"active": True, "updated_at": datetime.now(timezone.utc).isoformat()}}
+            )
+            item = await db.dynamic_pages.find_one({"slug": slug, "active": True}, {"_id": 0})
+    
+    # If still not found, try to auto-seed default pages
+    if not item:
         default_slugs = [p["slug"] for p in DEFAULT_PAGES]
         if slug in default_slugs:
-            # Auto-seed default pages
-            await ensure_default_pages_exist()
-            # Try again
-            item = await db.dynamic_pages.find_one({"slug": slug, "active": True}, {"_id": 0})
+            # Find the default page data and create it directly
+            for page_data in DEFAULT_PAGES:
+                if page_data["slug"] == slug:
+                    page_dict = page_data.copy()
+                    page_dict['id'] = str(uuid.uuid4())
+                    page_dict['active'] = True
+                    page_dict['show_in_menu'] = True
+                    page_dict['created_at'] = datetime.now(timezone.utc).isoformat()
+                    page_dict['updated_at'] = datetime.now(timezone.utc).isoformat()
+                    await db.dynamic_pages.insert_one(page_dict)
+                    # Return the created page (without _id)
+                    page_dict.pop('_id', None)
+                    return page_dict
     
     if not item:
         raise HTTPException(status_code=404, detail="Page non trouvée")
