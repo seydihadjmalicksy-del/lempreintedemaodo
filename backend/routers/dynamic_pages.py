@@ -12,6 +12,118 @@ from auth import verify_admin_token
 router = APIRouter(prefix="/dynamic-pages", tags=["dynamic-pages"])
 
 
+# Default pages data for seeding
+DEFAULT_PAGES = [
+    {
+        "slug": "histoire/origines",
+        "titre": {"fr": "Les Origines de la Tijaniyya", "en": "Origins of the Tijaniyya", "ar": "أصول الطريقة التجانية"},
+        "description": {"fr": "L'histoire d'une voie soufie qui a traversé les siècles", "en": "The history of a Sufi path that has crossed centuries"},
+        "hero_icon": "BookOpen",
+        "parent_menu": "histoire",
+        "menu_order": 1,
+        "sections": []
+    },
+    {
+        "slug": "histoire/maodo",
+        "titre": {"fr": "El Hadji Malick Sy (Maodo)", "en": "El Hadji Malick Sy (Maodo)", "ar": "الحاج مالك سي"},
+        "description": {"fr": "La vie et l'œuvre du fondateur", "en": "The life and work of the founder"},
+        "hero_icon": "Star",
+        "parent_menu": "histoire",
+        "menu_order": 2,
+        "sections": []
+    },
+    {
+        "slug": "histoire/el-hadji-malick-sy",
+        "titre": {"fr": "El Hadji Malick Sy - Maodo", "en": "El Hadji Malick Sy - Maodo", "ar": "الحاج مالك سي"},
+        "description": {"fr": "Celui qui a fait de Tivaouane le phare de la spiritualité", "en": "The one who made Tivaouane the beacon of spirituality"},
+        "hero_icon": "Star",
+        "parent_menu": "histoire",
+        "menu_order": 2,
+        "sections": []
+    },
+    {
+        "slug": "histoire/khalifes",
+        "titre": {"fr": "La Lignée des Khalifes", "en": "The Lineage of Khalifs", "ar": "سلالة الخلفاء"},
+        "description": {"fr": "Les successeurs spirituels de Maodo", "en": "The spiritual successors of Maodo"},
+        "hero_icon": "Users",
+        "parent_menu": "histoire",
+        "menu_order": 3,
+        "sections": []
+    },
+    {
+        "slug": "histoire/geographie",
+        "titre": {"fr": "Géographie Sacrée", "en": "Sacred Geography", "ar": "الجغرافيا المقدسة"},
+        "description": {"fr": "Les lieux saints de Tivaouane", "en": "The holy places of Tivaouane"},
+        "hero_icon": "MapPin",
+        "parent_menu": "histoire",
+        "menu_order": 4,
+        "sections": []
+    },
+    {
+        "slug": "enseignements/piliers",
+        "titre": {"fr": "Les Piliers de la Tariqa", "en": "Pillars of the Tariqa", "ar": "أركان الطريقة"},
+        "description": {"fr": "Les fondements spirituels de la voie Tijaniyya", "en": "The spiritual foundations of the Tijaniyya path"},
+        "hero_icon": "Heart",
+        "parent_menu": "enseignements",
+        "menu_order": 1,
+        "sections": []
+    },
+    {
+        "slug": "enseignements/ecole",
+        "titre": {"fr": "L'École de Tivaouane", "en": "The School of Tivaouane", "ar": "مدرسة تيفاوان"},
+        "description": {"fr": "L'héritage éducatif de Maodo", "en": "Maodo's educational legacy"},
+        "hero_icon": "GraduationCap",
+        "parent_menu": "enseignements",
+        "menu_order": 2,
+        "sections": []
+    },
+    {
+        "slug": "evenements/gamou",
+        "titre": {"fr": "Le Gamou", "en": "The Gamou", "ar": "المولد"},
+        "description": {"fr": "La célébration de la naissance du Prophète", "en": "Celebration of the Prophet's birth"},
+        "hero_icon": "Calendar",
+        "parent_menu": "evenements",
+        "menu_order": 1,
+        "sections": []
+    },
+    {
+        "slug": "evenements/ziarra",
+        "titre": {"fr": "Les Ziarra Annuelles", "en": "Annual Pilgrimages", "ar": "الزيارات السنوية"},
+        "description": {"fr": "Les pèlerinages aux lieux saints", "en": "Pilgrimages to the holy places"},
+        "hero_icon": "MapPin",
+        "parent_menu": "evenements",
+        "menu_order": 2,
+        "sections": []
+    },
+    {
+        "slug": "evenements/ceremonies",
+        "titre": {"fr": "Cérémonies Religieuses", "en": "Religious Ceremonies", "ar": "المراسم الدينية"},
+        "description": {"fr": "Les cérémonies de la Tariqa", "en": "Ceremonies of the Tariqa"},
+        "hero_icon": "Star",
+        "parent_menu": "evenements",
+        "menu_order": 3,
+        "sections": []
+    }
+]
+
+
+async def ensure_default_pages_exist():
+    """Ensure default pages exist in database (called internally)"""
+    created = 0
+    for page_data in DEFAULT_PAGES:
+        existing = await db.dynamic_pages.find_one({"slug": page_data["slug"]})
+        if not existing:
+            page_dict = page_data.copy()
+            page_dict['id'] = str(uuid.uuid4())
+            page_dict['active'] = True
+            page_dict['show_in_menu'] = True
+            page_dict['created_at'] = datetime.now(timezone.utc).isoformat()
+            page_dict['updated_at'] = datetime.now(timezone.utc).isoformat()
+            await db.dynamic_pages.insert_one(page_dict)
+            created += 1
+    return created
+
+
 # ============== PUBLIC ENDPOINTS ==============
 @router.get("/")
 async def get_all_pages():
