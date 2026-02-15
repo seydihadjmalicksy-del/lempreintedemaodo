@@ -259,6 +259,7 @@ const AdminPanel = () => {
 
   // Tab configuration
   const tabs = [
+    { id: "homepage", icon: Home, label: "Accueil", count: homepageSectionsCount },
     { id: "quotes", icon: Quote, label: t.quotes, count: quotes.length },
     { id: "events", icon: Calendar, label: t.events, count: events.length },
     { id: "heritiers", icon: Users, label: t.heritiers, count: khalifes.length },
