@@ -409,17 +409,6 @@ const AdminPanel = () => {
                 />
               )}
 
-              {activeTab === "content" && (
-                <ContentTab
-                  pageContent={pageContent}
-                  pages={pages}
-                  fetchData={fetchData}
-                  setDeleteConfirm={setDeleteConfirm}
-                  language={language}
-                  getAuthHeaders={getAuthHeaders}
-                />
-              )}
-
               {activeTab === "archives" && (
                 <ArchivesTab
                   archives={archives}
