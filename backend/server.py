@@ -318,6 +318,16 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+@app.on_event("startup")
+async def startup_db_client():
+    """Test database connection on startup"""
+    try:
+        await db.command("ping")
+        logger.info("MongoDB connection successful")
+    except Exception as e:
+        logger.warning(f"MongoDB connection test failed: {e}")
+
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
     await close_db_connection()
