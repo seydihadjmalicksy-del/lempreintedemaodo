@@ -132,7 +132,7 @@ const AdminPanel = () => {
         axios.get(`${API}/archives/stats`).catch(() => ({ data: { total: 0 } })),
         axios.get(`${API}/wattu/stats`).catch(() => ({ data: { total: 0 } })),
         axios.get(`${API}/dynamic-pages/stats`).catch(() => ({ data: { total: 0 } })),
-        axios.get(`${API}/homepage-sections`).catch(() => ({ data: [] }))
+        axios.get(`${API}/homepage-sections/`).catch(() => ({ data: [] }))
       ]);
 
       setQuotes(quotesRes.data?.quotes || []);
