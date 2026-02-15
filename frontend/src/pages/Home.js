@@ -30,7 +30,7 @@ const Home = () => {
         await axios.post(`${API}/admin/seed`).catch(() => {});
         
         // Fetch homepage sections (Wattu promo, Donations, etc.)
-        const sectionsResponse = await axios.get(`${API}/homepage-sections`);
+        const sectionsResponse = await axios.get(`${API}/homepage-sections/`);
         if (sectionsResponse.data) {
           setHomepageSections(sectionsResponse.data);
         }
