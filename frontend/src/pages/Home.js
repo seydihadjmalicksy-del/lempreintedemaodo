@@ -23,12 +23,6 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Initialize data if needed
-        await axios.post(`${API}/init-data`).catch(() => {});
-        
-        // Seed database with initial content
-        await axios.post(`${API}/admin/seed`).catch(() => {});
-        
         // Fetch homepage sections (Wattu promo, Donations, etc.)
         const sectionsResponse = await axios.get(`${API}/homepage-sections/`);
         if (sectionsResponse.data) {
