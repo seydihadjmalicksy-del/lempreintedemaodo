@@ -249,12 +249,17 @@ async def download_pdf(item_id: str):
     try:
         # Check if this is a local file or external URL
         if pdf_url.startswith('/ouvrages/'):
-            # Local file - read from frontend/public directory
+            # Local file - try to read from frontend/public directory
             local_path = f"/app/frontend/public{pdf_url}"
-            if not os.path.exists(local_path):
-                raise HTTPException(status_code=404, detail=f"Fichier local non trouvé: {pdf_url}")
-            with open(local_path, 'rb') as f:
-                pdf_content = f.read()
+            if os.path.exists(local_path):
+                with open(local_path, 'rb') as f:
+                    pdf_content = f.read()
+            else:
+                # In production, local files may not exist - return a helpful error
+                raise HTTPException(
+                    status_code=404, 
+                    detail="Ce document n'est pas disponible en téléchargement direct. Veuillez contacter l'administrateur."
+                )
         elif pdf_url.startswith('http://') or pdf_url.startswith('https://'):
             # External URL - fetch via HTTP
             async with httpx.AsyncClient(timeout=60.0) as client:
