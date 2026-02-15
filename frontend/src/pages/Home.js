@@ -5,7 +5,7 @@ import VideoCard from "../components/VideoCard";
 import Newsletter from "../components/Newsletter";
 import StatsCounter from "../components/StatsCounter";
 import ShareButtons from "../components/ShareButtons";
-import { ArrowRight, Sparkles, Calendar, MapPin, Quote } from "lucide-react";
+import { ArrowRight, Sparkles, Calendar, MapPin, Quote, Heart, Phone, BookOpen } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
 
