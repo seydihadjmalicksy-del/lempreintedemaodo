@@ -223,9 +223,6 @@ const AdminPanel = () => {
         case 'khalife':
           await axios.delete(`${API}/khalifes/${id}`, { headers: getAuthHeaders() });
           break;
-        case 'content':
-          await axios.delete(`${API}/content/${id}`, { headers: getAuthHeaders() });
-          break;
         case 'family_member':
           await axios.delete(`${API}/family-tree/${id}`, { headers: getAuthHeaders() });
           fetchFamilyTree();
