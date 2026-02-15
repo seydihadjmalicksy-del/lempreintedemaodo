@@ -34,7 +34,8 @@ from routers import (
 app = FastAPI(
     title="L'empreinte de Maodo API",
     description="API pour le portail de la Tariqa Tidiane de Tivaouane",
-    version="2.0.0"
+    version="2.0.0",
+    redirect_slashes=False
 )
 
 # Create API router with prefix
