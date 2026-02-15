@@ -217,4 +217,4 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ```
 
 ## Last Updated
-February 15, 2026 - Section Dons (Hadiya) et bouton Wattu ajoutés sur la page d'accueil
+February 15, 2026 - Nouveau logo intégré, sections Wattu et Dons dynamiques avec gestion admin
