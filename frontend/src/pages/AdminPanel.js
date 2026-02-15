@@ -36,6 +36,7 @@ const AdminPanel = () => {
   const [ouvragesStats, setOuvragesStats] = useState({ total: 0 });
   const [wattuStats, setWattuStats] = useState({ total: 0 });
   const [pagesStats, setPagesStats] = useState({ total: 0 });
+  const [homepageSectionsCount, setHomepageSectionsCount] = useState(0);
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
