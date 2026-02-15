@@ -20,7 +20,7 @@ router = APIRouter(prefix="/archives", tags=["archives"])
 # ============== MANUSCRIPTS ==============
 @router.get("/manuscripts")
 async def get_manuscripts():
-    items = await db.archive_manuscripts.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.archive_manuscripts.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
     return items
 
 
@@ -56,7 +56,7 @@ async def delete_manuscript(item_id: str, admin: bool = Depends(verify_admin_tok
 # ============== PHOTOS ==============
 @router.get("/photos")
 async def get_photos():
-    items = await db.archive_photos.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.archive_photos.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
     return items
 
 
@@ -92,7 +92,7 @@ async def delete_photo(item_id: str, admin: bool = Depends(verify_admin_token)):
 # ============== AUDIO ==============
 @router.get("/audio")
 async def get_audio():
-    items = await db.archive_audio.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.archive_audio.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
     return items
 
 
@@ -128,7 +128,7 @@ async def delete_audio(item_id: str, admin: bool = Depends(verify_admin_token)):
 # ============== VIDEOS ==============
 @router.get("/videos")
 async def get_videos():
-    items = await db.archive_videos.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.archive_videos.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
     return items
 
 
@@ -164,7 +164,7 @@ async def delete_video(item_id: str, admin: bool = Depends(verify_admin_token)):
 # ============== SOURCES ==============
 @router.get("/sources")
 async def get_sources():
-    items = await db.archive_sources.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.archive_sources.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
     return items
 
 

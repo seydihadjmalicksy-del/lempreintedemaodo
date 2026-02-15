@@ -43,7 +43,7 @@ async def send_contact_message(contact: ContactCreate):
 
 @router.get("/messages")
 async def get_contact_messages(admin: bool = Depends(verify_admin_token)):
-    messages = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(1000)
+    messages = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(100)
     unread = await db.contact_messages.count_documents({"read": False})
     
     return {

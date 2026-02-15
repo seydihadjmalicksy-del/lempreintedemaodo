@@ -24,7 +24,7 @@ router = APIRouter(prefix="/ouvrages", tags=["ouvrages"])
 @router.get("/majeurs")
 async def get_ouvrages_majeurs():
     """Get all major works"""
-    items = await db.ouvrages_majeurs.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.ouvrages_majeurs.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(200)
     return items
 
 
@@ -64,7 +64,7 @@ async def delete_ouvrage_majeur(item_id: str, admin: bool = Depends(verify_admin
 @router.get("/autres")
 async def get_autres_ouvrages():
     """Get all other works"""
-    items = await db.autres_ouvrages.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.autres_ouvrages.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(200)
     return items
 
 
@@ -104,7 +104,7 @@ async def delete_autre_ouvrage(item_id: str, admin: bool = Depends(verify_admin_
 @router.get("/bibliotheque")
 async def get_bibliotheque():
     """Get all digital library items"""
-    items = await db.bibliotheque.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.bibliotheque.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(200)
     return items
 
 
@@ -173,7 +173,7 @@ async def import_bibliotheque_batch(items: list, admin: bool = Depends(verify_ad
 @router.get("/archives-academiques")
 async def get_archives_academiques():
     """Get all academic archives"""
-    items = await db.archives_academiques.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    items = await db.archives_academiques.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(200)
     return items
 
 

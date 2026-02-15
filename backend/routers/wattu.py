@@ -16,7 +16,7 @@ router = APIRouter(prefix="/wattu", tags=["wattu"])
 @router.get("/articles")
 async def get_wattu_articles():
     """Get all active opinion articles"""
-    items = await db.wattu_articles.find({"active": True}, {"_id": 0}).sort("date_publication", -1).to_list(1000)
+    items = await db.wattu_articles.find({"active": True}, {"_id": 0}).sort("date_publication", -1).to_list(100)
     return items
 
 
@@ -36,7 +36,7 @@ async def get_articles_by_category(category: str):
     items = await db.wattu_articles.find(
         {"active": True, "categorie": category}, 
         {"_id": 0}
-    ).sort("date_publication", -1).to_list(1000)
+    ).sort("date_publication", -1).to_list(100)
     return items
 
 
@@ -64,7 +64,7 @@ async def get_categories():
 @router.get("/admin/articles")
 async def get_all_articles_admin(admin: bool = Depends(verify_admin_token)):
     """Get all articles (admin - includes inactive)"""
-    items = await db.wattu_articles.find({}, {"_id": 0}).sort("date_publication", -1).to_list(1000)
+    items = await db.wattu_articles.find({}, {"_id": 0}).sort("date_publication", -1).to_list(100)
     return items
 
 

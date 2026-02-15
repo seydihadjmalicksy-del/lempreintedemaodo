@@ -137,7 +137,7 @@ async def ensure_default_pages_exist():
 @router.get("/")
 async def get_all_pages():
     """Get all active dynamic pages"""
-    items = await db.dynamic_pages.find({"active": True}, {"_id": 0}).sort("menu_order", 1).to_list(1000)
+    items = await db.dynamic_pages.find({"active": True}, {"_id": 0}).sort("menu_order", 1).to_list(50)
     return {"pages": items}
 
 
@@ -155,7 +155,7 @@ async def get_menu_pages():
     items = await db.dynamic_pages.find(
         {"active": True, "show_in_menu": True}, 
         {"_id": 0, "slug": 1, "titre": 1, "parent_menu": 1, "menu_order": 1}
-    ).sort("menu_order", 1).to_list(1000)
+    ).sort("menu_order", 1).to_list(50)
     
     # Group by parent menu
     menu = {
@@ -219,7 +219,7 @@ async def get_page_by_slug(slug: str):
 @router.get("/admin/all")
 async def get_all_pages_admin(admin: bool = Depends(verify_admin_token)):
     """Get all pages including inactive (admin)"""
-    items = await db.dynamic_pages.find({}, {"_id": 0}).sort("slug", 1).to_list(1000)
+    items = await db.dynamic_pages.find({}, {"_id": 0}).sort("slug", 1).to_list(50)
     return {"pages": items}
 
 

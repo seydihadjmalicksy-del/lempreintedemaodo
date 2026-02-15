@@ -16,7 +16,7 @@ async def export_calendar():
     """Export all events as iCal file"""
     cal = Calendar()
     
-    events = await db.events.find({"active": True}, {"_id": 0}).to_list(1000)
+    events = await db.events.find({"active": True}, {"_id": 0}).to_list(100)
     
     for event in events:
         ics_event = ICSEvent()

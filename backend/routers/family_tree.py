@@ -14,14 +14,14 @@ router = APIRouter(prefix="/family-tree", tags=["family-tree"])
 @router.get("")
 async def get_family_tree():
     """Get all family members"""
-    members = await db.family_tree.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    members = await db.family_tree.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
     return {"members": members, "count": len(members)}
 
 
 @router.get("/tree")
 async def get_tree_structure():
     """Get family tree as hierarchical structure"""
-    members = await db.family_tree.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(1000)
+    members = await db.family_tree.find({"active": True}, {"_id": 0}).sort("order", 1).to_list(100)
     
     # Build tree structure
     members_by_node_id = {m["node_id"]: m for m in members}

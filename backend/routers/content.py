@@ -16,7 +16,7 @@ router = APIRouter(prefix="/content", tags=["content"])
 @router.get("")
 async def get_all_content():
     """Get all page content"""
-    content = await db.page_content.find({"active": True}, {"_id": 0}).sort([("slug", 1), ("order", 1)]).to_list(1000)
+    content = await db.page_content.find({"active": True}, {"_id": 0}).sort([("slug", 1), ("order", 1)]).to_list(50)
     return content
 
 
