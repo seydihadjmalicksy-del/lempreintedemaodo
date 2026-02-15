@@ -27,7 +27,8 @@ from routers import (
     calendar_router,
     notifications_router,
     wattu_router,
-    dynamic_pages_router
+    dynamic_pages_router,
+    homepage_sections_router
 )
 
 # Create the main app
