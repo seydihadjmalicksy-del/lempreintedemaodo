@@ -182,8 +182,6 @@ async def init_data():
 async def admin_seed():
     """Alias for init-data - seed initial data (cached)"""
     return await init_data()
-    """Alias for init-data - seed initial data"""
-    return await init_data()
 
 
 def get_default_pages():
