@@ -103,6 +103,19 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
   - Amélioration de `DynamicPageRenderer` pour afficher "contenu en préparation" si page non trouvée
   - Frontend utilise maintenant `/api/contact/messages/count` au lieu de `/api/contact/messages`
 
+### Phase 10 - Homepage Enhancements ✅ (Feb 15, 2026)
+- **Section "Dons (Hadiya)" ajoutée sur la page d'accueil**:
+  - Carte élégante avec en-tête doré et icône cœur
+  - Texte explicatif multilingue (FR, EN, AR, WO)
+  - Numéro Wave/Orange Money: **77 338 90 95**
+  - Citation de Hadith sur l'importance de l'entraide
+- **Section "Wattu" ajoutée sur la page d'accueil**:
+  - Section dédiée avec fond vert foncé
+  - Bouton doré "Accéder à Wattu" avec data-testid
+  - Icône BookOpen de lucide-react
+  - Texte descriptif multilingue
+- **Bouton Wattu dans la navigation** déjà présent
+
 ## Prioritized Backlog
 
 ### P0 - Critical
