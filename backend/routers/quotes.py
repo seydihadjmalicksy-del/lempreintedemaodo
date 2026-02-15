@@ -16,7 +16,7 @@ router = APIRouter(prefix="/quotes", tags=["quotes"])
 @router.get("")
 async def get_quotes():
     quotes = await db.quotes.find({"active": True}, {"_id": 0}).sort("order", 1).limit(100).to_list(100)
-    return quotes
+    return {"quotes": quotes}
 
 
 @router.get("/daily")
