@@ -49,8 +49,16 @@ async def get_contact_messages(admin: bool = Depends(verify_admin_token)):
     return {
         "messages": messages,
         "total": len(messages),
-        "unread": unread
+        "unread": unread,
+        "count": len(messages)
     }
+
+
+@router.get("/messages/count")
+async def get_contact_messages_count():
+    """Public endpoint to get just the count of messages (for admin dashboard stats)"""
+    count = await db.contact_messages.count_documents({})
+    return {"count": count}
 
 
 @router.put("/messages/{message_id}/read")
