@@ -16,6 +16,7 @@ const Home = () => {
   const [featuredVideos, setFeaturedVideos] = useState([]);
   const [dailyQuote, setDailyQuote] = useState(null);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [homepageSections, setHomepageSections] = useState([]);
   const [loading, setLoading] = useState(true);
   const { t, language } = useLanguage();
 
@@ -27,6 +28,12 @@ const Home = () => {
         
         // Seed database with initial content
         await axios.post(`${API}/admin/seed`).catch(() => {});
+        
+        // Fetch homepage sections (Wattu promo, Donations, etc.)
+        const sectionsResponse = await axios.get(`${API}/homepage-sections`);
+        if (sectionsResponse.data) {
+          setHomepageSections(sectionsResponse.data);
+        }
         
         // Fetch featured videos
         const videosResponse = await axios.get(`${API}/videos/featured`);
@@ -52,6 +59,12 @@ const Home = () => {
 
     fetchData();
   }, []);
+
+  // Get text based on language
+  const getText = (textObj) => {
+    if (!textObj) return "";
+    return textObj[language] || textObj.fr || textObj.en || "";
+  };
 
   // Get quote text based on language
   const getQuoteText = () => {
