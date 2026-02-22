@@ -275,10 +275,10 @@ const SectionRenderer = ({ section, index, getText, language }) => {
 
     default:
       return (
-        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#F9F7F2]'}`}>
+        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#FFFEF8]'}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {sectionTitle && (
-              <h2 className="text-3xl font-bold text-[#004D33] mb-6">{sectionTitle}</h2>
+              <h2 className="text-3xl font-bold text-[#006B47] mb-6">{sectionTitle}</h2>
             )}
             <p className="text-lg text-[#4A4A4A] leading-relaxed">{sectionContent}</p>
           </div>
