@@ -9,7 +9,7 @@ body {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #F9F7F2;
+    background-color: #FFFEF8;
 }
 
 code {
@@ -18,29 +18,34 @@ code {
 
 @layer base {
     :root {
-        --tidiane-emerald: #004D33;
-        --divine-gold: #D4AF37;
-        --parchment-cream: #F9F7F2;
-        --soft-sage: #E8F5E9;
-        --background: 40 20% 97%;
+        --tidiane-emerald: #006B47;
+        --tidiane-emerald-light: #00875A;
+        --tidiane-emerald-dark: #004D33;
+        --divine-gold: #E6B800;
+        --divine-gold-light: #FFD54F;
+        --divine-gold-dark: #C4A000;
+        --parchment-cream: #FFFEF8;
+        --soft-sage: #E0F2E0;
+        --sage-bright: #B8E6B8;
+        --background: 48 100% 99%;
         --foreground: 0 0% 10%;
         --card: 0 0% 100%;
         --card-foreground: 0 0% 10%;
         --popover: 0 0% 100%;
         --popover-foreground: 0 0% 10%;
-        --primary: 158 100% 15%;
+        --primary: 158 100% 21%;
         --primary-foreground: 0 0% 98%;
-        --secondary: 43 48% 52%;
+        --secondary: 48 100% 45%;
         --secondary-foreground: 0 0% 10%;
         --muted: 0 0% 96.1%;
         --muted-foreground: 0 0% 45.1%;
-        --accent: 120 20% 94%;
-        --accent-foreground: 158 100% 15%;
+        --accent: 120 35% 92%;
+        --accent-foreground: 158 100% 21%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
         --border: 0 0% 89.8%;
         --input: 0 0% 89.8%;
-        --ring: 158 100% 15%;
+        --ring: 158 100% 21%;
         --radius: 0.75rem;
     }
 }
@@ -50,7 +55,7 @@ code {
         @apply border-border;
     }
     body {
-        @apply bg-[#F9F7F2] text-[#1A1A1A];
+        @apply bg-[#FFFEF8] text-[#1A1A1A];
     }
     
     h1, h2, h3, h4, h5, h6 {
@@ -60,40 +65,74 @@ code {
 
 @layer components {
     .btn-primary {
-        @apply bg-[#004D33] text-white hover:bg-[#003d29] rounded-full px-8 py-3 font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+        @apply bg-gradient-to-r from-[#006B47] to-[#00875A] text-white hover:from-[#00875A] hover:to-[#006B47] rounded-full px-8 py-3 font-medium transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
     }
     
     .btn-secondary {
-        @apply border-2 border-[#004D33] text-[#004D33] hover:bg-[#004D33] hover:text-white rounded-full px-8 py-3 transition-all duration-300;
+        @apply border-2 border-[#006B47] text-[#006B47] hover:bg-[#006B47] hover:text-white rounded-full px-8 py-3 transition-all duration-300;
     }
     
     .card-hover {
-        @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+        @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
     }
     
     .gold-accent {
-        @apply text-[#D4AF37];
+        @apply text-[#E6B800];
     }
     
     .bismillah-text {
         font-family: 'Amiri', serif;
-        @apply text-[#004D33];
+        @apply text-white;
+    }
+    
+    .glow-gold {
+        box-shadow: 0 0 20px rgba(230, 184, 0, 0.3), 0 0 40px rgba(230, 184, 0, 0.1);
+    }
+    
+    .glow-emerald {
+        box-shadow: 0 0 20px rgba(0, 107, 71, 0.3), 0 0 40px rgba(0, 107, 71, 0.1);
     }
 }
 
 @layer utilities {
     .text-gradient-gold {
-        background: linear-gradient(135deg, #D4AF37 0%, #F4E5B8 100%);
+        background: linear-gradient(135deg, #FFD54F 0%, #E6B800 50%, #C4A000 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
     
+    .text-gradient-emerald {
+        background: linear-gradient(135deg, #00875A 0%, #006B47 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .bg-gradient-emerald {
+        background: linear-gradient(135deg, #006B47 0%, #004D33 100%);
+    }
+    
+    .bg-gradient-gold {
+        background: linear-gradient(135deg, #FFD54F 0%, #E6B800 100%);
+    }
+    
     .grain-texture {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+    }
+    
+    .shimmer {
+        background: linear-gradient(110deg, transparent 25%, rgba(255, 213, 79, 0.15) 50%, transparent 75%);
+        background-size: 200% 100%;
+        animation: shimmer 3s infinite;
     }
 }
 
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
 .islamic-pattern {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23004D33' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23006B47' fill-opacity='0.04' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
 }
