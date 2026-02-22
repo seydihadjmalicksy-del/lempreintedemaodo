@@ -80,7 +80,7 @@ const DynamicPageRenderer = ({ slug, fallbackTitle, fallbackContent, children })
   const sections = getSections();
 
   return (
-    <div className="min-h-screen bg-[#F9F7F2]" data-testid={`dynamic-page-${slug.replace('/', '-')}`}>
+    <div className="min-h-screen bg-[#FFFEF8]" data-testid={`dynamic-page-${slug.replace('/', '-')}`}>
       {/* Hero Section */}
       <section className="relative h-[400px] lg:h-[500px] overflow-hidden">
         <div className="absolute inset-0">
@@ -91,16 +91,16 @@ const DynamicPageRenderer = ({ slug, fallbackTitle, fallbackContent, children })
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#004D33] to-[#006644]" />
+            <div className="w-full h-full bg-gradient-to-br from-[#006B47] to-[#00875A]" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#004D33]/95 via-[#004D33]/85 to-[#004D33]/75"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#006B47]/95 via-[#006B47]/85 to-[#006B47]/70"></div>
         </div>
 
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <div className="w-16 h-16 bg-[#D4AF37] rounded-full flex items-center justify-center mb-6">
-                <IconComponent className="w-8 h-8 text-[#004D33]" />
+              <div className="w-16 h-16 bg-[#E6B800] rounded-full flex items-center justify-center mb-6 glow-gold">
+                <IconComponent className="w-8 h-8 text-[#006B47]" />
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                 {title}
@@ -127,10 +127,10 @@ const DynamicPageRenderer = ({ slug, fallbackTitle, fallbackContent, children })
       ))}
 
       {/* Footer Quote */}
-      <section className="py-16 bg-gradient-to-b from-[#004D33] to-[#003d29] text-white">
+      <section className="py-16 bg-gradient-to-b from-[#006B47] to-[#004D33] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-[#D4AF37] text-5xl mb-6">☪</div>
-          <p className="text-white/80 text-lg italic">
+          <div className="text-[#FFD54F] text-5xl mb-6">☪</div>
+          <p className="text-white/85 text-lg italic">
             "اللَّهُمَّ صَلِّ عَلَى سَيِّدِنَا مُحَمَّدٍ الْفَاتِحِ لِمَا أُغْلِقَ"
           </p>
         </div>
