@@ -401,18 +401,6 @@ const Archives = () => {
                 <div className="space-y-3">
                   <h4 className="font-semibold text-[#004D33]">{t.audioSources}</h4>
                   <a 
-                    href="https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block p-3 bg-[#E8F5E9] rounded-lg hover:bg-[#d4e8d7] transition-colors"
-                  >
-                    <div className="flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4 text-[#004D33]" />
-                      <span className="font-medium text-[#004D33]">Sopna by France</span>
-                    </div>
-                    <p className="text-sm text-[#4A4A4A] mt-1">Bibliothèque Seydil Hadji Malick Sy</p>
-                  </a>
-                  <a 
                     href="https://archive.org/details/sidi-el-hadj-malick-sy-rta"
                     target="_blank"
                     rel="noopener noreferrer"

@@ -77,7 +77,7 @@ const Navbar = () => {
               data-testid="logo-link"
             >
               <img 
-                src="/logo.png" 
+                src="/logo-vf.png" 
                 alt="L'empreinte de Maodo" 
                 className="h-16 w-16 rounded-full object-cover shadow-md border-2 border-[#D4AF37]"
               />
