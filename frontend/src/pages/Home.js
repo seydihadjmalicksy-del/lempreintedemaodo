@@ -111,17 +111,17 @@ const Home = () => {
             alt="Grande Mosquée de Tivaouane"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#004D33] via-[#004D33]/80 to-[#004D33]/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#006B47] via-[#006B47]/85 to-[#006B47]/70"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#D4AF37]/20 backdrop-blur-sm border border-[#D4AF37]/30 rounded-full px-6 py-2 mb-8">
-            <Sparkles className="w-4 h-4 text-[#D4AF37]" />
-            <span className="text-[#D4AF37] text-sm font-medium">{t('welcomeMessage')}</span>
+          <div className="inline-flex items-center gap-2 bg-[#E6B800]/25 backdrop-blur-sm border border-[#FFD54F]/40 rounded-full px-6 py-2 mb-8 glow-gold">
+            <Sparkles className="w-4 h-4 text-[#FFD54F]" />
+            <span className="text-[#FFD54F] text-sm font-medium">{t('welcomeMessage')}</span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="text-[#D4AF37]">{t('heroTitle')}</span>
+            <span className="text-gradient-gold drop-shadow-lg">{t('heroTitle')}</span>
           </h1>
 
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
@@ -148,8 +148,8 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Gold Border at Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"></div>
+        {/* Gold Border at Bottom with Shimmer */}
+        <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-[#FFD54F] to-transparent shimmer"></div>
       </section>
 
       {/* Section Bienvenue avec Logo */}
