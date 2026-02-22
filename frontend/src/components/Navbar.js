@@ -200,7 +200,7 @@ const Navbar = () => {
                   <div key={index}>
                     <button
                       onClick={() => setOpenMobileDropdown(openMobileDropdown === link.label ? null : link.label)}
-                      className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
+                      className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium text-[#4A4A4A] hover:bg-[#E0F2E0] hover:text-[#006B47] transition-colors"
                     >
                       {link.label}
                       <ChevronDown className={`w-4 h-4 transition-transform ${openMobileDropdown === link.label ? 'rotate-180' : ''}`} />
@@ -212,7 +212,7 @@ const Navbar = () => {
                             key={subLink.path}
                             to={subLink.path}
                             onClick={() => setIsOpen(false)}
-                            className="block px-4 py-2 rounded-lg text-sm text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
+                            className="block px-4 py-2 rounded-lg text-sm text-[#4A4A4A] hover:bg-[#E0F2E0] hover:text-[#006B47] transition-colors"
                           >
                             {subLink.label}
                           </Link>
@@ -228,8 +228,8 @@ const Navbar = () => {
                     data-testid={`mobile-nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       isActive(link.path)
-                        ? "bg-[#004D33] text-white"
-                        : "text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33]"
+                        ? "bg-[#006B47] text-white"
+                        : "text-[#4A4A4A] hover:bg-[#E0F2E0] hover:text-[#006B47]"
                     }`}
                   >
                     {link.label}
