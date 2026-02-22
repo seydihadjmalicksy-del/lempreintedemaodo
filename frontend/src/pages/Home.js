@@ -215,21 +215,21 @@ const Home = () => {
       {homepageSections.map((section) => {
         if (section.section_type === "wattu_promo") {
           return (
-            <section key={section.id} className="py-16 bg-gradient-to-br from-[#004D33] to-[#003d29]" data-testid="wattu-section">
+            <section key={section.id} className="py-16 bg-gradient-to-br from-[#006B47] to-[#004D33]" data-testid="wattu-section">
               <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <div className="flex items-center justify-center gap-3 mb-6">
-                  <BookOpen className="w-10 h-10 text-[#D4AF37]" />
+                  <BookOpen className="w-10 h-10 text-[#FFD54F]" />
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {getText(section.title)}
                 </h2>
-                <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg text-white/85 mb-8 max-w-2xl mx-auto">
                   {getText(section.description)}
                 </p>
                 <Link
                   to={section.content?.link || "/wattu"}
                   data-testid="wattu-access-btn"
-                  className="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-[#c9a432] text-[#004D33] font-bold text-lg px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="inline-flex items-center gap-3 bg-gradient-to-r from-[#FFD54F] to-[#E6B800] hover:from-[#E6B800] hover:to-[#FFD54F] text-[#004D33] font-bold text-lg px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 glow-gold"
                 >
                   <BookOpen className="w-6 h-6" />
                   {getText(section.content?.button_text) || "Accéder à Wattu"}
@@ -242,12 +242,12 @@ const Home = () => {
         
         if (section.section_type === "donations") {
           return (
-            <section key={section.id} className="py-16 bg-[#004D33]" data-testid="donations-section">
+            <section key={section.id} className="py-16 bg-[#006B47]" data-testid="donations-section">
               <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                  <div className="bg-gradient-to-r from-[#D4AF37] to-[#c9a432] p-6 text-center">
-                    <Heart className="w-12 h-12 text-white mx-auto mb-3" />
-                    <h2 className="text-2xl md:text-3xl font-bold text-white">
+                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                  <div className="bg-gradient-to-r from-[#FFD54F] to-[#E6B800] p-6 text-center">
+                    <Heart className="w-12 h-12 text-white mx-auto mb-3 drop-shadow-md" />
+                    <h2 className="text-2xl md:text-3xl font-bold text-white drop-shadow-sm">
                       {getText(section.title)}
                     </h2>
                   </div>
@@ -258,18 +258,18 @@ const Home = () => {
                     </p>
                     
                     {/* Informations de paiement */}
-                    <div className="bg-[#004D33]/5 rounded-xl p-6 text-center">
-                      <h3 className="text-xl font-bold text-[#004D33] mb-4">
+                    <div className="bg-[#006B47]/5 rounded-xl p-6 text-center">
+                      <h3 className="text-xl font-bold text-[#006B47] mb-4">
                         {getText(section.content?.how_to_donate_title) || "Comment faire un don"}
                       </h3>
                       
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         {section.content?.payment_methods?.map((method, idx) => (
-                          <div key={idx} className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md">
-                            <Phone className="w-6 h-6 text-[#D4AF37]" />
+                          <div key={idx} className="flex items-center gap-3 bg-white rounded-full px-6 py-3 shadow-md hover:shadow-lg transition-shadow">
+                            <Phone className="w-6 h-6 text-[#E6B800]" />
                             <div className="text-left">
                               <p className="text-sm text-[#888888]">{method.label}</p>
-                              <p className="text-xl font-bold text-[#004D33]">{method.value}</p>
+                              <p className="text-xl font-bold text-[#006B47]">{method.value}</p>
                             </div>
                           </div>
                         ))}
