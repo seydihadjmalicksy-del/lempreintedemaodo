@@ -153,19 +153,19 @@ const Home = () => {
       </section>
 
       {/* Section Bienvenue avec Logo */}
-      <section className="py-16 bg-gradient-to-b from-[#F9F7F2] to-white" data-testid="welcome-section">
+      <section className="py-16 bg-gradient-to-b from-[#FFFEF8] to-white" data-testid="welcome-section">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           {/* Logo */}
           <div className="mb-8">
             <img 
-              src="/logo.png" 
+              src="/logo-vf.png" 
               alt="L'empreinte de Maodo - Logo" 
-              className="h-40 w-40 md:h-48 md:w-48 mx-auto rounded-full object-cover shadow-lg border-4 border-[#D4AF37]"
+              className="h-40 w-40 md:h-48 md:w-48 mx-auto rounded-full object-cover shadow-xl border-4 border-[#E6B800] glow-gold"
             />
           </div>
           
           {/* Titre de bienvenue */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[#004D33] mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#006B47] mb-6">
             {language === 'en' ? 'Welcome to L\'empreinte de Maodo' : 
              language === 'ar' ? 'مرحباً بكم في بصمة مودو' : 
              language === 'wo' ? 'Dalal ak jàmm ci L\'empreinte de Maodo' : 
@@ -195,8 +195,8 @@ const Home = () => {
             </p>
             
             {/* Citation inspirante */}
-            <div className="bg-[#004D33]/5 border-l-4 border-[#D4AF37] rounded-r-lg p-6">
-              <p className="text-xl italic text-[#004D33] font-medium">
+            <div className="bg-[#006B47]/5 border-l-4 border-[#E6B800] rounded-r-lg p-6 shadow-md">
+              <p className="text-xl italic text-[#006B47] font-medium">
                 {language === 'en'
                   ? '"Knowledge is a light that God places in the heart of whomever He wills."'
                   : language === 'ar'
@@ -205,7 +205,7 @@ const Home = () => {
                   ? '"Xam-xam mooy leer bu Yàlla def ci xol ku ko neex."'
                   : '"La connaissance est une lumière que Dieu dépose dans le cœur de qui Il veut."'}
               </p>
-              <p className="text-[#D4AF37] font-semibold mt-3">— El Hadji Malick Sy</p>
+              <p className="text-[#E6B800] font-semibold mt-3">— El Hadji Malick Sy</p>
             </div>
           </div>
         </div>
