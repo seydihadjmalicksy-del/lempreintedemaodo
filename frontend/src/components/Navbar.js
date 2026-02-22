@@ -93,7 +93,7 @@ const Navbar = () => {
                     className="relative group"
                   >
                     <button
-                      className="flex items-center gap-1 text-base font-medium text-[#4A4A4A] hover:text-[#004D33] py-4 transition-colors"
+                      className="flex items-center gap-1 text-base font-medium text-[#4A4A4A] hover:text-[#006B47] py-4 transition-colors"
                       data-testid={`nav-dropdown-${link.label.toLowerCase()}`}
                     >
                       {link.label}
@@ -111,7 +111,7 @@ const Navbar = () => {
                           <Link
                             key={subLink.path}
                             to={subLink.path}
-                            className="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#E8F5E9] hover:text-[#004D33] transition-colors"
+                            className="block px-4 py-3 text-sm text-[#4A4A4A] hover:bg-[#E0F2E0] hover:text-[#006B47] transition-colors"
                             data-testid={`nav-sublink-${subLink.label.toLowerCase().replace(/\s+/g, '-')}`}
                           >
                             {subLink.label}
@@ -127,8 +127,8 @@ const Navbar = () => {
                     data-testid={`nav-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     className={`text-base font-medium transition-colors duration-200 ${
                       isActive(link.path)
-                        ? "text-[#004D33] border-b-2 border-[#D4AF37]"
-                        : "text-[#4A4A4A] hover:text-[#004D33]"
+                        ? "text-[#006B47] border-b-2 border-[#E6B800]"
+                        : "text-[#4A4A4A] hover:text-[#006B47]"
                     } pb-1`}
                   >
                     {link.label}
