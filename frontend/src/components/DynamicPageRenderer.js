@@ -150,10 +150,10 @@ const SectionRenderer = ({ section, index, getText, language }) => {
   switch (section.type) {
     case 'text':
       return (
-        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#F9F7F2]'}`}>
+        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#FFFEF8]'}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {sectionTitle && (
-              <h2 className="text-3xl font-bold text-[#004D33] mb-6">{sectionTitle}</h2>
+              <h2 className="text-3xl font-bold text-[#006B47] mb-6">{sectionTitle}</h2>
             )}
             <div className="prose prose-lg max-w-none">
               {sectionContent.split('\n').map((paragraph, i) => (
@@ -177,14 +177,14 @@ const SectionRenderer = ({ section, index, getText, language }) => {
 
     case 'quote':
       return (
-        <section className="py-12 bg-[#E8F5E9]">
+        <section className="py-12 bg-[#E0F2E0]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="border-l-4 border-[#D4AF37] pl-6">
-              <Quote className="w-8 h-8 text-[#D4AF37] mb-4" />
+            <div className="border-l-4 border-[#E6B800] pl-6">
+              <Quote className="w-8 h-8 text-[#E6B800] mb-4" />
               {sectionTitle && (
-                <h3 className="text-xl font-bold text-[#004D33] mb-4">{sectionTitle}</h3>
+                <h3 className="text-xl font-bold text-[#006B47] mb-4">{sectionTitle}</h3>
               )}
-              <blockquote className="text-lg text-[#004D33] italic leading-relaxed">
+              <blockquote className="text-lg text-[#006B47] italic leading-relaxed">
                 {sectionContent.split('\n').map((line, i) => (
                   <p key={i} className="mb-2">{line}</p>
                 ))}
@@ -197,15 +197,15 @@ const SectionRenderer = ({ section, index, getText, language }) => {
     case 'cards':
       const items = sectionContent.split('\n').filter(line => line.trim().startsWith('•') || line.trim().startsWith('-'));
       return (
-        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#F9F7F2]'}`}>
+        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#FFFEF8]'}`}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             {sectionTitle && (
-              <h2 className="text-3xl font-bold text-[#004D33] mb-8 text-center">{sectionTitle}</h2>
+              <h2 className="text-3xl font-bold text-[#006B47] mb-8 text-center">{sectionTitle}</h2>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {items.map((item, i) => (
-                <div key={i} className="bg-white rounded-xl p-6 shadow-md border-l-4 border-[#D4AF37] hover:shadow-lg transition-shadow">
-                  <p className="text-[#004D33] font-medium">
+                <div key={i} className="bg-white rounded-xl p-6 shadow-md border-l-4 border-[#E6B800] hover:shadow-lg transition-shadow">
+                  <p className="text-[#006B47] font-medium">
                     {item.replace(/^[•\-]\s*/, '')}
                   </p>
                 </div>
@@ -223,24 +223,24 @@ const SectionRenderer = ({ section, index, getText, language }) => {
     case 'timeline':
       const timelineItems = sectionContent.split('\n').filter(line => line.includes(':'));
       return (
-        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#F9F7F2]'}`}>
+        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#FFFEF8]'}`}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {sectionTitle && (
-              <h2 className="text-3xl font-bold text-[#004D33] mb-8 text-center">{sectionTitle}</h2>
+              <h2 className="text-3xl font-bold text-[#006B47] mb-8 text-center">{sectionTitle}</h2>
             )}
             <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-[#D4AF37]"></div>
+              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-[#E6B800]"></div>
               <div className="space-y-8">
                 {timelineItems.map((item, i) => {
                   const [year, ...rest] = item.split(':');
                   const event = rest.join(':').trim();
                   return (
                     <div key={i} className="relative pl-12">
-                      <div className="absolute left-0 w-8 h-8 bg-[#004D33] rounded-full flex items-center justify-center">
-                        <div className="w-3 h-3 bg-[#D4AF37] rounded-full"></div>
+                      <div className="absolute left-0 w-8 h-8 bg-[#006B47] rounded-full flex items-center justify-center">
+                        <div className="w-3 h-3 bg-[#E6B800] rounded-full"></div>
                       </div>
                       <div className="bg-white rounded-lg p-4 shadow-md">
-                        <span className="text-[#D4AF37] font-bold">{year.trim()}</span>
+                        <span className="text-[#E6B800] font-bold">{year.trim()}</span>
                         <p className="text-[#4A4A4A] mt-1">{event}</p>
                       </div>
                     </div>
@@ -254,10 +254,10 @@ const SectionRenderer = ({ section, index, getText, language }) => {
 
     case 'image':
       return (
-        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#F9F7F2]'}`}>
+        <section className={`py-16 ${isEven ? 'bg-white' : 'bg-[#FFFEF8]'}`}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             {sectionTitle && (
-              <h2 className="text-3xl font-bold text-[#004D33] mb-8 text-center">{sectionTitle}</h2>
+              <h2 className="text-3xl font-bold text-[#006B47] mb-8 text-center">{sectionTitle}</h2>
             )}
             {section.image && (
               <img 
