@@ -157,14 +157,14 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-[#E8F5E9] transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-[#E0F2E0] transition-colors"
               data-testid="mobile-menu-button"
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <X className="h-6 w-6 text-[#004D33]" />
+                <X className="h-6 w-6 text-[#006B47]" />
               ) : (
-                <Menu className="h-6 w-6 text-[#004D33]" />
+                <Menu className="h-6 w-6 text-[#006B47]" />
               )}
             </button>
           </div>
