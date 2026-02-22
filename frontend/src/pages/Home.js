@@ -296,9 +296,9 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Citation du Jour */}
-            <div className="bg-gradient-to-br from-[#004D33] to-[#003d29] rounded-2xl p-8 text-white">
+            <div className="bg-gradient-to-br from-[#006B47] to-[#004D33] rounded-2xl p-8 text-white shadow-xl glow-emerald">
               <div className="flex items-center gap-3 mb-6">
-                <Quote className="w-8 h-8 text-[#D4AF37]" />
+                <Quote className="w-8 h-8 text-[#FFD54F]" />
                 <h3 className="text-xl font-bold">{t('quoteOfDay')}</h3>
               </div>
               {dailyQuote ? (
@@ -306,7 +306,7 @@ const Home = () => {
                   <blockquote className="text-2xl font-light italic leading-relaxed mb-6">
                     "{getQuoteText()}"
                   </blockquote>
-                  <p className="text-[#D4AF37] font-semibold">
+                  <p className="text-[#FFD54F] font-semibold">
                     — {dailyQuote.author}
                   </p>
                 </>
@@ -318,22 +318,22 @@ const Home = () => {
             </div>
 
             {/* Calendrier des Événements */}
-            <div className="bg-[#F9F7F2] rounded-2xl p-8">
+            <div className="bg-[#FFFEF8] rounded-2xl p-8 shadow-lg">
               <div className="flex items-center gap-3 mb-6">
-                <Calendar className="w-8 h-8 text-[#004D33]" />
-                <h3 className="text-xl font-bold text-[#004D33]">{t('upcomingEvents')}</h3>
+                <Calendar className="w-8 h-8 text-[#006B47]" />
+                <h3 className="text-xl font-bold text-[#006B47]">{t('upcomingEvents')}</h3>
               </div>
               <div className="space-y-4">
                 {upcomingEvents.length > 0 ? upcomingEvents.slice(0, 3).map((event, index) => (
                   <div 
                     key={event.id || index}
-                    className={`flex items-start gap-4 p-4 rounded-xl bg-white ${
-                      event.event_type === 'gamou' ? 'border-l-4 border-[#D4AF37]' : 
-                      event.event_type === 'ziarra' ? 'border-l-4 border-[#004D33]' : ''
+                    className={`flex items-start gap-4 p-4 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow ${
+                      event.event_type === 'gamou' ? 'border-l-4 border-[#E6B800]' : 
+                      event.event_type === 'ziarra' ? 'border-l-4 border-[#006B47]' : ''
                     }`}
                   >
                     <div className="flex-1">
-                      <h4 className="font-bold text-[#004D33]">{getEventText(event, 'name')}</h4>
+                      <h4 className="font-bold text-[#006B47]">{getEventText(event, 'name')}</h4>
                       <div className="flex items-center gap-4 mt-1 text-sm text-[#888888]">
                         <span className="flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
@@ -352,7 +352,7 @@ const Home = () => {
               </div>
               <Link 
                 to="/evenements/gamou"
-                className="inline-flex items-center gap-2 text-[#004D33] font-semibold mt-4 hover:text-[#D4AF37] transition-colors"
+                className="inline-flex items-center gap-2 text-[#006B47] font-semibold mt-4 hover:text-[#E6B800] transition-colors"
               >
                 {t('seeAll')}
                 <ArrowRight className="w-4 h-4" />
