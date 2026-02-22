@@ -366,7 +366,7 @@ const Home = () => {
       <section className="py-16 lg:py-24 islamic-pattern" data-testid="featured-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-[#006B47] mb-4">
               {t('featuredVideos')}
             </h2>
             <p className="text-lg text-[#4A4A4A] max-w-2xl mx-auto">
@@ -401,7 +401,7 @@ const Home = () => {
                 <Link
                   to="/gallery"
                   data-testid="view-all-videos-btn"
-                  className="inline-flex items-center gap-2 bg-white border-2 border-[#004D33] text-[#004D33] hover:bg-[#004D33] hover:text-white rounded-full px-8 py-3 font-medium transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="inline-flex items-center gap-2 bg-white border-2 border-[#006B47] text-[#006B47] hover:bg-[#006B47] hover:text-white rounded-full px-8 py-3 font-medium transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   {t('seeAll')}
                   <ArrowRight className="w-5 h-5" />
@@ -426,7 +426,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold text-[#004D33] mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-[#006B47] mb-6">
                 {t('heroTitle')}
               </h2>
               <p className="text-lg text-[#4A4A4A] mb-6 leading-relaxed">
@@ -441,7 +441,7 @@ const Home = () => {
               <Link
                 to="/about"
                 data-testid="about-learn-more-btn"
-                className="inline-flex items-center gap-2 text-[#004D33] hover:text-[#D4AF37] font-medium transition-colors group"
+                className="inline-flex items-center gap-2 text-[#006B47] hover:text-[#E6B800] font-medium transition-colors group"
               >
                 {t('readMore')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -457,14 +457,14 @@ const Home = () => {
                 />
               </div>
               {/* Decorative Gold Border */}
-              <div className="absolute -bottom-4 -right-4 w-full h-full border-4 border-[#D4AF37] rounded-xl -z-10"></div>
+              <div className="absolute -bottom-4 -right-4 w-full h-full border-4 border-[#E6B800] rounded-xl -z-10"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#004D33] text-white py-12" data-testid="footer">
+      <footer className="bg-gradient-to-br from-[#006B47] to-[#004D33] text-white py-12" data-testid="footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="mb-6">
             <h3 className="text-2xl font-bold mb-2">{t('heroTitle')}</h3>
@@ -476,7 +476,7 @@ const Home = () => {
             </p>
           </div>
           
-          <div className="border-t border-[#D4AF37]/30 pt-6">
+          <div className="border-t border-[#E6B800]/30 pt-6">
             <p className="text-white/60 text-sm">
               © 2026 CRAT. {t('allRightsReserved')}.
             </p>
