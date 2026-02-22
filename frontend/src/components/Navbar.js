@@ -60,14 +60,14 @@ const Navbar = () => {
   return (
     <>
       {/* Bismillah Banner */}
-      <div className="bg-[#004D33] text-white py-2 text-center border-b-2 border-[#D4AF37]">
+      <div className="bg-gradient-to-r from-[#006B47] to-[#004D33] text-white py-2 text-center border-b-2 border-[#E6B800]">
         <p className="bismillah-text text-lg md:text-xl" data-testid="bismillah-banner">
           بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
         </p>
       </div>
 
       {/* Main Navbar */}
-      <nav className="bg-white shadow-md sticky top-0 z-50" data-testid="main-navbar">
+      <nav className="bg-white shadow-lg sticky top-0 z-50" data-testid="main-navbar">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -79,8 +79,9 @@ const Navbar = () => {
               <img 
                 src="/logo-vf.png" 
                 alt="L'empreinte de Maodo" 
-                className="h-16 w-16 rounded-full object-cover shadow-md border-2 border-[#D4AF37]"
+                className="h-16 w-16 rounded-full object-cover shadow-lg border-2 border-[#E6B800] glow-gold"
               />
+            </Link>
             </Link>
 
             {/* Desktop Navigation */}
