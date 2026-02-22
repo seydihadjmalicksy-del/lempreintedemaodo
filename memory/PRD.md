@@ -251,5 +251,55 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
   - Contenu basé sur des sources historiques fiables
   - Support bilingue FR/EN
 
+### Phase 14 - Content Restoration for All Pages ✅ (Feb 22, 2026)
+- **7 pages restaurées avec contenu riche** basé sur des recherches approfondies:
+  1. **Les Origines de la Tijaniyya** (`/histoire/origines`) - 5 sections
+     - Le Fondateur Cheikh Ahmed Tijani
+     - Spécificités de la Tijaniyya
+     - Expansion en Afrique de l'Ouest
+     - Chronologie (1737-1902)
+     - Fès: Le Centre Spirituel
+  2. **Géographie Sacrée** (`/histoire/geographie`) - 5 sections
+     - Tivaouane: Ville Sainte
+     - La Mosquée et la Zawiya d'El Hadji Malick Sy
+     - Les Mausolées Sacrés
+     - La Grande Mosquée en Construction
+     - Rayonnement International
+  3. **Les Piliers de la Tariqa** (`/enseignements/piliers`) - 6 sections
+     - Fondements Doctrinaux
+     - Le Lâzim (Wird Quotidien)
+     - La Wazifa
+     - Le Dhikr du Vendredi (Haylala)
+     - Conseils pour la Pratique
+     - Les Bienfaits des Pratiques
+  4. **L'École de Tivaouane** (`/enseignements/ecole`) - 6 sections
+     - Un Centre d'Excellence
+     - Un Système Décentralisé
+     - Géostratégie Éducative
+     - Une Approche Inclusive
+     - L'Héritage Éducatif
+     - Disciplines Enseignées
+  5. **Le Gamou de Tivaouane** (`/evenements/gamou`) - 6 sections
+     - Un Événement Spirituel Majeur
+     - Histoire du Gamou
+     - Déroulement de la Célébration
+     - Importance Nationale
+     - Les Nuits du Bourde
+     - Dates Clés (Timeline)
+  6. **Les Ziarra Annuelles** (`/evenements/ziarra`) - 6 sections
+     - Qu'est-ce que la Ziarra?
+     - Les Mausolées Visités
+     - Programme Typique
+     - Signification Spirituelle
+     - Organisation et Logistique
+     - Distinction avec le Gamou
+  7. **Cérémonies Religieuses** (`/evenements/ceremonies`) - 6 sections
+     - Les Cérémonies de la Tijaniyya
+     - Le Bourde
+     - Les Khassaides
+     - Hadratoul Jummah
+     - Types de Cérémonies
+     - L'Atmosphère Spirituelle
+
 ## Last Updated
-February 22, 2026 - Nouveau logo, couleurs vibrantes, suppression lien Sopna, contenu Maodo enrichi
+February 22, 2026 - Restauration complète du contenu de 7 pages avec contenus riches et historiques
