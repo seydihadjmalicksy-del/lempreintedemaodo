@@ -93,7 +93,7 @@ const Home = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center" data-testid="loading-spinner">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#004D33]"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-[#006B47]"></div>
       </div>
     );
   }
