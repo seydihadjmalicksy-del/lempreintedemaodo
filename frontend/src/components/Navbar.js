@@ -82,7 +82,6 @@ const Navbar = () => {
                 className="h-16 w-16 rounded-full object-cover shadow-lg border-2 border-[#E6B800] glow-gold"
               />
             </Link>
-            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-6">
