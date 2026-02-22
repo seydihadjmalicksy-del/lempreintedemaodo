@@ -235,5 +235,21 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 - **Pages dynamiques**: 10 pages actives avec contenu riche
 - **Admin Panel**: Gestion complète des sections d'accueil, pages, et contenu Wattu
 
+### Phase 13 - UI/UX Enhancement & Content Update ✅ (Feb 22, 2026)
+- **Nouveau logo intégré**: Logo final "L'empreinte de MAODO" avec portrait de Maodo
+  - Fichier: `/logo-vf.png` - Logo haute résolution fourni par l'utilisateur
+  - Intégré dans Navbar et page d'accueil avec effet glow doré
+- **Couleurs vibrantes**: Mise à jour de la palette de couleurs
+  - Vert principal: `#006B47` (plus lumineux que l'ancien `#004D33`)
+  - Or: `#E6B800` et `#FFD54F` (plus brillant)
+  - Ajout d'effets glow (`.glow-gold`, `.glow-emerald`)
+  - Ajout d'effet shimmer sur la bordure dorée du hero
+- **Lien "Sopna by France" supprimé**: Retiré de la section "À propos des Khassaides" dans Archives
+  - Seul Archive.org reste comme source d'enregistrement
+- **Contenu Maodo enrichi**: Page `/histoire/maodo` mise à jour avec contenu complet
+  - 8 sections: Introduction, Naissance, Formation, Chronologie, Installation à Tivaouane, Œuvres, Héritage, Paroles de Maodo
+  - Contenu basé sur des sources historiques fiables
+  - Support bilingue FR/EN
+
 ## Last Updated
-February 15, 2026 - Correction définitive du bug de déploiement (POST /api 404 → 200)
+February 22, 2026 - Nouveau logo, couleurs vibrantes, suppression lien Sopna, contenu Maodo enrichi
