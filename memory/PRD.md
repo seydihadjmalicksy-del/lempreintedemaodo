@@ -394,6 +394,7 @@ March 2, 2026 - CRUD complet pour Archives, Ouvrages et Arbre Généalogique
 - **CRUD complet pour Archives**: Formulaires d'ajout/modification pour 5 types (Manuscrits, Photos, Audio, Vidéos, Sources)
 - **CRUD complet pour Ouvrages**: Formulaires d'ajout/modification pour 4 types (Majeurs, Autres, Bibliothèque, Académiques)  
 - **CRUD complet pour Arbre Généalogique**: Ajout du champ node_id requis, formulaire complet
+- **CRUD complet pour Page Accueil**: Ajout/Modification/Suppression des sections dynamiques (Wattu promo, Dons, Citations, Appels à l'action, Sections personnalisées)
 - **Alignement frontend/backend**: Tous les formulaires respectent les schémas Pydantic du backend
 - **Tests API validés**: POST/PUT/DELETE fonctionnels pour tous les types de contenu
 
