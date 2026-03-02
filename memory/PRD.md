@@ -386,4 +386,29 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ```
 
 ## Last Updated
-March 2, 2026 - Module de gestion des fichiers complet (upload, tags, associations multi-pages)
+March 2, 2026 - CRUD complet pour Archives, Ouvrages et Arbre Généalogique
+
+### Phase 14 - Wattu Rename & Full CRUD Admin ✅ (March 2, 2026)
+- **Page Wattu renommée**: "Wattu - Opinions & Réflexions" (FR) / "Wattu - Opinions & Reflections" (EN)
+- **5 articles importés** depuis lempreintedemaodo.com/wattu (déjà présents)
+- **CRUD complet pour Archives**: Formulaires d'ajout/modification pour 5 types (Manuscrits, Photos, Audio, Vidéos, Sources)
+- **CRUD complet pour Ouvrages**: Formulaires d'ajout/modification pour 4 types (Majeurs, Autres, Bibliothèque, Académiques)  
+- **CRUD complet pour Arbre Généalogique**: Ajout du champ node_id requis, formulaire complet
+- **Alignement frontend/backend**: Tous les formulaires respectent les schémas Pydantic du backend
+- **Tests API validés**: POST/PUT/DELETE fonctionnels pour tous les types de contenu
+
+## Prioritized Backlog
+
+### P0 - Haute Priorité
+- [ ] Gestion de l'ordre d'affichage des médias (drag-and-drop)
+- [ ] Bannière "Bismillah" sur la page d'accueil
+
+### P1 - Moyenne Priorité
+- [ ] Recherche en temps réel avec auto-complétion
+- [ ] Notifications Push depuis l'Admin
+
+### P2 - Basse Priorité
+- [ ] Transcriptions des Khassaides
+- [ ] Intégration contenu xassida.sn (nécessite API)
+- [ ] Application mobile native
+

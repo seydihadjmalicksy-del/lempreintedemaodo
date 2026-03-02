@@ -1,5 +1,6 @@
 /**
  * Archives Management Tab Component - Full CRUD
+ * Field names aligned with backend Pydantic models
  */
 import { useState, useEffect } from "react";
 import { Archive, Book, Image, Mic, Play, FileText, Trash2, Plus, Edit, Save, X, Loader2 } from "lucide-react";
@@ -25,28 +26,62 @@ const ArchivesTab = ({ getAuthHeaders }) => {
   const [editingItem, setEditingItem] = useState(null);
   const [actionLoading, setActionLoading] = useState(false);
 
-  // Form state based on type
+  // Form state based on type - aligned with backend models
   const getEmptyFormData = (type) => {
-    const base = {
-      title: { fr: "", en: "", ar: "" },
-      description: { fr: "", en: "" },
-      active: true,
-      order: 0
-    };
-
     switch (type) {
       case "manuscripts":
-        return { ...base, langue: "arabe", date: "", auteur: "", image: "", pdf_url: "" };
+        return {
+          title: { fr: "", en: "", ar: "" },
+          description: { fr: "", en: "" },
+          date: "",
+          langue: "Arabe",
+          lien: "",
+          type: "manuscript",
+          order: 0,
+          active: true
+        };
       case "photos":
-        return { ...base, image: "", date: "", lieu: "", categorie: "historique" };
+        return {
+          title: { fr: "", en: "", ar: "" },
+          description: { fr: "", en: "" },
+          date: "",
+          image: "",
+          source: { fr: "Archives familiales", en: "Family archives" },
+          order: 0,
+          active: true
+        };
       case "audio":
-        return { ...base, audio_url: "", duree: "", reciteur: "", categorie: "khassaide" };
+        return {
+          title: "",
+          author: "",
+          duration: "",
+          audioUrl: "",
+          source: "Archives Tivaouane",
+          coverImage: "",
+          order: 0,
+          active: true
+        };
       case "videos":
-        return { ...base, video_url: "", duree: "", youtube_id: "", categorie: "conference" };
+        return {
+          title: { fr: "", en: "", ar: "" },
+          description: { fr: "", en: "" },
+          youtubeId: "",
+          duration: "",
+          views: "0",
+          order: 0,
+          active: true
+        };
       case "sources":
-        return { ...base, auteur: "", date_publication: "", editeur: "", url: "", type_source: "livre" };
+        return {
+          title: { fr: "", en: "", ar: "" },
+          description: { fr: "", en: "" },
+          lien: "",
+          source: { fr: "", en: "" },
+          order: 0,
+          active: true
+        };
       default:
-        return base;
+        return {};
     }
   };
 
@@ -101,6 +136,7 @@ const ArchivesTab = ({ getAuthHeaders }) => {
       resetForm();
       fetchAllArchives();
     } catch (error) {
+      console.error("Error saving archive:", error.response?.data);
       toast.error(error.response?.data?.detail || "Erreur lors de l'enregistrement");
     } finally {
       setActionLoading(false);
@@ -109,50 +145,73 @@ const ArchivesTab = ({ getAuthHeaders }) => {
 
   const handleEdit = (item) => {
     setEditingItem(item);
-    setFormData({
-      title: item.title || { fr: "", en: "", ar: "" },
-      description: item.description || { fr: "", en: "" },
-      active: item.active !== false,
-      order: item.order || 0,
-      // Type-specific fields
-      ...(activeType === "manuscripts" && {
-        langue: item.langue || "arabe",
-        date: item.date || "",
-        auteur: item.auteur || "",
-        image: item.image || "",
-        pdf_url: item.pdf_url || ""
-      }),
-      ...(activeType === "photos" && {
-        image: item.image || "",
-        date: item.date || "",
-        lieu: item.lieu || "",
-        categorie: item.categorie || "historique"
-      }),
-      ...(activeType === "audio" && {
-        audio_url: item.audio_url || "",
-        duree: item.duree || "",
-        reciteur: item.reciteur || "",
-        categorie: item.categorie || "khassaide"
-      }),
-      ...(activeType === "videos" && {
-        video_url: item.video_url || "",
-        duree: item.duree || "",
-        youtube_id: item.youtube_id || "",
-        categorie: item.categorie || "conference"
-      }),
-      ...(activeType === "sources" && {
-        auteur: item.auteur || "",
-        date_publication: item.date_publication || "",
-        editeur: item.editeur || "",
-        url: item.url || "",
-        type_source: item.type_source || "livre"
-      })
-    });
+    
+    // Map item fields based on type
+    switch (activeType) {
+      case "manuscripts":
+        setFormData({
+          title: item.title || { fr: "", en: "", ar: "" },
+          description: item.description || { fr: "", en: "" },
+          date: item.date || "",
+          langue: item.langue || "Arabe",
+          lien: item.lien || "",
+          type: item.type || "manuscript",
+          order: item.order || 0,
+          active: item.active !== false
+        });
+        break;
+      case "photos":
+        setFormData({
+          title: item.title || { fr: "", en: "", ar: "" },
+          description: item.description || { fr: "", en: "" },
+          date: item.date || "",
+          image: item.image || "",
+          source: item.source || { fr: "", en: "" },
+          order: item.order || 0,
+          active: item.active !== false
+        });
+        break;
+      case "audio":
+        setFormData({
+          title: item.title || "",
+          author: item.author || "",
+          duration: item.duration || "",
+          audioUrl: item.audioUrl || "",
+          source: item.source || "",
+          coverImage: item.coverImage || "",
+          order: item.order || 0,
+          active: item.active !== false
+        });
+        break;
+      case "videos":
+        setFormData({
+          title: item.title || { fr: "", en: "", ar: "" },
+          description: item.description || { fr: "", en: "" },
+          youtubeId: item.youtubeId || "",
+          duration: item.duration || "",
+          views: item.views || "0",
+          order: item.order || 0,
+          active: item.active !== false
+        });
+        break;
+      case "sources":
+        setFormData({
+          title: item.title || { fr: "", en: "", ar: "" },
+          description: item.description || { fr: "", en: "" },
+          lien: item.lien || "",
+          source: item.source || { fr: "", en: "" },
+          order: item.order || 0,
+          active: item.active !== false
+        });
+        break;
+      default:
+        break;
+    }
     setShowForm(true);
   };
 
   const handleDelete = async (item) => {
-    if (!window.confirm(`Supprimer "${item.title?.fr || 'cet élément'}" ?`)) return;
+    if (!window.confirm(`Supprimer "${typeof item.title === 'object' ? item.title?.fr : item.title || 'cet élément'}" ?`)) return;
     try {
       await axios.delete(`${API}/archives/${activeType}/${item.id}`, {
         headers: getAuthHeaders()
@@ -181,56 +240,105 @@ const ArchivesTab = ({ getAuthHeaders }) => {
       case "manuscripts":
         return (
           <>
+            {/* Title multilingual */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Langue</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (FR) *</label>
+                <input
+                  type="text"
+                  value={formData.title?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (EN)</label>
+                <input
+                  type="text"
+                  value={formData.title?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (AR)</label>
+                <input
+                  type="text"
+                  value={formData.title?.ar || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, ar: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            {/* Description */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (FR)</label>
+                <textarea
+                  value={formData.description?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (EN)</label>
+                <textarea
+                  value={formData.description?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
+            </div>
+            {/* Specific fields */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Langue *</label>
                 <select
                   value={formData.langue}
                   onChange={(e) => setFormData({ ...formData, langue: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg"
+                  required
                 >
-                  <option value="arabe">Arabe</option>
-                  <option value="francais">Français</option>
-                  <option value="wolof">Wolof</option>
+                  <option value="Arabe">Arabe</option>
+                  <option value="Français">Français</option>
+                  <option value="Wolof">Wolof</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Date/Époque</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Date/Époque *</label>
                 <input
                   type="text"
                   value={formData.date}
                   onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg"
                   placeholder="XIXe siècle"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Auteur</label>
-                <input
-                  type="text"
-                  value={formData.auteur}
-                  onChange={(e) => setFormData({ ...formData, auteur: e.target.value })}
+                <label className="block text-sm font-medium text-gray-700 mb-1">Type *</label>
+                <select
+                  value={formData.type}
+                  onChange={(e) => setFormData({ ...formData, type: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg"
-                />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">URL Image</label>
-                <input
-                  type="url"
-                  value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  className="w-full px-4 py-2 border rounded-lg"
-                />
+                  required
+                >
+                  <option value="manuscript">Manuscrit</option>
+                  <option value="treatise">Traité</option>
+                  <option value="letter">Lettre</option>
+                  <option value="poem">Poème</option>
+                </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">URL PDF</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Lien (URL) *</label>
                 <input
                   type="url"
-                  value={formData.pdf_url}
-                  onChange={(e) => setFormData({ ...formData, pdf_url: e.target.value })}
+                  value={formData.lien}
+                  onChange={(e) => setFormData({ ...formData, lien: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg"
+                  required
                 />
               </div>
             </div>
@@ -239,182 +347,340 @@ const ArchivesTab = ({ getAuthHeaders }) => {
 
       case "photos":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">URL Image *</label>
-              <input
-                type="url"
-                value={formData.image}
-                onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                required
-              />
+          <>
+            {/* Title multilingual */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (FR) *</label>
+                <input
+                  type="text"
+                  value={formData.title?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (EN)</label>
+                <input
+                  type="text"
+                  value={formData.title?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (AR)</label>
+                <input
+                  type="text"
+                  value={formData.title?.ar || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, ar: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  dir="rtl"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
-              <input
-                type="text"
-                value={formData.date}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="1950"
-              />
+            {/* Description */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (FR)</label>
+                <textarea
+                  value={formData.description?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (EN)</label>
+                <textarea
+                  value={formData.description?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Lieu</label>
-              <input
-                type="text"
-                value={formData.lieu}
-                onChange={(e) => setFormData({ ...formData, lieu: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="Tivaouane"
-              />
+            {/* Specific fields */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">URL Image *</label>
+                <input
+                  type="url"
+                  value={formData.image}
+                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Date *</label>
+                <input
+                  type="text"
+                  value={formData.date}
+                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="1950"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Source (FR) *</label>
+                <input
+                  type="text"
+                  value={formData.source?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, source: { ...formData.source, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Archives familiales"
+                  required
+                />
+              </div>
             </div>
-          </div>
+          </>
         );
 
       case "audio":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre *</label>
+                <input
+                  type="text"
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Khassaide Kifaayi"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Auteur/Réciteur *</label>
+                <input
+                  type="text"
+                  value={formData.author}
+                  onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">URL Audio *</label>
+                <input
+                  type="url"
+                  value={formData.audioUrl}
+                  onChange={(e) => setFormData({ ...formData, audioUrl: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Durée *</label>
+                <input
+                  type="text"
+                  value={formData.duration}
+                  onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="15:30"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Source *</label>
+                <input
+                  type="text"
+                  value={formData.source}
+                  onChange={(e) => setFormData({ ...formData, source: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Archives Tivaouane"
+                  required
+                />
+              </div>
+            </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">URL Audio *</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Image de couverture (URL)</label>
               <input
                 type="url"
-                value={formData.audio_url}
-                onChange={(e) => setFormData({ ...formData, audio_url: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Durée</label>
-              <input
-                type="text"
-                value={formData.duree}
-                onChange={(e) => setFormData({ ...formData, duree: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="15:30"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Réciteur</label>
-              <input
-                type="text"
-                value={formData.reciteur}
-                onChange={(e) => setFormData({ ...formData, reciteur: e.target.value })}
+                value={formData.coverImage}
+                onChange={(e) => setFormData({ ...formData, coverImage: e.target.value })}
                 className="w-full px-4 py-2 border rounded-lg"
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
-              <select
-                value={formData.categorie}
-                onChange={(e) => setFormData({ ...formData, categorie: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-              >
-                <option value="khassaide">Khassaide</option>
-                <option value="wird">Wird</option>
-                <option value="conference">Conférence</option>
-                <option value="autre">Autre</option>
-              </select>
-            </div>
-          </div>
+          </>
         );
 
       case "videos":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">URL Vidéo ou YouTube ID *</label>
-              <input
-                type="text"
-                value={formData.video_url || formData.youtube_id}
-                onChange={(e) => setFormData({ ...formData, video_url: e.target.value, youtube_id: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="https://... ou dQw4w9WgXcQ"
-                required
-              />
+          <>
+            {/* Title multilingual */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (FR) *</label>
+                <input
+                  type="text"
+                  value={formData.title?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (EN)</label>
+                <input
+                  type="text"
+                  value={formData.title?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (AR)</label>
+                <input
+                  type="text"
+                  value={formData.title?.ar || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, ar: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  dir="rtl"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Durée</label>
-              <input
-                type="text"
-                value={formData.duree}
-                onChange={(e) => setFormData({ ...formData, duree: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="1:30:00"
-              />
+            {/* Description */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (FR)</label>
+                <textarea
+                  value={formData.description?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (EN)</label>
+                <textarea
+                  value={formData.description?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
-              <select
-                value={formData.categorie}
-                onChange={(e) => setFormData({ ...formData, categorie: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-              >
-                <option value="conference">Conférence</option>
-                <option value="documentaire">Documentaire</option>
-                <option value="ceremonie">Cérémonie</option>
-                <option value="autre">Autre</option>
-              </select>
+            {/* Specific fields */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">YouTube ID *</label>
+                <input
+                  type="text"
+                  value={formData.youtubeId}
+                  onChange={(e) => setFormData({ ...formData, youtubeId: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="dQw4w9WgXcQ"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Durée *</label>
+                <input
+                  type="text"
+                  value={formData.duration}
+                  onChange={(e) => setFormData({ ...formData, duration: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="1:30:00"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Vues *</label>
+                <input
+                  type="text"
+                  value={formData.views}
+                  onChange={(e) => setFormData({ ...formData, views: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="1.2K"
+                  required
+                />
+              </div>
             </div>
-          </div>
+          </>
         );
 
       case "sources":
         return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Auteur</label>
-              <input
-                type="text"
-                value={formData.auteur}
-                onChange={(e) => setFormData({ ...formData, auteur: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-              />
+          <>
+            {/* Title multilingual */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (FR) *</label>
+                <input
+                  type="text"
+                  value={formData.title?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (EN)</label>
+                <input
+                  type="text"
+                  value={formData.title?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (AR)</label>
+                <input
+                  type="text"
+                  value={formData.title?.ar || ""}
+                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, ar: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  dir="rtl"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Date de publication</label>
-              <input
-                type="text"
-                value={formData.date_publication}
-                onChange={(e) => setFormData({ ...formData, date_publication: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-                placeholder="2020"
-              />
+            {/* Description */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (FR)</label>
+                <textarea
+                  value={formData.description?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Description (EN)</label>
+                <textarea
+                  value={formData.description?.en || ""}
+                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, en: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg h-20"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Éditeur</label>
-              <input
-                type="text"
-                value={formData.editeur}
-                onChange={(e) => setFormData({ ...formData, editeur: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-              />
+            {/* Specific fields */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Lien (URL) *</label>
+                <input
+                  type="url"
+                  value={formData.lien}
+                  onChange={(e) => setFormData({ ...formData, lien: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Source (FR) *</label>
+                <input
+                  type="text"
+                  value={formData.source?.fr || ""}
+                  onChange={(e) => setFormData({ ...formData, source: { ...formData.source, fr: e.target.value } })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="Bibliothèque nationale de France"
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">URL</label>
-              <input
-                type="url"
-                value={formData.url}
-                onChange={(e) => setFormData({ ...formData, url: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Type de source</label>
-              <select
-                value={formData.type_source}
-                onChange={(e) => setFormData({ ...formData, type_source: e.target.value })}
-                className="w-full px-4 py-2 border rounded-lg"
-              >
-                <option value="livre">Livre</option>
-                <option value="article">Article</option>
-                <option value="these">Thèse</option>
-                <option value="archive">Archive</option>
-              </select>
-            </div>
-          </div>
+          </>
         );
 
       default:
@@ -433,6 +699,13 @@ const ArchivesTab = ({ getAuthHeaders }) => {
 
   const currentItems = archives[activeType] || [];
   const TypeIcon = ARCHIVE_TYPES[activeType]?.icon || Archive;
+
+  const getItemTitle = (item) => {
+    if (typeof item.title === 'object') {
+      return item.title?.fr || item.title?.en || "Sans titre";
+    }
+    return item.title || "Sans titre";
+  };
 
   return (
     <div className="space-y-6" data-testid="archives-tab">
@@ -486,64 +759,11 @@ const ArchivesTab = ({ getAuthHeaders }) => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Common fields: Title */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (FR) *</label>
-                <input
-                  type="text"
-                  value={formData.title?.fr || ""}
-                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, fr: e.target.value } })}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#004D33]"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (EN)</label>
-                <input
-                  type="text"
-                  value={formData.title?.en || ""}
-                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, en: e.target.value } })}
-                  className="w-full px-4 py-2 border rounded-lg"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Titre (AR)</label>
-                <input
-                  type="text"
-                  value={formData.title?.ar || ""}
-                  onChange={(e) => setFormData({ ...formData, title: { ...formData.title, ar: e.target.value } })}
-                  className="w-full px-4 py-2 border rounded-lg"
-                  dir="rtl"
-                />
-              </div>
-            </div>
-
-            {/* Description */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description (FR)</label>
-                <textarea
-                  value={formData.description?.fr || ""}
-                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, fr: e.target.value } })}
-                  className="w-full px-4 py-2 border rounded-lg h-20"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description (EN)</label>
-                <textarea
-                  value={formData.description?.en || ""}
-                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, en: e.target.value } })}
-                  className="w-full px-4 py-2 border rounded-lg h-20"
-                />
-              </div>
-            </div>
-
             {/* Type-specific fields */}
             {renderTypeSpecificFields()}
 
             {/* Options */}
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-6 items-center pt-4 border-t">
               <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
@@ -565,7 +785,7 @@ const ArchivesTab = ({ getAuthHeaders }) => {
             </div>
 
             {/* Actions */}
-            <div className="flex gap-4 pt-4 border-t">
+            <div className="flex gap-4 pt-4">
               <button
                 type="submit"
                 disabled={actionLoading}
@@ -603,22 +823,22 @@ const ArchivesTab = ({ getAuthHeaders }) => {
               data-testid={`archive-item-${item.id}`}
             >
               <div className="flex items-center gap-4 flex-1 min-w-0">
-                {item.image && (
+                {(item.image || item.coverImage) && (
                   <img 
-                    src={item.image} 
-                    alt={item.title?.fr} 
+                    src={item.image || item.coverImage} 
+                    alt={getItemTitle(item)} 
                     className="w-16 h-16 rounded object-cover"
                   />
                 )}
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-bold text-[#004D33] truncate">{item.title?.fr || "Sans titre"}</h4>
+                  <h4 className="font-bold text-[#004D33] truncate">{getItemTitle(item)}</h4>
                   <p className="text-sm text-gray-500 truncate">
-                    {item.description?.fr || item.auteur || item.reciteur || item.lieu || ""}
+                    {item.author || item.langue || item.date || ""}
                   </p>
                   <div className="flex gap-2 mt-1 text-xs text-gray-400">
-                    {item.date && <span>{item.date}</span>}
-                    {item.duree && <span>• {item.duree}</span>}
-                    {item.categorie && <span>• {item.categorie}</span>}
+                    {item.duration && <span>{item.duration}</span>}
+                    {item.views && <span>• {item.views} vues</span>}
+                    {item.type && <span className="capitalize">{item.type}</span>}
                   </div>
                 </div>
               </div>

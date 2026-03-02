@@ -16,12 +16,12 @@ const FamilyTreeTab = ({ getAuthHeaders }) => {
   const [actionLoading, setActionLoading] = useState(false);
 
   const getEmptyFormData = () => ({
+    node_id: "",
     nom: "",
     surnom: "",
     titre: { fr: "", en: "", ar: "" },
     dates: "",
     image: "",
-    description: { fr: "", en: "" },
     parent_id: "",
     is_current_khalife: false,
     order: 0,
@@ -74,12 +74,12 @@ const FamilyTreeTab = ({ getAuthHeaders }) => {
   const handleEdit = (member) => {
     setEditingItem(member);
     setFormData({
+      node_id: member.node_id || "",
       nom: member.nom || "",
       surnom: member.surnom || "",
       titre: member.titre || { fr: "", en: "", ar: "" },
       dates: member.dates || "",
       image: member.image || "",
-      description: member.description || { fr: "", en: "" },
       parent_id: member.parent_id || "",
       is_current_khalife: member.is_current_khalife || false,
       order: member.order || 0,
@@ -156,8 +156,21 @@ const FamilyTreeTab = ({ getAuthHeaders }) => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            {/* Name and Surname */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Node ID and Name */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Identifiant unique (node_id) *</label>
+                <input
+                  type="text"
+                  value={formData.node_id}
+                  onChange={(e) => setFormData({ ...formData, node_id: e.target.value.toLowerCase().replace(/\s+/g, '_') })}
+                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#004D33]"
+                  placeholder="maodo, babacar_sy"
+                  required
+                  disabled={!!editingItem}
+                />
+                <p className="text-xs text-gray-400 mt-1">Exemple: maodo, babacar_sy (sans espaces)</p>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Nom complet *</label>
                 <input
@@ -217,43 +230,25 @@ const FamilyTreeTab = ({ getAuthHeaders }) => {
             {/* Dates and Image */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Dates</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Dates *</label>
                 <input
                   type="text"
                   value={formData.dates}
                   onChange={(e) => setFormData({ ...formData, dates: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg"
                   placeholder="1855 - 1922"
+                  required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">URL de l'image</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">URL de l'image *</label>
                 <input
                   type="url"
                   value={formData.image}
                   onChange={(e) => setFormData({ ...formData, image: e.target.value })}
                   className="w-full px-4 py-2 border rounded-lg"
                   placeholder="https://..."
-                />
-              </div>
-            </div>
-
-            {/* Description */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description (FR)</label>
-                <textarea
-                  value={formData.description?.fr || ""}
-                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, fr: e.target.value } })}
-                  className="w-full px-4 py-2 border rounded-lg h-24"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Description (EN)</label>
-                <textarea
-                  value={formData.description?.en || ""}
-                  onChange={(e) => setFormData({ ...formData, description: { ...formData.description, en: e.target.value } })}
-                  className="w-full px-4 py-2 border rounded-lg h-24"
+                  required
                 />
               </div>
             </div>
