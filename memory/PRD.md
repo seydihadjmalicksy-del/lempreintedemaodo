@@ -301,5 +301,89 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
      - Types de Cérémonies
      - L'Atmosphère Spirituelle
 
+### Phase 15 - Media Management Module ✅ (Mar 2, 2026)
+- **Module de gestion des fichiers complet**:
+  - Backend: `/api/media/*` avec CRUD complet pour fichiers et associations
+  - Upload de fichiers (PDF, images, audio, vidéo) avec limite 10 MB
+  - Système de tags personnalisables avec couleurs
+  - Association dynamique des fichiers aux pages du site
+  - Gestion de l'ordre d'affichage
+  - Réutilisation multi-pages
+- **Nouveaux endpoints API**:
+  - `GET /api/media/stats` - Statistiques de la médiathèque
+  - `GET /api/media/pages` - Pages disponibles pour associations
+  - `GET/POST/DELETE /api/media/tags` - Gestion des tags
+  - `POST /api/media/upload` - Upload de fichiers
+  - `GET /api/media/files` - Liste des fichiers avec filtres
+  - `POST/DELETE /api/media/associations` - Gestion des associations
+  - `GET /api/media/associations/page/{slug}` - Médias d'une page
+- **Interface Admin**:
+  - Nouvel onglet "Médias" dans le panneau d'administration
+  - Modal d'upload avec titre, description, tags
+  - Modal de gestion des tags (créer, supprimer)
+  - Filtres par type de fichier et par tag
+  - Recherche de fichiers
+  - Prévisualisation des fichiers (images, audio, vidéo)
+- **Composant d'affichage**:
+  - `PageMediaDisplay.js` pour afficher les médias sur les pages du site
+  - Galerie photos avec lightbox
+  - Lecteur audio intégré
+  - Lecteur vidéo intégré
+  - Téléchargement de PDFs
+- **Tests**: 100% de succès (17 tests backend + frontend UI)
+
+## Prioritized Backlog
+
+### P0 - Critical
+- Aucun bug critique actuel
+
+### P1 - High Priority
+- [x] ~~Module de gestion des médias~~ (Mar 2, 2026)
+- [ ] Bannière "Bismillah" sur la page d'accueil
+
+### P2 - Medium Priority
+- [ ] Transcriptions des Khassaides
+- [ ] Amélioration UX bibliothèque numérique
+- [ ] Recherche en temps réel avec auto-complétion
+
+### P3 - Future Enhancements
+- [ ] Notifications Push depuis l'Admin
+- [ ] Intégration contenu xassida.sn (nécessite API)
+- [ ] Application mobile native
+
+## API Endpoints (Updated)
+- `GET /api/ouvrages/bibliotheque` - Liste des 66 ouvrages
+- `GET /api/ouvrages/download/{id}` - Téléchargement PDF direct
+- `GET /api/wattu/articles` - Liste des articles Wattu
+- `GET /api/dynamic-pages/` - Liste des pages dynamiques
+- `GET /api/family-tree/tree` - Arbre généalogique hiérarchique
+- `GET /api/search?q={query}` - Recherche globale
+- `POST /api/auth/login` - Authentification admin
+- **NEW** `GET /api/media/stats` - Statistiques médiathèque
+- **NEW** `GET /api/media/files` - Liste des fichiers
+- **NEW** `POST /api/media/upload` - Upload de fichiers
+- **NEW** `GET/POST/DELETE /api/media/tags` - Gestion des tags
+- **NEW** `POST/DELETE /api/media/associations` - Associations page-média
+
+## File Structure (Updated)
+```
+/app
+├── backend/
+│   ├── routers/
+│   │   └── media.py              # NEW: Routes gestion médias
+│   ├── models/
+│   │   └── media.py              # NEW: Modèles médias
+│   └── server.py
+└── frontend/
+    ├── public/
+    │   └── uploads/              # NEW: Dossier stockage fichiers
+    └── src/
+        ├── components/
+        │   └── PageMediaDisplay.js # NEW: Composant affichage médias
+        └── pages/
+            └── admin/
+                └── MediaManagerTab.jsx # NEW: Interface admin médias
+```
+
 ## Last Updated
-February 22, 2026 - Restauration complète du contenu de 7 pages avec contenus riches et historiques
+March 2, 2026 - Module de gestion des fichiers complet (upload, tags, associations multi-pages)
