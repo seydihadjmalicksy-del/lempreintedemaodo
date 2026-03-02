@@ -28,7 +28,8 @@ from routers import (
     notifications_router,
     wattu_router,
     dynamic_pages_router,
-    homepage_sections_router
+    homepage_sections_router,
+    media_router
 )
 
 # Create the main app
@@ -304,6 +305,7 @@ api_router.include_router(notifications_router)
 api_router.include_router(wattu_router)
 api_router.include_router(dynamic_pages_router)
 api_router.include_router(homepage_sections_router)
+api_router.include_router(media_router)
 
 # Include the API router in the main app
 app.include_router(api_router)

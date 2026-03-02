@@ -18,6 +18,7 @@ from .notifications import router as notifications_router
 from .wattu import router as wattu_router
 from .dynamic_pages import router as dynamic_pages_router
 from .homepage_sections import router as homepage_sections_router
+from .media import router as media_router
 
 __all__ = [
     "videos_router",
@@ -36,5 +37,6 @@ __all__ = [
     "notifications_router",
     "wattu_router",
     "dynamic_pages_router",
-    "homepage_sections_router"
+    "homepage_sections_router",
+    "media_router"
 ]

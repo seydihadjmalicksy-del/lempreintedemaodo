@@ -23,6 +23,12 @@ from .ouvrage import (
     BibliothequeItem, BibliothequeItemCreate, BibliothequeItemUpdate,
     ArchiveAcademique, ArchiveAcademiqueCreate, ArchiveAcademiqueUpdate
 )
+from .media import (
+    MediaFile, MediaFileCreate, MediaFileUpdate,
+    PageMediaAssociation, PageMediaAssociationCreate, PageMediaAssociationUpdate,
+    MediaTag, MediaTagCreate, MediaTagUpdate,
+    AVAILABLE_PAGES, FILE_TYPE_CONFIG
+)
 
 __all__ = [
     # Video
@@ -53,5 +59,10 @@ __all__ = [
     "OuvrageMajeur", "OuvrageMajeurCreate", "OuvrageMajeurUpdate",
     "AutreOuvrage", "AutreOuvrageCreate", "AutreOuvrageUpdate",
     "BibliothequeItem", "BibliothequeItemCreate", "BibliothequeItemUpdate",
-    "ArchiveAcademique", "ArchiveAcademiqueCreate", "ArchiveAcademiqueUpdate"
+    "ArchiveAcademique", "ArchiveAcademiqueCreate", "ArchiveAcademiqueUpdate",
+    # Media
+    "MediaFile", "MediaFileCreate", "MediaFileUpdate",
+    "PageMediaAssociation", "PageMediaAssociationCreate", "PageMediaAssociationUpdate",
+    "MediaTag", "MediaTagCreate", "MediaTagUpdate",
+    "AVAILABLE_PAGES", "FILE_TYPE_CONFIG"
 ]

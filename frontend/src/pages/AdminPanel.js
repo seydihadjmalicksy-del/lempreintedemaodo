@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Settings, Quote, Calendar, Users, RefreshCw, LogOut, Archive, Book, MessageSquare, Layout, Video, Home } from "lucide-react";
+import { Settings, Quote, Calendar, Users, RefreshCw, LogOut, Archive, Book, MessageSquare, Layout, Video, Home, FolderOpen } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -15,7 +15,8 @@ import {
   EventsTab,
   KhalifesTab,
   WattuTab,
-  HomepageSectionsTab
+  HomepageSectionsTab,
+  MediaManagerTab
 } from "./admin";
 import DynamicPagesTab from "./admin/DynamicPagesTab";
 
@@ -37,6 +38,7 @@ const AdminPanel = () => {
   const [wattuStats, setWattuStats] = useState({ total: 0 });
   const [pagesStats, setPagesStats] = useState({ total: 0 });
   const [homepageSectionsCount, setHomepageSectionsCount] = useState(0);
+  const [mediaStats, setMediaStats] = useState({ total: 0 });
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
@@ -122,7 +124,7 @@ const AdminPanel = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, khalifesRes, archivesStatsRes, wattuStatsRes, dynamicPagesStatsRes, homepageSectionsRes] = await Promise.all([
+      const [quotesRes, eventsRes, newsletterRes, contactRes, videosRes, khalifesRes, archivesStatsRes, wattuStatsRes, dynamicPagesStatsRes, homepageSectionsRes, mediaStatsRes] = await Promise.all([
         axios.get(`${API}/quotes?active_only=false`),
         axios.get(`${API}/events?upcoming_only=false`),
         axios.get(`${API}/newsletter/subscribers`).catch(() => ({ data: { total_subscribers: 0 } })),
@@ -132,7 +134,8 @@ const AdminPanel = () => {
         axios.get(`${API}/archives/stats`).catch(() => ({ data: { total: 0 } })),
         axios.get(`${API}/wattu/stats`).catch(() => ({ data: { total: 0 } })),
         axios.get(`${API}/dynamic-pages/stats`).catch(() => ({ data: { total: 0 } })),
-        axios.get(`${API}/homepage-sections/`).catch(() => ({ data: [] }))
+        axios.get(`${API}/homepage-sections/`).catch(() => ({ data: [] })),
+        axios.get(`${API}/media/stats`).catch(() => ({ data: { total: 0 } }))
       ]);
 
       setQuotes(quotesRes.data?.quotes || []);
@@ -142,6 +145,7 @@ const AdminPanel = () => {
       setWattuStats(wattuStatsRes.data || { total: 0 });
       setPagesStats(dynamicPagesStatsRes.data || { total: 0 });
       setHomepageSectionsCount(Array.isArray(homepageSectionsRes.data) ? homepageSectionsRes.data.length : 0);
+      setMediaStats(mediaStatsRes.data || { total: 0 });
       setStats({
         newsletter: newsletterRes.data?.total_subscribers || 0,
         contact: contactRes.data?.count || 0,
@@ -260,6 +264,7 @@ const AdminPanel = () => {
   // Tab configuration
   const tabs = [
     { id: "homepage", icon: Home, label: "Accueil", count: homepageSectionsCount },
+    { id: "media", icon: FolderOpen, label: "Médias", count: mediaStats.total || 0 },
     { id: "quotes", icon: Quote, label: t.quotes, count: quotes.length },
     { id: "events", icon: Calendar, label: t.events, count: events.length },
     { id: "heritiers", icon: Users, label: t.heritiers, count: khalifes.length },
@@ -378,6 +383,12 @@ const AdminPanel = () => {
                 <HomepageSectionsTab
                   getAuthHeaders={getAuthHeaders}
                   onDelete={setDeleteConfirm}
+                />
+              )}
+
+              {activeTab === "media" && (
+                <MediaManagerTab
+                  getAuthHeaders={getAuthHeaders}
                 />
               )}
 
