@@ -15,8 +15,8 @@ const Wattu = () => {
 
   const translations = {
     fr: {
-      pageTitle: "Wattu",
-      pageSubtitle: "Opinions et Réflexions",
+      pageTitle: "Wattu - Opinions & Réflexions",
+      pageSubtitle: "Espace de partage et de réflexion",
       introText: "Un espace de partage et de réflexion sur les enseignements spirituels, l'actualité de la communauté et les valeurs de la Tariqa Tidiane.",
       allCategories: "Toutes",
       readMore: "Lire la suite",
@@ -26,8 +26,8 @@ const Wattu = () => {
       by: "Par"
     },
     en: {
-      pageTitle: "Wattu",
-      pageSubtitle: "Opinions and Reflections",
+      pageTitle: "Wattu - Opinions & Reflections",
+      pageSubtitle: "Space for sharing and reflection",
       introText: "A space for sharing and reflection on spiritual teachings, community news and the values of the Tariqa Tidiane.",
       allCategories: "All",
       readMore: "Read more",
@@ -37,8 +37,8 @@ const Wattu = () => {
       by: "By"
     },
     ar: {
-      pageTitle: "واتو",
-      pageSubtitle: "آراء وتأملات",
+      pageTitle: "واتو - آراء وتأملات",
+      pageSubtitle: "مساحة للمشاركة والتأمل",
       introText: "مساحة للمشاركة والتأمل في التعاليم الروحية وأخبار المجتمع وقيم الطريقة التجانية.",
       allCategories: "الكل",
       readMore: "اقرأ المزيد",
@@ -48,8 +48,8 @@ const Wattu = () => {
       by: "بقلم"
     },
     wo: {
-      pageTitle: "Wattu",
-      pageSubtitle: "Xalaat ak Diggante",
+      pageTitle: "Wattu - Xalaat ak Diggante",
+      pageSubtitle: "Benn place ngir séddoo ak xalaat",
       introText: "Benn place ngir séddoo ak xalaat ci njàng yu spirityel, xibaar yu community bi ak solo yu Tariqa Tidiane.",
       allCategories: "Yépp",
       readMore: "Jàng la ci des",

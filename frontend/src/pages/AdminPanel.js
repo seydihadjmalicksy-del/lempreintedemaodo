@@ -424,34 +424,18 @@ const AdminPanel = () => {
 
               {activeTab === "archives" && (
                 <ArchivesTab
-                  archives={archives}
-                  archivesStats={archivesStats}
-                  fetchArchives={fetchArchives}
-                  fetchData={fetchData}
-                  setDeleteConfirm={setDeleteConfirm}
-                  language={language}
                   getAuthHeaders={getAuthHeaders}
                 />
               )}
 
               {activeTab === "familyTree" && (
                 <FamilyTreeTab
-                  familyTree={familyTree}
-                  fetchFamilyTree={fetchFamilyTree}
-                  setDeleteConfirm={setDeleteConfirm}
-                  language={language}
                   getAuthHeaders={getAuthHeaders}
                 />
               )}
 
               {activeTab === "ouvrages" && (
                 <OuvragesTab
-                  ouvrages={ouvrages}
-                  ouvragesStats={ouvragesStats}
-                  fetchOuvrages={fetchOuvrages}
-                  fetchData={fetchData}
-                  setDeleteConfirm={setDeleteConfirm}
-                  language={language}
                   getAuthHeaders={getAuthHeaders}
                 />
               )}
