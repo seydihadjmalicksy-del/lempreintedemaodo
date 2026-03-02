@@ -43,7 +43,7 @@ const Navbar = () => {
         { path: "/enseignements/ouvrages", label: t('referenceWorks') }
       ]
     },
-    { path: "/wattu", label: "Wattu - Opinions & Réflexions" },
+    { path: "/wattu", label: "Wattu" },
     { 
       label: t('events'),
       dropdown: [
