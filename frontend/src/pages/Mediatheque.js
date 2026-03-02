@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Video, Image, BookOpen, Headphones, Play, Eye, ExternalLink, Download } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
+import PageMediaDisplay from "../components/PageMediaDisplay";
 
 const Mediatheque = () => {
   const { t, language } = useLanguage();
@@ -428,6 +429,13 @@ const Mediatheque = () => {
           <div className="mt-12">
             <div className="text-[#D4AF37] text-6xl mb-4 bismillah-text">☪</div>
           </div>
+        </div>
+      </section>
+
+      {/* Media Files Associated with Mediatheque Page */}
+      <section className="py-12 bg-[#F9F7F2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PageMediaDisplay pageSlug="mediatheque" language={language} />
         </div>
       </section>
     </div>

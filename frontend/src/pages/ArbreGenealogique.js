@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Users, ChevronDown, ChevronRight, Star, Crown, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
+import PageMediaDisplay from "../components/PageMediaDisplay";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -232,6 +233,13 @@ const ArbreGenealogique = () => {
               <span className="text-sm text-[#4A4A4A]">{t('familyMembers')}</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Media Files Associated with Arbre Page */}
+      <section className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PageMediaDisplay pageSlug="arbre" language={language} />
         </div>
       </section>
     </div>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Users, Crown, Star, Sparkles, Heart, BookOpen, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
+import PageMediaDisplay from "../../components/PageMediaDisplay";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -291,6 +292,13 @@ const LigneeKhalifes = () => {
           <p className="text-[#D4AF37] font-medium">
             {t('mayAllahBePleasedWithThemAll') || 'Que Allah les agrée tous'}
           </p>
+        </div>
+      </section>
+
+      {/* Media Files Associated with Heritiers/Khalifes Page */}
+      <section className="py-12 bg-[#F9F7F2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PageMediaDisplay pageSlug="heritiers" language={language} />
         </div>
       </section>
     </div>

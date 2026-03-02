@@ -2,6 +2,7 @@ import { Book, Image, Mic, Filter, Play, ExternalLink, FileText, Loader2 } from 
 import { useState, useEffect } from "react";
 import { AudioPlayer, VideoPlayerModal, VideoCard } from "../components/MediaPlayer";
 import { useLanguage } from "../contexts/LanguageContext";
+import PageMediaDisplay from "../components/PageMediaDisplay";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -474,6 +475,13 @@ const Archives = () => {
           </div>
         </section>
       )}
+
+      {/* Media Files Associated with Archives Page */}
+      <section className="py-12 bg-[#F9F7F2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PageMediaDisplay pageSlug="archives" language={language} />
+        </div>
+      </section>
 
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-r from-[#004D33] to-[#003d29] text-white">

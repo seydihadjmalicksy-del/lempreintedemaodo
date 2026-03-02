@@ -5,6 +5,7 @@ import VideoCard from "../components/VideoCard";
 import Newsletter from "../components/Newsletter";
 import StatsCounter from "../components/StatsCounter";
 import ShareButtons from "../components/ShareButtons";
+import PageMediaDisplay from "../components/PageMediaDisplay";
 import { ArrowRight, Sparkles, Calendar, MapPin, Quote, Heart, Phone, BookOpen } from "lucide-react";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -208,6 +209,13 @@ const Home = () => {
               <p className="text-[#E6B800] font-semibold mt-3">— El Hadji Malick Sy</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Media Files Associated with Home Page */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PageMediaDisplay pageSlug="accueil" language={language} />
         </div>
       </section>
 
