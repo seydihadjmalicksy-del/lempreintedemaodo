@@ -4,11 +4,13 @@ Refactored modular structure
 """
 from fastapi import FastAPI, APIRouter
 from fastapi.responses import Response
+from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 import os
 import logging
 import uuid
 from datetime import datetime, timezone
+from pathlib import Path
 
 from database import db, close_db_connection
 from routers import (
@@ -316,6 +318,15 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+# ============== STATIC FILES FOR UPLOADS ==============
+# Mount the uploads directory to serve uploaded media files
+UPLOAD_DIR = Path("/app/frontend/public/uploads")
+UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
+# Mount static files for uploads - this allows files to be served at /uploads/filename
+app.mount("/uploads", StaticFiles(directory=str(UPLOAD_DIR)), name="uploads")
 
 
 @app.on_event("startup")

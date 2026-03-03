@@ -16,6 +16,19 @@ const FILE_TYPE_ICONS = {
   video: Video
 };
 
+// Helper function to construct proper media URL
+const getMediaUrl = (fileUrl) => {
+  if (!fileUrl) return '';
+  // If already absolute URL, return as-is
+  if (fileUrl.startsWith('http')) return fileUrl;
+  // If old format without /api prefix, add it
+  if (fileUrl.startsWith('/uploads/')) {
+    return `${BACKEND_URL}/api${fileUrl}`;
+  }
+  // If already has /api prefix or other format
+  return `${BACKEND_URL}${fileUrl}`;
+};
+
 const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
   const [mediaFiles, setMediaFiles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -103,9 +116,13 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
                 onClick={() => setSelectedMedia(media)}
               >
                 <img
-                  src={`${BACKEND_URL}${media.file_url}`}
+                  src={getMediaUrl(media.file_url)}
                   alt={media.title?.[language] || media.filename}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    console.error('Image load error:', media.file_url);
+                    e.target.src = 'https://via.placeholder.com/400x300?text=Image+non+disponible';
+                  }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all flex items-center justify-center">
                   <ExternalLink className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -132,7 +149,7 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
             {groupedMedia.pdf.map((media) => (
               <a
                 key={media.id}
-                href={`${BACKEND_URL}${media.file_url}`}
+                href={getMediaUrl(media.file_url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-md transition-all group"
@@ -192,7 +209,7 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
                 </div>
                 <audio
                   id={`audio-${media.id}`}
-                  src={`${BACKEND_URL}${media.file_url}`}
+                  src={getMediaUrl(media.file_url)}
                   onEnded={() => setPlayingAudio(null)}
                   className="hidden"
                 />
@@ -216,10 +233,10 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
                 className="rounded-lg overflow-hidden shadow-md bg-white"
               >
                 <video
-                  src={`${BACKEND_URL}${media.file_url}`}
+                  src={getMediaUrl(media.file_url)}
                   controls
                   className="w-full aspect-video"
-                  poster={media.thumbnail_url ? `${BACKEND_URL}${media.thumbnail_url}` : undefined}
+                  poster={media.thumbnail_url ? getMediaUrl(media.thumbnail_url) : undefined}
                 />
                 {media.title?.[language] && (
                   <div className="p-3">
@@ -250,7 +267,7 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
             </svg>
           </button>
           <img
-            src={`${BACKEND_URL}${selectedMedia.file_url}`}
+            src={getMediaUrl(selectedMedia.file_url)}
             alt={selectedMedia.title?.[language] || selectedMedia.filename}
             className="max-w-full max-h-[90vh] object-contain"
             onClick={(e) => e.stopPropagation()}

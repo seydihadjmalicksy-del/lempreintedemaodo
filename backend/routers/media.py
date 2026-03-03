@@ -94,8 +94,8 @@ async def upload_file(
     with open(file_path, "wb") as f:
         f.write(content)
     
-    # Create file URL
-    file_url = f"/uploads/{stored_filename}"
+    # Create file URL - Use /api prefix to ensure proper routing through ingress
+    file_url = f"/api/uploads/{stored_filename}"
     
     # Generate thumbnail for images
     thumbnail_url = None
@@ -492,3 +492,38 @@ async def get_media_stats():
         "associations": associations_count,
         "tags": tags_count
     }
+
+
+# ============== SERVE UPLOADED FILES ==============
+@router.get("/uploads/{filename}")
+async def serve_uploaded_file(filename: str):
+    """Serve uploaded media files"""
+    file_path = UPLOAD_DIR / filename
+    
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Fichier non trouvé")
+    
+    # Determine content type based on extension
+    ext = Path(filename).suffix.lower()
+    content_types = {
+        ".pdf": "application/pdf",
+        ".jpg": "image/jpeg",
+        ".jpeg": "image/jpeg",
+        ".png": "image/png",
+        ".gif": "image/gif",
+        ".webp": "image/webp",
+        ".mp3": "audio/mpeg",
+        ".wav": "audio/wav",
+        ".ogg": "audio/ogg",
+        ".mp4": "video/mp4",
+        ".webm": "video/webm",
+        ".mov": "video/quicktime"
+    }
+    
+    content_type = content_types.get(ext, "application/octet-stream")
+    
+    return FileResponse(
+        path=str(file_path),
+        media_type=content_type,
+        filename=filename
+    )
