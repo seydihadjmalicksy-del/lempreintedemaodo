@@ -110,3 +110,7 @@ frontend/build/ouvrages/khilasou-zahab.pdf
 # Environment files
 *.env
 *.env.*
+-e 
+# Environment files
+*.env
+*.env.*

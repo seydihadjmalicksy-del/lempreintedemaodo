@@ -8,7 +8,7 @@ import os
 import io
 import tempfile
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://asset-admin-2.preview.emergentagent.com').rstrip('/')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://static-assets-fix-2.preview.emergentagent.com').rstrip('/')
 API_URL = f"{BASE_URL}/api"
 
 

@@ -7,7 +7,7 @@ import requests
 import os
 import hashlib
 
-BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://asset-admin-2.preview.emergentagent.com').rstrip('/')
+BASE_URL = os.environ.get('REACT_APP_BACKEND_URL', 'https://static-assets-fix-2.preview.emergentagent.com').rstrip('/')
 
 class TestOuvragesAPI:
     """Test Ouvrages API endpoints"""
