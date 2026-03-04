@@ -29,18 +29,68 @@ const getMediaUrl = (fileUrl) => {
   return `${BACKEND_URL}${fileUrl}`;
 };
 
+// Format file size
+const formatFileSize = (bytes) => {
+  if (!bytes) return '0 B';
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+};
+
+// PDF Card Component - separate for cleaner rendering
+const PdfCard = ({ media, language }) => {
+  const url = getMediaUrl(media.file_url);
+  const title = media.title?.[language] || media.filename || 'Document PDF';
+  const description = media.description?.[language];
+  const size = formatFileSize(media.file_size);
+  
+  return (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-md transition-all group"
+      data-testid={`pdf-card-${media.id}`}
+    >
+      <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
+        <FileText className="w-6 h-6 text-red-500" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <h4 className="font-medium text-[#004D33] truncate group-hover:text-[#D4AF37] transition-colors">
+          {title}
+        </h4>
+        {description && (
+          <p className="text-sm text-gray-500 truncate">{description}</p>
+        )}
+        <p className="text-xs text-gray-400 mt-1">{size}</p>
+      </div>
+      <Download className="w-5 h-5 text-gray-400 group-hover:text-[#D4AF37] transition-colors" />
+    </a>
+  );
+};
+
 const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
   const [mediaFiles, setMediaFiles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedMedia, setSelectedMedia] = useState(null);
   const [playingAudio, setPlayingAudio] = useState(null);
+  const [pdfFiles, setPdfFiles] = useState([]);
+  const [imageFiles, setImageFiles] = useState([]);
+  const [audioFiles, setAudioFiles] = useState([]);
+  const [videoFiles, setVideoFiles] = useState([]);
 
   useEffect(() => {
     const fetchMedia = async () => {
       try {
         const params = section ? { section } : {};
         const response = await axios.get(`${API}/media/associations/page/${pageSlug}`, { params });
-        setMediaFiles(response.data.media_files || []);
+        const files = response.data.media_files || [];
+        setMediaFiles(files);
+        // Group files by type in state
+        setPdfFiles(files.filter(m => m.file_type === "pdf"));
+        setImageFiles(files.filter(m => m.file_type === "image"));
+        setAudioFiles(files.filter(m => m.file_type === "audio"));
+        setVideoFiles(files.filter(m => m.file_type === "video"));
       } catch (error) {
         console.error("Error fetching page media:", error);
       } finally {
@@ -72,13 +122,6 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
     }
   };
 
-  // Format file size
-  const formatFileSize = (bytes) => {
-    if (bytes < 1024) return `${bytes} B`;
-    if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-    return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
-  };
-
   if (loading) {
     return (
       <div className="flex justify-center py-8">
@@ -91,25 +134,17 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
     return null; // Don't show anything if no media
   }
 
-  // Group media by type
-  const groupedMedia = {
-    image: mediaFiles.filter(m => m.file_type === "image"),
-    pdf: mediaFiles.filter(m => m.file_type === "pdf"),
-    audio: mediaFiles.filter(m => m.file_type === "audio"),
-    video: mediaFiles.filter(m => m.file_type === "video")
-  };
-
   return (
     <div className="space-y-8" data-testid="page-media-display">
       {/* Images Gallery */}
-      {groupedMedia.image.length > 0 && (
+      {imageFiles.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-[#004D33] flex items-center gap-2">
             <Image className="w-5 h-5" />
             {language === "fr" ? "Galerie Photos" : "Photo Gallery"}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {groupedMedia.image.map((media) => (
+            {imageFiles.map((media) => (
               <div
                 key={media.id}
                 className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-all"
@@ -139,49 +174,57 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
       )}
 
       {/* PDF Documents */}
-      {groupedMedia.pdf.length > 0 && (
+      {pdfFiles.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-[#004D33] flex items-center gap-2">
             <FileText className="w-5 h-5" />
             {language === "fr" ? "Documents" : "Documents"}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {groupedMedia.pdf.map((media) => (
-              <a
-                key={media.id}
-                href={getMediaUrl(media.file_url)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-md transition-all group"
-              >
-                <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <FileText className="w-6 h-6 text-red-500" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-medium text-[#004D33] truncate group-hover:text-[#D4AF37] transition-colors">
-                    {media.title?.[language] || media.filename}
-                  </h4>
-                  {media.description?.[language] && (
-                    <p className="text-sm text-gray-500 truncate">{media.description[language]}</p>
-                  )}
-                  <p className="text-xs text-gray-400 mt-1">{formatFileSize(media.file_size)}</p>
-                </div>
-                <Download className="w-5 h-5 text-gray-400 group-hover:text-[#D4AF37] transition-colors" />
-              </a>
-            ))}
+            {pdfFiles.map((media, index) => {
+              const url = getMediaUrl(media.file_url);
+              const title = media.title?.[language] || media.filename || 'Document PDF';
+              const description = media.description?.[language];
+              const size = formatFileSize(media.file_size);
+              
+              return (
+                <a
+                  key={`pdf-${index}-${media.id}`}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-md transition-all group"
+                  data-testid={`pdf-card-${media.id}`}
+                >
+                  <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-6 h-6 text-red-500" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-medium text-[#004D33] truncate group-hover:text-[#D4AF37] transition-colors">
+                      {title}
+                    </h4>
+                    {description && (
+                      <p className="text-sm text-gray-500 truncate">{description}</p>
+                    )}
+                    <p className="text-xs text-gray-400 mt-1">{size}</p>
+                  </div>
+                  <Download className="w-5 h-5 text-gray-400 group-hover:text-[#D4AF37] transition-colors" />
+                </a>
+              );
+            })}
           </div>
         </div>
       )}
 
       {/* Audio Files */}
-      {groupedMedia.audio.length > 0 && (
+      {audioFiles.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-[#004D33] flex items-center gap-2">
             <Music className="w-5 h-5" />
             {language === "fr" ? "Audio" : "Audio"}
           </h3>
           <div className="space-y-3">
-            {groupedMedia.audio.map((media) => (
+            {audioFiles.map((media) => (
               <div
                 key={media.id}
                 className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] transition-all"
@@ -220,14 +263,14 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
       )}
 
       {/* Video Files */}
-      {groupedMedia.video.length > 0 && (
+      {videoFiles.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-lg font-bold text-[#004D33] flex items-center gap-2">
             <Video className="w-5 h-5" />
             {language === "fr" ? "Vidéos" : "Videos"}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {groupedMedia.video.map((media) => (
+            {videoFiles.map((media) => (
               <div
                 key={media.id}
                 className="rounded-lg overflow-hidden shadow-md bg-white"
