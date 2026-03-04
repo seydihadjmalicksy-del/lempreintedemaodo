@@ -110,7 +110,7 @@ const Wattu = () => {
 
   const filteredArticles = selectedCategory === "all" 
     ? articles 
-    : articles.filter(a => a.categorie === selectedCategory);
+    : articles.filter(a => (a.categorie || a.category) === selectedCategory);
 
   if (loading) {
     return (
@@ -193,16 +193,16 @@ const Wattu = () => {
                   className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
                   data-testid={`wattu-article-${index}`}
                 >
-                  {article.image && (
+                  {(article.image || article.image_url) && (
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={article.image}
-                        alt={getLocalizedText(article.titre)}
+                        src={article.image || article.image_url}
+                        alt={getLocalizedText(article.titre || article.title)}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-4 left-4">
                         <span className="px-3 py-1 bg-[#D4AF37] text-[#004D33] text-xs font-bold rounded-full">
-                          {categories.find(c => c.id === article.categorie)?.label?.[language] || article.categorie}
+                          {categories.find(c => c.id === (article.categorie || article.category))?.label?.[language] || article.categorie || article.category}
                         </span>
                       </div>
                     </div>
@@ -210,18 +210,18 @@ const Wattu = () => {
                   
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-[#004D33] mb-3 line-clamp-2 group-hover:text-[#D4AF37] transition-colors">
-                      {getLocalizedText(article.titre)}
+                      {getLocalizedText(article.titre || article.title)}
                     </h3>
                     
                     <p className="text-[#4A4A4A] mb-4 line-clamp-3">
-                      {getLocalizedText(article.contenu)?.substring(0, 150)}...
+                      {getLocalizedText(article.contenu || article.excerpt || article.content)?.substring(0, 150)}...
                     </p>
                     
                     <div className="flex items-center gap-4 text-sm text-[#888888] mb-4">
-                      {article.auteur && (
+                      {(article.auteur || article.author) && (
                         <span className="flex items-center gap-1">
                           <User className="w-4 h-4" />
-                          {article.auteur}
+                          {article.auteur || article.author}
                         </span>
                       )}
                       <span className="flex items-center gap-1">
