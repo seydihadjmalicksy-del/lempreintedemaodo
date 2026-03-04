@@ -10,3 +10,4 @@ export { default as ContentTab } from './ContentTab';
 export { default as WattuTab } from './WattuTab';
 export { default as HomepageSectionsTab } from './HomepageSectionsTab';
 export { default as MediaManagerTab } from './MediaManagerTab';
+export { default as MessagesTab } from './MessagesTab';

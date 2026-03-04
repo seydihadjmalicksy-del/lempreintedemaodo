@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Settings, Quote, Calendar, Users, RefreshCw, LogOut, Archive, Book, MessageSquare, Layout, Video, Home, FolderOpen } from "lucide-react";
+import { Settings, Quote, Calendar, Users, RefreshCw, LogOut, Archive, Book, MessageSquare, Layout, Video, Home, FolderOpen, Mail } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -16,7 +16,8 @@ import {
   KhalifesTab,
   WattuTab,
   HomepageSectionsTab,
-  MediaManagerTab
+  MediaManagerTab,
+  MessagesTab
 } from "./admin";
 import DynamicPagesTab from "./admin/DynamicPagesTab";
 
@@ -39,6 +40,7 @@ const AdminPanel = () => {
   const [pagesStats, setPagesStats] = useState({ total: 0 });
   const [homepageSectionsCount, setHomepageSectionsCount] = useState(0);
   const [mediaStats, setMediaStats] = useState({ total: 0 });
+  const [messagesStats, setMessagesStats] = useState({ total: 0, unread: 0 });
   const [stats, setStats] = useState({ newsletter: 0, contact: 0, videos: 0 });
   const [loading, setLoading] = useState(true);
   const [deleteConfirm, setDeleteConfirm] = useState(null);
@@ -146,6 +148,7 @@ const AdminPanel = () => {
       setPagesStats(dynamicPagesStatsRes.data || { total: 0 });
       setHomepageSectionsCount(Array.isArray(homepageSectionsRes.data) ? homepageSectionsRes.data.length : 0);
       setMediaStats(mediaStatsRes.data || { total: 0 });
+      setMessagesStats({ total: contactRes.data?.count || 0, unread: 0 });
       setStats({
         newsletter: newsletterRes.data?.total_subscribers || 0,
         contact: contactRes.data?.count || 0,
@@ -264,6 +267,7 @@ const AdminPanel = () => {
   // Tab configuration
   const tabs = [
     { id: "homepage", icon: Home, label: "Accueil", count: homepageSectionsCount },
+    { id: "messages", icon: Mail, label: "Messages", count: messagesStats.total || 0, highlight: messagesStats.unread > 0 },
     { id: "media", icon: FolderOpen, label: "Médias", count: mediaStats.total || 0 },
     { id: "quotes", icon: Quote, label: t.quotes, count: quotes.length },
     { id: "events", icon: Calendar, label: t.events, count: events.length },
@@ -383,6 +387,12 @@ const AdminPanel = () => {
                 <HomepageSectionsTab
                   getAuthHeaders={getAuthHeaders}
                   onDelete={setDeleteConfirm}
+                />
+              )}
+
+              {activeTab === "messages" && (
+                <MessagesTab
+                  getAuthHeaders={getAuthHeaders}
                 />
               )}
 
