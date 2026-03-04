@@ -85,6 +85,30 @@ async def upload_file(
             detail=f"Fichier trop volumineux. Maximum: {MAX_FILE_SIZE // (1024*1024)} MB"
         )
     
+    # Validate file content (check magic bytes)
+    if file_type == "pdf":
+        # PDF files must start with %PDF-
+        if not content[:5].startswith(b'%PDF-'):
+            raise HTTPException(
+                status_code=400,
+                detail="Le fichier n'est pas un PDF valide. Assurez-vous d'uploader un vrai fichier PDF et non une page web."
+            )
+    elif file_type == "image":
+        # Check for common image signatures
+        image_signatures = [
+            b'\x89PNG',  # PNG
+            b'\xff\xd8\xff',  # JPEG
+            b'GIF87a', b'GIF89a',  # GIF
+            b'RIFF',  # WebP (starts with RIFF)
+        ]
+        if not any(content[:8].startswith(sig) for sig in image_signatures):
+            # Also check for HTML which would indicate a web page was saved instead
+            if content[:15].lower().startswith(b'<!doctype html') or content[:6].lower().startswith(b'<html'):
+                raise HTTPException(
+                    status_code=400,
+                    detail="Le fichier semble être une page web HTML et non une image. Veuillez uploader un vrai fichier image."
+                )
+    
     # Generate unique filename
     file_ext = Path(file.filename).suffix.lower()
     stored_filename = f"{uuid.uuid4()}{file_ext}"
