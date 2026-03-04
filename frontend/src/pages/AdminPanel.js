@@ -17,7 +17,9 @@ import {
   WattuTab,
   HomepageSectionsTab,
   MediaManagerTab,
-  MessagesTab
+  MessagesTab,
+  NewsletterTab,
+  VideosTab
 } from "./admin";
 import DynamicPagesTab from "./admin/DynamicPagesTab";
 
@@ -268,6 +270,8 @@ const AdminPanel = () => {
   const tabs = [
     { id: "homepage", icon: Home, label: "Accueil", count: homepageSectionsCount },
     { id: "messages", icon: Mail, label: "Messages", count: messagesStats.total || 0, highlight: messagesStats.unread > 0 },
+    { id: "newsletter", icon: Users, label: "Newsletter", count: stats.newsletter || 0, color: "gold" },
+    { id: "videos", icon: Video, label: "Vidéos", count: stats.videos || 0, color: "blue" },
     { id: "media", icon: FolderOpen, label: "Médias", count: mediaStats.total || 0 },
     { id: "quotes", icon: Quote, label: t.quotes, count: quotes.length },
     { id: "events", icon: Calendar, label: t.events, count: events.length },
@@ -393,6 +397,20 @@ const AdminPanel = () => {
               {activeTab === "messages" && (
                 <MessagesTab
                   getAuthHeaders={getAuthHeaders}
+                />
+              )}
+
+              {activeTab === "newsletter" && (
+                <NewsletterTab
+                  getAuthHeaders={getAuthHeaders}
+                  onDelete={setDeleteConfirm}
+                />
+              )}
+
+              {activeTab === "videos" && (
+                <VideosTab
+                  getAuthHeaders={getAuthHeaders}
+                  onDelete={setDeleteConfirm}
                 />
               )}
 

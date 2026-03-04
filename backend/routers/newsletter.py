@@ -1,12 +1,13 @@
 """
 Newsletter routes
 """
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from datetime import datetime, timezone
 import re
 
 from database import db
 from models import NewsletterSubscription, NewsletterSubscribe
+from auth import verify_admin_token
 
 router = APIRouter(prefix="/newsletter", tags=["newsletter"])
 
@@ -78,6 +79,34 @@ async def get_subscribers():
         by_language[item['_id']] = item['count']
     
     return {
+        "total_subscribers": total,
         "total": total,
         "by_language": by_language
     }
+
+
+@router.get("/subscribers/list")
+async def get_subscribers_list(admin: bool = Depends(verify_admin_token)):
+    """Get detailed list of all subscribers (admin only)"""
+    subscribers = await db.newsletter_subscriptions.find(
+        {"active": True}, 
+        {"_id": 0}
+    ).sort("subscribed_at", -1).to_list(500)
+    
+    total = await db.newsletter_subscriptions.count_documents({"active": True})
+    inactive = await db.newsletter_subscriptions.count_documents({"active": False})
+    
+    return {
+        "subscribers": subscribers,
+        "total": total,
+        "inactive": inactive
+    }
+
+
+@router.delete("/subscribers/{subscriber_id}")
+async def delete_subscriber(subscriber_id: str, admin: bool = Depends(verify_admin_token)):
+    """Delete a subscriber (admin only)"""
+    result = await db.newsletter_subscriptions.delete_one({"id": subscriber_id})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Abonné non trouvé")
+    return {"message": "Abonné supprimé"}
