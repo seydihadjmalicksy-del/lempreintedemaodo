@@ -386,21 +386,27 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ```
 
 ## Last Updated
-March 2, 2026 - CRUD complet pour Archives, Ouvrages et Arbre Généalogique
+March 4, 2026 - Bug fix: Media display on production site
 
-### Phase 14 - Wattu Rename & Full CRUD Admin ✅ (March 2, 2026)
-- **Page Wattu renommée**: "Wattu - Opinions & Réflexions" (FR) / "Wattu - Opinions & Reflections" (EN)
-- **5 articles importés** depuis lempreintedemaodo.com/wattu (déjà présents)
-- **CRUD complet pour Archives**: Formulaires d'ajout/modification pour 5 types (Manuscrits, Photos, Audio, Vidéos, Sources)
-- **CRUD complet pour Ouvrages**: Formulaires d'ajout/modification pour 4 types (Majeurs, Autres, Bibliothèque, Académiques)  
-- **CRUD complet pour Arbre Généalogique**: Ajout du champ node_id requis, formulaire complet
-- **CRUD complet pour Page Accueil**: Ajout/Modification/Suppression des sections dynamiques (Wattu promo, Dons, Citations, Appels à l'action, Sections personnalisées)
-- **Alignement frontend/backend**: Tous les formulaires respectent les schémas Pydantic du backend
-- **Tests API validés**: POST/PUT/DELETE fonctionnels pour tous les types de contenu
+### Phase 15 - Media Display Bug Fix ✅ (March 4, 2026)
+- **Bug corrigé**: Les médias (PDF, images) ne s'affichaient pas sur le site de production
+- **Cause identifiée**: 
+  1. Le reverse proxy en production redirigeait les URLs `/uploads/...` vers le frontend (SPA fallback)
+  2. React 19 Strict Mode supprimait les éléments `<a href>` avec des URLs potentiellement invalides pendant le double-mount
+- **Solutions implémentées**:
+  1. **Backend**: Les fichiers sont maintenant servis via `/api/media/uploads/{filename}` au lieu de `/uploads/{filename}`
+  2. **Backend**: Nouvelle route `GET /api/media/uploads/{filename}` ajoutée dans `media.py`
+  3. **Frontend**: Fonction `getMediaUrl()` mise à jour pour préfixer les URLs avec `/api/` et utiliser `window.location.origin` comme fallback
+  4. **Frontend**: Utilisation de `<div onClick>` au lieu de `<a href>` pour contourner le bug React 19 Strict Mode
+- **Fichiers modifiés**:
+  - `backend/routers/media.py` - URLs stockées avec `/api/uploads/...`
+  - `frontend/src/components/PageMediaDisplay.js` - Correction du rendu des cartes PDF
+- **Rétrocompatibilité**: Les anciennes URLs `/uploads/...` sont automatiquement converties en `/api/uploads/...` dans le frontend
 
 ## Prioritized Backlog
 
 ### P0 - Haute Priorité
+- [x] ~~Bug affichage médias en production~~ (March 4, 2026)
 - [ ] Gestion de l'ordre d'affichage des médias (drag-and-drop)
 - [ ] Bannière "Bismillah" sur la page d'accueil
 

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { FileText, Image, Music, Video, Download, ExternalLink, Play, Pause } from "lucide-react";
 import axios from "axios";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || '';
 const API = `${BACKEND_URL}/api`;
 
 const FILE_TYPE_ICONS = {
@@ -16,17 +16,21 @@ const FILE_TYPE_ICONS = {
   video: Video
 };
 
-// Helper function to construct proper media URL
+// Helper function to construct proper media URL - handles React 19 Strict Mode
 const getMediaUrl = (fileUrl) => {
   if (!fileUrl) return '';
   // If already absolute URL, return as-is
   if (fileUrl.startsWith('http')) return fileUrl;
+  
+  // Use BACKEND_URL if available, otherwise fallback to window.location.origin
+  const baseUrl = process.env.REACT_APP_BACKEND_URL || (typeof window !== 'undefined' ? window.location.origin : '');
+  
   // If old format without /api prefix, add it
   if (fileUrl.startsWith('/uploads/')) {
-    return `${BACKEND_URL}/api${fileUrl}`;
+    return `${baseUrl}/api${fileUrl}`;
   }
   // If already has /api prefix or other format
-  return `${BACKEND_URL}${fileUrl}`;
+  return `${baseUrl}${fileUrl}`;
 };
 
 // Format file size
@@ -35,38 +39,6 @@ const formatFileSize = (bytes) => {
   if (bytes < 1024) return `${bytes} B`;
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
-};
-
-// PDF Card Component - separate for cleaner rendering
-const PdfCard = ({ media, language }) => {
-  const url = getMediaUrl(media.file_url);
-  const title = media.title?.[language] || media.filename || 'Document PDF';
-  const description = media.description?.[language];
-  const size = formatFileSize(media.file_size);
-  
-  return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-md transition-all group"
-      data-testid={`pdf-card-${media.id}`}
-    >
-      <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
-        <FileText className="w-6 h-6 text-red-500" />
-      </div>
-      <div className="flex-1 min-w-0">
-        <h4 className="font-medium text-[#004D33] truncate group-hover:text-[#D4AF37] transition-colors">
-          {title}
-        </h4>
-        {description && (
-          <p className="text-sm text-gray-500 truncate">{description}</p>
-        )}
-        <p className="text-xs text-gray-400 mt-1">{size}</p>
-      </div>
-      <Download className="w-5 h-5 text-gray-400 group-hover:text-[#D4AF37] transition-colors" />
-    </a>
-  );
 };
 
 const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
@@ -187,13 +159,18 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
               const description = media.description?.[language];
               const size = formatFileSize(media.file_size);
               
+              const handleClick = () => {
+                if (url) window.open(url, '_blank', 'noopener,noreferrer');
+              };
+              
               return (
-                <a
+                <div
                   key={`pdf-${index}-${media.id}`}
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-md transition-all group"
+                  onClick={handleClick}
+                  role="button"
+                  tabIndex={0}
+                  onKeyPress={(e) => e.key === 'Enter' && handleClick()}
+                  className="flex items-center gap-4 p-4 bg-white rounded-lg border border-gray-200 hover:border-[#D4AF37] hover:shadow-md transition-all group cursor-pointer"
                   data-testid={`pdf-card-${media.id}`}
                 >
                   <div className="w-12 h-12 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -209,7 +186,7 @@ const PageMediaDisplay = ({ pageSlug, section = null, language = "fr" }) => {
                     <p className="text-xs text-gray-400 mt-1">{size}</p>
                   </div>
                   <Download className="w-5 h-5 text-gray-400 group-hover:text-[#D4AF37] transition-colors" />
-                </a>
+                </div>
               );
             })}
           </div>
