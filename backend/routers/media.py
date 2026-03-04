@@ -94,8 +94,8 @@ async def upload_file(
     with open(file_path, "wb") as f:
         f.write(content)
     
-    # Create file URL - Use /api prefix to ensure proper routing through ingress
-    file_url = f"/api/uploads/{stored_filename}"
+    # Create file URL - Use /api/media prefix to ensure proper routing through ingress
+    file_url = f"/api/media/uploads/{stored_filename}"
     
     # Generate thumbnail for images
     thumbnail_url = None

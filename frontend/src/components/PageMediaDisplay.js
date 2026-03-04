@@ -25,11 +25,16 @@ const getMediaUrl = (fileUrl) => {
   // Use BACKEND_URL if available, otherwise fallback to window.location.origin
   const baseUrl = process.env.REACT_APP_BACKEND_URL || (typeof window !== 'undefined' ? window.location.origin : '');
   
-  // If old format without /api prefix, add it
+  // Handle different URL formats:
+  // Old format: /uploads/filename.pdf -> /api/media/uploads/filename.pdf
   if (fileUrl.startsWith('/uploads/')) {
-    return `${baseUrl}/api${fileUrl}`;
+    return `${baseUrl}/api/media${fileUrl}`;
   }
-  // If already has /api prefix or other format
+  // Incorrect format: /api/uploads/filename.pdf -> /api/media/uploads/filename.pdf
+  if (fileUrl.startsWith('/api/uploads/')) {
+    return `${baseUrl}/api/media/uploads/${fileUrl.replace('/api/uploads/', '')}`;
+  }
+  // Correct format: /api/media/uploads/filename.pdf -> use as-is
   return `${baseUrl}${fileUrl}`;
 };
 
