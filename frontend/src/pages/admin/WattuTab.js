@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Plus, Edit, Trash2, Eye, EyeOff, Star, StarOff, Save, X } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
+import ImagePicker from "../../components/ImagePicker";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -249,7 +250,7 @@ const WattuTab = ({ getAuthHeaders, onDelete }) => {
             </div>
 
             {/* Métadonnées */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Auteur</label>
                 <input
@@ -271,17 +272,14 @@ const WattuTab = ({ getAuthHeaders, onDelete }) => {
                   ))}
                 </select>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
-                <input
-                  type="url"
-                  value={formData.image}
-                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#004D33]"
-                  placeholder="https://..."
-                />
-              </div>
             </div>
+
+            {/* Image Picker */}
+            <ImagePicker
+              value={formData.image}
+              onChange={(url) => setFormData({ ...formData, image: url })}
+              getAuthHeaders={getAuthHeaders}
+            />
 
             {/* Tags */}
             <div>
