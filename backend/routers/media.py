@@ -23,7 +23,7 @@ from auth import verify_admin_token
 router = APIRouter(prefix="/media", tags=["media"])
 
 # Configuration
-UPLOAD_DIR = Path("/app/frontend/public/uploads")
+UPLOAD_DIR = Path(os.environ.get("UPLOAD_DIR", "/tmp/uploads"))
 UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB
