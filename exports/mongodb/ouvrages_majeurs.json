@@ -1,0 +1,200 @@
+[
+  {
+    "_id": "698cc9238c67443bf5af1121",
+    "id": "8d41daae-4b26-4469-8688-1c560eda7775",
+    "titre": {
+      "fr": "Khilâçu-Dhahab (L'Or Décanté)",
+      "en": "Khilâçu-Dhahab (The Purified Gold)",
+      "ar": "خلاص الذهب",
+      "wo": "Khilâçu-Dhahab (Wurusu wu séllu)"
+    },
+    "sous_titre": "خلاص الذهب",
+    "auteur": "El Hadji Malick Sy",
+    "date": "Début du XXe siècle",
+    "description": {
+      "fr": "Chef-d'œuvre poétique composé de trente tableaux dédiés à la célébration de la vie du Prophète Muhammad (PSL). Tous les vers se terminent par la lettre 'M', d'où son nom populaire 'Mi-Mi-Ya'. Considéré comme un monument littéraire inégalé dans l'évocation de la vie du Prophète et les louanges qu'il lui adresse.",
+      "en": "A poetic masterpiece composed of thirty sections dedicated to celebrating the life of Prophet Muhammad (PBUH). All verses end with the letter 'M', hence its popular name 'Mi-Mi-Ya'. Considered an unparalleled literary monument in evoking the Prophet's life and praising him.",
+      "ar": "تحفة شعرية تتألف من ثلاثين لوحة مخصصة للاحتفال بحياة النبي محمد صلى الله عليه وسلم. تنتهي جميع الأبيات بحرف 'م'، ومن هنا جاء اسمها الشائع 'مي مي يا'. تعتبر صرحاً أدبياً لا مثيل له في استحضار حياة النبي ومدحه.",
+      "wo": "Téere wu baax bu am fukki xarit ak ñett yu nekk ndaje bu mag ci ngiir sàmm sa nguuru Yonent Muhammad (SPM). Bépp beesu dafay jeex ak lettre 'M', loolu moo tax ñu koy tuddee 'Mi-Mi-Ya'."
+    },
+    "themes": [
+      "Éloge du Prophète",
+      "Poésie soufie",
+      "Sira (Biographie prophétique)"
+    ],
+    "importance": {
+      "fr": "Chanté, traduit et commenté lors des Gamous à travers tout le Sénégal. Traduit en français par El Hadji Idrissa Mbengue Salif et Maodo Mbengue.",
+      "en": "Sung, translated and commented during Gamou celebrations throughout Senegal. Translated into French by El Hadji Idrissa Mbengue Salif and Maodo Mbengue.",
+      "ar": "يُغنى ويُترجم ويُعلق عليه خلال احتفالات المولد النبوي في جميع أنحاء السنغال. تُرجم إلى الفرنسية بواسطة الحاج إدريسا مبنغي صالف ومادو مبنغي.",
+      "wo": "Dañu koy woy, yëngal te comment ci Gamou yi ci Sénégal gépp. Yëngalu ci Français by El Hadji Idrissa Mbengue Salif ak Maodo Mbengue."
+    },
+    "icon": "Scroll",
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1122",
+    "id": "f5e231ed-367d-4a25-86ff-0f308787dff1",
+    "titre": {
+      "fr": "Fâkihat at-Tullâb",
+      "en": "Fâkihat at-Tullâb",
+      "ar": "فاكهة الطلاب",
+      "wo": "Fâkihat at-Tullâb"
+    },
+    "sous_titre": "فاكهة الطلاب",
+    "auteur": "El Hadji Malick Sy",
+    "date": "Début du XXe siècle",
+    "description": {
+      "fr": "L'œuvre la plus célèbre de Maodo. Ce traité aborde les principes généraux de la Tariqa Tijaniyya et la discipline requise du murid (aspirant spirituel). L'ouvrage se conclut par une section sur 'La Divergence parmi les Saints de Dieu', reflétant l'ouverture d'esprit caractéristique de Maodo envers les différentes voies spirituelles.",
+      "en": "Maodo's most famous work. This treatise addresses the general principles of the Tijaniyya Tariqa and the discipline required of the murid (spiritual aspirant). The work concludes with a section on 'The Divergence among the Saints of God', reflecting Maodo's characteristic open-mindedness towards different spiritual paths.",
+      "ar": "العمل الأشهر لمودو. يتناول هذا الكتاب المبادئ العامة للطريقة التيجانية والانضباط المطلوب من المريد. يختتم الكتاب بقسم عن 'الاختلاف بين أولياء الله'، مما يعكس انفتاح مودو المميز تجاه الطرق الروحية المختلفة.",
+      "wo": "Téere bi gëna xam-xam ci Maodo. Bii traité dafay wax ci njuumte yu Tariqa Tijaniyya ak discipline buga am murid. Téere bi dafay jeex ak xëtt ci 'Njëg ci Waliyu Yàlla yi'."
+    },
+    "themes": [
+      "Principes de la Tariqa",
+      "Conduite du murid",
+      "Tolérance spirituelle"
+    ],
+    "importance": {
+      "fr": "Texte fondamental étudié dans toutes les daaras tidjanes, guide pratique pour tout aspirant spirituel",
+      "en": "Fundamental text studied in all Tijani daaras, practical guide for any spiritual aspirant",
+      "ar": "نص أساسي يُدرس في جميع دور التيجانية، دليل عملي لأي طالب روحاني",
+      "wo": "Téere bu jëm ci ndaje ci daara Tijaan yi gépp, guide pratique ngir murid gépp"
+    },
+    "icon": "Book",
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1123",
+    "id": "3abbb535-9c9f-4c47-9acb-191669ba5e28",
+    "titre": {
+      "fr": "Kifâyat ar-Râghibîn",
+      "en": "Kifâyat ar-Râghibîn",
+      "ar": "كفاية الراغبين",
+      "wo": "Kifâyat ar-Râghibîn"
+    },
+    "sous_titre": "كفاية الراغبين",
+    "auteur": "El Hadji Malick Sy",
+    "date": "Début du XXe siècle",
+    "description": {
+      "fr": "Traité essentiel couvrant un large éventail de thèmes soufis incluant l'ascétisme (Zuhd), les relations sociales (Mu'âmalât) et la relation avec Dieu. Maodo y emploie fréquemment le vers poétique à des fins pédagogiques pour faciliter la mémorisation.",
+      "en": "Essential treatise covering a wide range of Sufi themes including asceticism (Zuhd), social relations (Mu'amalat) and the relationship with God. Maodo frequently uses poetic verse for pedagogical purposes to facilitate memorization.",
+      "ar": "رسالة أساسية تغطي مجموعة واسعة من المواضيع الصوفية بما في ذلك الزهد والمعاملات والعلاقة مع الله. يستخدم مودو الشعر بشكل متكرر لأغراض تعليمية لتسهيل الحفظ.",
+      "wo": "Traité bu am solo bu ëmb ay thème soufi yu bari lu am ni Zuhd, Mu'âmalât ak jëf ak Yàlla. Maodo dafay jëfandikoo beesu poétique ngir jàngale te mu yomb xam-xam."
+    },
+    "themes": [
+      "Ascétisme (Zuhd)",
+      "Relations sociales",
+      "Spiritualité"
+    ],
+    "importance": {
+      "fr": "Encyclopédie spirituelle servant de référence pour la formation des disciples",
+      "en": "Spiritual encyclopedia serving as a reference for the training of disciples",
+      "ar": "موسوعة روحية تستخدم كمرجع لتدريب التلاميذ",
+      "wo": "Encyclopédie spirituelle bu am solo ngir jàngale talibé yi"
+    },
+    "icon": "Book",
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1124",
+    "id": "c528b234-8c42-45ef-a797-33a4750ce7ec",
+    "titre": {
+      "fr": "Ifhâm al-Munkir al-Jânî",
+      "en": "Ifhâm al-Munkir al-Jânî",
+      "ar": "إفهام المنكر الجاني",
+      "wo": "Ifhâm al-Munkir al-Jânî"
+    },
+    "sous_titre": "إفهام المنكر الجاني",
+    "auteur": "El Hadji Malick Sy",
+    "date": "Début du XXe siècle",
+    "description": {
+      "fr": "Traité en arabe défendant la Tariqa Tijaniyya et le soufisme sunnite (tasawwuf as-sunnî) contre ses détracteurs. L'ouvrage commente la Jawharat al-Kamal pour mettre en lumière le soufisme orthodoxe et sa base textuelle, positionnant la Tijaniyya comme une voie légitime.",
+      "en": "Arabic treatise defending the Tijaniyya Tariqa and Sunni Sufism (tasawwuf as-sunni) against its detractors. The work comments on the Jawharat al-Kamal to highlight orthodox Sufism and its textual basis, positioning the Tijaniyya as a legitimate path.",
+      "ar": "رسالة بالعربية تدافع عن الطريقة التيجانية والتصوف السني ضد منتقديها. يعلق الكتاب على جوهرة الكمال لإبراز التصوف الأصيل وأساسه النصي، ويضع التيجانية كطريقة شرعية.",
+      "wo": "Traité ci Araab bu defe Tariqa Tijaniyya ak Soufisme Sunni. Téere bi dafay comment Jawharat al-Kamal ngir won Soufisme orthodoxe ak sa base textuelle."
+    },
+    "themes": [
+      "Défense de la Tariqa",
+      "Soufisme orthodoxe",
+      "Réfutation"
+    ],
+    "importance": {
+      "fr": "Démonstration de l'érudition de Maodo et de sa maîtrise des sciences islamiques",
+      "en": "Demonstration of Maodo's erudition and mastery of Islamic sciences",
+      "ar": "إظهار لعلم مودو وإتقانه للعلوم الإسلامية",
+      "wo": "Woneel xam-xam Maodo ak sa maîtrise ci Sciences Islamiques"
+    },
+    "icon": "FileText",
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1125",
+    "id": "b5836143-cbca-4740-8558-a9bc3affe4c6",
+    "titre": {
+      "fr": "Wassilatoul Mouna (Tayssir)",
+      "en": "Wassilatoul Mouna (Tayssir)",
+      "ar": "وسيلة المنى (التيسير)",
+      "wo": "Wassilatoul Mouna (Tayssir)"
+    },
+    "sous_titre": "وسيلة المنى (التيسير)",
+    "auteur": "El Hadji Malick Sy",
+    "date": "Début du XXe siècle",
+    "description": {
+      "fr": "Khassida (poème panégyrique soufi) visant à obtenir la réalisation des vœux par l'invocation des Beaux Noms d'Allah. Ce poème exprime la soumission totale à Dieu et la quête spirituelle du croyant.",
+      "en": "Khassida (Sufi panegyric poem) aimed at achieving the fulfillment of wishes through the invocation of Allah's Beautiful Names. This poem expresses total submission to God and the believer's spiritual quest.",
+      "ar": "قصيدة مديح صوفية تهدف إلى تحقيق الأماني من خلال الدعاء بأسماء الله الحسنى. يعبر هذا الشعر عن الخضوع التام لله وسعي المؤمن الروحي.",
+      "wo": "Khassida (téere soufi) bu am solo ngir am sa soxla ci tuddu Yàlla yu rafet. Bii poème dafay won yéene bu mat ci Yàlla ak soxla spirituelle Jullit."
+    },
+    "themes": [
+      "Invocation divine",
+      "Noms d'Allah",
+      "Supplication"
+    ],
+    "importance": {
+      "fr": "Récité régulièrement par les fidèles, disponible avec transcription et traduction française",
+      "en": "Regularly recited by the faithful, available with transcription and French translation",
+      "ar": "يُتلى بانتظام من قبل المؤمنين، متوفر مع النص والترجمة الفرنسية",
+      "wo": "Dafu jay woy ci Jullit yi, am na ak transcription ak yëngal ci Français"
+    },
+    "icon": "Scroll",
+    "order": 5,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1126",
+    "id": "3eefe3c7-5b22-40c7-8e5f-866dee8edc98",
+    "titre": {
+      "fr": "Zajrul Qulûb",
+      "en": "Zajrul Qulûb",
+      "ar": "زجر القلوب",
+      "wo": "Zajrul Qulûb"
+    },
+    "sous_titre": "زجر القلوب",
+    "auteur": "El Hadji Malick Sy",
+    "date": "Début du XXe siècle",
+    "description": {
+      "fr": "Exhortation des cœurs. Traité spirituel sur la purification de l'âme et l'éveil des cœurs à la réalité divine.",
+      "en": "Exhortation of hearts. Spiritual treatise on the purification of the soul and the awakening of hearts to divine reality.",
+      "ar": "زجر القلوب. رسالة روحية عن تزكية النفس وإيقاظ القلوب للحقيقة الإلهية.",
+      "wo": "Zajrul Qulûb. Traité spirituel ci sellal xol ak feyyal xol ci dëgg Yàlla."
+    },
+    "themes": [
+      "Purification spirituelle",
+      "Éveil du cœur",
+      "Rappel"
+    ],
+    "importance": {
+      "fr": "Guide pour la transformation intérieure du disciple",
+      "en": "Guide for the inner transformation of the disciple",
+      "ar": "دليل للتحول الداخلي للمريد",
+      "wo": "Guide ngir soppi ci biir talibé"
+    },
+    "icon": "FileText",
+    "order": 6,
+    "active": true
+  }
+]

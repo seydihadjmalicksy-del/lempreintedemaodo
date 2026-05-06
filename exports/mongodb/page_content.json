@@ -1,0 +1,504 @@
+[
+  {
+    "_id": "6985756b16b5406482601c91",
+    "id": "fdb97ecb-c149-4e8d-80d9-0c69f9630816",
+    "slug": "maodo",
+    "section": "hero",
+    "content": {
+      "fr": "El Hadji Malick Sy, affectueusement appelé Maodo (terme wolof signifiant \"le Vénéré\"), fut l'un des plus grands érudits musulmans de l'Afrique de l'Ouest.",
+      "en": "El Hadji Malick Sy, affectionately called Maodo (a Wolof term meaning \"the Revered\"), was one of the greatest Muslim scholars of West Africa.",
+      "ar": "الحاج مالك سي، المعروف بمودو (مصطلح ولوفي يعني \"المبجّل\")، كان من أعظم العلماء المسلمين في غرب أفريقيا.",
+      "wo": "El Hadji Maalik Si, ñuy wax Maodo (baat wu wolof bu tekki \"ku ñu gëm\"), dafa nekk benn ci ñiy xam-xam yu mag ci Lislaam ci Afrik sowwu jant."
+    },
+    "metadata": {
+      "title": {
+        "fr": "Le Fondateur",
+        "en": "The Founder",
+        "ar": "المؤسس",
+        "wo": "Boroom Ci"
+      }
+    },
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.475019+00:00",
+    "updated_at": "2026-02-06T05:06:21.232404+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c92",
+    "id": "2c437d11-2a63-4bde-8ebd-df29ce2bff6a",
+    "slug": "maodo",
+    "section": "biography",
+    "content": {
+      "fr": "Né en 1855 dans le village de Gaya au nord du Sénégal, il consacra sa vie entière à l'apprentissage, l'enseignement et la diffusion de l'Islam selon la voie du Prophète Muhammad (PSL). Son érudition exceptionnelle, sa piété exemplaire et sa sagesse firent de lui une référence incontournable pour des générations de musulmans.",
+      "en": "Born in 1855 in the village of Gaya in northern Senegal, he devoted his entire life to learning, teaching and spreading Islam according to the way of Prophet Muhammad (PBUH). His exceptional scholarship, exemplary piety and wisdom made him an essential reference for generations of Muslims.",
+      "ar": "ولد عام 1855 في قرية غايا شمال السنغال، وكرّس حياته كلها للتعلم والتعليم ونشر الإسلام وفق طريقة النبي محمد (ص). جعلت منه علمه الاستثنائي وتقواه المثالية وحكمته مرجعاً أساسياً لأجيال من المسلمين.",
+      "wo": "Juddu na ci 1855 ci dëkk bi ñuy wax Gaya ci gejj gu Senegaal, def na dund bam yépp ci jàng, jàngale ak yaatal Lislaam ni Yonent Muhammad (YWS) daa ko def. Xam-xam bam bu baax, diine bam bu mat ak xelam jëkk ko ñu tekki ay jàng yu mag ci yeneen muslim."
+    },
+    "metadata": {},
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.475035+00:00",
+    "updated_at": "2026-02-06T05:00:27.475037+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c93",
+    "id": "ae0a1880-a6ab-41fd-8a78-b67e0b852d2c",
+    "slug": "maodo",
+    "section": "quote",
+    "content": {
+      "fr": "Chez Maodo, la dualité l'emporte sur l'alternative : il fut à la fois homme de science et homme d'action, mystique et pragmatique, traditionaliste et moderniste.",
+      "en": "In Maodo, duality prevails over the alternative: he was both a man of science and a man of action, mystic and pragmatic, traditionalist and modernist.",
+      "ar": "عند مودو، تغلب الثنائية على البديل: كان رجل علم ورجل عمل في آن واحد، صوفياً وعملياً، تقليدياً وحداثياً.",
+      "wo": "Ci Maodo, ñaari ay yoon a mujj ci benn yoon rekk: dafa nekk nit ku xam-xam te nit ku jëf, soufi te ku liggéey, ku jëkk te ku bés."
+    },
+    "metadata": {
+      "author": "Historien"
+    },
+    "order": 3,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.475046+00:00",
+    "updated_at": "2026-02-06T05:00:27.475048+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c94",
+    "id": "a507d4c9-f3eb-4e6a-bc0a-1985869d0d5d",
+    "slug": "maodo",
+    "section": "legacy",
+    "content": {
+      "fr": "Aujourd'hui, plus d'un siècle après son rappel à Dieu, l'influence de Maodo continue de rayonner. La Tariqa Tijaniyya est devenue la principale confrérie soufie au Sénégal, et le Gamou de Tivaouane rassemble chaque année plus de 5 millions de fidèles.",
+      "en": "Today, more than a century after his return to God, Maodo's influence continues to shine. The Tijaniyya Tariqa has become the main Sufi brotherhood in Senegal, and the Tivaouane Gamou gathers more than 5 million faithful every year.",
+      "ar": "اليوم، بعد أكثر من قرن على انتقاله إلى رحمة الله، لا يزال تأثير مودو يتألق. أصبحت الطريقة التيجانية الطريقة الصوفية الرئيسية في السنغال، ويجمع مولد تيفاوان أكثر من 5 ملايين مؤمن كل عام.",
+      "wo": "Tey, juróom fukki at ginnaaw bi mu wéesu Yàlla, doole Maodo dey leer ba tey. Tariqa Tijaan moo nekk tariqa soufi bu mag ci Senegaal, te Gamou Tiwaawaan mooy daje juróom million nit atum kamm."
+    },
+    "metadata": {},
+    "order": 10,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.475053+00:00",
+    "updated_at": "2026-02-06T05:00:27.475055+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c95",
+    "id": "1c912b7b-4f42-4b5c-88c9-cea6cb05d378",
+    "slug": "gamou",
+    "section": "hero",
+    "content": {
+      "fr": "Le plus grand rassemblement spirituel d'Afrique de l'Ouest en l'honneur de la naissance du Prophète Muhammad (PSL)",
+      "en": "The largest spiritual gathering in West Africa in honor of the birth of Prophet Muhammad (PBUH)",
+      "ar": "أكبر تجمع روحي في غرب أفريقيا تكريماً لمولد النبي محمد (ص)",
+      "wo": "Ndaje bu réy ci Afrik sowwu jant ngir sant juddu Yonent Muhammad (YWS)"
+    },
+    "metadata": {
+      "title": {
+        "fr": "Le Gamou de Tivaouane",
+        "en": "The Gamou of Tivaouane",
+        "ar": "مولد تيفاوان",
+        "wo": "Gamou Tiwaawaan"
+      }
+    },
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.537355+00:00",
+    "updated_at": "2026-02-06T05:00:27.537363+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c96",
+    "id": "580fcf5c-35b5-4378-a313-70c177dd5963",
+    "slug": "gamou",
+    "section": "intro",
+    "content": {
+      "fr": "Le Gamou de Tivaouane est bien plus qu'une fête religieuse : c'est un moment de communion spirituelle intense, un pèlerinage annuel qui réaffirme l'amour des Tidiane pour le Prophète Muhammad (PSL) et leur attachement à son message. Institué par El Hadji Malick Sy au début du XXe siècle, le Gamou de Tivaouane est devenu le rendez-vous incontournable de la Tidjanidya sénégalaise et ouest-africaine.",
+      "en": "The Tivaouane Gamou is much more than a religious celebration: it is a moment of intense spiritual communion, an annual pilgrimage that reaffirms the love of the Tidiane for Prophet Muhammad (PBUH) and their attachment to his message. Established by El Hadji Malick Sy at the beginning of the 20th century, the Tivaouane Gamou has become the essential gathering of Senegalese and West African Tijaniyya.",
+      "ar": "مولد تيفاوان أكثر من مجرد احتفال ديني: إنه لحظة شركة روحية مكثفة، حج سنوي يؤكد حب التيجانيين للنبي محمد (ص) وتعلقهم برسالته. أسسه الحاج مالك سي في بداية القرن العشرين، وأصبح مولد تيفاوان الموعد الأساسي للتيجانية السنغالية والغرب أفريقية.",
+      "wo": "Gamou Tiwaawaan du bëgg-bëgg diine rekk: mooy waxtu ci mbooloo bu diine bu tar, ziyaar at bu dey wàccal sopp Tijaan yi ci Yonent Muhammad (YWS) ak sàmm baat yam. El Hadji Maalik Si moo ko tànn ci door teemeer fukki at, Gamou Tiwaawaan moo nekk ndaje bu war ci Tijaan Senegaal ak Afrik sowwu jant."
+    },
+    "metadata": {},
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.537370+00:00",
+    "updated_at": "2026-02-06T05:00:27.537372+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c97",
+    "id": "c21d7dd8-47e6-4941-a6ea-1a6ec83c1fae",
+    "slug": "gamou",
+    "section": "date_2025",
+    "content": {
+      "fr": "Nuit du jeudi 4 au vendredi 5 septembre 2025",
+      "en": "Night of Thursday 4 to Friday 5 September 2025",
+      "ar": "ليلة الخميس 4 إلى الجمعة 5 سبتمبر 2025",
+      "wo": "Guddi altine 4 ba aljuma 5 septàmbar 2025"
+    },
+    "metadata": {
+      "date": "2025-09-05",
+      "islamic_date": "12 Rabi' al-Awwal 1447"
+    },
+    "order": 3,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.537379+00:00",
+    "updated_at": "2026-02-06T05:00:27.537381+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c98",
+    "id": "f228d9e9-b146-463f-bffb-fb189ad16e5c",
+    "slug": "ecole",
+    "section": "hero",
+    "content": {
+      "fr": "La méthode pédagogique unique d'El Hadji Malick Sy qui a révolutionné l'enseignement islamique en Afrique de l'Ouest",
+      "en": "The unique pedagogical method of El Hadji Malick Sy that revolutionized Islamic education in West Africa",
+      "ar": "المنهج التعليمي الفريد للحاج مالك سي الذي أحدث ثورة في التعليم الإسلامي في غرب أفريقيا",
+      "wo": "Yoon jàngale bu El Hadji Maalik Si bu soppaliku jàng Lislaam ci Afrik sowwu jant"
+    },
+    "metadata": {
+      "title": {
+        "fr": "L'École de Tivaouane",
+        "en": "The School of Tivaouane",
+        "ar": "مدرسة تيفاوان",
+        "wo": "Daara Tiwaawaan"
+      }
+    },
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.600615+00:00",
+    "updated_at": "2026-02-06T05:00:27.600622+00:00"
+  },
+  {
+    "_id": "6985756b16b5406482601c99",
+    "id": "ac8baa93-903e-410a-98c4-860f74f8f07d",
+    "slug": "ecole",
+    "section": "intro",
+    "content": {
+      "fr": "L'École de Tivaouane n'est pas une institution au sens moderne, mais un système d'enseignement vivant créé par El Hadji Malick Sy, qui visait à former des musulmans éclairés, à la fois savants et vertueux. Dès son installation en 1902, Maodo établit une zawiya (école coranique) qui devint rapidement un centre d'attraction pour des milliers d'étudiants.",
+      "en": "The School of Tivaouane is not an institution in the modern sense, but a living teaching system created by El Hadji Malick Sy, aimed at training enlightened Muslims who are both scholars and virtuous. From his establishment in 1902, Maodo established a zawiya (Quranic school) which quickly became a center of attraction for thousands of students.",
+      "ar": "مدرسة تيفاوان ليست مؤسسة بالمعنى الحديث، بل هي نظام تعليمي حي أنشأه الحاج مالك سي، يهدف إلى تكوين مسلمين مستنيرين يجمعون بين العلم والفضيلة. منذ استقراره عام 1902، أسس مودو زاوية (مدرسة قرآنية) سرعان ما أصبحت مركز جذب لآلاف الطلاب.",
+      "wo": "Daara Tiwaawaan du benn institution ci biir tey, waaye mooy yoon jàngale buy dund bi El Hadji Maalik Si tànn, ngir jàngale muslim yu leer, yu xam te yu yar. Bi mu tëdd ci 1902, Maodo tànn zawiya (daara Kur'aan) bu gaaw nekk benn bopp njëkk ngir ay téeméer taalibe."
+    },
+    "metadata": {},
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-06T05:00:27.600629+00:00",
+    "updated_at": "2026-02-06T05:00:27.600631+00:00"
+  },
+  {
+    "_id": "6985839830d259bb18f62a8b",
+    "id": "2a4b4b4f-7e5e-4369-a5d7-9501a4d25db9",
+    "slug": "maodo",
+    "section": "timeline",
+    "content": {
+      "fr": "[{\"year\": \"1855\", \"event\": \"Naissance \\u00e0 Gaya, nord du S\\u00e9n\\u00e9gal\"}, {\"year\": \"1855-1862\", \"event\": \"M\\u00e9morisation du Coran sous la tutelle de son p\\u00e8re\"}, {\"year\": \"1862-1884\", \"event\": \"\\u00c9tudes islamiques approfondies aupr\\u00e8s de grands ma\\u00eetres\"}, {\"year\": \"1884\", \"event\": \"Installation \\u00e0 Saint-Louis, d\\u00e9but de l'enseignement\"}, {\"year\": \"1886-1888\", \"event\": \"P\\u00e8lerinage \\u00e0 La Mecque et rencontre avec des savants\"}, {\"year\": \"1892\", \"event\": \"Fondation de la zawiya de Ndar\"}, {\"year\": \"1900\", \"event\": \"Installation d\\u00e9finitive \\u00e0 Tivaouane\"}, {\"year\": \"1902\", \"event\": \"Fondation de la zawiya de Tivaouane\"}, {\"year\": \"1922\", \"event\": \"Rappel \\u00e0 Dieu \\u00e0 Tivaouane\"}]",
+      "en": "[{\"year\": \"1855\", \"event\": \"Birth in Gaya, northern Senegal\"}, {\"year\": \"1855-1862\", \"event\": \"Quran memorization under his father's guidance\"}, {\"year\": \"1862-1884\", \"event\": \"Advanced Islamic studies with great masters\"}, {\"year\": \"1884\", \"event\": \"Settlement in Saint-Louis, beginning of teaching\"}, {\"year\": \"1886-1888\", \"event\": \"Pilgrimage to Mecca and meeting with scholars\"}, {\"year\": \"1892\", \"event\": \"Foundation of the Ndar zawiya\"}, {\"year\": \"1900\", \"event\": \"Final settlement in Tivaouane\"}, {\"year\": \"1902\", \"event\": \"Foundation of the Tivaouane zawiya\"}, {\"year\": \"1922\", \"event\": \"Return to God in Tivaouane\"}]",
+      "ar": "[{\"year\": \"1855\", \"event\": \"\\u0627\\u0644\\u0648\\u0644\\u0627\\u062f\\u0629 \\u0641\\u064a \\u063a\\u0627\\u064a\\u0627\\u060c \\u0634\\u0645\\u0627\\u0644 \\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644\"}, {\"year\": \"1855-1862\", \"event\": \"\\u062d\\u0641\\u0638 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646 \\u062a\\u062d\\u062a \\u0625\\u0634\\u0631\\u0627\\u0641 \\u0648\\u0627\\u0644\\u062f\\u0647\"}, {\"year\": \"1862-1884\", \"event\": \"\\u062f\\u0631\\u0627\\u0633\\u0627\\u062a \\u0625\\u0633\\u0644\\u0627\\u0645\\u064a\\u0629 \\u0645\\u062a\\u0642\\u062f\\u0645\\u0629 \\u0645\\u0639 \\u0643\\u0628\\u0627\\u0631 \\u0627\\u0644\\u0639\\u0644\\u0645\\u0627\\u0621\"}, {\"year\": \"1884\", \"event\": \"\\u0627\\u0644\\u0627\\u0633\\u062a\\u0642\\u0631\\u0627\\u0631 \\u0641\\u064a \\u0633\\u0627\\u0646 \\u0644\\u0648\\u064a\\u0633 \\u0648\\u0628\\u062f\\u0621 \\u0627\\u0644\\u062a\\u062f\\u0631\\u064a\\u0633\"}, {\"year\": \"1886-1888\", \"event\": \"\\u0627\\u0644\\u062d\\u062c \\u0625\\u0644\\u0649 \\u0645\\u0643\\u0629 \\u0648\\u0644\\u0642\\u0627\\u0621 \\u0627\\u0644\\u0639\\u0644\\u0645\\u0627\\u0621\"}, {\"year\": \"1892\", \"event\": \"\\u062a\\u0623\\u0633\\u064a\\u0633 \\u0632\\u0627\\u0648\\u064a\\u0629 \\u0646\\u062f\\u0627\\u0631\"}, {\"year\": \"1900\", \"event\": \"\\u0627\\u0644\\u0627\\u0633\\u062a\\u0642\\u0631\\u0627\\u0631 \\u0627\\u0644\\u0646\\u0647\\u0627\\u0626\\u064a \\u0641\\u064a \\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646\"}, {\"year\": \"1902\", \"event\": \"\\u062a\\u0623\\u0633\\u064a\\u0633 \\u0632\\u0627\\u0648\\u064a\\u0629 \\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646\"}, {\"year\": \"1922\", \"event\": \"\\u0627\\u0644\\u0627\\u0646\\u062a\\u0642\\u0627\\u0644 \\u0625\\u0644\\u0649 \\u0631\\u062d\\u0645\\u0629 \\u0627\\u0644\\u0644\\u0647 \\u0641\\u064a \\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646\"}]",
+      "wo": "[{\"year\": \"1855\", \"event\": \"Juddu ci Gaya, gejj gu Senegaal\"}, {\"year\": \"1855-1862\", \"event\": \"Xam Kur'aan ci kaw baay am\"}, {\"year\": \"1862-1884\", \"event\": \"J\\u00e0ng Lislaam ak boroom xam-xam yu mag\"}, {\"year\": \"1884\", \"event\": \"T\\u00ebdd ci Ndar, door j\\u00e0ngale\"}, {\"year\": \"1886-1888\", \"event\": \"Aj ci Makka ak gis ak ay xam-xam\"}, {\"year\": \"1892\", \"event\": \"T\\u00e0nn zawiya Ndar\"}, {\"year\": \"1900\", \"event\": \"T\\u00ebdd ci Tiwaawaan\"}, {\"year\": \"1902\", \"event\": \"T\\u00e0nn zawiya Tiwaawaan\"}, {\"year\": \"1922\", \"event\": \"W\\u00e9esu Y\\u00e0lla ci Tiwaawaan\"}]"
+    },
+    "metadata": {
+      "type": "timeline"
+    },
+    "order": 4,
+    "active": true,
+    "created_at": "2026-02-06T06:00:56.617247+00:00",
+    "updated_at": "2026-02-06T06:00:56.617252+00:00"
+  },
+  {
+    "_id": "6985839830d259bb18f62a8c",
+    "id": "84cad1a3-1558-4edb-b657-0b9f342083a0",
+    "slug": "maodo",
+    "section": "contributions",
+    "content": {
+      "fr": "[{\"title\": \"Fondateur du Gamou\", \"description\": \"Instituteur de la plus grande c\\u00e9l\\u00e9bration du Mawlid en Afrique de l'Ouest\"}, {\"title\": \"B\\u00e2tisseur d'\\u00e9coles\", \"description\": \"Cr\\u00e9ateur d'un r\\u00e9seau de daaras formant des milliers d'\\u00e9tudiants\"}, {\"title\": \"Propagateur de la Tijaniyya\", \"description\": \"Principal artisan de l'expansion de la confr\\u00e9rie au S\\u00e9n\\u00e9gal\"}, {\"title\": \"Homme de paix\", \"description\": \"M\\u00e9diateur respect\\u00e9 entre les communaut\\u00e9s et le pouvoir colonial\"}, {\"title\": \"Auteur prolifique\", \"description\": \"R\\u00e9dacteur de nombreux ouvrages de r\\u00e9f\\u00e9rence en sciences islamiques\"}, {\"title\": \"Revivificateur de la Sunna\", \"description\": \"Promoteur du retour aux sources authentiques de l'Islam\"}]",
+      "en": "[{\"title\": \"Founder of Gamou\", \"description\": \"Initiator of the largest Mawlid celebration in West Africa\"}, {\"title\": \"School Builder\", \"description\": \"Creator of a network of daaras training thousands of students\"}, {\"title\": \"Spreader of Tijaniyya\", \"description\": \"Main architect of the brotherhood's expansion in Senegal\"}, {\"title\": \"Man of Peace\", \"description\": \"Respected mediator between communities and colonial power\"}, {\"title\": \"Prolific Author\", \"description\": \"Writer of numerous reference works in Islamic sciences\"}, {\"title\": \"Reviver of the Sunna\", \"description\": \"Promoter of return to authentic sources of Islam\"}]",
+      "ar": "[{\"title\": \"\\u0645\\u0624\\u0633\\u0633 \\u0627\\u0644\\u0645\\u0648\\u0644\\u062f\", \"description\": \"\\u0645\\u0628\\u062a\\u0643\\u0631 \\u0623\\u0643\\u0628\\u0631 \\u0627\\u062d\\u062a\\u0641\\u0627\\u0644 \\u0628\\u0627\\u0644\\u0645\\u0648\\u0644\\u062f \\u0627\\u0644\\u0646\\u0628\\u0648\\u064a \\u0641\\u064a \\u063a\\u0631\\u0628 \\u0623\\u0641\\u0631\\u064a\\u0642\\u064a\\u0627\"}, {\"title\": \"\\u0628\\u0627\\u0646\\u064a \\u0627\\u0644\\u0645\\u062f\\u0627\\u0631\\u0633\", \"description\": \"\\u0645\\u0624\\u0633\\u0633 \\u0634\\u0628\\u0643\\u0629 \\u0645\\u0646 \\u0627\\u0644\\u062f\\u0648\\u0631 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\\u064a\\u0629 \\u0627\\u0644\\u062a\\u064a \\u062f\\u0631\\u0651\\u0628\\u062a \\u0622\\u0644\\u0627\\u0641 \\u0627\\u0644\\u0637\\u0644\\u0627\\u0628\"}, {\"title\": \"\\u0646\\u0627\\u0634\\u0631 \\u0627\\u0644\\u062a\\u064a\\u062c\\u0627\\u0646\\u064a\\u0629\", \"description\": \"\\u0627\\u0644\\u0645\\u0647\\u0646\\u062f\\u0633 \\u0627\\u0644\\u0631\\u0626\\u064a\\u0633\\u064a \\u0644\\u062a\\u0648\\u0633\\u0639 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0641\\u064a \\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644\"}, {\"title\": \"\\u0631\\u062c\\u0644 \\u0627\\u0644\\u0633\\u0644\\u0627\\u0645\", \"description\": \"\\u0648\\u0633\\u064a\\u0637 \\u0645\\u062d\\u062a\\u0631\\u0645 \\u0628\\u064a\\u0646 \\u0627\\u0644\\u0645\\u062c\\u062a\\u0645\\u0639\\u0627\\u062a \\u0648\\u0627\\u0644\\u0633\\u0644\\u0637\\u0629 \\u0627\\u0644\\u0627\\u0633\\u062a\\u0639\\u0645\\u0627\\u0631\\u064a\\u0629\"}, {\"title\": \"\\u0645\\u0624\\u0644\\u0641 \\u063a\\u0632\\u064a\\u0631 \\u0627\\u0644\\u0625\\u0646\\u062a\\u0627\\u062c\", \"description\": \"\\u0643\\u0627\\u062a\\u0628 \\u0627\\u0644\\u0639\\u062f\\u064a\\u062f \\u0645\\u0646 \\u0627\\u0644\\u0645\\u0631\\u0627\\u062c\\u0639 \\u0641\\u064a \\u0627\\u0644\\u0639\\u0644\\u0648\\u0645 \\u0627\\u0644\\u0625\\u0633\\u0644\\u0627\\u0645\\u064a\\u0629\"}, {\"title\": \"\\u0645\\u062d\\u064a\\u064a \\u0627\\u0644\\u0633\\u0646\\u0629\", \"description\": \"\\u062f\\u0627\\u0639\\u064a\\u0629 \\u0627\\u0644\\u0639\\u0648\\u062f\\u0629 \\u0625\\u0644\\u0649 \\u0627\\u0644\\u0645\\u0635\\u0627\\u062f\\u0631 \\u0627\\u0644\\u0623\\u0635\\u064a\\u0644\\u0629 \\u0644\\u0644\\u0625\\u0633\\u0644\\u0627\\u0645\"}]",
+      "wo": "[{\"title\": \"Boroom Gamou\", \"description\": \"Ki t\\u00e0nn sant Mawlid bu mag ci Afrik sowwu jant\"}, {\"title\": \"Ki mos daara\", \"description\": \"Ki t\\u00e0nn ay daara yu j\\u00e0ngale ay t\\u00e9em\\u00e9er taalibe\"}, {\"title\": \"Y\\u00e9ngu Tijaan\", \"description\": \"Ki y\\u00e9ngu tariqa ci Senegaal\"}, {\"title\": \"Nit ku j\\u00e0mm\", \"description\": \"Ki j\\u00ebfandikoo diggante ay mbooloo ak kilifa tubaab\"}, {\"title\": \"Bindkat bu bari\", \"description\": \"Ki bind ay t\\u00e9ere yu bari ci xam-xam Lislaam\"}, {\"title\": \"Ki dund Sunna\", \"description\": \"Ki y\\u00e9ngu dellu ci d\\u00ebgg yu Lislaam\"}]"
+    },
+    "metadata": {
+      "type": "list"
+    },
+    "order": 5,
+    "active": true,
+    "created_at": "2026-02-06T06:00:56.617286+00:00",
+    "updated_at": "2026-02-06T06:00:56.617288+00:00"
+  },
+  {
+    "_id": "6985839830d259bb18f62a8d",
+    "id": "15e69930-97bc-4698-a1f4-de08fe5a17af",
+    "slug": "maodo",
+    "section": "oeuvres",
+    "content": {
+      "fr": "[{\"title\": \"Khil\\u00e2\\u00e7u-Dhahab\", \"description\": \"30 tableaux po\\u00e9tiques sur la vie du Proph\\u00e8te Muhammad (PSL)\"}, {\"title\": \"F\\u00e2kihat at-Tull\\u00e2b\", \"description\": \"Principes fondamentaux de la Tariqa Tijaniyya\"}, {\"title\": \"Kif\\u00e2yat ar-R\\u00e2ghib\\u00een\", \"description\": \"Trait\\u00e9 complet sur le soufisme et la spiritualit\\u00e9\"}, {\"title\": \"Ifh\\u00e2m al-Munkir al-J\\u00e2n\\u00ee\", \"description\": \"D\\u00e9fense argument\\u00e9e de la Tariqa Tijaniyya\"}, {\"title\": \"Wassilatoul Mouna (Tayssir)\", \"description\": \"Invocations des 99 Noms d'Allah\"}]",
+      "en": "[{\"title\": \"Khil\\u00e2\\u00e7u-Dhahab\", \"description\": \"30 poetic tableaux on the life of Prophet Muhammad (PBUH)\"}, {\"title\": \"F\\u00e2kihat at-Tull\\u00e2b\", \"description\": \"Fundamental principles of the Tijaniyya Tariqa\"}, {\"title\": \"Kif\\u00e2yat ar-R\\u00e2ghib\\u00een\", \"description\": \"Complete treatise on Sufism and spirituality\"}, {\"title\": \"Ifh\\u00e2m al-Munkir al-J\\u00e2n\\u00ee\", \"description\": \"Argued defense of the Tijaniyya Tariqa\"}, {\"title\": \"Wassilatoul Mouna (Tayssir)\", \"description\": \"Invocations of the 99 Names of Allah\"}]",
+      "ar": "[{\"title\": \"\\u062e\\u0644\\u0627\\u0635 \\u0627\\u0644\\u0630\\u0647\\u0628\", \"description\": \"30 \\u0644\\u0648\\u062d\\u0629 \\u0634\\u0639\\u0631\\u064a\\u0629 \\u0639\\u0646 \\u062d\\u064a\\u0627\\u0629 \\u0627\\u0644\\u0646\\u0628\\u064a \\u0645\\u062d\\u0645\\u062f (\\u0635)\"}, {\"title\": \"\\u0641\\u0627\\u0643\\u0647\\u0629 \\u0627\\u0644\\u0637\\u0644\\u0627\\u0628\", \"description\": \"\\u0627\\u0644\\u0645\\u0628\\u0627\\u062f\\u0626 \\u0627\\u0644\\u0623\\u0633\\u0627\\u0633\\u064a\\u0629 \\u0644\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0627\\u0644\\u062a\\u064a\\u062c\\u0627\\u0646\\u064a\\u0629\"}, {\"title\": \"\\u0643\\u0641\\u0627\\u064a\\u0629 \\u0627\\u0644\\u0631\\u0627\\u063a\\u0628\\u064a\\u0646\", \"description\": \"\\u0631\\u0633\\u0627\\u0644\\u0629 \\u0643\\u0627\\u0645\\u0644\\u0629 \\u0641\\u064a \\u0627\\u0644\\u062a\\u0635\\u0648\\u0641 \\u0648\\u0627\\u0644\\u0631\\u0648\\u062d\\u0627\\u0646\\u064a\\u0629\"}, {\"title\": \"\\u0625\\u0641\\u0647\\u0627\\u0645 \\u0627\\u0644\\u0645\\u0646\\u0643\\u0631 \\u0627\\u0644\\u062c\\u0627\\u0646\\u064a\", \"description\": \"\\u062f\\u0641\\u0627\\u0639 \\u0645\\u0628\\u0631\\u0647\\u0646 \\u0639\\u0646 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0627\\u0644\\u062a\\u064a\\u062c\\u0627\\u0646\\u064a\\u0629\"}, {\"title\": \"\\u0648\\u0633\\u064a\\u0644\\u0629 \\u0627\\u0644\\u0645\\u0646\\u0649 (\\u062a\\u064a\\u0633\\u064a\\u0631)\", \"description\": \"\\u0623\\u062f\\u0639\\u064a\\u0629 \\u0623\\u0633\\u0645\\u0627\\u0621 \\u0627\\u0644\\u0644\\u0647 \\u0627\\u0644\\u062d\\u0633\\u0646\\u0649\"}]",
+      "wo": "[{\"title\": \"Khil\\u00e2\\u00e7u-Dhahab\", \"description\": \"30 nataal woy ci dundu Yonent Muhammad (YWS)\"}, {\"title\": \"F\\u00e2kihat at-Tull\\u00e2b\", \"description\": \"T\\u00ebnk bu nj\\u00ebkk ci Tariqa Tijaan\"}, {\"title\": \"Kif\\u00e2yat ar-R\\u00e2ghib\\u00een\", \"description\": \"T\\u00e9ere bu mat ci tasawwuf ak xel\"}, {\"title\": \"Ifh\\u00e2m al-Munkir al-J\\u00e2n\\u00ee\", \"description\": \"Dimbali Tariqa Tijaan\"}, {\"title\": \"Wassilatoul Mouna (Tayssir)\", \"description\": \"\\u00d1aan 99 Tur yi Y\\u00e0lla\"}]"
+    },
+    "metadata": {
+      "type": "list"
+    },
+    "order": 6,
+    "active": true,
+    "created_at": "2026-02-06T06:00:56.617317+00:00",
+    "updated_at": "2026-02-06T06:00:56.617319+00:00"
+  },
+  {
+    "_id": "6985839830d259bb18f62a8e",
+    "id": "f609688a-09f4-4f44-a9c0-265885b92756",
+    "slug": "gamou",
+    "section": "program",
+    "content": {
+      "fr": "[{\"phase\": \"10 jours de Bourde\", \"description\": \"R\\u00e9citation quotidienne du po\\u00e8me de louange au Proph\\u00e8te\", \"icon\": \"book\"}, {\"phase\": \"Causeries nocturnes\", \"description\": \"Conf\\u00e9rences et enseignements religieux par les oul\\u00e9mas\", \"icon\": \"users\"}, {\"phase\": \"Rassemblement des fid\\u00e8les\", \"description\": \"Arriv\\u00e9e des p\\u00e8lerins de tout le S\\u00e9n\\u00e9gal et de l'\\u00e9tranger\", \"icon\": \"map-pin\"}, {\"phase\": \"Nuit du Mawlid\", \"description\": \"Veill\\u00e9e spirituelle culminant \\u00e0 la Grande Mosqu\\u00e9e\", \"icon\": \"star\"}]",
+      "en": "[{\"phase\": \"10 days of Bourde\", \"description\": \"Daily recitation of the poem praising the Prophet\", \"icon\": \"book\"}, {\"phase\": \"Night talks\", \"description\": \"Conferences and religious teachings by scholars\", \"icon\": \"users\"}, {\"phase\": \"Gathering of the faithful\", \"description\": \"Arrival of pilgrims from all over Senegal and abroad\", \"icon\": \"map-pin\"}, {\"phase\": \"Mawlid Night\", \"description\": \"Spiritual vigil culminating at the Grand Mosque\", \"icon\": \"star\"}]",
+      "ar": "[{\"phase\": \"10 \\u0623\\u064a\\u0627\\u0645 \\u0645\\u0646 \\u0627\\u0644\\u0628\\u0631\\u062f\\u0629\", \"description\": \"\\u062a\\u0644\\u0627\\u0648\\u0629 \\u064a\\u0648\\u0645\\u064a\\u0629 \\u0644\\u0642\\u0635\\u064a\\u062f\\u0629 \\u0645\\u062f\\u062d \\u0627\\u0644\\u0646\\u0628\\u064a\", \"icon\": \"book\"}, {\"phase\": \"\\u0627\\u0644\\u0645\\u062d\\u0627\\u0636\\u0631\\u0627\\u062a \\u0627\\u0644\\u0644\\u064a\\u0644\\u064a\\u0629\", \"description\": \"\\u0645\\u0624\\u062a\\u0645\\u0631\\u0627\\u062a \\u0648\\u062a\\u0639\\u0627\\u0644\\u064a\\u0645 \\u062f\\u064a\\u0646\\u064a\\u0629 \\u0645\\u0646 \\u0642\\u0628\\u0644 \\u0627\\u0644\\u0639\\u0644\\u0645\\u0627\\u0621\", \"icon\": \"users\"}, {\"phase\": \"\\u062a\\u062c\\u0645\\u0639 \\u0627\\u0644\\u0645\\u0624\\u0645\\u0646\\u064a\\u0646\", \"description\": \"\\u0648\\u0635\\u0648\\u0644 \\u0627\\u0644\\u062d\\u062c\\u0627\\u062c \\u0645\\u0646 \\u062c\\u0645\\u064a\\u0639 \\u0623\\u0646\\u062d\\u0627\\u0621 \\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644 \\u0648\\u0627\\u0644\\u062e\\u0627\\u0631\\u062c\", \"icon\": \"map-pin\"}, {\"phase\": \"\\u0644\\u064a\\u0644\\u0629 \\u0627\\u0644\\u0645\\u0648\\u0644\\u062f\", \"description\": \"\\u0633\\u0647\\u0631\\u0629 \\u0631\\u0648\\u062d\\u064a\\u0629 \\u062a\\u0628\\u0644\\u063a \\u0630\\u0631\\u0648\\u062a\\u0647\\u0627 \\u0641\\u064a \\u0627\\u0644\\u0645\\u0633\\u062c\\u062f \\u0627\\u0644\\u0643\\u0628\\u064a\\u0631\", \"icon\": \"star\"}]",
+      "wo": "[{\"phase\": \"10 b\\u00e9s Bourde\", \"description\": \"J\\u00e0ng b\\u00e9s bu nekk woy sant Yonent\", \"icon\": \"book\"}, {\"phase\": \"Waxtaan guddi\", \"description\": \"Conf\\u00e9rence ak j\\u00e0ng diine ci boroom xam-xam yi\", \"icon\": \"users\"}, {\"phase\": \"Ndaje \\u00f1i g\\u00ebm\", \"description\": \"\\u00d1\\u00ebw ziyaarkaat yi b\\u00ebgg Senegaal ak biti\", \"icon\": \"map-pin\"}, {\"phase\": \"Guddi Mawlid\", \"description\": \"Fecc bu xel bu mujj ci J\\u00e0kka bu mag bi\", \"icon\": \"star\"}]"
+    },
+    "metadata": {
+      "type": "program"
+    },
+    "order": 4,
+    "active": true,
+    "created_at": "2026-02-06T06:00:56.666767+00:00",
+    "updated_at": "2026-02-06T06:00:56.666771+00:00"
+  },
+  {
+    "_id": "6985839830d259bb18f62a8f",
+    "id": "f39ac60c-0bbe-40ab-95c0-cc6671ef8657",
+    "slug": "gamou",
+    "section": "advice",
+    "content": {
+      "fr": "{\"before\": [\"R\\u00e9server son h\\u00e9bergement plusieurs semaines \\u00e0 l'avance\", \"Pr\\u00e9voir des v\\u00eatements adapt\\u00e9s (tenues modestes)\", \"Se munir de son Wird et de son chapelet\"], \"during\": [\"Respecter l'ordre et la discipline des organisateurs\", \"Participer aux s\\u00e9ances de Bourde et de dhikr\", \"Pr\\u00e9server la propret\\u00e9 des lieux saints\"]}",
+      "en": "{\"before\": [\"Book accommodation several weeks in advance\", \"Plan appropriate clothing (modest attire)\", \"Bring your Wird and prayer beads\"], \"during\": [\"Respect the order and discipline of the organizers\", \"Participate in Bourde and dhikr sessions\", \"Preserve the cleanliness of holy places\"]}",
+      "ar": "{\"before\": [\"\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0625\\u0642\\u0627\\u0645\\u0629 \\u0642\\u0628\\u0644 \\u0639\\u062f\\u0629 \\u0623\\u0633\\u0627\\u0628\\u064a\\u0639\", \"\\u062a\\u062d\\u0636\\u064a\\u0631 \\u0645\\u0644\\u0627\\u0628\\u0633 \\u0645\\u0646\\u0627\\u0633\\u0628\\u0629 (\\u0644\\u0628\\u0627\\u0633 \\u0645\\u062d\\u062a\\u0634\\u0645)\", \"\\u0625\\u062d\\u0636\\u0627\\u0631 \\u0627\\u0644\\u0648\\u0631\\u062f \\u0648\\u0627\\u0644\\u0633\\u0628\\u062d\\u0629\"], \"during\": [\"\\u0627\\u062d\\u062a\\u0631\\u0627\\u0645 \\u0646\\u0638\\u0627\\u0645 \\u0648\\u0627\\u0646\\u0636\\u0628\\u0627\\u0637 \\u0627\\u0644\\u0645\\u0646\\u0638\\u0645\\u064a\\u0646\", \"\\u0627\\u0644\\u0645\\u0634\\u0627\\u0631\\u0643\\u0629 \\u0641\\u064a \\u062c\\u0644\\u0633\\u0627\\u062a \\u0627\\u0644\\u0628\\u0631\\u062f\\u0629 \\u0648\\u0627\\u0644\\u0630\\u0643\\u0631\", \"\\u0627\\u0644\\u062d\\u0641\\u0627\\u0638 \\u0639\\u0644\\u0649 \\u0646\\u0638\\u0627\\u0641\\u0629 \\u0627\\u0644\\u0623\\u0645\\u0627\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0642\\u062f\\u0633\\u0629\"]}",
+      "wo": "{\"before\": [\"R\\u00e9serve paxas toog ay ayu-b\\u00e9s balaa\", \"J\\u00e0pp y\\u00e9r\\u00e9 yu rafet (y\\u00e9r\\u00e9 yu sell)\", \"Y\\u00f3bbu sa Wird ak sa chapelet\"], \"during\": [\"Teral wax ak njuumte boroom ligg\\u00e9ey yi\", \"Bokk ci waxtu Bourde ak dhikr\", \"S\\u00e0mm setal b\\u00e9r\\u00e9p yu sell yi\"]}"
+    },
+    "metadata": {
+      "type": "advice"
+    },
+    "order": 5,
+    "active": true,
+    "created_at": "2026-02-06T06:00:56.666794+00:00",
+    "updated_at": "2026-02-06T06:00:56.666796+00:00"
+  },
+  {
+    "_id": "6985839830d259bb18f62a90",
+    "id": "54b43809-e3b8-435b-bbb9-428b47580346",
+    "slug": "ecole",
+    "section": "cycles",
+    "content": {
+      "fr": "[{\"name\": \"Cycle \\u00e9l\\u00e9mentaire\", \"duration\": \"3-5 ans\", \"content\": \"M\\u00e9morisation du Coran, bases de la langue arabe, initiation au fiqh\"}, {\"name\": \"Cycle moyen\", \"duration\": \"5-7 ans\", \"content\": \"Grammaire arabe, ex\\u00e9g\\u00e8se coranique, jurisprudence mal\\u00e9kite\"}, {\"name\": \"Cycle sup\\u00e9rieur\", \"duration\": \"Variable\", \"content\": \"Hadith, th\\u00e9ologie, logique, rh\\u00e9torique, \\u00e9tudes approfondies\"}]",
+      "en": "[{\"name\": \"Elementary cycle\", \"duration\": \"3-5 years\", \"content\": \"Quran memorization, Arabic basics, introduction to fiqh\"}, {\"name\": \"Middle cycle\", \"duration\": \"5-7 years\", \"content\": \"Arabic grammar, Quranic exegesis, Maliki jurisprudence\"}, {\"name\": \"Advanced cycle\", \"duration\": \"Variable\", \"content\": \"Hadith, theology, logic, rhetoric, advanced studies\"}]",
+      "ar": "[{\"name\": \"\\u0627\\u0644\\u0645\\u0631\\u062d\\u0644\\u0629 \\u0627\\u0644\\u0627\\u0628\\u062a\\u062f\\u0627\\u0626\\u064a\\u0629\", \"duration\": \"3-5 \\u0633\\u0646\\u0648\\u0627\\u062a\", \"content\": \"\\u062d\\u0641\\u0638 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\\u060c \\u0623\\u0633\\u0627\\u0633\\u064a\\u0627\\u062a \\u0627\\u0644\\u0644\\u063a\\u0629 \\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\\u0629\\u060c \\u0645\\u0642\\u062f\\u0645\\u0629 \\u0641\\u064a \\u0627\\u0644\\u0641\\u0642\\u0647\"}, {\"name\": \"\\u0627\\u0644\\u0645\\u0631\\u062d\\u0644\\u0629 \\u0627\\u0644\\u0645\\u062a\\u0648\\u0633\\u0637\\u0629\", \"duration\": \"5-7 \\u0633\\u0646\\u0648\\u0627\\u062a\", \"content\": \"\\u0627\\u0644\\u0646\\u062d\\u0648 \\u0627\\u0644\\u0639\\u0631\\u0628\\u064a\\u060c \\u062a\\u0641\\u0633\\u064a\\u0631 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\\u060c \\u0627\\u0644\\u0641\\u0642\\u0647 \\u0627\\u0644\\u0645\\u0627\\u0644\\u0643\\u064a\"}, {\"name\": \"\\u0627\\u0644\\u0645\\u0631\\u062d\\u0644\\u0629 \\u0627\\u0644\\u0639\\u0644\\u064a\\u0627\", \"duration\": \"\\u0645\\u062a\\u063a\\u064a\\u0631\", \"content\": \"\\u0627\\u0644\\u062d\\u062f\\u064a\\u062b\\u060c \\u0639\\u0644\\u0645 \\u0627\\u0644\\u0643\\u0644\\u0627\\u0645\\u060c \\u0627\\u0644\\u0645\\u0646\\u0637\\u0642\\u060c \\u0627\\u0644\\u0628\\u0644\\u0627\\u063a\\u0629\\u060c \\u062f\\u0631\\u0627\\u0633\\u0627\\u062a \\u0645\\u062a\\u0642\\u062f\\u0645\\u0629\"}]",
+      "wo": "[{\"name\": \"Daara nj\\u00ebkk\", \"duration\": \"3-5 at\", \"content\": \"Xam Kur'aan, nj\\u00ebkk arabe, door fiqh\"}, {\"name\": \"Daara diggante\", \"duration\": \"5-7 at\", \"content\": \"Grammaire arabe, tafsir Kur'aan, fiqh Maliki\"}, {\"name\": \"Daara kaw\", \"duration\": \"W\\u00e9et\", \"content\": \"Hadith, th\\u00e9ologie, logique, rh\\u00e9torique, j\\u00e0ng yu x\\u00f3ot\"}]"
+    },
+    "metadata": {
+      "type": "cycles"
+    },
+    "order": 3,
+    "active": true,
+    "created_at": "2026-02-06T06:00:56.713752+00:00",
+    "updated_at": "2026-02-06T06:00:56.713756+00:00"
+  },
+  {
+    "_id": "6985839830d259bb18f62a91",
+    "id": "aa8f7123-d4b4-4474-9b8d-09468d50d814",
+    "slug": "ecole",
+    "section": "methods",
+    "content": {
+      "fr": "[{\"title\": \"Enseignement int\\u00e9gral\", \"description\": \"Sciences religieuses et profanes enseign\\u00e9es conjointement\"}, {\"title\": \"P\\u00e9dagogie orale\", \"description\": \"Transmission directe de ma\\u00eetre \\u00e0 \\u00e9l\\u00e8ve, m\\u00e9morisation et discussion\"}, {\"title\": \"Formation spirituelle\", \"description\": \"\\u00c9ducation du c\\u0153ur autant que de l'esprit, pratique du dhikr\"}]",
+      "en": "[{\"title\": \"Integral teaching\", \"description\": \"Religious and secular sciences taught together\"}, {\"title\": \"Oral pedagogy\", \"description\": \"Direct transmission from master to student, memorization and discussion\"}, {\"title\": \"Spiritual formation\", \"description\": \"Education of heart as much as mind, practice of dhikr\"}]",
+      "ar": "[{\"title\": \"\\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645 \\u0627\\u0644\\u0645\\u062a\\u0643\\u0627\\u0645\\u0644\", \"description\": \"\\u0627\\u0644\\u0639\\u0644\\u0648\\u0645 \\u0627\\u0644\\u062f\\u064a\\u0646\\u064a\\u0629 \\u0648\\u0627\\u0644\\u062f\\u0646\\u064a\\u0648\\u064a\\u0629 \\u062a\\u064f\\u062f\\u0631\\u064e\\u0651\\u0633 \\u0645\\u0639\\u0627\\u064b\"}, {\"title\": \"\\u0627\\u0644\\u062a\\u0639\\u0644\\u064a\\u0645 \\u0627\\u0644\\u0634\\u0641\\u0647\\u064a\", \"description\": \"\\u0627\\u0644\\u0646\\u0642\\u0644 \\u0627\\u0644\\u0645\\u0628\\u0627\\u0634\\u0631 \\u0645\\u0646 \\u0627\\u0644\\u0634\\u064a\\u062e \\u0625\\u0644\\u0649 \\u0627\\u0644\\u0637\\u0627\\u0644\\u0628\\u060c \\u0627\\u0644\\u062d\\u0641\\u0638 \\u0648\\u0627\\u0644\\u0645\\u0646\\u0627\\u0642\\u0634\\u0629\"}, {\"title\": \"\\u0627\\u0644\\u062a\\u0643\\u0648\\u064a\\u0646 \\u0627\\u0644\\u0631\\u0648\\u062d\\u064a\", \"description\": \"\\u062a\\u0631\\u0628\\u064a\\u0629 \\u0627\\u0644\\u0642\\u0644\\u0628 \\u0648\\u0627\\u0644\\u0639\\u0642\\u0644 \\u0645\\u0639\\u0627\\u064b\\u060c \\u0645\\u0645\\u0627\\u0631\\u0633\\u0629 \\u0627\\u0644\\u0630\\u0643\\u0631\"}]",
+      "wo": "[{\"title\": \"J\\u00e0ngale bu mat\", \"description\": \"Xam-xam diine ak aduna \\u00f1oo j\\u00e0ngale \\u00e0nd\"}, {\"title\": \"J\\u00e0ngale g\\u00e9mmi\\u00f1\", \"description\": \"Y\\u00f3bbu ci kilifa j\\u00ebkk ci taalibe, xam ak waxtaan\"}, {\"title\": \"J\\u00e0ngale xol\", \"description\": \"J\\u00e0ngale xol loxo ci xel, def dhikr\"}]"
+    },
+    "metadata": {
+      "type": "methods"
+    },
+    "order": 4,
+    "active": true,
+    "created_at": "2026-02-06T06:00:56.713782+00:00",
+    "updated_at": "2026-02-06T06:00:56.713784+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217ee",
+    "id": "fbfb3f31-7a58-4bdb-a6f5-8e4e5451aa1d",
+    "slug": "origines",
+    "section": "timeline",
+    "content": {
+      "fr": "[{\"period\": \"1737-1815\", \"location\": \"F\\u00e8s, Maroc\", \"title\": \"Cheikh Ahmed Tijani\", \"description\": \"Naissance et formation du fondateur de la Tariqa \\u00e0 F\\u00e8s. Vision spirituelle du Proph\\u00e8te (PSL) qui lui conf\\u00e8re la Tariqa directement.\"}, {\"period\": \"1781\", \"location\": \"A\\u00efn Madhi, Alg\\u00e9rie\", \"title\": \"Fondation de la Tariqa\", \"description\": \"Cheikh Ahmed Tijani re\\u00e7oit l'ordre divin de fonder la Tariqa Tidiane. Il \\u00e9tablit sa premi\\u00e8re zawiya \\u00e0 A\\u00efn Madhi.\"}, {\"period\": \"19e si\\u00e8cle\", \"location\": \"Afrique de l'Ouest\", \"title\": \"Expansion vers l'Ouest\", \"description\": \"Des disciples mauritaniens et s\\u00e9n\\u00e9galais ram\\u00e8nent la Tariqa en Afrique de l'Ouest, notamment \\u00e0 travers El Hadj Omar Tall.\"}, {\"period\": \"1902\", \"location\": \"Tivaouane, S\\u00e9n\\u00e9gal\", \"title\": \"Implantation \\u00e0 Tivaouane\", \"description\": \"El Hadji Malick Sy \\u00e9tablit Tivaouane comme centre majeur de la Tidjanidya au S\\u00e9n\\u00e9gal.\"}]",
+      "en": "[{\"period\": \"1737-1815\", \"location\": \"Fes, Morocco\", \"title\": \"Cheikh Ahmed Tijani\", \"description\": \"Birth and education of the Tariqa's founder in Fes. Spiritual vision of the Prophet (PBUH) who confers the Tariqa directly to him.\"}, {\"period\": \"1781\", \"location\": \"A\\u00efn Madhi, Algeria\", \"title\": \"Foundation of the Tariqa\", \"description\": \"Cheikh Ahmed Tijani receives divine order to found the Tidiane Tariqa. He establishes his first zawiya in A\\u00efn Madhi.\"}, {\"period\": \"19th century\", \"location\": \"West Africa\", \"title\": \"Westward Expansion\", \"description\": \"Mauritanian and Senegalese disciples bring the Tariqa to West Africa, notably through El Hadj Omar Tall.\"}, {\"period\": \"1902\", \"location\": \"Tivaouane, Senegal\", \"title\": \"Establishment in Tivaouane\", \"description\": \"El Hadji Malick Sy establishes Tivaouane as a major center of the Tijaniyya in Senegal.\"}]",
+      "ar": "[{\"period\": \"1737-1815\", \"location\": \"\\u0641\\u0627\\u0633\\u060c \\u0627\\u0644\\u0645\\u063a\\u0631\\u0628\", \"title\": \"\\u0627\\u0644\\u0634\\u064a\\u062e \\u0623\\u062d\\u0645\\u062f \\u0627\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a\", \"description\": \"\\u0648\\u0644\\u0627\\u062f\\u0629 \\u0648\\u062a\\u0643\\u0648\\u064a\\u0646 \\u0645\\u0624\\u0633\\u0633 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0641\\u064a \\u0641\\u0627\\u0633. \\u0631\\u0624\\u064a\\u0629 \\u0631\\u0648\\u062d\\u064a\\u0629 \\u0644\\u0644\\u0646\\u0628\\u064a (\\u0635) \\u0627\\u0644\\u0630\\u064a \\u0645\\u0646\\u062d\\u0647 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0645\\u0628\\u0627\\u0634\\u0631\\u0629.\"}, {\"period\": \"1781\", \"location\": \"\\u0639\\u064a\\u0646 \\u0645\\u0627\\u0636\\u064a\\u060c \\u0627\\u0644\\u062c\\u0632\\u0627\\u0626\\u0631\", \"title\": \"\\u062a\\u0623\\u0633\\u064a\\u0633 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629\", \"description\": \"\\u064a\\u062a\\u0644\\u0642\\u0649 \\u0627\\u0644\\u0634\\u064a\\u062e \\u0623\\u062d\\u0645\\u062f \\u0627\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a \\u0627\\u0644\\u0623\\u0645\\u0631 \\u0627\\u0644\\u0625\\u0644\\u0647\\u064a \\u0628\\u062a\\u0623\\u0633\\u064a\\u0633 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0627\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a\\u0629. \\u0623\\u0633\\u0633 \\u0623\\u0648\\u0644 \\u0632\\u0627\\u0648\\u064a\\u062a\\u0647 \\u0641\\u064a \\u0639\\u064a\\u0646 \\u0645\\u0627\\u0636\\u064a.\"}, {\"period\": \"\\u0627\\u0644\\u0642\\u0631\\u0646 19\", \"location\": \"\\u063a\\u0631\\u0628 \\u0623\\u0641\\u0631\\u064a\\u0642\\u064a\\u0627\", \"title\": \"\\u0627\\u0644\\u062a\\u0648\\u0633\\u0639 \\u063a\\u0631\\u0628\\u0627\\u064b\", \"description\": \"\\u0627\\u0644\\u062a\\u0644\\u0627\\u0645\\u064a\\u0630 \\u0627\\u0644\\u0645\\u0648\\u0631\\u064a\\u062a\\u0627\\u0646\\u064a\\u0648\\u0646 \\u0648\\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644\\u064a\\u0648\\u0646 \\u064a\\u062c\\u0644\\u0628\\u0648\\u0646 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0625\\u0644\\u0649 \\u063a\\u0631\\u0628 \\u0623\\u0641\\u0631\\u064a\\u0642\\u064a\\u0627\\u060c \\u062e\\u0627\\u0635\\u0629 \\u0639\\u0628\\u0631 \\u0627\\u0644\\u062d\\u0627\\u062c \\u0639\\u0645\\u0631 \\u062a\\u0627\\u0644.\"}, {\"period\": \"1902\", \"location\": \"\\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646\\u060c \\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644\", \"title\": \"\\u0627\\u0644\\u062a\\u0623\\u0633\\u064a\\u0633 \\u0641\\u064a \\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646\", \"description\": \"\\u0627\\u0644\\u062d\\u0627\\u062c \\u0645\\u0627\\u0644\\u0643 \\u0633\\u064a \\u064a\\u0624\\u0633\\u0633 \\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646 \\u0643\\u0645\\u0631\\u0643\\u0632 \\u0631\\u0626\\u064a\\u0633\\u064a \\u0644\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a\\u0629 \\u0641\\u064a \\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644.\"}]",
+      "wo": "[{\"period\": \"1737-1815\", \"location\": \"F\\u00e8s, Maroc\", \"title\": \"Cheikh Ahmed Tijani\", \"description\": \"Juddu ak j\\u00e0ng boroom Tariqa bi ci F\\u00e8s. Gis Yonent bi (YWS) ci diine mu jox ko Tariqa bi.\"}, {\"period\": \"1781\", \"location\": \"A\\u00efn Madhi, Alg\\u00e9rie\", \"title\": \"Sos Tariqa bi\", \"description\": \"Cheikh Ahmed Tijani am ndigal Y\\u00e0lla ngir sos Tariqa Tijaan. Mu t\\u00e0nn zawiya bi ci A\\u00efn Madhi.\"}, {\"period\": \"19e si\\u00e8cle\", \"location\": \"Afrik sowwu jant\", \"title\": \"Y\\u00e0gg ci sowwu jant\", \"description\": \"Taalibe Mauritanie ak Senegaal y\\u00f3bbu Tariqa bi ci Afrik sowwu jant, ci biir El Hadj Omar Tall.\"}, {\"period\": \"1902\", \"location\": \"Tiwaawaan, Senegaal\", \"title\": \"T\\u00e0nn ci Tiwaawaan\", \"description\": \"El Hadji Maalik Si t\\u00e0nn Tiwaawaan ni centre bu mag Tijaan ci Senegaal.\"}]"
+    },
+    "metadata": {
+      "type": "timeline"
+    },
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.051569+00:00",
+    "updated_at": "2026-02-09T11:26:44.051577+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217ef",
+    "id": "68f123a2-3255-4cfd-ac8c-59bcd5137995",
+    "slug": "origines",
+    "section": "characteristics",
+    "content": {
+      "fr": "[{\"icon\": \"Book\", \"title\": \"Transmission Directe\", \"description\": \"La Tariqa Tidiane se distingue par sa transmission directe du Proph\\u00e8te (PSL) \\u00e0 Cheikh Ahmed Tijani, sans interm\\u00e9diaire parmi les saints.\"}, {\"icon\": \"Users\", \"title\": \"Accessibilit\\u00e9\", \"description\": \"Une voie ouverte \\u00e0 tous, sans conditions pr\\u00e9alables strictes, favorisant l'inclusion spirituelle des masses.\"}, {\"icon\": \"Globe\", \"title\": \"Universalit\\u00e9\", \"description\": \"Expansion rapide \\u00e0 travers le Maghreb et l'Afrique subsaharienne gr\\u00e2ce \\u00e0 sa simplicit\\u00e9 et son efficacit\\u00e9.\"}]",
+      "en": "[{\"icon\": \"Book\", \"title\": \"Direct Transmission\", \"description\": \"The Tidiane Tariqa is distinguished by its direct transmission from the Prophet (PBUH) to Cheikh Ahmed Tijani, without intermediary among saints.\"}, {\"icon\": \"Users\", \"title\": \"Accessibility\", \"description\": \"A path open to all, without strict preconditions, fostering spiritual inclusion of the masses.\"}, {\"icon\": \"Globe\", \"title\": \"Universality\", \"description\": \"Rapid expansion across the Maghreb and sub-Saharan Africa thanks to its simplicity and effectiveness.\"}]",
+      "ar": "[{\"icon\": \"Book\", \"title\": \"\\u0627\\u0644\\u0625\\u0633\\u0646\\u0627\\u062f \\u0627\\u0644\\u0645\\u0628\\u0627\\u0634\\u0631\", \"description\": \"\\u062a\\u062a\\u0645\\u064a\\u0632 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0627\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a\\u0629 \\u0628\\u0625\\u0633\\u0646\\u0627\\u062f\\u0647\\u0627 \\u0627\\u0644\\u0645\\u0628\\u0627\\u0634\\u0631 \\u0645\\u0646 \\u0627\\u0644\\u0646\\u0628\\u064a (\\u0635) \\u0625\\u0644\\u0649 \\u0627\\u0644\\u0634\\u064a\\u062e \\u0623\\u062d\\u0645\\u062f \\u0627\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a\\u060c \\u062f\\u0648\\u0646 \\u0648\\u0633\\u064a\\u0637 \\u0645\\u0646 \\u0627\\u0644\\u0623\\u0648\\u0644\\u064a\\u0627\\u0621.\"}, {\"icon\": \"Users\", \"title\": \"\\u0633\\u0647\\u0648\\u0644\\u0629 \\u0627\\u0644\\u0648\\u0635\\u0648\\u0644\", \"description\": \"\\u0637\\u0631\\u064a\\u0642 \\u0645\\u0641\\u062a\\u0648\\u062d \\u0644\\u0644\\u062c\\u0645\\u064a\\u0639\\u060c \\u0628\\u062f\\u0648\\u0646 \\u0634\\u0631\\u0648\\u0637 \\u0645\\u0633\\u0628\\u0642\\u0629 \\u0635\\u0627\\u0631\\u0645\\u0629\\u060c \\u0645\\u0645\\u0627 \\u064a\\u0639\\u0632\\u0632 \\u0627\\u0644\\u0625\\u062f\\u0645\\u0627\\u062c \\u0627\\u0644\\u0631\\u0648\\u062d\\u064a \\u0644\\u0644\\u062c\\u0645\\u0627\\u0647\\u064a\\u0631.\"}, {\"icon\": \"Globe\", \"title\": \"\\u0627\\u0644\\u0639\\u0627\\u0644\\u0645\\u064a\\u0629\", \"description\": \"\\u0627\\u0644\\u062a\\u0648\\u0633\\u0639 \\u0627\\u0644\\u0633\\u0631\\u064a\\u0639 \\u0639\\u0628\\u0631 \\u0627\\u0644\\u0645\\u063a\\u0631\\u0628 \\u0627\\u0644\\u0639\\u0631\\u0628\\u064a \\u0648\\u0623\\u0641\\u0631\\u064a\\u0642\\u064a\\u0627 \\u062c\\u0646\\u0648\\u0628 \\u0627\\u0644\\u0635\\u062d\\u0631\\u0627\\u0621 \\u0628\\u0641\\u0636\\u0644 \\u0628\\u0633\\u0627\\u0637\\u062a\\u0647\\u0627 \\u0648\\u0641\\u0639\\u0627\\u0644\\u064a\\u062a\\u0647\\u0627.\"}]",
+      "wo": "[{\"icon\": \"Book\", \"title\": \"Transmission bu j\\u00ebkk\", \"description\": \"Tariqa Tijaan dafa am transmission bu j\\u00ebkk ci Yonent bi (YWS) ba Cheikh Ahmed Tijani, te amul interm\\u00e9diaire ci biir awliya yi.\"}, {\"icon\": \"Users\", \"title\": \"Neex ci dugg\", \"description\": \"Yoon bu ubbeek ngir \\u00f1\\u00e9pp, te amul conditions yu kawe, di def mbooloo yi nekk ci diine.\"}, {\"icon\": \"Globe\", \"title\": \"Universalit\\u00e9\", \"description\": \"Y\\u00e0gg bu gaaw ci Maghreb ak Afrik ci suuf Sahara ngir simplicit\\u00e9am ak efficacit\\u00e9am.\"}]"
+    },
+    "metadata": {
+      "type": "features"
+    },
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.051612+00:00",
+    "updated_at": "2026-02-09T11:26:44.051614+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f0",
+    "id": "c1048d61-6ac2-42c7-b67c-4b7bafdbc31f",
+    "slug": "origines",
+    "section": "introduction",
+    "content": {
+      "fr": "La Tariqa Tidiane (ou Tijaniyya) tire son nom de son fondateur, Cheikh Ahmed Tijani (1737-1815), né à Aïn Madhi dans le sud de l'actuelle Algérie. Descendant du Prophète Muhammad (PSL) par sa mère, il grandit dans un environnement imprégné de science et de spiritualité.",
+      "en": "The Tidiane Tariqa (or Tijaniyya) takes its name from its founder, Cheikh Ahmed Tijani (1737-1815), born in Aïn Madhi in the south of present-day Algeria. A descendant of Prophet Muhammad (PBUH) through his mother, he grew up in an environment steeped in knowledge and spirituality.",
+      "ar": "تأخذ الطريقة التجانية اسمها من مؤسسها، الشيخ أحمد التجاني (1737-1815)، المولود في عين ماضي جنوب الجزائر الحالية. سليل النبي محمد (ص) من جهة أمه، نشأ في بيئة مشبعة بالعلم والروحانية.",
+      "wo": "Tariqa Tijaan (walla Tijaniyya) jëlee tuuram ci ki ko tànn, Cheikh Ahmed Tijani (1737-1815), bu juddu ci Aïn Madhi ci bëj-saalum Algérie tey. Doom-u-doom Yonent Muhammed (YWS) ci yéené yaayam, mu mag ci ay paxas yu fees ci xam-xam ak diine."
+    },
+    "metadata": {
+      "type": "text"
+    },
+    "order": 0,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.051623+00:00",
+    "updated_at": "2026-02-09T11:26:44.051625+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f1",
+    "id": "655d4e0d-8802-4a62-b1fe-bbfe6e44f6c7",
+    "slug": "origines",
+    "section": "expansion",
+    "content": {
+      "fr": "[{\"name\": \"El Hadj Omar Tall (1794-1864)\", \"description\": \"Ce grand \\u00e9rudit peul originaire du Fouta Toro (S\\u00e9n\\u00e9gal) fut initi\\u00e9 \\u00e0 la Tariqa lors de son p\\u00e8lerinage \\u00e0 La Mecque. Il devint le grand propagateur de la Tidjanidya dans la r\\u00e9gion soudano-sah\\u00e9lienne.\"}, {\"name\": \"Les commer\\u00e7ants mauritaniens\", \"description\": \"Les \\u00e9changes commerciaux transsahariens ont permis la diffusion de la Tariqa par les marabouts et commer\\u00e7ants qui voyageaient entre le Maghreb et le Sahel.\"}, {\"name\": \"El Hadji Malick Sy (1855-1922)\", \"description\": \"C'est lui qui \\u00e9tablira Tivaouane comme le centre majeur de la Tidjanidya au S\\u00e9n\\u00e9gal, cr\\u00e9ant une branche distincte caract\\u00e9ris\\u00e9e par sa m\\u00e9thode p\\u00e9dagogique et son ouverture.\"}]",
+      "en": "[{\"name\": \"El Hadj Omar Tall (1794-1864)\", \"description\": \"This great Fulani scholar from Fouta Toro (Senegal) was initiated into the Tariqa during his pilgrimage to Mecca. He became the great propagator of the Tijaniyya in the Sudano-Sahelian region.\"}, {\"name\": \"Mauritanian traders\", \"description\": \"Trans-Saharan commercial exchanges allowed the spread of the Tariqa by marabouts and traders traveling between the Maghreb and the Sahel.\"}, {\"name\": \"El Hadji Malick Sy (1855-1922)\", \"description\": \"He established Tivaouane as the major center of the Tijaniyya in Senegal, creating a distinct branch characterized by its pedagogical method and openness.\"}]",
+      "ar": "[{\"name\": \"\\u0627\\u0644\\u062d\\u0627\\u062c \\u0639\\u0645\\u0631 \\u062a\\u0627\\u0644 (1794-1864)\", \"description\": \"\\u0647\\u0630\\u0627 \\u0627\\u0644\\u0639\\u0627\\u0644\\u0645 \\u0627\\u0644\\u0641\\u0648\\u0644\\u0627\\u0646\\u064a \\u0627\\u0644\\u0643\\u0628\\u064a\\u0631 \\u0645\\u0646 \\u0641\\u0648\\u062a\\u0627 \\u062a\\u0648\\u0631\\u0648 (\\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644) \\u062a\\u0644\\u0642\\u0649 \\u0627\\u0644\\u062a\\u0644\\u0642\\u064a\\u0646 \\u0641\\u064a \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u062e\\u0644\\u0627\\u0644 \\u062d\\u062c\\u0647 \\u0625\\u0644\\u0649 \\u0645\\u0643\\u0629. \\u0623\\u0635\\u0628\\u062d \\u0627\\u0644\\u0646\\u0627\\u0634\\u0631 \\u0627\\u0644\\u0643\\u0628\\u064a\\u0631 \\u0644\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a\\u0629 \\u0641\\u064a \\u0627\\u0644\\u0645\\u0646\\u0637\\u0642\\u0629 \\u0627\\u0644\\u0633\\u0648\\u062f\\u0627\\u0646\\u064a\\u0629 \\u0627\\u0644\\u0633\\u0627\\u062d\\u0644\\u064a\\u0629.\"}, {\"name\": \"\\u0627\\u0644\\u062a\\u062c\\u0627\\u0631 \\u0627\\u0644\\u0645\\u0648\\u0631\\u064a\\u062a\\u0627\\u0646\\u064a\\u0648\\u0646\", \"description\": \"\\u0633\\u0645\\u062d\\u062a \\u0627\\u0644\\u062a\\u0628\\u0627\\u062f\\u0644\\u0627\\u062a \\u0627\\u0644\\u062a\\u062c\\u0627\\u0631\\u064a\\u0629 \\u0639\\u0628\\u0631 \\u0627\\u0644\\u0635\\u062d\\u0631\\u0627\\u0621 \\u0628\\u0627\\u0646\\u062a\\u0634\\u0627\\u0631 \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u0639\\u0628\\u0631 \\u0627\\u0644\\u0645\\u0631\\u0627\\u0628\\u0637\\u064a\\u0646 \\u0648\\u0627\\u0644\\u062a\\u062c\\u0627\\u0631 \\u0627\\u0644\\u0630\\u064a\\u0646 \\u064a\\u0633\\u0627\\u0641\\u0631\\u0648\\u0646 \\u0628\\u064a\\u0646 \\u0627\\u0644\\u0645\\u063a\\u0631\\u0628 \\u0648\\u0627\\u0644\\u0633\\u0627\\u062d\\u0644.\"}, {\"name\": \"\\u0627\\u0644\\u062d\\u0627\\u062c \\u0645\\u0627\\u0644\\u0643 \\u0633\\u064a (1855-1922)\", \"description\": \"\\u0647\\u0648 \\u0627\\u0644\\u0630\\u064a \\u0623\\u0633\\u0633 \\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646 \\u0643\\u0645\\u0631\\u0643\\u0632 \\u0631\\u0626\\u064a\\u0633\\u064a \\u0644\\u0644\\u062a\\u062c\\u0627\\u0646\\u064a\\u0629 \\u0641\\u064a \\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644\\u060c \\u0645\\u0624\\u0633\\u0633\\u0627\\u064b \\u0641\\u0631\\u0639\\u0627\\u064b \\u0645\\u062a\\u0645\\u064a\\u0632\\u0627\\u064b \\u0628\\u0645\\u0646\\u0647\\u062c\\u0647 \\u0627\\u0644\\u062a\\u0631\\u0628\\u0648\\u064a \\u0648\\u0627\\u0646\\u0641\\u062a\\u0627\\u062d\\u0647.\"}]",
+      "wo": "[{\"name\": \"El Hadj Omar Tall (1794-1864)\", \"description\": \"Boroom xam-xam bu mag Pulaaru bi j\\u00f3ge Fouta Toro (Senegaal) dugg ci Tariqa bi ci \\u00e0jjam ci Maka. Mu nekk bu mag buy y\\u00e9ngu Tijaan ci r\\u00e9gion soudano-sah\\u00e9lienne.\"}, {\"name\": \"Jaaykat Mauritanie yi\", \"description\": \"J\\u00ebf jaay transsahariens moo def y\\u00e9ngu Tariqa bi ci s\\u00ebri\\u00f1 ak jaaykat yi di doxaan diggante Maghreb ak Sahel.\"}, {\"name\": \"El Hadji Maalik Si (1855-1922)\", \"description\": \"Moo t\\u00e0nn Tiwaawaan ni centre bu mag Tijaan ci Senegaal, di sos batal bu \\u00e0nd ak m\\u00e9thode j\\u00e0ngale bi ak ubbi.\"}]"
+    },
+    "metadata": {
+      "type": "list"
+    },
+    "order": 3,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.051653+00:00",
+    "updated_at": "2026-02-09T11:26:44.051655+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f2",
+    "id": "841de211-2391-433a-9d86-f5b36a1308d5",
+    "slug": "geographie",
+    "section": "lieux",
+    "content": {
+      "fr": "[{\"icon\": \"Church\", \"title\": \"La Grande Mosqu\\u00e9e\", \"description\": \"C\\u0153ur spirituel de Tivaouane, \\u00e9difi\\u00e9e progressivement depuis 1902. Ses d\\u00f4mes dor\\u00e9s dominent la ville et accueillent des millions de fid\\u00e8les lors du Gamou.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg\"}, {\"icon\": \"Home\", \"title\": \"La Zawiya (Daara)\", \"description\": \"L'\\u00e9cole coranique fond\\u00e9e par El Hadji Malick Sy, o\\u00f9 des milliers d'\\u00e9tudiants ont \\u00e9t\\u00e9 form\\u00e9s aux sciences islamiques et \\u00e0 la spiritualit\\u00e9.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"Heart\", \"title\": \"Le Mausol\\u00e9e de Maodo\", \"description\": \"Lieu de recueillement o\\u00f9 repose El Hadji Malick Sy. C'est le site de p\\u00e8lerinage le plus visit\\u00e9 apr\\u00e8s la Grande Mosqu\\u00e9e.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"MapPin\", \"title\": \"Les Champs de Courses\", \"description\": \"Vaste esplanade qui accueille les millions de p\\u00e8lerins durant le Gamou. C'est l\\u00e0 que se tiennent les grandes causeries nocturnes.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}]",
+      "en": "[{\"icon\": \"Church\", \"title\": \"The Grand Mosque\", \"description\": \"Spiritual heart of Tivaouane, built progressively since 1902. Its golden domes dominate the city and welcome millions of faithful during the Gamou.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg\"}, {\"icon\": \"Home\", \"title\": \"The Zawiya (Daara)\", \"description\": \"The Quranic school founded by El Hadji Malick Sy, where thousands of students were trained in Islamic sciences and spirituality.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"Heart\", \"title\": \"Maodo's Mausoleum\", \"description\": \"Place of meditation where El Hadji Malick Sy rests. It is the most visited pilgrimage site after the Grand Mosque.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"MapPin\", \"title\": \"The Race Fields\", \"description\": \"Vast esplanade that welcomes millions of pilgrims during the Gamou. This is where the great night talks are held.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}]",
+      "ar": "[{\"icon\": \"Church\", \"title\": \"\\u0627\\u0644\\u0645\\u0633\\u062c\\u062f \\u0627\\u0644\\u0643\\u0628\\u064a\\u0631\", \"description\": \"\\u0627\\u0644\\u0642\\u0644\\u0628 \\u0627\\u0644\\u0631\\u0648\\u062d\\u064a \\u0644\\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646\\u060c \\u0628\\u064f\\u0646\\u064a \\u062a\\u062f\\u0631\\u064a\\u062c\\u064a\\u0627\\u064b \\u0645\\u0646\\u0630 1902. \\u0642\\u0628\\u0627\\u0628\\u0647 \\u0627\\u0644\\u0630\\u0647\\u0628\\u064a\\u0629 \\u062a\\u0647\\u064a\\u0645\\u0646 \\u0639\\u0644\\u0649 \\u0627\\u0644\\u0645\\u062f\\u064a\\u0646\\u0629 \\u0648\\u062a\\u0633\\u062a\\u0642\\u0628\\u0644 \\u0645\\u0644\\u0627\\u064a\\u064a\\u0646 \\u0627\\u0644\\u0645\\u0624\\u0645\\u0646\\u064a\\u0646 \\u062e\\u0644\\u0627\\u0644 \\u0627\\u0644\\u0645\\u0648\\u0644\\u062f.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg\"}, {\"icon\": \"Home\", \"title\": \"\\u0627\\u0644\\u0632\\u0627\\u0648\\u064a\\u0629 (\\u0627\\u0644\\u062f\\u0627\\u0631)\", \"description\": \"\\u0627\\u0644\\u0645\\u062f\\u0631\\u0633\\u0629 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\\u064a\\u0629 \\u0627\\u0644\\u062a\\u064a \\u0623\\u0633\\u0633\\u0647\\u0627 \\u0627\\u0644\\u062d\\u0627\\u062c \\u0645\\u0627\\u0644\\u0643 \\u0633\\u064a\\u060c \\u062d\\u064a\\u062b \\u062a\\u062f\\u0631\\u0628 \\u0622\\u0644\\u0627\\u0641 \\u0627\\u0644\\u0637\\u0644\\u0627\\u0628 \\u0639\\u0644\\u0649 \\u0627\\u0644\\u0639\\u0644\\u0648\\u0645 \\u0627\\u0644\\u0625\\u0633\\u0644\\u0627\\u0645\\u064a\\u0629 \\u0648\\u0627\\u0644\\u0631\\u0648\\u062d\\u0627\\u0646\\u064a\\u0629.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"Heart\", \"title\": \"\\u0636\\u0631\\u064a\\u062d \\u0645\\u0648\\u062f\\u0648\", \"description\": \"\\u0645\\u0643\\u0627\\u0646 \\u0644\\u0644\\u062a\\u0623\\u0645\\u0644 \\u062d\\u064a\\u062b \\u064a\\u0631\\u0642\\u062f \\u0627\\u0644\\u062d\\u0627\\u062c \\u0645\\u0627\\u0644\\u0643 \\u0633\\u064a. \\u0625\\u0646\\u0647 \\u0645\\u0648\\u0642\\u0639 \\u0627\\u0644\\u062d\\u062c \\u0627\\u0644\\u0623\\u0643\\u062b\\u0631 \\u0632\\u064a\\u0627\\u0631\\u0629 \\u0628\\u0639\\u062f \\u0627\\u0644\\u0645\\u0633\\u062c\\u062f \\u0627\\u0644\\u0643\\u0628\\u064a\\u0631.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"MapPin\", \"title\": \"\\u0633\\u0627\\u062d\\u0629 \\u0627\\u0644\\u0633\\u0628\\u0627\\u0642\", \"description\": \"\\u0633\\u0627\\u062d\\u0629 \\u0648\\u0627\\u0633\\u0639\\u0629 \\u062a\\u0633\\u062a\\u0642\\u0628\\u0644 \\u0645\\u0644\\u0627\\u064a\\u064a\\u0646 \\u0627\\u0644\\u062d\\u062c\\u0627\\u062c \\u062e\\u0644\\u0627\\u0644 \\u0627\\u0644\\u0645\\u0648\\u0644\\u062f. \\u0647\\u0646\\u0627 \\u062a\\u064f\\u0639\\u0642\\u062f \\u0627\\u0644\\u0623\\u062d\\u0627\\u062f\\u064a\\u062b \\u0627\\u0644\\u0644\\u064a\\u0644\\u064a\\u0629 \\u0627\\u0644\\u0643\\u0628\\u0631\\u0649.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}]",
+      "wo": "[{\"icon\": \"Church\", \"title\": \"J\\u00e0kka bu mag bi\", \"description\": \"Xol bu sell Tiwaawaan, bu \\u00f1u tabax niaax-niaax dale 1902. Kuub yi wu wurus \\u00f1u ngi ci kaw d\\u00ebkk bi te \\u00f1u jot ay milio\\u014b julli-kat ci Gamou.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg\"}, {\"icon\": \"Home\", \"title\": \"Zawiya bi (Daara)\", \"description\": \"Daara Alxuraan bu El Hadji Maalik Si t\\u00e0nn, fu ay t\\u00e9em\\u00e9er taalibe j\\u00e0ng xam-xam Lislaam ak diine.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"Heart\", \"title\": \"Mausol\\u00e9e Maodo\", \"description\": \"Paxas bu neex fu El Hadji Maalik Si nelaw. Mooy paxas ziarra bu \\u00f1u gis bu bari ginnaaw J\\u00e0kka bu mag bi.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}, {\"icon\": \"MapPin\", \"title\": \"Champs de Courses yi\", \"description\": \"Paxas bu yaatu bu jot ay milio\\u014b ajibi ci Gamou. Foofu la \\u00f1u def ay waxtan bu mag bu guddi.\", \"image\": \"https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/1b6zos47_FB_IMG_1770232308810.jpg\"}]"
+    },
+    "metadata": {
+      "type": "places"
+    },
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.102922+00:00",
+    "updated_at": "2026-02-09T11:26:44.102930+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f3",
+    "id": "ebdb9ac9-83e1-4e99-95aa-3eb370035400",
+    "slug": "geographie",
+    "section": "organisation",
+    "content": {
+      "fr": "[{\"title\": \"Le Centre Religieux\", \"description\": \"Autour de la Grande Mosqu\\u00e9e et du mausol\\u00e9e de Maodo, c'est le c\\u0153ur spirituel o\\u00f9 se concentrent les activit\\u00e9s religieuses quotidiennes.\"}, {\"title\": \"Le Quartier des Daaras\", \"description\": \"Zone r\\u00e9sidentielle o\\u00f9 sont implant\\u00e9es les nombreuses \\u00e9coles coraniques qui perp\\u00e9tuent l'enseignement de Maodo.\"}, {\"title\": \"Le Centre Urbain Moderne\", \"description\": \"D\\u00e9veloppement r\\u00e9cent avec commerces, \\u00e9coles fran\\u00e7aises, h\\u00f4pitaux, qui coexiste harmonieusement avec le p\\u00f4le religieux.\"}]",
+      "en": "[{\"title\": \"The Religious Center\", \"description\": \"Around the Grand Mosque and Maodo's mausoleum, it is the spiritual heart where daily religious activities are concentrated.\"}, {\"title\": \"The Daara District\", \"description\": \"Residential area where the many Quranic schools that perpetuate Maodo's teaching are located.\"}, {\"title\": \"The Modern Urban Center\", \"description\": \"Recent development with shops, French schools, hospitals, that coexists harmoniously with the religious hub.\"}]",
+      "ar": "[{\"title\": \"\\u0627\\u0644\\u0645\\u0631\\u0643\\u0632 \\u0627\\u0644\\u062f\\u064a\\u0646\\u064a\", \"description\": \"\\u062d\\u0648\\u0644 \\u0627\\u0644\\u0645\\u0633\\u062c\\u062f \\u0627\\u0644\\u0643\\u0628\\u064a\\u0631 \\u0648\\u0636\\u0631\\u064a\\u062d \\u0645\\u0648\\u062f\\u0648\\u060c \\u0647\\u0648 \\u0627\\u0644\\u0642\\u0644\\u0628 \\u0627\\u0644\\u0631\\u0648\\u062d\\u064a \\u062d\\u064a\\u062b \\u062a\\u062a\\u0631\\u0643\\u0632 \\u0627\\u0644\\u0623\\u0646\\u0634\\u0637\\u0629 \\u0627\\u0644\\u062f\\u064a\\u0646\\u064a\\u0629 \\u0627\\u0644\\u064a\\u0648\\u0645\\u064a\\u0629.\"}, {\"title\": \"\\u062d\\u064a \\u0627\\u0644\\u062f\\u0648\\u0631\", \"description\": \"\\u0645\\u0646\\u0637\\u0642\\u0629 \\u0633\\u0643\\u0646\\u064a\\u0629 \\u062a\\u0642\\u0639 \\u0641\\u064a\\u0647\\u0627 \\u0627\\u0644\\u0639\\u062f\\u064a\\u062f \\u0645\\u0646 \\u0627\\u0644\\u0645\\u062f\\u0627\\u0631\\u0633 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646\\u064a\\u0629 \\u0627\\u0644\\u062a\\u064a \\u062a\\u0648\\u0627\\u0635\\u0644 \\u062a\\u0639\\u0627\\u0644\\u064a\\u0645 \\u0645\\u0648\\u062f\\u0648.\"}, {\"title\": \"\\u0627\\u0644\\u0645\\u0631\\u0643\\u0632 \\u0627\\u0644\\u062d\\u0636\\u0631\\u064a \\u0627\\u0644\\u062d\\u062f\\u064a\\u062b\", \"description\": \"\\u062a\\u0637\\u0648\\u064a\\u0631 \\u062d\\u062f\\u064a\\u062b \\u0645\\u0639 \\u0627\\u0644\\u0645\\u062d\\u0644\\u0627\\u062a \\u0627\\u0644\\u062a\\u062c\\u0627\\u0631\\u064a\\u0629 \\u0648\\u0627\\u0644\\u0645\\u062f\\u0627\\u0631\\u0633 \\u0627\\u0644\\u0641\\u0631\\u0646\\u0633\\u064a\\u0629 \\u0648\\u0627\\u0644\\u0645\\u0633\\u062a\\u0634\\u0641\\u064a\\u0627\\u062a\\u060c \\u064a\\u062a\\u0639\\u0627\\u064a\\u0634 \\u0628\\u0627\\u0646\\u0633\\u062c\\u0627\\u0645 \\u0645\\u0639 \\u0627\\u0644\\u0645\\u0631\\u0643\\u0632 \\u0627\\u0644\\u062f\\u064a\\u0646\\u064a.\"}]",
+      "wo": "[{\"title\": \"Centre bu diine bi\", \"description\": \"Ci wettu J\\u00e0kka bu mag bi ak mausol\\u00e9e Maodo, mooy xol bu sell fu ligg\\u00e9ey diine bu b\\u00e9s-bu-b\\u00e9s bokk.\"}, {\"title\": \"K\\u00ebr Daara yi\", \"description\": \"Paxas bu toog fu \\u00f1u tabax ay daara yu bari yu di topp j\\u00e0ng Maodo.\"}, {\"title\": \"Centre d\\u00ebkk bu bees bi\", \"description\": \"Y\\u00e0gg bu bees ak ay bitik, ekol tubaab, opital, yu bokk ak centre bu diine bi.\"}]"
+    },
+    "metadata": {
+      "type": "list"
+    },
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.102963+00:00",
+    "updated_at": "2026-02-09T11:26:44.102965+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f4",
+    "id": "d019d1aa-37b1-46ef-94cf-424dcd5e760f",
+    "slug": "geographie",
+    "section": "introduction",
+    "content": {
+      "fr": "Tivaouane (ou Tivawaan en wolof) est une ville du centre-ouest du Sénégal, située à environ 90 km à l'est de Dakar, dans la région de Thiès. Avant l'arrivée d'El Hadji Malick Sy en 1902, ce n'était qu'une bourgade agricole tranquille, peuplée principalement de Sérères et de Wolofs.",
+      "en": "Tivaouane (or Tivawaan in Wolof) is a city in west-central Senegal, located about 90 km east of Dakar, in the Thiès region. Before El Hadji Malick Sy's arrival in 1902, it was just a quiet farming village, populated mainly by Serers and Wolofs.",
+      "ar": "تيفاوان (أو تيواوان بالولوف) مدينة في وسط غرب السنغال، تقع على بعد حوالي 90 كم شرق داكار، في منطقة تيس. قبل وصول الحاج مالك سي في 1902، كانت مجرد قرية زراعية هادئة، يسكنها بشكل رئيسي السيرير والولوف.",
+      "wo": "Tiwaawaan (walla Tivawaan ci Wolof) dëkk la ci diggante sowwu jant Senegaal, toog ci wettu 90 km ci penku Dakar, ci région Thiès. Balaa El Hadji Maalik Si ñëw ci 1902, dëkk bu ndaw bu neex la woon, fu Seereer ak Wolof dëkke."
+    },
+    "metadata": {
+      "type": "text"
+    },
+    "order": 0,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.102972+00:00",
+    "updated_at": "2026-02-09T11:26:44.102973+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f5",
+    "id": "f5164442-7eb5-4a78-86ab-4136ed10ceca",
+    "slug": "geographie",
+    "section": "demographics",
+    "content": {
+      "fr": "L'impact d'El Hadji Malick Sy sur Tivaouane fut spectaculaire. D'un village de quelques centaines d'habitants au début du 20e siècle, Tivaouane compte aujourd'hui plus de 50 000 habitants permanents. Mais c'est lors du Gamou annuel que la ville révèle sa vraie dimension : pendant 10 jours, la population peut dépasser 2 millions de personnes, faisant de Tivaouane temporairement la deuxième ville du Sénégal après Dakar.",
+      "en": "El Hadji Malick Sy's impact on Tivaouane was spectacular. From a village of a few hundred inhabitants at the beginning of the 20th century, Tivaouane now has more than 50,000 permanent residents. But it is during the annual Gamou that the city reveals its true dimension: for 10 days, the population can exceed 2 million people, temporarily making Tivaouane the second city of Senegal after Dakar.",
+      "ar": "كان تأثير الحاج مالك سي على تيفاوان مذهلاً. من قرية بضع مئات من السكان في بداية القرن العشرين، أصبح في تيفاوان الآن أكثر من 50,000 ساكن دائم. لكن خلال المولد السنوي تكشف المدينة عن بُعدها الحقيقي: لمدة 10 أيام، يمكن أن يتجاوز عدد السكان 2 مليون شخص، مما يجعل تيفاوان مؤقتاً ثاني مدينة في السنغال بعد داكار.",
+      "wo": "Jëf El Hadji Maalik Si ci Tiwaawaan dafa rafet lool. Ci dëkk bu ay téeméer nit ci ndoorte 20e siècle, Tiwaawaan am na tey lu ëpp 50 000 nit yu toog fii. Waaye ci Gamou at bu nekk la dëkk bi di won lu muy dëgg: ci 10 fan, mbooloo yi man na ëpp 2 milioŋ nit, di def Tiwaawaan dëkk 2e bu Senegaal ginnaaw Dakar."
+    },
+    "metadata": {
+      "type": "text"
+    },
+    "order": 3,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.102979+00:00",
+    "updated_at": "2026-02-09T11:26:44.102980+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f6",
+    "id": "7d645a1a-1f2e-49d8-863d-4f544f3910de",
+    "slug": "ziarra",
+    "section": "ziarras",
+    "content": {
+      "fr": "[{\"nom\": \"La Ziarra G\\u00e9n\\u00e9rale Annuelle\", \"date\": \"20 avril 2025\", \"icon\": \"Users\", \"description\": \"Le grand rassemblement annuel de tous les disciples, g\\u00e9n\\u00e9ralement en avril. Les fid\\u00e8les de tout le S\\u00e9n\\u00e9gal et de l'\\u00e9tranger convergent vers Tivaouane.\", \"programme\": [\"Samedi 19 avril : Arriv\\u00e9e des p\\u00e8lerins et Gamou traditionnel\", \"Dimanche matin : Grande pri\\u00e8re \\u00e0 la mosqu\\u00e9e\", \"Dimanche : Renouvellement de l'all\\u00e9geance des Dahiras\", \"Dimanche soir : Allocution du Khalife et b\\u00e9n\\u00e9dictions\", \"Forum sur les Dahiras comme vecteurs de d\\u00e9veloppement\"], \"signification\": \"C'est le moment o\\u00f9 chaque tidiane r\\u00e9affirme son engagement spirituel et re\\u00e7oit les orientations du guide pour l'ann\\u00e9e \\u00e0 venir.\"}, {\"nom\": \"La Ziarra de Maodo\", \"date\": \"27 juin (anniversaire du rappel \\u00e0 Dieu de Maodo)\", \"icon\": \"Heart\", \"description\": \"Comm\\u00e9moration du d\\u00e9c\\u00e8s d'El Hadji Malick Sy. Une journ\\u00e9e de pri\\u00e8res et de m\\u00e9ditation autour de son mausol\\u00e9e.\", \"programme\": [\"R\\u00e9citation du Coran au mausol\\u00e9e\", \"Khoutba retra\\u00e7ant la vie de Maodo\", \"Chants de qasidas \\u00e0 sa gloire\", \"Pri\\u00e8res collectives\", \"Distribution de nourriture (Hadiya)\"], \"signification\": \"Honorer la m\\u00e9moire de Maodo et se rappeler ses enseignements et son exemple.\"}, {\"nom\": \"Ziarra des Khalifes\", \"date\": \"Dates variables selon le khalife comm\\u00e9mor\\u00e9\", \"icon\": \"Calendar\", \"description\": \"Comm\\u00e9morations d\\u00e9di\\u00e9es aux diff\\u00e9rents khalifes qui ont succ\\u00e9d\\u00e9 \\u00e0 Maodo, perp\\u00e9tuant ainsi leur m\\u00e9moire et leur h\\u00e9ritage.\", \"programme\": [\"Visites aux mausol\\u00e9es respectifs\", \"R\\u00e9cits sur les contributions de chaque khalife\", \"Pri\\u00e8res et invocations\", \"Rencontres communautaires\"], \"signification\": \"Maintenir vivante la m\\u00e9moire des guides successifs et leurs apports \\u00e0 la Tariqa.\"}]",
+      "en": "[{\"nom\": \"The Annual General Ziarra\", \"date\": \"April 20, 2025\", \"icon\": \"Users\", \"description\": \"The great annual gathering of all disciples, usually in April. The faithful from all over Senegal and abroad converge on Tivaouane.\", \"programme\": [\"Saturday April 19: Arrival of pilgrims and traditional Gamou\", \"Sunday morning: Grand prayer at the mosque\", \"Sunday: Renewal of Dahiras' allegiance\", \"Sunday evening: Khalife's address and blessings\", \"Forum on Dahiras as vectors of development\"], \"signification\": \"This is the moment when every Tidiane reaffirms their spiritual commitment and receives guidance from the guide for the coming year.\"}, {\"nom\": \"Maodo's Ziarra\", \"date\": \"June 27 (anniversary of Maodo's passing)\", \"icon\": \"Heart\", \"description\": \"Commemoration of El Hadji Malick Sy's death. A day of prayers and meditation around his mausoleum.\", \"programme\": [\"Quran recitation at the mausoleum\", \"Sermon retracing Maodo's life\", \"Qasida chants in his glory\", \"Collective prayers\", \"Food distribution (Hadiya)\"], \"signification\": \"Honor Maodo's memory and remember his teachings and example.\"}, {\"nom\": \"Khalifes' Ziarra\", \"date\": \"Variable dates depending on the khalife commemorated\", \"icon\": \"Calendar\", \"description\": \"Commemorations dedicated to the different khalifes who succeeded Maodo, thus perpetuating their memory and legacy.\", \"programme\": [\"Visits to respective mausoleums\", \"Accounts of each khalife's contributions\", \"Prayers and invocations\", \"Community meetings\"], \"signification\": \"Keep alive the memory of successive guides and their contributions to the Tariqa.\"}]",
+      "ar": "[{\"nom\": \"\\u0627\\u0644\\u0632\\u064a\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0633\\u0646\\u0648\\u064a\\u0629 \\u0627\\u0644\\u0639\\u0627\\u0645\\u0629\", \"date\": \"20 \\u0623\\u0628\\u0631\\u064a\\u0644 2025\", \"icon\": \"Users\", \"description\": \"\\u0627\\u0644\\u062a\\u062c\\u0645\\u0639 \\u0627\\u0644\\u0633\\u0646\\u0648\\u064a \\u0627\\u0644\\u0643\\u0628\\u064a\\u0631 \\u0644\\u062c\\u0645\\u064a\\u0639 \\u0627\\u0644\\u062a\\u0644\\u0627\\u0645\\u064a\\u0630\\u060c \\u0639\\u0627\\u062f\\u0629 \\u0641\\u064a \\u0623\\u0628\\u0631\\u064a\\u0644. \\u064a\\u062a\\u0648\\u0627\\u0641\\u062f \\u0627\\u0644\\u0645\\u0624\\u0645\\u0646\\u0648\\u0646 \\u0645\\u0646 \\u062c\\u0645\\u064a\\u0639 \\u0623\\u0646\\u062d\\u0627\\u0621 \\u0627\\u0644\\u0633\\u0646\\u063a\\u0627\\u0644 \\u0648\\u0627\\u0644\\u062e\\u0627\\u0631\\u062c \\u0625\\u0644\\u0649 \\u062a\\u064a\\u0641\\u0627\\u0648\\u0627\\u0646.\", \"programme\": [\"\\u0627\\u0644\\u0633\\u0628\\u062a 19 \\u0623\\u0628\\u0631\\u064a\\u0644: \\u0648\\u0635\\u0648\\u0644 \\u0627\\u0644\\u062d\\u062c\\u0627\\u062c \\u0648\\u0627\\u0644\\u0645\\u0648\\u0644\\u062f \\u0627\\u0644\\u062a\\u0642\\u0644\\u064a\\u062f\\u064a\", \"\\u0635\\u0628\\u0627\\u062d \\u0627\\u0644\\u0623\\u062d\\u062f: \\u0627\\u0644\\u0635\\u0644\\u0627\\u0629 \\u0627\\u0644\\u0643\\u0628\\u0631\\u0649 \\u0641\\u064a \\u0627\\u0644\\u0645\\u0633\\u062c\\u062f\", \"\\u0627\\u0644\\u0623\\u062d\\u062f: \\u062a\\u062c\\u062f\\u064a\\u062f \\u0628\\u064a\\u0639\\u0629 \\u0627\\u0644\\u062f\\u0648\\u0627\\u0626\\u0631\", \"\\u0645\\u0633\\u0627\\u0621 \\u0627\\u0644\\u0623\\u062d\\u062f: \\u062e\\u0637\\u0627\\u0628 \\u0627\\u0644\\u062e\\u0644\\u064a\\u0641\\u0629 \\u0648\\u0627\\u0644\\u0628\\u0631\\u0643\\u0627\\u062a\", \"\\u0645\\u0646\\u062a\\u062f\\u0649 \\u062d\\u0648\\u0644 \\u0627\\u0644\\u062f\\u0648\\u0627\\u0626\\u0631 \\u0643\\u0646\\u0627\\u0642\\u0644\\u0627\\u062a \\u0644\\u0644\\u062a\\u0646\\u0645\\u064a\\u0629\"], \"signification\": \"\\u0647\\u0630\\u0647 \\u0647\\u064a \\u0627\\u0644\\u0644\\u062d\\u0638\\u0629 \\u0627\\u0644\\u062a\\u064a \\u064a\\u0624\\u0643\\u062f \\u0641\\u064a\\u0647\\u0627 \\u0643\\u0644 \\u062a\\u062c\\u0627\\u0646\\u064a \\u0627\\u0644\\u062a\\u0632\\u0627\\u0645\\u0647 \\u0627\\u0644\\u0631\\u0648\\u062d\\u064a \\u0648\\u064a\\u062a\\u0644\\u0642\\u0649 \\u062a\\u0648\\u062c\\u064a\\u0647\\u0627\\u062a \\u0627\\u0644\\u0645\\u0631\\u0634\\u062f \\u0644\\u0644\\u0639\\u0627\\u0645 \\u0627\\u0644\\u0642\\u0627\\u062f\\u0645.\"}, {\"nom\": \"\\u0632\\u064a\\u0627\\u0631\\u0629 \\u0645\\u0648\\u062f\\u0648\", \"date\": \"27 \\u064a\\u0648\\u0646\\u064a\\u0648 (\\u0630\\u0643\\u0631\\u0649 \\u0648\\u0641\\u0627\\u0629 \\u0645\\u0648\\u062f\\u0648)\", \"icon\": \"Heart\", \"description\": \"\\u0625\\u062d\\u064a\\u0627\\u0621 \\u0630\\u0643\\u0631\\u0649 \\u0648\\u0641\\u0627\\u0629 \\u0627\\u0644\\u062d\\u0627\\u062c \\u0645\\u0627\\u0644\\u0643 \\u0633\\u064a. \\u064a\\u0648\\u0645 \\u0644\\u0644\\u0635\\u0644\\u0627\\u0629 \\u0648\\u0627\\u0644\\u062a\\u0623\\u0645\\u0644 \\u062d\\u0648\\u0644 \\u0636\\u0631\\u064a\\u062d\\u0647.\", \"programme\": [\"\\u062a\\u0644\\u0627\\u0648\\u0629 \\u0627\\u0644\\u0642\\u0631\\u0622\\u0646 \\u0641\\u064a \\u0627\\u0644\\u0636\\u0631\\u064a\\u062d\", \"\\u062e\\u0637\\u0628\\u0629 \\u062a\\u0633\\u062a\\u0639\\u0631\\u0636 \\u062d\\u064a\\u0627\\u0629 \\u0645\\u0648\\u062f\\u0648\", \"\\u0623\\u0646\\u0627\\u0634\\u064a\\u062f \\u0627\\u0644\\u0642\\u0635\\u0627\\u0626\\u062f \\u062a\\u0645\\u062c\\u064a\\u062f\\u0627\\u064b \\u0644\\u0647\", \"\\u0635\\u0644\\u0648\\u0627\\u062a \\u062c\\u0645\\u0627\\u0639\\u064a\\u0629\", \"\\u062a\\u0648\\u0632\\u064a\\u0639 \\u0627\\u0644\\u0637\\u0639\\u0627\\u0645 (\\u0627\\u0644\\u0647\\u062f\\u064a\\u0629)\"], \"signification\": \"\\u062a\\u0643\\u0631\\u064a\\u0645 \\u0630\\u0643\\u0631\\u0649 \\u0645\\u0648\\u062f\\u0648 \\u0648\\u062a\\u0630\\u0643\\u0631 \\u062a\\u0639\\u0627\\u0644\\u064a\\u0645\\u0647 \\u0648\\u0645\\u062b\\u0627\\u0644\\u0647.\"}, {\"nom\": \"\\u0632\\u064a\\u0627\\u0631\\u0629 \\u0627\\u0644\\u062e\\u0644\\u0641\\u0627\\u0621\", \"date\": \"\\u062a\\u0648\\u0627\\u0631\\u064a\\u062e \\u0645\\u062a\\u063a\\u064a\\u0631\\u0629 \\u062d\\u0633\\u0628 \\u0627\\u0644\\u062e\\u0644\\u064a\\u0641\\u0629 \\u0627\\u0644\\u0645\\u062d\\u062a\\u0641\\u0649 \\u0628\\u0647\", \"icon\": \"Calendar\", \"description\": \"\\u0627\\u062d\\u062a\\u0641\\u0627\\u0644\\u0627\\u062a \\u0645\\u062e\\u0635\\u0635\\u0629 \\u0644\\u0644\\u062e\\u0644\\u0641\\u0627\\u0621 \\u0627\\u0644\\u0645\\u062e\\u062a\\u0644\\u0641\\u064a\\u0646 \\u0627\\u0644\\u0630\\u064a\\u0646 \\u062e\\u0644\\u0641\\u0648\\u0627 \\u0645\\u0648\\u062f\\u0648\\u060c \\u0648\\u0628\\u0627\\u0644\\u062a\\u0627\\u0644\\u064a \\u0625\\u062d\\u064a\\u0627\\u0621 \\u0630\\u0643\\u0631\\u0627\\u0647\\u0645 \\u0648\\u0625\\u0631\\u062b\\u0647\\u0645.\", \"programme\": [\"\\u0632\\u064a\\u0627\\u0631\\u0627\\u062a \\u0644\\u0644\\u0623\\u0636\\u0631\\u062d\\u0629 \\u0627\\u0644\\u0645\\u0639\\u0646\\u064a\\u0629\", \"\\u0631\\u0648\\u0627\\u064a\\u0627\\u062a \\u0639\\u0646 \\u0625\\u0633\\u0647\\u0627\\u0645\\u0627\\u062a \\u0643\\u0644 \\u062e\\u0644\\u064a\\u0641\\u0629\", \"\\u0627\\u0644\\u0635\\u0644\\u0648\\u0627\\u062a \\u0648\\u0627\\u0644\\u0623\\u062f\\u0639\\u064a\\u0629\", \"\\u0644\\u0642\\u0627\\u0621\\u0627\\u062a \\u0645\\u062c\\u062a\\u0645\\u0639\\u064a\\u0629\"], \"signification\": \"\\u0627\\u0644\\u062d\\u0641\\u0627\\u0638 \\u0639\\u0644\\u0649 \\u0630\\u0643\\u0631\\u0649 \\u0627\\u0644\\u0645\\u0631\\u0634\\u062f\\u064a\\u0646 \\u0627\\u0644\\u0645\\u062a\\u0639\\u0627\\u0642\\u0628\\u064a\\u0646 \\u0648\\u0625\\u0633\\u0647\\u0627\\u0645\\u0627\\u062a\\u0647\\u0645 \\u0641\\u064a \\u0627\\u0644\\u0637\\u0631\\u064a\\u0642\\u0629 \\u062d\\u064a\\u0629.\"}]",
+      "wo": "[{\"nom\": \"Ziarra G\\u00e9n\\u00e9rale bu at\", \"date\": \"20 avril 2025\", \"icon\": \"Users\", \"description\": \"Ndaje bu mag bu at yi taalibe y\\u00e9pp, jamono abril. Julli-kat yi \\u00f1u j\\u00f3ge Senegaal y\\u00e9pp ak biti \\u00f1u bokk ci Tiwaawaan.\", \"programme\": [\"G\\u00e0ww 19 avril: \\u00d1\\u00ebw ajibi yi ak Gamou traditionnel\", \"Dib\\u00e9er suba: Julli bu mag ci j\\u00e0kka bi\", \"Dib\\u00e9er: Soppisaat bay'a Dahira yi\", \"Dib\\u00e9er ngoon: Wax Xaliifa bi ak baraka yi\", \"Forum ci Dahiras yi ni vecteurs d\\u00e9veloppement\"], \"signification\": \"Mooy waxtu bu Tijaan bu nekk di soppisaat j\\u00ebf am bu sell te am orientations guide bi ngir at buy \\u00f1\\u00ebw.\"}, {\"nom\": \"Ziarra Maodo\", \"date\": \"27 juin (b\\u00e9s bu Maodo w\\u00e9esu)\", \"icon\": \"Heart\", \"description\": \"F\\u00e0ttaliku dee El Hadji Maalik Si. B\\u00e9s bu julli ak xalaat ci wettu mausol\\u00e9e bam.\", \"programme\": [\"Jang Alxuraan ci mausol\\u00e9e bi\", \"Khoutba buy wax dund Maodo\", \"Chants qasidas ngir ko hormale\", \"Julli mbooloo\", \"Seddale lekk (Hadiya)\"], \"signification\": \"Hormale xam-xam Maodo ak f\\u00e0ttaliku j\\u00e0ng yi ak exemple am.\"}, {\"nom\": \"Ziarra Xaliifa yi\", \"date\": \"B\\u00e9s yi dul mukk ci xaliifa bi \\u00f1u di f\\u00e0ttaliku\", \"icon\": \"Calendar\", \"description\": \"F\\u00e0ttaliku ngir xaliifa yi topp Maodo, di s\\u00e0mm xam-xam yi ak warisaay yi.\", \"programme\": [\"Ziarra ci mausol\\u00e9es yi\", \"Wax ci j\\u00ebf yu xaliifa bu nekk\", \"Julli ak doua\", \"Ndaje communautaires\"], \"signification\": \"S\\u00e0mm f\\u00e0ttaliku guides yi topp ak li \\u00f1u j\\u00e0pp ci Tariqa bi.\"}]"
+    },
+    "metadata": {
+      "type": "ziarras"
+    },
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.148665+00:00",
+    "updated_at": "2026-02-09T11:26:44.148672+00:00"
+  },
+  {
+    "_id": "6989c4742d79bd59195217f7",
+    "id": "326c9bd7-78e3-4ce6-9152-e59b7e84c50d",
+    "slug": "ziarra",
+    "section": "pilgrim_guide",
+    "content": {
+      "fr": "[{\"titre\": \"Pr\\u00e9paration Spirituelle\", \"conseils\": [\"Formuler une intention sinc\\u00e8re (Niya) avant le d\\u00e9part\", \"Se purifier spirituellement par le repentir\", \"Multiplier les pri\\u00e8res sur le Proph\\u00e8te (PSL) durant le voyage\"]}, {\"titre\": \"Pr\\u00e9paration Logistique\", \"conseils\": [\"R\\u00e9server son h\\u00e9bergement \\u00e0 l'avance\", \"Pr\\u00e9voir des v\\u00eatements modestes et confortables\", \"Apporter son Wird et son chapelet\", \"Se munir d'argent pour les dons (Hadiya)\"]}, {\"titre\": \"Sur Place\", \"conseils\": [\"Respecter les consignes des organisateurs\", \"Participer aux pri\\u00e8res collectives\", \"Visiter les lieux saints avec recueillement\", \"Maintenir la propret\\u00e9 des espaces publics\"]}]",
+      "en": "[{\"titre\": \"Spiritual Preparation\", \"conseils\": [\"Formulate a sincere intention (Niya) before departure\", \"Purify yourself spiritually through repentance\", \"Multiply prayers upon the Prophet (PBUH) during the journey\"]}, {\"titre\": \"Logistical Preparation\", \"conseils\": [\"Book accommodation in advance\", \"Plan modest and comfortable clothing\", \"Bring your Wird and prayer beads\", \"Bring money for donations (Hadiya)\"]}, {\"titre\": \"On Site\", \"conseils\": [\"Follow the organizers' instructions\", \"Participate in collective prayers\", \"Visit holy places with reflection\", \"Maintain cleanliness of public spaces\"]}]",
+      "ar": "[{\"titre\": \"\\u0627\\u0644\\u0625\\u0639\\u062f\\u0627\\u062f \\u0627\\u0644\\u0631\\u0648\\u062d\\u064a\", \"conseils\": [\"\\u0635\\u064a\\u0627\\u063a\\u0629 \\u0646\\u064a\\u0629 \\u0635\\u0627\\u062f\\u0642\\u0629 \\u0642\\u0628\\u0644 \\u0627\\u0644\\u0645\\u063a\\u0627\\u062f\\u0631\\u0629\", \"\\u0627\\u0644\\u062a\\u0637\\u0647\\u0631 \\u0631\\u0648\\u062d\\u064a\\u0627\\u064b \\u0628\\u0627\\u0644\\u062a\\u0648\\u0628\\u0629\", \"\\u0627\\u0644\\u0625\\u0643\\u062b\\u0627\\u0631 \\u0645\\u0646 \\u0627\\u0644\\u0635\\u0644\\u0627\\u0629 \\u0639\\u0644\\u0649 \\u0627\\u0644\\u0646\\u0628\\u064a (\\u0635) \\u0623\\u062b\\u0646\\u0627\\u0621 \\u0627\\u0644\\u0631\\u062d\\u0644\\u0629\"]}, {\"titre\": \"\\u0627\\u0644\\u0625\\u0639\\u062f\\u0627\\u062f \\u0627\\u0644\\u0644\\u0648\\u062c\\u0633\\u062a\\u064a\", \"conseils\": [\"\\u062d\\u062c\\u0632 \\u0627\\u0644\\u0625\\u0642\\u0627\\u0645\\u0629 \\u0645\\u0633\\u0628\\u0642\\u0627\\u064b\", \"\\u062a\\u062d\\u0636\\u064a\\u0631 \\u0645\\u0644\\u0627\\u0628\\u0633 \\u0645\\u062d\\u062a\\u0634\\u0645\\u0629 \\u0648\\u0645\\u0631\\u064a\\u062d\\u0629\", \"\\u0625\\u062d\\u0636\\u0627\\u0631 \\u0627\\u0644\\u0648\\u0631\\u062f \\u0648\\u0627\\u0644\\u0633\\u0628\\u062d\\u0629\", \"\\u0625\\u062d\\u0636\\u0627\\u0631 \\u0627\\u0644\\u0645\\u0627\\u0644 \\u0644\\u0644\\u062a\\u0628\\u0631\\u0639\\u0627\\u062a (\\u0627\\u0644\\u0647\\u062f\\u064a\\u0629)\"]}, {\"titre\": \"\\u0641\\u064a \\u0627\\u0644\\u0645\\u0648\\u0642\\u0639\", \"conseils\": [\"\\u0627\\u062a\\u0628\\u0627\\u0639 \\u062a\\u0639\\u0644\\u064a\\u0645\\u0627\\u062a \\u0627\\u0644\\u0645\\u0646\\u0638\\u0645\\u064a\\u0646\", \"\\u0627\\u0644\\u0645\\u0634\\u0627\\u0631\\u0643\\u0629 \\u0641\\u064a \\u0627\\u0644\\u0635\\u0644\\u0648\\u0627\\u062a \\u0627\\u0644\\u062c\\u0645\\u0627\\u0639\\u064a\\u0629\", \"\\u0632\\u064a\\u0627\\u0631\\u0629 \\u0627\\u0644\\u0623\\u0645\\u0627\\u0643\\u0646 \\u0627\\u0644\\u0645\\u0642\\u062f\\u0633\\u0629 \\u0628\\u062a\\u0623\\u0645\\u0644\", \"\\u0627\\u0644\\u062d\\u0641\\u0627\\u0638 \\u0639\\u0644\\u0649 \\u0646\\u0638\\u0627\\u0641\\u0629 \\u0627\\u0644\\u0623\\u0645\\u0627\\u0643\\u0646 \\u0627\\u0644\\u0639\\u0627\\u0645\\u0629\"]}]",
+      "wo": "[{\"titre\": \"Nj\\u00ebkkaale bu diine\", \"conseils\": [\"Am niya bu d\\u00ebgg balaa dem\", \"Set sa xol ci tuub\", \"Yaatal julli ci Yonent bi (YWS) ci tukki bi\"]}, {\"titre\": \"Nj\\u00ebkkaale bu logistik\", \"conseils\": [\"R\\u00e9serve paxas toog balaa\", \"J\\u00e0pp y\\u00e9r\\u00e9 yu sell te yu neex\", \"Y\\u00f3bbu sa Wird ak sa chapelet\", \"Y\\u00f3bbu xaalis ngir don (Hadiya)\"]}, {\"titre\": \"Ci paxas bi\", \"conseils\": [\"Topp consignes organisateurs yi\", \"Bokk ci julli mbooloo yi\", \"Ziarra paxas yu sell yi ak xel\", \"S\\u00e0mm set paxas yi\"]}]"
+    },
+    "metadata": {
+      "type": "guide"
+    },
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-09T11:26:44.148710+00:00",
+    "updated_at": "2026-02-09T11:26:44.148712+00:00"
+  }
+]

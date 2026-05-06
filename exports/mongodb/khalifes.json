@@ -1,0 +1,512 @@
+[
+  {
+    "_id": "6987d85b43f63e7d6b9fc26f",
+    "id": "fdae9afe-983e-4191-82fb-3049e607351d",
+    "name": "Serigne Sidy Ahmet Sy",
+    "title": {
+      "fr": "Le Premier Fils de Maodo",
+      "en": "The First Son of Maodo",
+      "ar": "الابن الأول لمودو",
+      "wo": "Doom bu njëkk Maodo"
+    },
+    "period": "1879 - 1916",
+    "icon": "Sparkles",
+    "description": {
+      "fr": "Aîné des enfants d'El Hadji Malick Sy, Serigne Sidy Ahmet Sy fut le premier à recevoir l'enseignement direct de son illustre père. Homme de grande piété et de profonde érudition, il assista Maodo dans ses œuvres spirituelles et éducatives. Rappelé à Dieu avant son père en 1916, il n'accéda pas au Califat, mais son héritage spirituel et sa descendance continuent d'illuminer la Tariqa.",
+      "en": "The eldest child of El Hadji Malick Sy, Serigne Sidy Ahmet Sy was the first to receive direct teaching from his illustrious father. A man of great piety and profound erudition, he assisted Maodo in his spiritual and educational works. Called back to God before his father in 1916, he did not accede to the Caliphate, but his spiritual legacy and descendants continue to illuminate the Tariqa.",
+      "ar": "البكر من أبناء الحاج مالك سي، كان سرين سيدي أحمد سي أول من تلقى التعليم المباشر من والده الشهير. رجل ذو تقوى عظيمة وعلم عميق، ساعد مودو في أعماله الروحية والتعليمية. توفي قبل والده عام 1916، ولم يتولَّ الخلافة، لكن إرثه الروحي وذريته يستمران في إنارة الطريقة.",
+      "wo": "Doom bu njëkk El Hadji Maalik Si, Serigne Sidy Ahmet Sy moo njëkk jàng ci baay bam bu mag. Nit ku diine bu baax te borom xam-xam bu xóot, mu dimbali Maodo ci liggéey diine ak jàngale. Wéesu Yàlla balaa baay bam ci 1916, du nekk Xaliifa, waaye warisaay diine bam ak doom yam dañuy leer Tariqa ba."
+    },
+    "contributions": {
+      "fr": [
+        "Premier disciple et assistant de Maodo",
+        "Transmission des enseignements paternels",
+        "Fondation d'une lignée de savants et d'érudits"
+      ],
+      "en": [
+        "First disciple and assistant of Maodo",
+        "Transmission of paternal teachings",
+        "Foundation of a lineage of scholars and erudites"
+      ],
+      "ar": [
+        "أول تلميذ ومساعد لمودو",
+        "نقل تعاليم الوالد",
+        "تأسيس سلسلة من العلماء والفقهاء"
+      ],
+      "wo": [
+        "Njëkk taalibe ak dimbali Maodo",
+        "Yóbbu jàng baay bi",
+        "Sos ay doom boroom xam-xam"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_9e8f0b7f-bd5d-4cfa-8b09-9e5f34d5dbc8/artifacts/1aad3juf_FB_IMG_1770358736967.jpg",
+    "current": false,
+    "order": 1,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708887+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc270",
+    "id": "f936ded3-c9cf-4c68-9a34-34dcba02ecc2",
+    "name": "Serigne Babacar Sy",
+    "title": {
+      "fr": "Le Premier Khalife",
+      "en": "The First Khalife",
+      "ar": "الخليفة الأول",
+      "wo": "Xaliifa bu njëkk"
+    },
+    "period": "1885 - 1957",
+    "icon": "Crown",
+    "description": {
+      "fr": "Fils aîné de Maodo, il fut le premier héritier. Homme de rigueur et d'organisation, il structura la Tariqa en créant le système des Dahiras (cercles d'études et de dhikr) qui allait assurer le rayonnement de Tivaouane à travers le Sénégal.",
+      "en": "The eldest son of Maodo, he was the first heir. A man of rigor and organization, he structured the Tariqa by creating the Dahira system (circles of study and dhikr) that would ensure Tivaouane's influence throughout Senegal.",
+      "ar": "الابن الأكبر لمودو، كان أول خليفة. رجل صارم ومنظم، أسس نظام الداهيرة (حلقات الدراسة والذكر) الذي ضمن إشعاع تيفاوان في جميع أنحاء السنغال.",
+      "wo": "Doom bu njëkk Maodo, moo njëkk warisaay. Nit ku sell ak organizatër, mu tabax sistem Dahira yi (cercle jàng ak dikr) buy def Tiwaawaan wéy ci Senegaal."
+    },
+    "contributions": {
+      "fr": [
+        "Création du système des Dahiras",
+        "Organisation de la première Ziarra Générale en 1930",
+        "Consolidation de l'unité des disciples après le décès de Maodo"
+      ],
+      "en": [
+        "Creation of the Dahira system",
+        "Organization of the first General Ziarra in 1930",
+        "Consolidation of the unity of disciples after Maodo's death"
+      ],
+      "ar": [
+        "إنشاء نظام الداهيرة",
+        "تنظيم أول زيارة عامة في 1930",
+        "توحيد التلاميذ بعد وفاة مودو"
+      ],
+      "wo": [
+        "Sos sistem Dahira yi",
+        "Organise njëkk Ziarra Générale ci 1930",
+        "Bokk taalibe yi ginnaaw dee Maodo"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg",
+    "current": false,
+    "order": 2,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708898+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc271",
+    "id": "0dd4c8e3-8387-4caa-815d-239a29a9baac",
+    "name": "Serigne Mansour Sy 'Balkhawmi'",
+    "title": {
+      "fr": "Le Savant Multidimensionnel",
+      "en": "The Multidimensional Scholar",
+      "ar": "العالم متعدد الأبعاد",
+      "wo": "Borom xam-xam bu bari"
+    },
+    "period": "1900 - 1957",
+    "icon": "BookOpen",
+    "description": {
+      "fr": "Érudit exceptionnel, poète mystique et juriste, il incarnait la fusion parfaite entre science et spiritualité. Ses cours magistraux attiraient des centaines d'étudiants venus de toute l'Afrique de l'Ouest.",
+      "en": "Exceptional scholar, mystical poet and jurist, he embodied the perfect fusion of science and spirituality. His masterful lectures attracted hundreds of students from all over West Africa.",
+      "ar": "عالم استثنائي وشاعر صوفي وفقيه، جسد الاندماج الكامل بين العلم والروحانية. جذبت دروسه المئات من الطلاب من جميع أنحاء غرب أفريقيا.",
+      "wo": "Borom xam-xam bu baax, woykat suufi ak juriste, muy bokk xam-xam ak diine bu sell. Jàng yi muy def di jël ay téeméer jàngkat yu jóge Afrik àll-géej yépp."
+    },
+    "contributions": {
+      "fr": [
+        "Enseignement approfondi des sciences islamiques",
+        "Composition de poèmes en l'honneur du Prophète (PSL)",
+        "Formation de générations de muqqadams et d'imams"
+      ],
+      "en": [
+        "In-depth teaching of Islamic sciences",
+        "Composition of poems in honor of the Prophet (PBUH)",
+        "Training of generations of muqqadams and imams"
+      ],
+      "ar": [
+        "تعليم معمق للعلوم الإسلامية",
+        "تأليف قصائد في مدح النبي (ص)",
+        "تكوين أجيال من المقدمين والأئمة"
+      ],
+      "wo": [
+        "Jàngale xam-xam Islaam",
+        "Bind woy ci Yonent bi (YWS)",
+        "Forme ay jamano muqqadam ak imam"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
+    "current": false,
+    "order": 3,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708909+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc272",
+    "id": "77a651b1-049c-44c1-b663-398946fa0168",
+    "name": "Serigne Abdoul Aziz Sy 'Dabakh'",
+    "title": {
+      "fr": "Le Régulateur Social",
+      "en": "The Social Regulator",
+      "ar": "المنظم الاجتماعي",
+      "wo": "Régulateur social"
+    },
+    "period": "1904 - 1997",
+    "icon": "Scale",
+    "description": {
+      "fr": "Figure de l'unité nationale, il a joué un rôle médiateur crucial dans les crises politiques et sociales du Sénégal. Son charisme et sa sagesse ont fait de lui un interlocuteur respecté de tous.",
+      "en": "A figure of national unity, he played a crucial mediating role in Senegal's political and social crises. His charisma and wisdom made him a respected interlocutor by all.",
+      "ar": "رمز الوحدة الوطنية، لعب دوراً وسيطاً حاسماً في الأزمات السياسية والاجتماعية في السنغال. جعلته كاريزمته وحكمته محترماً من الجميع.",
+      "wo": "Nit ku bokk réew mi, mu dimbali ci crise politique ak social Senegaal yi. Charisme ak xel bu baax moo def ko nit ku ñépp di hormat."
+    },
+    "contributions": {
+      "fr": [
+        "Médiation dans les crises socio-politiques",
+        "Promotion du dialogue interreligieux",
+        "Modernisation des infrastructures de Tivaouane"
+      ],
+      "en": [
+        "Mediation in socio-political crises",
+        "Promotion of interreligious dialogue",
+        "Modernization of Tivaouane's infrastructure"
+      ],
+      "ar": [
+        "الوساطة في الأزمات السياسية والاجتماعية",
+        "تعزيز الحوار بين الأديان",
+        "تحديث البنية التحتية لتيفاوان"
+      ],
+      "wo": [
+        "Dimbali ci crise socio-politique yi",
+        "Yëngu waxtan diine yi",
+        "Yëggo infrastruktiir Tiwaawaan"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg",
+    "current": false,
+    "order": 4,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708916+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc273",
+    "id": "294e51c3-b508-420a-8c5a-8f4533a9171f",
+    "name": "Serigne Mouhammadoul Habib Sy",
+    "title": {
+      "fr": "L'Infatigable Serviteur",
+      "en": "The Tireless Servant",
+      "ar": "الخادم الدؤوب",
+      "wo": "Jaam bu dul sew"
+    },
+    "period": "1906 - 1992",
+    "icon": "Star",
+    "description": {
+      "fr": "Fils cadet d'El Hadji Malick Sy et de Sokhna Safiétou Niang, il reçut sa formation islamique auprès de son père, puis de Serigne Saer Gueye et Mouhamadou Hady Touré.",
+      "en": "Youngest son of El Hadji Malick Sy and Sokhna Safiétou Niang, he received his Islamic education from his father, then from Serigne Saer Gueye and Mouhamadou Hady Touré.",
+      "ar": "الابن الأصغر للحاج مالك سي وسخنة صفية نيانغ، تلقى تعليمه الإسلامي من والده، ثم من سرين سير غي ومحمدو هادي توري.",
+      "wo": "Doom bu ndaw El Hadji Maalik Si ak Sokhna Safiétou Niang, mu jàng Islaam ci baay bi, ci Serigne Saer Gueye ak Mouhamadou Hady Touré."
+    },
+    "contributions": {
+      "fr": [
+        "Premier président du comité de suivi des travaux de la Grande Mosquée de Tivaouane (1976)",
+        "Engagement dans l'agriculture et la gestion des daaras à Diacksao",
+        "Direction de nombreux Gamous"
+      ],
+      "en": [
+        "First president of the monitoring committee for the Grand Mosque of Tivaouane (1976)",
+        "Commitment to agriculture and daara management in Diacksao",
+        "Direction of numerous Gamous"
+      ],
+      "ar": [
+        "أول رئيس للجنة متابعة أعمال المسجد الكبير بتيفاوان (1976)",
+        "الالتزام بالزراعة وإدارة الدار في دياكساو",
+        "إدارة العديد من المولد"
+      ],
+      "wo": [
+        "Njëkk président comité suivi liggéey Jàkka bu mag bi Tiwaawaan (1976)",
+        "Liggéey ci ndox ak daara yi ci Diacksao",
+        "Yoonu ay Gamou yu bari"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/zk7vtiqg_FB_IMG_1770340169935.jpg",
+    "current": false,
+    "order": 5,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708922+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc274",
+    "id": "59903c4d-d6e3-4b2b-acd6-f39bce117d79",
+    "name": "Serigne Moustapha Sy Djamil",
+    "title": {
+      "fr": "L'Ascète de Fass - Borom Fass",
+      "en": "The Ascetic of Fass - Borom Fass",
+      "ar": "زاهد فاس - بوروم فاس",
+      "wo": "Zahid Fass - Borom Fass"
+    },
+    "period": "1916 - 1993",
+    "icon": "Heart",
+    "description": {
+      "fr": "Né le 16 juin 1916 à Louga, petit-fils aîné de Maodo et fils aîné de Serigne Babacar Sy. Surnommé 'Djamil' (le Beau) par Serigne Abdou Aziz Sy Dabakh pour sa beauté physique et morale.",
+      "en": "Born June 16, 1916 in Louga, eldest grandson of Maodo and eldest son of Serigne Babacar Sy. Nicknamed 'Djamil' (the Beautiful) by Serigne Abdou Aziz Sy Dabakh for his physical and moral beauty.",
+      "ar": "ولد في 16 يونيو 1916 في لوغا، الحفيد الأكبر لمودو والابن الأكبر لسرين باباكار سي. لقب بـ'جميل' من قبل سرين عبد العزيز سي داباخ لجماله الجسدي والأخلاقي.",
+      "wo": "Juddu ci 16 juin 1916 ci Louga, njëkk doom-u-doom Maodo ak njëkk doom Serigne Babacar Sy. Tur gi 'Djamil' (Rafet) Serigne Abdou Aziz Sy Dabakh jox ko ngir rafet bu yaram ak bu xel."
+    },
+    "contributions": {
+      "fr": [
+        "Fondateur du quartier Fass à Dakar",
+        "Vie d'ascète et de retraite spirituelle pendant 40 ans",
+        "Enseignement et éducation des enfants"
+      ],
+      "en": [
+        "Founder of the Fass neighborhood in Dakar",
+        "40 years of ascetic life and spiritual retreat",
+        "Teaching and educating children"
+      ],
+      "ar": [
+        "مؤسس حي فاس في داكار",
+        "40 سنة من الحياة الزهدية والخلوة الروحية",
+        "تعليم وتربية الأطفال"
+      ],
+      "wo": [
+        "Tëkkikat kër Fass ci Dakar",
+        "Dund zahid ak retraite spirituelle ci 40 at",
+        "Jàngale ak éduqué xale yi"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/p7vxoses_FB_IMG_1770340283848.jpg",
+    "current": false,
+    "order": 6,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708928+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc275",
+    "id": "09e6e843-1c5b-4d0a-a882-860260b37c94",
+    "name": "Serigne Mansour Sy 'Borom Daradji'",
+    "title": {
+      "fr": "Le Protecteur du Savoir",
+      "en": "The Protector of Knowledge",
+      "ar": "حامي المعرفة",
+      "wo": "Sàmmukat xam-xam"
+    },
+    "period": "1925 - 2012",
+    "icon": "Shield",
+    "description": {
+      "fr": "Gardien de l'orthodoxie et défenseur des valeurs islamiques, il a veillé à la préservation de l'enseignement authentique de Maodo face aux dérives modernes.",
+      "en": "Guardian of orthodoxy and defender of Islamic values, he ensured the preservation of Maodo's authentic teaching against modern deviations.",
+      "ar": "حارس الأرثوذكسية ومدافع عن القيم الإسلامية، حرص على الحفاظ على تعاليم مودو الأصيلة ضد الانحرافات الحديثة.",
+      "wo": "Sàmmukat ortodoksi ak défenseur valeur Islaam yi, mu sàmm jàng bu dëgg Maodo ci kanam dérives modern yi."
+    },
+    "contributions": {
+      "fr": [
+        "Protection de l'héritage spirituel de Maodo",
+        "Renforcement de l'éducation islamique",
+        "Expansion des écoles coraniques (daaras)"
+      ],
+      "en": [
+        "Protection of Maodo's spiritual heritage",
+        "Strengthening Islamic education",
+        "Expansion of Quranic schools (daaras)"
+      ],
+      "ar": [
+        "حماية الإرث الروحي لمودو",
+        "تعزيز التعليم الإسلامي",
+        "توسيع المدارس القرآنية (الدار)"
+      ],
+      "wo": [
+        "Sàmm njàmbaar bu sell Maodo",
+        "Yokku éducation Islaam",
+        "Yàgg daara yi"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg",
+    "current": false,
+    "order": 7,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708934+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc276",
+    "id": "2f4f0625-1d51-4fc5-9a26-be6208eebd94",
+    "name": "Serigne Cheikh Ahmed Tidiane Sy 'Al Maktoum'",
+    "title": {
+      "fr": "Le Visionnaire Multidimensionnel",
+      "en": "The Multidimensional Visionary",
+      "ar": "الرؤيوي متعدد الأبعاد",
+      "wo": "Visionnaire bu bari"
+    },
+    "period": "1925 - 2017",
+    "icon": "Star",
+    "description": {
+      "fr": "Né à Saint-Louis, petit-fils d'El Hadji Malick Sy et fils de Serigne Babacar Sy. Reconnu pour sa précocité intellectuelle, il fonda le dahira Moustarchidine Wal Moustarchidati.",
+      "en": "Born in Saint-Louis, grandson of El Hadji Malick Sy and son of Serigne Babacar Sy. Known for his intellectual precociousness, he founded the Moustarchidine Wal Moustarchidati dahira.",
+      "ar": "ولد في سان لويس، حفيد الحاج مالك سي وابن سرين باباكار سي. معروف بذكائه المبكر، أسس داهيرة مسترشدين ومسترشدات.",
+      "wo": "Juddu ci Ndar, doom-u-doom El Hadji Maalik Si ak doom Serigne Babacar Sy. Xam bu gaaw xel, mu sos dahira Moustarchidine Wal Moustarchidati."
+    },
+    "contributions": {
+      "fr": [
+        "Fondation du dahira Moustarchidine Wal Moustarchidati",
+        "Création de la première association culturelle islamique du Sénégal (1950)",
+        "Initiation du COSKAS pour l'organisation du Gamou (1968)"
+      ],
+      "en": [
+        "Foundation of the Moustarchidine Wal Moustarchidati dahira",
+        "Creation of the first Islamic cultural association in Senegal (1950)",
+        "Initiation of COSKAS for Gamou organization (1968)"
+      ],
+      "ar": [
+        "تأسيس داهيرة مسترشدين ومسترشدات",
+        "إنشاء أول جمعية ثقافية إسلامية في السنغال (1950)",
+        "تأسيس كوسكاس لتنظيم المولد (1968)"
+      ],
+      "wo": [
+        "Sos dahira Moustarchidine Wal Moustarchidati",
+        "Sos njëkk association culturelle islamique Senegaal (1950)",
+        "Njëkk COSKAS ngir organise Gamou (1968)"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/jtrbkp29_IMG-20260206-WA0053.jpg",
+    "current": false,
+    "order": 8,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708940+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc277",
+    "id": "3de16de7-3772-440f-87c8-12513117f60e",
+    "name": "Serigne Abdoul Aziz Sy Al Amine",
+    "title": {
+      "fr": "Le Bâtisseur et Diplomate",
+      "en": "The Builder and Diplomat",
+      "ar": "الباني والدبلوماسي",
+      "wo": "Tabaxkat ak diplomate"
+    },
+    "period": "1928 - 2017",
+    "icon": "Building",
+    "description": {
+      "fr": "Homme de projets et de vision, il a lancé de grands chantiers d'infrastructure à Tivaouane tout en renforçant les liens avec la communauté tidiane internationale.",
+      "en": "A man of projects and vision, he launched major infrastructure projects in Tivaouane while strengthening ties with the international Tidiane community.",
+      "ar": "رجل المشاريع والرؤية، أطلق مشاريع بنية تحتية كبرى في تيفاوان مع تعزيز الروابط مع المجتمع التجاني الدولي.",
+      "wo": "Nit ku projet ak vision, mu tabax infrastruktiir yu mag ci Tiwaawaan te mu yokku lien ak komunite tijaan international bi."
+    },
+    "contributions": {
+      "fr": [
+        "Construction de la nouvelle aile de la Grande Mosquée",
+        "Développement des œuvres sociales (hôpitaux, écoles)",
+        "Renforcement des liens avec les disciples de la diaspora"
+      ],
+      "en": [
+        "Construction of the new wing of the Grand Mosque",
+        "Development of social works (hospitals, schools)",
+        "Strengthening ties with diaspora disciples"
+      ],
+      "ar": [
+        "بناء الجناح الجديد للمسجد الكبير",
+        "تطوير الأعمال الاجتماعية (المستشفيات، المدارس)",
+        "تعزيز الروابط مع تلاميذ المهجر"
+      ],
+      "wo": [
+        "Tabax barab bu bees bu Jàkka bu mag bi",
+        "Yàgg liggéey social yi (opital, ekol)",
+        "Yokku lien ak taalibe diaspora yi"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/dwimysfs_FB_IMG_1770340522540.jpg",
+    "current": false,
+    "order": 9,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708946+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc278",
+    "id": "c95833e4-ee69-42de-9e72-262a834f78ff",
+    "name": "Serigne Babacar Sy Mansour",
+    "title": {
+      "fr": "Le Guide Actuel",
+      "en": "The Current Guide",
+      "ar": "المرشد الحالي",
+      "wo": "Guide tey"
+    },
+    "period": "1932 - Aujourd'hui",
+    "icon": "Users",
+    "description": {
+      "fr": "L'actuel Khalife, garant de l'orthodoxie et de la continuité. Il poursuit l'œuvre de ses prédécesseurs en adaptant l'enseignement aux défis contemporains tout en préservant l'authenticité de la Tariqa.",
+      "en": "The current Khalife, guarantor of orthodoxy and continuity. He continues the work of his predecessors by adapting teaching to contemporary challenges while preserving the authenticity of the Tariqa.",
+      "ar": "الخليفة الحالي، ضامن الأرثوذكسية والاستمرارية. يواصل عمل أسلافه بتكييف التعليم مع التحديات المعاصرة مع الحفاظ على أصالة الطريقة.",
+      "wo": "Xaliifa tey, garant ortodoksi ak continuité. Mu topp liggéey ya ñëwoon di yëggo jàng ci défis tey yi te di sàmm dëgg Tariqa."
+    },
+    "contributions": {
+      "fr": [
+        "Modernisation de la communication (médias numériques)",
+        "Renforcement de l'unité des disciples",
+        "Adaptation de l'enseignement aux réalités du 21e siècle"
+      ],
+      "en": [
+        "Modernization of communication (digital media)",
+        "Strengthening the unity of disciples",
+        "Adaptation of teaching to 21st century realities"
+      ],
+      "ar": [
+        "تحديث الاتصالات (الوسائط الرقمية)",
+        "تعزيز وحدة التلاميذ",
+        "تكييف التعليم مع واقع القرن الحادي والعشرين"
+      ],
+      "wo": [
+        "Yëggo komunikaasion (média numérique)",
+        "Yokku bokk taalibe yi",
+        "Yëggo jàng ci réalité 21e siècle"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
+    "current": true,
+    "order": 10,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708951+00:00"
+  },
+  {
+    "_id": "6987d85b43f63e7d6b9fc279",
+    "id": "f3fabaa9-4b1b-4f57-8d3e-f21ef1d4e9b6",
+    "name": "Serigne Sidy Ahmed Sy ibn Serigne Babacar",
+    "title": {
+      "fr": "Le Gardien de l'Héritage Paternel",
+      "en": "The Guardian of Paternal Heritage",
+      "ar": "حارس الإرث الأبوي",
+      "wo": "Sàmm warisaay baay"
+    },
+    "period": "1933 - 2019",
+    "icon": "Heart",
+    "description": {
+      "fr": "Fils de Serigne Babacar Sy, premier Khalife, Serigne Sidy Ahmed Sy incarna la continuité spirituelle de la lignée. Formé directement par son père dans les sciences religieuses et la gestion de la confrérie, il fut un pilier silencieux mais essentiel de la Tariqa. Sa piété profonde, sa discrétion exemplaire et son dévouement absolu aux enseignements de Maodo firent de lui un modèle pour les disciples.",
+      "en": "Son of Serigne Babacar Sy, the first Khalife, Serigne Sidy Ahmed Sy embodied the spiritual continuity of the lineage. Trained directly by his father in religious sciences and brotherhood management, he was a silent but essential pillar of the Tariqa. His deep piety, exemplary discretion, and absolute devotion to Maodo's teachings made him a model for disciples.",
+      "ar": "ابن سرين باباكار سي، الخليفة الأول، جسّد سرين سيدي أحمد سي الاستمرارية الروحية للسلالة. تدرب مباشرة على يد والده في العلوم الدينية وإدارة الطريقة، فكان ركيزة صامتة لكن أساسية للطريقة. تقواه العميقة وتواضعه المثالي وإخلاصه المطلق لتعاليم مودو جعلته قدوة للتلاميذ.",
+      "wo": "Doom Serigne Babacar Sy, njëkk Xaliifa, Serigne Sidy Ahmed Sy mu wone dund diine waa kër gi. Baay bi moo ko jàngale xam-xam diine ak yoon tànn tariqa. Diine bam bu xóot, sutura bam, ak jëf bam ci jàng Maodo moo ko def misaal ci taalibe yi."
+    },
+    "contributions": {
+      "fr": [
+        "Préservation fidèle des enseignements de son père",
+        "Soutien actif aux activités de la Tariqa",
+        "Formation spirituelle de nombreux disciples",
+        "Maintien de l'unité familiale au sein de la confrérie"
+      ],
+      "en": [
+        "Faithful preservation of his father's teachings",
+        "Active support of Tariqa activities",
+        "Spiritual training of many disciples",
+        "Maintaining family unity within the brotherhood"
+      ],
+      "ar": [
+        "الحفاظ الأمين على تعاليم والده",
+        "الدعم الفعال لأنشطة الطريقة",
+        "التكوين الروحي للعديد من التلاميذ",
+        "الحفاظ على وحدة الأسرة داخل الطريقة"
+      ],
+      "wo": [
+        "Sàmm jàng baay bi bu sell",
+        "Dimbali liggéey Tariqa yi",
+        "Jàngale diine taalibe yu bari",
+        "Sàmm bokk waa kër ci biir tariqa"
+      ]
+    },
+    "image": "https://customer-assets.emergentagent.com/job_9e8f0b7f-bd5d-4cfa-8b09-9e5f34d5dbc8/artifacts/q4qx4any_FB_IMG_1770361012622.jpg",
+    "current": false,
+    "order": 11,
+    "active": true,
+    "created_at": "2026-02-08T00:27:07.708956+00:00"
+  }
+]

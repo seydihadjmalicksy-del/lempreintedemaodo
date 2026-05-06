@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "69a5c1833e1845a9d1bf812d",
+    "id": "a695e0f1-a168-4817-94fa-4dcb0af0607c",
+    "name": "Khassaide",
+    "color": "#D4AF37",
+    "description": "Poèmes religieux",
+    "created_at": "2026-03-02T16:57:39.040678+00:00"
+  },
+  {
+    "_id": "69a5c1883e1845a9d1bf812f",
+    "id": "5d7fe8ef-bc87-4d95-a5ef-2eb0aef99bea",
+    "name": "Gamou",
+    "color": "#006B47",
+    "description": "Célébration du Gamou",
+    "created_at": "2026-03-02T16:57:44.249225+00:00"
+  }
+]

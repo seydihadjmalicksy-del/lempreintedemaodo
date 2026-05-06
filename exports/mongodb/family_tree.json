@@ -1,0 +1,246 @@
+[
+  {
+    "_id": "698a2405540f48630fb1f65c",
+    "id": "f4defcf7-8cb3-485e-9434-53638a920e17",
+    "node_id": "maodo",
+    "nom": "El Hadji Malick Sy",
+    "surnom": "Maodo",
+    "dates": "1855 - 1922",
+    "titre": {
+      "fr": "Fondateur de la Zawiya de Tivaouane",
+      "en": "Founder of the Zawiya of Tivaouane",
+      "ar": "مؤسس زاوية تيفاوان",
+      "wo": "Tëkkikat Zawiya Tiwaawaan"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
+    "parent_id": null,
+    "epouses": [
+      {
+        "nom": "Sokhna Rokhaya Ndiaye",
+        "enfants": [
+          "babacar"
+        ]
+      },
+      {
+        "nom": "Sokhna Safiétou Niang",
+        "enfants": [
+          "habib"
+        ]
+      }
+    ],
+    "is_current_khalife": false,
+    "order": 0,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f65d",
+    "id": "6d1b9ee8-ef28-4af4-8e68-21e2003012a8",
+    "node_id": "babacar",
+    "nom": "Serigne Babacar Sy",
+    "surnom": null,
+    "dates": "1885 - 1957",
+    "titre": {
+      "fr": "Second fils de Maodo - Premier Khalife (1922-1957)",
+      "en": "Second son of Maodo - First Khalife (1922-1957)",
+      "ar": "الابن الثاني لمودو - الخليفة الأول (1922-1957)",
+      "wo": "Ñaareelu doom Maodo - Njëkk Xaliifa (1922-1957)"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/z7luqn3z_FB_IMG_1770339992610.jpg",
+    "parent_id": "maodo",
+    "is_current_khalife": false,
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f65e",
+    "id": "a17150ff-58f4-43f4-9f0d-07a37641291d",
+    "node_id": "mansour_balkhawmi",
+    "nom": "Serigne Mansour Sy",
+    "surnom": "Balkhawmi",
+    "dates": "1900 - 1957",
+    "titre": {
+      "fr": "Le Savant (Khalife quelques mois en 1957)",
+      "en": "The Scholar (Khalife for a few months in 1957)",
+      "ar": "العالم (خليفة لبضعة أشهر في 1957)",
+      "wo": "Borom xam-xam (Xaliifa ay weer ci 1957)"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/s4o5buj7_FB_IMG_1770340053073.jpg",
+    "parent_id": "maodo",
+    "is_current_khalife": false,
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f65f",
+    "id": "7fec6fbd-ddd7-4aac-bdb2-eb9e765f8a0e",
+    "node_id": "dabakh",
+    "nom": "Serigne Abdoul Aziz Sy",
+    "surnom": "Dabakh",
+    "dates": "1904 - 1997",
+    "titre": {
+      "fr": "Khalife (1957-1997)",
+      "en": "Khalife (1957-1997)",
+      "ar": "الخليفة (1957-1997)",
+      "wo": "Xaliifa (1957-1997)"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/qa8yxjql_FB_IMG_1770340203424.jpg",
+    "parent_id": "maodo",
+    "is_current_khalife": false,
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f660",
+    "id": "4f781286-1b4e-4935-8730-15d56267d274",
+    "node_id": "habib",
+    "nom": "Serigne Mouhammadoul Habib Sy",
+    "surnom": null,
+    "dates": "1906 - 1992",
+    "titre": {
+      "fr": "Fils cadet de Maodo",
+      "en": "Youngest son of Maodo",
+      "ar": "الابن الأصغر لمودو",
+      "wo": "Doom bu ndaw Maodo"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/zk7vtiqg_FB_IMG_1770340169935.jpg",
+    "parent_id": "maodo",
+    "is_current_khalife": false,
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f661",
+    "id": "41cfc5c0-40e9-41d9-b2f8-ae88928ce4ed",
+    "node_id": "djamil",
+    "nom": "Serigne Moustapha Sy Djamil",
+    "surnom": "Borom Fass",
+    "dates": "1916 - 1993",
+    "titre": {
+      "fr": "Borom Fass",
+      "en": "Borom Fass",
+      "ar": "بوروم فاس",
+      "wo": "Borom Fass"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/p7vxoses_FB_IMG_1770340283848.jpg",
+    "parent_id": "babacar",
+    "is_current_khalife": false,
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f662",
+    "id": "266ba210-4a3c-4de3-bbe8-7e843360e9a8",
+    "node_id": "mansour_daradji",
+    "nom": "Serigne Mansour Sy",
+    "surnom": "Borom Daradji",
+    "dates": "1925 - 2012",
+    "titre": {
+      "fr": "Khalife (1997-2012)",
+      "en": "Khalife (1997-2012)",
+      "ar": "الخليفة (1997-2012)",
+      "wo": "Xaliifa (1997-2012)"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/mg7xetxg_FB_IMG_1770340311886.jpg",
+    "parent_id": "babacar",
+    "is_current_khalife": false,
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f663",
+    "id": "7d0c5525-8066-492d-bca9-fc0cb47656d5",
+    "node_id": "maktoum",
+    "nom": "Serigne Cheikh Ahmed Tidiane Sy",
+    "surnom": "Al Maktoum",
+    "dates": "1925 - 2017",
+    "titre": {
+      "fr": "Fondateur Moustarchidine",
+      "en": "Founder Moustarchidine",
+      "ar": "مؤسس مسترشدين",
+      "wo": "Tëkkikat Moustarchidine"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/jtrbkp29_IMG-20260206-WA0053.jpg",
+    "parent_id": "babacar",
+    "is_current_khalife": false,
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f664",
+    "id": "6c66b2b1-36eb-4829-bfa4-2849c7bc5500",
+    "node_id": "alamine",
+    "nom": "Serigne Abdoul Aziz Sy",
+    "surnom": "Al Amine",
+    "dates": "1928 - 2017",
+    "titre": {
+      "fr": "Khalife (2012-2017)",
+      "en": "Khalife (2012-2017)",
+      "ar": "الخليفة (2012-2017)",
+      "wo": "Xaliifa (2012-2017)"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/dwimysfs_FB_IMG_1770340522540.jpg",
+    "parent_id": "babacar",
+    "is_current_khalife": false,
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f665",
+    "id": "6d0e204f-bc2e-41e5-88ab-11a079b0f195",
+    "node_id": "babacar_mansour",
+    "nom": "Serigne Babacar Sy Mansour",
+    "surnom": null,
+    "dates": "1932 -",
+    "titre": {
+      "fr": "Khalife Actuel (depuis 2017)",
+      "en": "Current Khalife (since 2017)",
+      "ar": "الخليفة الحالي (منذ 2017)",
+      "wo": "Xaliifa tey (dale 2017)"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/2yhxnkcb_FB_IMG_1770340630966.jpg",
+    "parent_id": "mansour_balkhawmi",
+    "is_current_khalife": true,
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a2405540f48630fb1f666",
+    "id": "97a94c31-15b4-4532-98cc-d0e8da21e016",
+    "node_id": "moustapha_maktoum",
+    "nom": "Serigne Moustapha Sy",
+    "surnom": null,
+    "dates": "1956 -",
+    "titre": {
+      "fr": "Guide Moustarchidine Wal Moustarchidati",
+      "en": "Guide Moustarchidine Wal Moustarchidati",
+      "ar": "مرشد مسترشدين ومسترشدات",
+      "wo": "Guide Moustarchidine Wal Moustarchidati"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
+    "parent_id": "maktoum",
+    "is_current_khalife": false,
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698ce38f014eeca4b99a29a5",
+    "id": "ac99b266-b94e-4237-9d05-2738a4bbc137",
+    "node_id": "sidy_ahmed_ibn_babacar",
+    "nom": "Serigne Sidy Ahmed Sy ibn Serigne Babacar",
+    "surnom": null,
+    "dates": "1933 - 2019",
+    "titre": {
+      "fr": "Le Gardien de l'Héritage Paternel",
+      "en": "The Guardian of the Paternal Heritage",
+      "ar": "حارس الإرث الأبوي",
+      "wo": "Kiy aar Njël Baay bi"
+    },
+    "image": "https://customer-assets.emergentagent.com/job_8a4f2d5c-4955-4b3c-aee1-fdd7d1113978/artifacts/xs7h7eib_image.png",
+    "parent_id": "babacar",
+    "epouses": null,
+    "is_current_khalife": false,
+    "order": 5,
+    "active": true,
+    "created_at": "2026-02-11T20:16:15.207001+00:00"
+  }
+]

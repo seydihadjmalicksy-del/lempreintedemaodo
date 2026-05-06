@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "69855c172dcfe7e391e2252e",
+    "id": "c670c492-0c32-48de-b2ec-5663c5d869c1",
+    "nom": "Test User",
+    "email": "test@example.com",
+    "sujet": "Test Subject",
+    "message": "This is a test message for the contact form.",
+    "created_at": "2026-02-06T03:12:23.369929+00:00",
+    "read": false
+  },
+  {
+    "_id": "69855da8ed63675baa368db1",
+    "id": "8d221a25-776b-42e7-ab39-1a883d492dea",
+    "nom": "Test User",
+    "email": "contact@test.com",
+    "sujet": "Test Subject",
+    "message": "Ceci est un message de test pour vérifier le formulaire de contact.",
+    "created_at": "2026-02-06T03:19:04.358636+00:00",
+    "read": false
+  },
+  {
+    "_id": "69855defed63675baa368db3",
+    "id": "4158b773-7e99-45f2-9e60-416d78deee06",
+    "nom": "Fatou Ndiaye",
+    "email": "fatou.ndiaye626@test.com",
+    "sujet": "Question sur les enseignements",
+    "message": "Salam, je souhaite en savoir plus sur les enseignements de la Tariqa Tidiane. Comment puis-je m'inscrire aux cours ? Merci beaucoup.",
+    "created_at": "2026-02-06T03:20:15.745717+00:00",
+    "read": false
+  },
+  {
+    "_id": "69856101ed63675baa368db5",
+    "id": "6404659d-bdd1-4900-a186-243215b1e509",
+    "nom": "Test User",
+    "email": "test_contact@example.com",
+    "sujet": "Test Subject",
+    "message": "This is a test message for the contact form.",
+    "created_at": "2026-02-06T03:33:21.796224+00:00",
+    "read": false
+  },
+  {
+    "_id": "6985612b66543db26061c451",
+    "id": "e74b9002-28a7-4a3f-abea-ba0bacb01e72",
+    "nom": "Test User",
+    "email": "test_301ba08f@example.com",
+    "sujet": "Test Subject",
+    "message": "This is a test message for the contact form. It has more than 10 characters.",
+    "created_at": "2026-02-06T03:34:03.048887+00:00",
+    "read": false
+  },
+  {
+    "_id": "6985615166543db26061c453",
+    "id": "10184464-60cf-4a3b-aa1c-eca622513fe2",
+    "nom": "Test Playwright User",
+    "email": "playwright_contact_1770348881@example.com",
+    "sujet": "Test Subject from Playwright",
+    "message": "This is a test message from Playwright automated testing. It contains more than 10 characters to pass validation.",
+    "created_at": "2026-02-06T03:34:41.927599+00:00",
+    "read": true
+  },
+  {
+    "_id": "69a87546e8b2db0aa4e8d1fc",
+    "id": "9fe25d48-3c39-4991-ab5b-a2fb95870fb1",
+    "nom": "DAWUD",
+    "email": "daouda15@hotmail.com",
+    "sujet": "ARCHIVES",
+    "message": "Demande d'infos",
+    "created_at": "2026-03-04T18:09:10.062192+00:00",
+    "read": false
+  }
+]

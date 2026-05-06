@@ -1,0 +1,1194 @@
+[
+  {
+    "_id": "6990f8cf2e8279088cee5f76",
+    "slug": "histoire/origines",
+    "titre": {
+      "fr": "Les Origines de la Tijaniyya",
+      "en": "The Origins of Tijaniyya",
+      "ar": "أصول الطريقة التجانية"
+    },
+    "description": {
+      "fr": "L'histoire de la confrérie soufie fondée par Cheikh Ahmed Tijani",
+      "en": "The history of the Sufi brotherhood founded by Sheikh Ahmed Tijani",
+      "ar": "تاريخ الطريقة الصوفية التي أسسها الشيخ أحمد التجاني"
+    },
+    "hero_image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
+    "hero_icon": "BookOpen",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Le Fondateur : Cheikh Ahmed Tijani (1737-1815)",
+          "en": "The Founder: Sheikh Ahmed Tijani (1737-1815)",
+          "ar": "المؤسس: الشيخ أحمد التجاني (1737-1815)"
+        },
+        "contenu": {
+          "fr": "La Tijaniyya est une confrérie soufie fondée en 1781-1782 par Cheikh Ahmed Tijani (1737-1815), lors d'une vision mystique du Prophète Muhammad (PSL) en état de veille, près de Boussemghoun, une oasis proche d'Aïn Madhi en Algérie.\n\nNé en 1737 à Aïn Madhi (sud de l'Algérie), descendant chérif du Prophète par son père, Ahmed Tijani maîtrise le Coran dès l'âge de 7 ans et étudie les sciences islamiques (droit malikite, théologie asharite, grammaire arabe), devenant professeur et mufti.\n\nIl voyage beaucoup : Tlemcen (où il enseigne), El Abiodh Sidi Cheikh, Tunis (invité par l'émir), avant sa retraite fondatrice à Boussemghoun. Poursuivi par les autorités ottomanes d'Alger pour l'expansion rapide de son ordre, il s'installe définitivement à Fès (Maroc) en 1798, où il construit la zawiya Tijaniyya et meurt en 1815.",
+          "en": "The Tijaniyya is a Sufi brotherhood founded in 1781-1782 by Sheikh Ahmed Tijani (1737-1815), during a mystical vision of Prophet Muhammad (PBUH) while awake, near Boussemghoun, an oasis near Aïn Madhi in Algeria.\n\nBorn in 1737 in Aïn Madhi (southern Algeria), a sharif descendant of the Prophet through his father, Ahmed Tijani mastered the Quran at age 7 and studied Islamic sciences (Maliki law, Ashari theology, Arabic grammar), becoming a professor and mufti.\n\nHe traveled extensively: Tlemcen (where he taught), El Abiodh Sidi Cheikh, Tunis (invited by the emir), before his founding retreat in Boussemghoun. Pursued by Ottoman authorities from Algiers for the rapid expansion of his order, he settled permanently in Fez (Morocco) in 1798, where he built the Tijaniyya zawiya and died in 1815."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "97c405ba-a507-4c98-b844-77c6bb25594f"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Spécificités de la Tijaniyya",
+          "en": "Specificities of Tijaniyya",
+          "ar": "خصائص الطريقة التجانية"
+        },
+        "contenu": {
+          "fr": "La Tijaniyya se distingue par son exclusivisme spirituel : l'initiation directe par le Prophète Muhammad raccourcit la chaîne spirituelle (silsila) par rapport aux autres tariqas. Elle insiste sur les pratiques fondamentales de l'islam et des invocations spécifiques.\n\nLa tariqa est connue pour :\n- Son approche directe de la spiritualité, sans intermédiaires multiples\n- L'importance accordée au dhikr (invocations) et aux wird quotidiens\n- La promotion d'un islam tolérant et pacifique\n- L'accent mis sur l'éducation et la connaissance",
+          "en": "The Tijaniyya is distinguished by its spiritual exclusivity: direct initiation by Prophet Muhammad shortens the spiritual chain (silsila) compared to other tariqas. It emphasizes the fundamental practices of Islam and specific invocations.\n\nThe tariqa is known for:\n- Its direct approach to spirituality, without multiple intermediaries\n- The importance given to dhikr (invocations) and daily wird\n- The promotion of a tolerant and peaceful Islam\n- The emphasis on education and knowledge"
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "d1634f30-554d-4a8d-b1a8-bf2e64bee8fc"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Expansion en Afrique de l'Ouest",
+          "en": "Expansion in West Africa",
+          "ar": "الانتشار في غرب أفريقيا"
+        },
+        "contenu": {
+          "fr": "La Tijaniyya s'est répandue depuis le Maghreb (Tunisie via Ibrahim Riyahi, Maroc, Algérie) vers l'Afrique subsaharienne, traversant le Sahara via la Mauritanie.\n\nAu Sénégal, elle a été introduite par El Hadj Umar Tall (1797-1864), un savant peul qui mena un djihad anticolonial (1852-1864) créant l'empire toucouleur. Cette expansion favorisa sa propagation dans toute la région.\n\nLes familles influentes de la Tijaniyya au Sénégal sont les Tall, les Niasse et les Sy. Aujourd'hui, la Tijaniyya reste la plus grande confrérie soufie d'Afrique de l'Ouest, promouvant un islam tolérant contre l'extrémisme.",
+          "en": "The Tijaniyya spread from the Maghreb (Tunisia via Ibrahim Riyahi, Morocco, Algeria) to sub-Saharan Africa, crossing the Sahara via Mauritania.\n\nIn Senegal, it was introduced by El Hadj Umar Tall (1797-1864), a Fulani scholar who led an anti-colonial jihad (1852-1864) creating the Toucouleur empire. This expansion favored its spread throughout the region.\n\nThe influential families of the Tijaniyya in Senegal are the Tall, Niasse and Sy. Today, the Tijaniyya remains the largest Sufi brotherhood in West Africa, promoting a tolerant Islam against extremism."
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "bd4553c2-9a78-4510-8351-0acb1c6bdc3e"
+      },
+      {
+        "type": "timeline",
+        "titre": {
+          "fr": "Chronologie",
+          "en": "Timeline",
+          "ar": "التسلسل الزمني"
+        },
+        "contenu": {
+          "fr": "1737: Naissance de Cheikh Ahmed Tijani à Aïn Madhi (Algérie)\n1744: Maîtrise du Coran à l'âge de 7 ans\n1781-1782: Vision du Prophète et fondation de la Tijaniyya\n1798: Installation définitive à Fès (Maroc)\n1815: Décès de Cheikh Ahmed Tijani à Fès\n1852-1864: El Hadj Umar Tall propage la Tijaniyya au Sénégal\n1902: El Hadji Malick Sy fonde la zawiya de Tivaouane",
+          "en": "1737: Birth of Sheikh Ahmed Tijani in Aïn Madhi (Algeria)\n1744: Mastery of the Quran at age 7\n1781-1782: Vision of the Prophet and founding of Tijaniyya\n1798: Permanent settlement in Fez (Morocco)\n1815: Death of Sheikh Ahmed Tijani in Fez\n1852-1864: El Hadj Umar Tall spreads Tijaniyya in Senegal\n1902: El Hadji Malick Sy founds the zawiya of Tivaouane"
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "1a4e3746-2a7f-482e-999e-673827727dba"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Fès : Le Centre Spirituel",
+          "en": "Fez: The Spiritual Center",
+          "ar": "فاس: المركز الروحي"
+        },
+        "contenu": {
+          "fr": "Fès, au Maroc, reste le siège de la zawiya centrale de la Tijaniyya et un lieu de pèlerinage important pour les adeptes du monde entier. La zawiya de Fès abrite le mausolée de Cheikh Ahmed Tijani et représente le cœur historique de la confrérie.\n\nTivaouane, au Sénégal, est devenue le deuxième pôle majeur de la Tijaniyya, grâce à l'œuvre d'El Hadji Malick Sy qui y a établi une zawiya rayonnante en 1902. Ces deux villes forment les deux piliers géographiques de la confrérie en Afrique.",
+          "en": "Fez, in Morocco, remains the headquarters of the central Tijaniyya zawiya and an important pilgrimage site for followers worldwide. The Fez zawiya houses the mausoleum of Sheikh Ahmed Tijani and represents the historical heart of the brotherhood.\n\nTivaouane, in Senegal, has become the second major center of the Tijaniyya, thanks to the work of El Hadji Malick Sy who established a radiant zawiya there in 1902. These two cities form the two geographical pillars of the brotherhood in Africa."
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "e45dd31b-70e6-4fd9-b554-5604d88ed02c"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "histoire",
+    "menu_order": 1,
+    "id": "1d42ce99-5bda-44e3-90c3-52f0e531a969",
+    "created_at": "2026-02-14T22:35:59.848404+00:00",
+    "updated_at": "2026-02-22T14:19:55.660700+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f77",
+    "slug": "histoire/maodo",
+    "titre": {
+      "fr": "El Hadji Malick Sy (Maodo)",
+      "en": "El Hadji Malick Sy (Maodo)",
+      "ar": "الحاج مالك سي (مودو)"
+    },
+    "description": {
+      "fr": "Celui qui a fait de Tivaouane le phare de la spiritualité en Afrique de l'Ouest",
+      "en": "The one who made Tivaouane the beacon of spirituality in West Africa",
+      "ar": "من جعل تيفاوان منارة الروحانية في غرب أفريقيا"
+    },
+    "hero_image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
+    "hero_icon": "Star",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Introduction",
+          "en": "Introduction",
+          "ar": "مقدمة"
+        },
+        "contenu": {
+          "fr": "El Hadji Malick Sy (1855-1922), également connu sous le nom de Maodo ou Seydil Hadji Malick Sy, est un érudit musulman sénégalais et l'une des figures les plus marquantes de l'islam soufi en Afrique de l'Ouest. Marabout de la confrérie Tijaniyya, il a propagé cette voie spirituelle au Sénégal, particulièrement à Tivaouane où il fonda une zawiya en 1902 et instaura le Gamou, célébration annuelle de la naissance du Prophète Muhammad (PSL).\n\nSon œuvre a profondément façonné le paysage religieux et social du Sénégal, faisant de Tivaouane un centre spirituel rayonnant qui attire des millions de fidèles chaque année.",
+          "en": "El Hadji Malick Sy (1855-1922), also known as Maodo or Seydil Hadji Malick Sy, was a Senegalese Muslim scholar and one of the most prominent figures of Sufi Islam in West Africa. A marabout of the Tijaniyya brotherhood, he spread this spiritual path in Senegal, particularly in Tivaouane where he founded a zawiya in 1902 and established the Gamou, an annual celebration of the birth of Prophet Muhammad (PBUH).\n\nHis work profoundly shaped the religious and social landscape of Senegal, making Tivaouane a radiant spiritual center that attracts millions of faithful every year."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "067b442f-db8c-413c-bd4d-afdf572930ee"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Naissance et Origines",
+          "en": "Birth and Origins",
+          "ar": "الولادة والأصول"
+        },
+        "contenu": {
+          "fr": "El Hadji Malick Sy est né en 1855 dans le quartier Daw Fall à Gaya, situé dans le département de Dagana, au nord du Sénégal. Descendant du Fouta Toro par son grand-père Demba Bouna Sy, il fut orphelin de père très jeune.\n\nIl fut élevé par son oncle maternel Alfa Mayoro Wélé, qui l'initia à la Tijaniyya, confrérie soufie fondée par Cheikh Sidi Ahmed Tijani (1737-1815). Cette éducation précoce allait façonner sa destinée spirituelle et son engagement envers la transmission du savoir islamique.",
+          "en": "El Hadji Malick Sy was born in 1855 in the Daw Fall quarter of Gaya, located in the Dagana department in northern Senegal. A descendant of Fouta Toro through his grandfather Demba Bouna Sy, he was orphaned of his father at a very young age.\n\nHe was raised by his maternal uncle Alfa Mayoro Wélé, who initiated him into the Tijaniyya, a Sufi brotherhood founded by Sheikh Sidi Ahmed Tijani (1737-1815). This early education would shape his spiritual destiny and his commitment to the transmission of Islamic knowledge."
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "6b8fd8c9-7773-4893-a51b-67191a15481c"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Formation et Études",
+          "en": "Education and Studies",
+          "ar": "التعليم والدراسات"
+        },
+        "contenu": {
+          "fr": "Ses études coraniques, théologiques et juridiques durèrent environ 25 ans (1858-1883), dans divers foyers islamiques sénégalais. Il étudia à Gaya (théologie et exégèse), Ndombo (fiqh), Bokhol, Keur Kodé Alassane, Taiba Sèye, Saldé (auprès d'Abdou Bitèye), Thiarène, Thilogne, et également en Mauritanie.\n\nÀ l'âge de 18 ans, il devint professeur complet d'arabe et reçut le wird tidjane (hidjaza), conformément à une prédiction d'El Hadji Omar Tall, transmis via son oncle Alfa Mayoro Wélé. Cette consécration marqua le début de sa mission de propagation de la Tijaniyya.",
+          "en": "His Quranic, theological, and legal studies lasted about 25 years (1858-1883), in various Senegalese Islamic centers. He studied in Gaya (theology and exegesis), Ndombo (fiqh), Bokhol, Keur Kodé Alassane, Taiba Sèye, Saldé (under Abdou Bitèye), Thiarène, Thilogne, and also in Mauritania.\n\nAt the age of 18, he became a complete teacher of Arabic and received the Tidiane wird (hidjaza), in accordance with a prediction by El Hadji Omar Tall, transmitted through his uncle Alfa Mayoro Wélé. This consecration marked the beginning of his mission to spread the Tijaniyya."
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "925439c9-12a4-4909-b07a-226510094509"
+      },
+      {
+        "type": "timeline",
+        "titre": {
+          "fr": "Chronologie",
+          "en": "Timeline",
+          "ar": "التسلسل الزمني"
+        },
+        "contenu": {
+          "fr": "1855: Naissance à Gaya (département de Dagana)\n1873: Devient professeur complet d'arabe à 18 ans\n1884: Installation à Saint-Louis du Sénégal\n1888: Pèlerinage à La Mecque via Marseille et Alexandrie\n1892: Fondation de la zawiya de Ndar (Saint-Louis)\n1902: Installation définitive à Tivaouane et fondation de la zawiya\n1902: Première édition du Gamou à Tivaouane\n1914: Fondation de la zaouïa de Dakar (avenue Lamine Guèye)\n27 juin 1922: Retour à Dieu à Tivaouane",
+          "en": "1855: Birth in Gaya (Dagana department)\n1873: Becomes a complete teacher of Arabic at 18\n1884: Settlement in Saint-Louis, Senegal\n1888: Pilgrimage to Mecca via Marseille and Alexandria\n1892: Foundation of the Ndar zawiya (Saint-Louis)\n1902: Permanent settlement in Tivaouane and foundation of the zawiya\n1902: First edition of Gamou in Tivaouane\n1914: Foundation of the Dakar zawiya (Lamine Guèye avenue)\nJune 27, 1922: Return to God in Tivaouane"
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "5df0a3ce-9ed5-4df8-8622-82cf07084160"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "L'Installation à Tivaouane",
+          "en": "Settlement in Tivaouane",
+          "ar": "الاستقرار في تيفاوان"
+        },
+        "contenu": {
+          "fr": "En 1902, sur invitation du commerçant Djibril Guèye et suivant les suggestions de son beau-père Mor Massamba Diery Dieng, El Hadji Malick Sy s'installa définitivement à Tivaouane, dans le Cayor.\n\nC'est là qu'il fonda sa zawiya et transforma une fête traditionnelle en Gamou, une veillée spirituelle de louanges au Prophète avec lectures coraniques. Cette célébration attira rapidement des masses de fidèles, faisant de Tivaouane la cinquième ville du Sénégal en 1904.\n\nLe choix de Tivaouane n'était pas anodin : cette ville allait devenir le cœur spirituel de la Tijaniyya en Afrique de l'Ouest, rayonnant bien au-delà des frontières sénégalaises.",
+          "en": "In 1902, at the invitation of the merchant Djibril Guèye and following suggestions from his father-in-law Mor Massamba Diery Dieng, El Hadji Malick Sy settled permanently in Tivaouane, in Cayor.\n\nIt was there that he founded his zawiya and transformed a traditional celebration into the Gamou, a spiritual vigil of praises to the Prophet with Quranic readings. This celebration quickly attracted masses of faithful, making Tivaouane the fifth largest city in Senegal in 1904.\n\nThe choice of Tivaouane was not coincidental: this city would become the spiritual heart of the Tijaniyya in West Africa, radiating well beyond Senegalese borders."
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "318d6687-3fdb-4c4a-8f67-32501eda1fcd"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Œuvres et Contributions",
+          "en": "Works and Contributions",
+          "ar": "الأعمال والمساهمات"
+        },
+        "contenu": {
+          "fr": "• Qilâsu thahab (L'or décanté) - Ouvrage majeur de théologie\n• Propagation de la Tijaniyya en Afrique subsaharienne\n• Fondation de nombreuses daaras (écoles coraniques)\n• Construction de mosquées dans tout le Sénégal\n• Institution du Gamou comme célébration nationale\n• Promotion de la paix sociale et du dialogue interreligieux\n• Établissement de liens diplomatiques avec le Maroc (zawiya de Fès)\n• Formation de milliers de disciples et de savants",
+          "en": "• Qilâsu thahab (The decanted gold) - Major theological work\n• Spread of Tijaniyya in sub-Saharan Africa\n• Foundation of numerous daaras (Quranic schools)\n• Construction of mosques throughout Senegal\n• Institution of Gamou as a national celebration\n• Promotion of social peace and interfaith dialogue\n• Establishment of diplomatic ties with Morocco (Fez zawiya)\n• Training of thousands of disciples and scholars"
+        },
+        "image": null,
+        "order": 6,
+        "visible": true,
+        "metadata": {},
+        "id": "4ac67a46-1701-448f-af5e-5a8df7eb1a36"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Héritage et Succession",
+          "en": "Legacy and Succession",
+          "ar": "الإرث والخلافة"
+        },
+        "contenu": {
+          "fr": "El Hadji Malick Sy décéda le 27 juin 1922 à Tivaouane, où il est inhumé. Son fils Seydi Ababacar Sy (1885-1957) lui succéda comme khalife général des Tijanes sénégalais, suivi d'Abdou Aziz Sy (décédé en 1997) et de Mansour Sy.\n\nAujourd'hui, les Tijanes représentent la première confrérie soufie au Sénégal. Le Gamou de Tivaouane attire chaque année des millions de pèlerins venus du monde entier pour commémorer la naissance du Prophète et célébrer l'héritage spirituel de Maodo.\n\nSon message de paix, d'éducation et de spiritualité continue d'inspirer des générations de musulmans en Afrique et au-delà.",
+          "en": "El Hadji Malick Sy died on June 27, 1922 in Tivaouane, where he is buried. His son Seydi Ababacar Sy (1885-1957) succeeded him as general khalifa of Senegalese Tijanes, followed by Abdou Aziz Sy (died 1997) and Mansour Sy.\n\nToday, the Tijanes represent the largest Sufi brotherhood in Senegal. The Gamou of Tivaouane attracts millions of pilgrims from around the world every year to commemorate the birth of the Prophet and celebrate the spiritual heritage of Maodo.\n\nHis message of peace, education, and spirituality continues to inspire generations of Muslims in Africa and beyond."
+        },
+        "image": null,
+        "order": 7,
+        "visible": true,
+        "metadata": {},
+        "id": "37365e75-e7dc-4ae7-a847-fc58d30b8584"
+      },
+      {
+        "type": "quote",
+        "titre": {
+          "fr": "Paroles de Maodo",
+          "en": "Words of Maodo",
+          "ar": "كلمات مودو"
+        },
+        "contenu": {
+          "fr": "La connaissance est une lumière que Dieu dépose dans le cœur de qui Il veut.\n\nLe savoir qui ne conduit pas à la piété est une charge, non une bénédiction.\n\nServez Dieu avec amour, et aimez Ses créatures comme manifestation de votre amour pour Lui.",
+          "en": "Knowledge is a light that God places in the heart of whomever He wills.\n\nKnowledge that does not lead to piety is a burden, not a blessing.\n\nServe God with love, and love His creatures as a manifestation of your love for Him."
+        },
+        "image": null,
+        "order": 8,
+        "visible": true,
+        "metadata": {},
+        "id": "83689a03-11ef-42ef-b7bb-4a2cdfd55856"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "histoire",
+    "menu_order": 2,
+    "id": "f1eca87b-d3b5-4724-8f67-8f3e881089d5",
+    "created_at": "2026-02-14T22:36:00.007680+00:00",
+    "updated_at": "2026-02-22T13:59:02.019757+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f78",
+    "slug": "histoire/khalifes",
+    "titre": {
+      "fr": "La Lignée des Khalifes",
+      "en": "The Lineage of Khalifs",
+      "ar": "سلالة الخلفاء"
+    },
+    "description": {
+      "fr": "Les successeurs spirituels de Maodo",
+      "en": "The spiritual successors of Maodo"
+    },
+    "hero_image": null,
+    "hero_icon": "Users",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "La succession spirituelle",
+          "en": "Spiritual Succession"
+        },
+        "contenu": {
+          "fr": "Depuis le rappel à Dieu de Maodo en 1922, six Khalifes généraux se sont succédé à la tête de la Tariqa Tijaniyya de Tivaouane, perpétuant l'héritage spirituel et les enseignements du fondateur.",
+          "en": "Since Maodo's death in 1922, six General Khalifs have succeeded at the head of the Tijani Tariqa."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "993b1bd5-5927-4587-a8a8-e5b7086a041b"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Les Khalifes",
+          "en": "The Khalifs"
+        },
+        "contenu": {
+          "fr": "1. Serigne Babacar Sy (1922-1957)\n2. Serigne Abdoul Aziz Sy Dabakh (1957-1997)\n3. Serigne Moustapha Sy (1997-2012)\n4. Serigne Abdoul Aziz Al Amine (2012-2021)\n5. Serigne Babacar Sy Mansour (2021-2023)\n6. Serigne Mbaye Sy Mansour (2023-présent)",
+          "en": "List of Khalifs..."
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "783d0b12-60a1-439a-8187-0cdf346b81e4"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "histoire",
+    "menu_order": 3,
+    "id": "9f979553-4792-45b9-89ab-cd1eff00bb4b",
+    "created_at": "2026-02-14T22:36:00.115286+00:00",
+    "updated_at": "2026-02-14T22:36:00.115293+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f79",
+    "slug": "histoire/geographie",
+    "titre": {
+      "fr": "Géographie Sacrée",
+      "en": "Sacred Geography",
+      "ar": "الجغرافيا المقدسة"
+    },
+    "description": {
+      "fr": "Les lieux saints de la Tijaniyya à Tivaouane",
+      "en": "The holy places of Tijaniyya in Tivaouane",
+      "ar": "الأماكن المقدسة للطريقة التجانية في تيفاوان"
+    },
+    "hero_image": null,
+    "hero_icon": "MapPin",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Tivaouane : Ville Sainte",
+          "en": "Tivaouane: Holy City",
+          "ar": "تيفاوان: المدينة المقدسة"
+        },
+        "contenu": {
+          "fr": "Tivaouane, située au nord-ouest du Sénégal près de Thiès, est un centre majeur de géographie sacrée pour la confrérie Tijaniyya. Cette ville sainte est marquée par des lieux saints prestigieux : la mosquée et la zawiya d'El Hadji Malick Sy, son mausolée, et d'autres sites religieux qui attirent des millions de pèlerins chaque année.\n\nCes éléments structurent l'identité territoriale et spirituelle de la ville depuis l'arrivée d'El Hadji Malick Sy en 1902, transformant Tivaouane en un pôle majeur de l'islam tidjane avec un paysage religieux organisé autour de ces édifices sacrés.\n\nAncienne capitale du royaume de Cayor (signalée dès le XVe siècle), Tivaouane est aujourd'hui intégrée au département de Thiès. Sa population est passée de 7 900 habitants en 1960 à environ 100 000 habitants, multipliée par 50 lors des grands événements religieux comme le Gamou.",
+          "en": "Tivaouane, located in northwestern Senegal near Thiès, is a major center of sacred geography for the Tijaniyya brotherhood. This holy city is marked by prestigious holy places: the mosque and zawiya of El Hadji Malick Sy, his mausoleum, and other religious sites that attract millions of pilgrims every year.\n\nThese elements structure the territorial and spiritual identity of the city since the arrival of El Hadji Malick Sy in 1902, transforming Tivaouane into a major center of Tidjane Islam with a religious landscape organized around these sacred buildings.\n\nFormer capital of the Kingdom of Cayor (recorded as early as the 15th century), Tivaouane is now part of the Thiès department. Its population has grown from 7,900 inhabitants in 1960 to about 100,000, multiplied by 50 during major religious events like the Gamou."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "9b99c671-11f3-4fbb-bcf5-8761a574b8e4"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "La Mosquée et la Zawiya d'El Hadji Malick Sy",
+          "en": "The Mosque and Zawiya of El Hadji Malick Sy",
+          "ar": "مسجد وزاوية الحاج مالك سي"
+        },
+        "contenu": {
+          "fr": "Érigée en 1904 par El Hadji Malick Sy (Seydil Hadj Malick Sy), cette mosquée est un patrimoine historique et spirituel central de la Tijaniyya. Elle a été modernisée au fil des années pour accueillir les fidèles toujours plus nombreux.\n\nLa zawiya adjacente est un lieu d'étude islamique et de prières quotidiennes. Elle sert de cadre aux célébrations comme le Gamou (Mawlid), commémorant la naissance du Prophète Muhammad (PSL) et attirant des milliers de personnes.\n\nCe complexe religieux représente le cœur battant de la Tijaniyya sénégalaise, où se perpétuent les enseignements d'El Hadji Malick Sy et où se réunissent les fidèles pour les pratiques spirituelles quotidiennes.",
+          "en": "Built in 1904 by El Hadji Malick Sy (Seydil Hadj Malick Sy), this mosque is a central historical and spiritual heritage of the Tijaniyya. It has been modernized over the years to accommodate the ever-growing number of faithful.\n\nThe adjacent zawiya is a place of Islamic study and daily prayers. It serves as the setting for celebrations like the Gamou (Mawlid), commemorating the birth of Prophet Muhammad (PBUH) and attracting thousands of people.\n\nThis religious complex represents the beating heart of Senegalese Tijaniyya, where the teachings of El Hadji Malick Sy are perpetuated and where the faithful gather for daily spiritual practices."
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "7d815c49-f679-4466-a104-d94f36cc08e9"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Les Mausolées Sacrés",
+          "en": "Sacred Mausoleums",
+          "ar": "الأضرحة المقدسة"
+        },
+        "contenu": {
+          "fr": "• Mausolée d'El Hadji Malick Sy - Site emblématique de recueillement, visité chaque semaine par des fidèles\n• Mausolée de Serigne Babacar Sy - Épicentre de la ferveur des pèlerins lors des ziarra\n• Mausolée de Serigne Mansour Sy - Lieu de prière et de méditation\n• Mausolée de Serigne Abdou Aziz Sy \"Dabakh\" - Site de recueillement très fréquenté\n• Mausolée de Serigne Cheikh Tidiane Sy \"Al Makhtoum\" - Attraction majeure lors du Gamou",
+          "en": "• Mausoleum of El Hadji Malick Sy - Emblematic site of contemplation, visited weekly by faithful\n• Mausoleum of Serigne Babacar Sy - Epicenter of pilgrim fervor during ziarra\n• Mausoleum of Serigne Mansour Sy - Place of prayer and meditation\n• Mausoleum of Serigne Abdou Aziz Sy \"Dabakh\" - Highly frequented site of contemplation\n• Mausoleum of Serigne Cheikh Tidiane Sy \"Al Makhtoum\" - Major attraction during Gamou"
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "c94d88e2-5317-44da-9843-704ae570b32c"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "La Grande Mosquée en Construction",
+          "en": "The Grand Mosque Under Construction",
+          "ar": "المسجد الكبير قيد البناء"
+        },
+        "contenu": {
+          "fr": "Lancée en 1978 par Serigne Abdou Aziz Sy Dabakh, la construction de la Grande Mosquée de Tivaouane représente un projet monumental pour la communauté tidjane. Ce chantier ambitieux vise à créer un espace de prière capable d'accueillir les millions de fidèles lors des grands rassemblements.\n\nLa mosquée Serigne Babacar Sy, ainsi que d'autres édifices religieux, marquent l'espace urbain de Tivaouane et témoignent du dynamisme de la communauté tidjane.\n\nL'ensemble de ces sites a été inscrit en 2003 sur la liste des Monuments historiques sénégalais, reconnaissant leur valeur patrimoniale et spirituelle exceptionnelle.",
+          "en": "Launched in 1978 by Serigne Abdou Aziz Sy Dabakh, the construction of the Grand Mosque of Tivaouane represents a monumental project for the Tidjane community. This ambitious project aims to create a prayer space capable of accommodating millions of faithful during major gatherings.\n\nThe Serigne Babacar Sy mosque, along with other religious buildings, marks the urban landscape of Tivaouane and testifies to the dynamism of the Tidjane community.\n\nAll these sites were listed in 2003 on the list of Senegalese Historical Monuments, recognizing their exceptional heritage and spiritual value."
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "26a24c67-65d8-4091-87df-1a830eeacbd6"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Rayonnement International",
+          "en": "International Influence",
+          "ar": "الإشعاع الدولي"
+        },
+        "contenu": {
+          "fr": "Tivaouane incarne une géographie sacrée où l'espace s'organise autour de ces marqueurs religieux. Les habitats et le tissu urbain sont structurés radialement par les édifices religieux.\n\nLa ville entretient des liens historiques forts avec le Maroc (zawiya de Fès) et d'autres pays arabes, renforçant son rayonnement international au sein de la Tijaniyya mondiale.\n\nDes initiatives comme la Cellule Zawiya Tijaniyya (CEZAT) animent scientifiquement et communiquent sur ces lieux saints, assurant la préservation et la promotion du patrimoine spirituel de Tivaouane pour les générations futures.",
+          "en": "Tivaouane embodies a sacred geography where space is organized around these religious markers. Housing and urban fabric are radially structured by religious buildings.\n\nThe city maintains strong historical ties with Morocco (Fez zawiya) and other Arab countries, strengthening its international influence within the global Tijaniyya.\n\nInitiatives like the Zawiya Tijaniyya Cell (CEZAT) scientifically animate and communicate about these holy places, ensuring the preservation and promotion of Tivaouane's spiritual heritage for future generations."
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "34e4f5e8-12e3-4f29-8345-1ece7c76ed0f"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "histoire",
+    "menu_order": 4,
+    "id": "8db89d4c-69ab-495f-9ff8-678257e5d936",
+    "created_at": "2026-02-14T22:36:00.226013+00:00",
+    "updated_at": "2026-02-22T14:20:37.734791+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f7a",
+    "slug": "enseignements/piliers",
+    "titre": {
+      "fr": "Les Piliers de la Tariqa",
+      "en": "The Pillars of the Tariqa",
+      "ar": "أركان الطريقة"
+    },
+    "description": {
+      "fr": "Les fondements spirituels et les pratiques essentielles de la Tijaniyya",
+      "en": "The spiritual foundations and essential practices of the Tijaniyya",
+      "ar": "الأسس الروحية والممارسات الأساسية للطريقة التجانية"
+    },
+    "hero_image": null,
+    "hero_icon": "Heart",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Fondements Doctrinaux",
+          "en": "Doctrinal Foundations",
+          "ar": "الأسس العقدية"
+        },
+        "contenu": {
+          "fr": "La Tijaniyya repose sur trois piliers fondamentaux correspondant aux enseignements des oulémas : l'îmân (foi), l'islâm (soumission) et l'ihsân (bienfaisance). Le dhikr (invocations) est placé au cœur de sa doctrine pour une spiritualité individuelle et communautaire.\n\nLes fondements spirituels de la tariqa sont :\n- Le Coran et la Sunna prophétique\n- Une relation directe avec le Cheikh fondateur\n- La constance et la sobriété dans la pratique\n- L'intention pure (niyya) et le repentir sincère\n- La pureté rituelle et le silence avant les pratiques\n\nLa structure est collectiviste (solidarité, fraternité) mais centrée sur la pratique individuelle, avec un accent sur l'éducation et le bien-être matériel, sans intermédiaires entre le disciple et Dieu.",
+          "en": "The Tijaniyya rests on three fundamental pillars corresponding to the teachings of the ulema: iman (faith), islam (submission) and ihsan (beneficence). Dhikr (invocations) is placed at the heart of its doctrine for individual and community spirituality.\n\nThe spiritual foundations of the tariqa are:\n- The Quran and Prophetic Sunna\n- A direct relationship with the founding Sheikh\n- Constancy and sobriety in practice\n- Pure intention (niyya) and sincere repentance\n- Ritual purity and silence before practices\n\nThe structure is collectivist (solidarity, brotherhood) but centered on individual practice, with emphasis on education and material well-being, without intermediaries between the disciple and God."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "e959e663-0724-4129-95d6-4b1f3db56d13"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Le Lâzim (Wird Quotidien)",
+          "en": "The Lazim (Daily Wird)",
+          "ar": "اللازم (الورد اليومي)"
+        },
+        "contenu": {
+          "fr": "Le Lâzim (ou Wird al-lâzim) est une pratique obligatoire récitée deux fois par jour : le matin (avant l'aube jusqu'à environ 3 heures après le lever du soleil) et le soir.\n\nContenu du Lâzim :\n• 100 istighfâr (« AstaghfiruLlâh ») - Demande de pardon\n• 100 ṣalawât sur le Prophète - Prières sur le Prophète\n• 100 tahlîl (« Lâ ilâha illâ Allâh ») - Attestation de l'unicité divine\n• Clôture avec « Muḥammadun rasûluLlâh ʿalayhi ṣalâtu Llâh »\n• Prière sur le Prophète (Salât al-Fâtiha)\n\nLe Lâzim débute par le Ta'awwuz et la Fâtiha, et se termine par une invocation (du'a). Ces invocations obligatoires visent à purifier le cœur et à progresser spirituellement.",
+          "en": "The Lazim (or Wird al-lazim) is an obligatory practice recited twice daily: in the morning (before dawn until about 3 hours after sunrise) and in the evening.\n\nContent of the Lazim:\n• 100 istighfar (\"AstaghfiruLlah\") - Asking for forgiveness\n• 100 salawat on the Prophet - Prayers upon the Prophet\n• 100 tahlil (\"La ilaha illa Allah\") - Attestation of divine unity\n• Closing with \"Muhammadun rasulu Llah alayhi salatu Llah\"\n• Prayer upon the Prophet (Salat al-Fatiha)\n\nThe Lazim begins with Ta'awwuz and Fatiha, and ends with an invocation (du'a). These obligatory invocations aim to purify the heart and progress spiritually."
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "0095df33-b39c-4d16-85c7-c5855a6529b9"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "La Wazifa",
+          "en": "The Wazifa",
+          "ar": "الوظيفة"
+        },
+        "contenu": {
+          "fr": "La Wazifa est une prière récitée une fois par jour (matin ou soir, extensible à deux fois). Elle peut être pratiquée en groupe ou individuellement.\n\nContenu de la Wazifa :\n• Ta'awwuz (« A'ûzu billâhi minach-chaytânir-rajîm »)\n• Récitation de la Fâtiha\n• Formules spécifiques similaires au Lâzim\n• Invocations collectives\n\nLa Wazifa représente un rassemblement spirituel collectif qui renforce le lien divin et la fraternité entre les disciples. C'est un moment privilégié de communion spirituelle où la communauté se réunit pour invoquer Dieu ensemble.",
+          "en": "The Wazifa is a prayer recited once a day (morning or evening, extendable to twice). It can be practiced in groups or individually.\n\nContent of the Wazifa:\n• Ta'awwuz (\"A'uzu billahi minach-shaytanir-rajim\")\n• Recitation of Fatiha\n• Specific formulas similar to Lazim\n• Collective invocations\n\nThe Wazifa represents a collective spiritual gathering that strengthens the divine bond and brotherhood between disciples. It is a privileged moment of spiritual communion where the community gathers to invoke God together."
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "9915d6f9-4749-4682-90cd-5ed4afcbcfc7"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Le Dhikr du Vendredi (Haylala)",
+          "en": "Friday Dhikr (Haylala)",
+          "ar": "ذكر الجمعة (الهيللة)"
+        },
+        "contenu": {
+          "fr": "Le Dhikr du vendredi, également appelé Haylala ou Zikru Juma, est pratiqué une fois par semaine, souvent en assemblée.\n\nContenu :\n• Intention spécifique\n• Ta'awwuz et Fâtiha\n• Récitations collectives d'invocations\n• Formules similaires aux pratiques précédentes\n\nBien que facultatif, le dhikr du vendredi est fortement recommandé. Il sublime Allah et consolide les bienfaits spirituels accumulés durant la semaine. C'est un moment de communion intense où la communauté se rassemble pour célébrer l'unicité divine.",
+          "en": "Friday Dhikr, also called Haylala or Zikru Juma, is practiced once a week, often in assembly.\n\nContent:\n• Specific intention\n• Ta'awwuz and Fatiha\n• Collective recitations of invocations\n• Formulas similar to previous practices\n\nAlthough optional, Friday dhikr is strongly recommended. It sublimes Allah and consolidates the spiritual benefits accumulated during the week. It is a moment of intense communion where the community gathers to celebrate divine unity."
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "c3e69025-4b66-4994-8e9d-b9f94ae32c52"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Conseils pour la Pratique",
+          "en": "Practice Guidelines",
+          "ar": "نصائح للممارسة"
+        },
+        "contenu": {
+          "fr": "• Repentir sincère avant chaque pratique\n• Pureté du corps, des habits et du lieu\n• Silence et immobilité pendant le dhikr\n• Intention sincère (niyya) orientée vers Dieu\n• Visualisation du Cheikh fondateur\n• Mouraqaba (conscience de la surveillance divine) après la pratique\n• Engagement exclusif à cette tariqa\n• Assiduité quotidienne sans formalisme excessif",
+          "en": "• Sincere repentance before each practice\n• Purity of body, clothes and place\n• Silence and stillness during dhikr\n• Sincere intention (niyya) oriented towards God\n• Visualization of the founding Sheikh\n• Mouraqaba (consciousness of divine surveillance) after practice\n• Exclusive commitment to this tariqa\n• Daily assiduity without excessive formalism"
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "9e2fba49-f848-4ed6-9310-333b16af59f2"
+      },
+      {
+        "type": "quote",
+        "titre": {
+          "fr": "Les Bienfaits des Pratiques",
+          "en": "Benefits of the Practices",
+          "ar": "فوائد الممارسات"
+        },
+        "contenu": {
+          "fr": "La purification intérieure mène à l'illumination divine.\n\nLa connexion avec Dieu apporte la paix du cœur.\n\nLa cohésion sociale et le soutien mutuel renforcent la communauté.\n\nCes pratiques, transmises inchangées depuis le fondateur, distinguent la Tijaniyya par leur simplicité et leur efficacité.",
+          "en": "Inner purification leads to divine illumination.\n\nConnection with God brings peace of heart.\n\nSocial cohesion and mutual support strengthen the community.\n\nThese practices, transmitted unchanged since the founder, distinguish the Tijaniyya by their simplicity and effectiveness."
+        },
+        "image": null,
+        "order": 6,
+        "visible": true,
+        "metadata": {},
+        "id": "93d37fae-17d8-4582-bb32-fb05a4b91616"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "enseignements",
+    "menu_order": 1,
+    "id": "810b39f0-30ed-4489-9702-4d393b0171e7",
+    "created_at": "2026-02-14T22:36:00.366365+00:00",
+    "updated_at": "2026-02-22T14:21:24.790599+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f7b",
+    "slug": "enseignements/ecole",
+    "titre": {
+      "fr": "L'École de Tivaouane",
+      "en": "The School of Tivaouane",
+      "ar": "مدرسة تيفاوان"
+    },
+    "description": {
+      "fr": "Le système d'enseignement islamique fondé par El Hadji Malick Sy",
+      "en": "The Islamic education system founded by El Hadji Malick Sy",
+      "ar": "نظام التعليم الإسلامي الذي أسسه الحاج مالك سي"
+    },
+    "hero_image": null,
+    "hero_icon": "GraduationCap",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Un Centre d'Excellence",
+          "en": "A Center of Excellence",
+          "ar": "مركز التميز"
+        },
+        "contenu": {
+          "fr": "El Hadji Malick Sy (1855-1922) a établi à Tivaouane un centre d'enseignement islamique majeur qui a profondément transformé l'éducation religieuse au Sénégal et en Afrique de l'Ouest.\n\nAprès avoir séjourné en Mauritanie et s'être installé successivement à Saint-Louis, Louga et Pire, El Hadji Malick Sy s'établit définitivement à Tivaouane en 1902, sur l'invitation du notable Djibril Guèye. Son premier réflexe fut la construction d'une mosquée en 1904, qui devint le cœur de son système éducatif.",
+          "en": "El Hadji Malick Sy (1855-1922) established in Tivaouane a major Islamic teaching center that profoundly transformed religious education in Senegal and West Africa.\n\nAfter staying in Mauritania and settling successively in Saint-Louis, Louga and Pire, El Hadji Malick Sy settled permanently in Tivaouane in 1902, at the invitation of the notable Djibril Guèye. His first reflex was the construction of a mosque in 1904, which became the heart of his educational system."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "7580fa5e-1c38-4d75-ba29-15b343b82878"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Un Système Décentralisé",
+          "en": "A Decentralized System",
+          "ar": "نظام لامركزي"
+        },
+        "contenu": {
+          "fr": "À partir de Tivaouane, El Hadji Malick Sy déploya un système d'enseignement décentralisé avec des daaras (écoles coraniques) établies dans plusieurs régions du Sénégal et de l'Afrique Occidentale Française.\n\nSon enseignement s'articula d'abord de manière ambulante, puis s'ancra progressivement à Tivaouane, devenant un facteur majeur de diffusion de la science coranique et de l'islamisation au Sénégal durant le dernier quart du XIXe siècle.\n\nIl institua un système de tutorat novateur où les élèves les plus avancés encadraient les nouveaux venus, permettant ainsi une expansion rapide du nombre de disciples et une transmission efficace du savoir.",
+          "en": "From Tivaouane, El Hadji Malick Sy deployed a decentralized teaching system with daaras (Quranic schools) established in several regions of Senegal and French West Africa.\n\nHis teaching was first articulated in an itinerant manner, then gradually anchored in Tivaouane, becoming a major factor in the spread of Quranic science and Islamization in Senegal during the last quarter of the 19th century.\n\nHe instituted an innovative tutoring system where the most advanced students supervised newcomers, thus allowing rapid expansion of the number of disciples and efficient transmission of knowledge."
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "426853ff-b31f-495a-9dea-8680ba55f402"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Géostratégie Éducative",
+          "en": "Educational Geostrategy",
+          "ar": "الاستراتيجية التعليمية"
+        },
+        "contenu": {
+          "fr": "El Hadji Malick Sy développa une véritable géostratégie en plaçant des lieutenants (Mouqaddams) partout au Sénégal et dans les territoires de l'Afrique Occidentale Française.\n\nPar exemple, en 1920, sur les trente daaras recensées dans la région du Cap-Vert, vingt-sept étaient dirigées par ses anciens disciples. Cette statistique témoigne de l'ampleur de son influence éducative.\n\nIl envoya également des cadres hors du Sénégal, notamment au Mali, en Côte d'Ivoire et au Gabon, créant ainsi un réseau éducatif islamique transnational qui continue de rayonner aujourd'hui.",
+          "en": "El Hadji Malick Sy developed a true geostrategy by placing lieutenants (Mouqaddams) everywhere in Senegal and in the territories of French West Africa.\n\nFor example, in 1920, of the thirty daaras recorded in the Cap-Vert region, twenty-seven were led by his former disciples. This statistic testifies to the extent of his educational influence.\n\nHe also sent cadres outside Senegal, particularly to Mali, Ivory Coast and Gabon, thus creating a transnational Islamic educational network that continues to radiate today."
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "b0aba964-d174-4fac-9725-ec83a6f1d3b5"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Une Approche Inclusive",
+          "en": "An Inclusive Approach",
+          "ar": "نهج شامل"
+        },
+        "contenu": {
+          "fr": "Bien qu'initiateur de la confrérie Tijaniyya au Sénégal (il revint de La Mecque en 1888 avec le titre de Khalife de la Tidjaniya), El Hadji Malick Sy privilégia la diffusion générale de l'islam plutôt que celle d'une seule confrérie.\n\nCette approche inclusive lui permit de rallier diverses communautés sans créer de rivalités interconfréries. Son objectif était d'élever le niveau spirituel et intellectuel de tous les musulmans, quelle que soit leur appartenance confrériaque.\n\nCette vision universaliste de l'éducation islamique reste la marque distinctive de l'école de Tivaouane aujourd'hui.",
+          "en": "Although the initiator of the Tijaniyya brotherhood in Senegal (he returned from Mecca in 1888 with the title of Khalifa of the Tidjaniya), El Hadji Malick Sy favored the general spread of Islam rather than that of a single brotherhood.\n\nThis inclusive approach allowed him to rally various communities without creating inter-brotherhood rivalries. His goal was to raise the spiritual and intellectual level of all Muslims, regardless of their brotherhood affiliation.\n\nThis universalist vision of Islamic education remains the distinctive mark of the Tivaouane school today."
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "515c30f6-1cf8-499e-8eea-49f22fdad9e8"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "L'Héritage Éducatif",
+          "en": "Educational Legacy",
+          "ar": "الإرث التعليمي"
+        },
+        "contenu": {
+          "fr": "Tivaouane devint le cœur de son mouvement religieux et éducatif, avec la construction de sa zaouïa (institution religieuse), devenue un site historique classé.\n\nSon influence perdure à travers les écoles coraniques qui portent son nom et continuent d'accueillir des apprenants dans la tradition qu'il a établie. La daara de la zawiya El Hadji Malick Sy de Tivaouane reste un phare de l'enseignement islamique.\n\nChaque année, des cérémonies de remise de diplômes (fêtes du Coran) célèbrent les apprenants qui ont mémorisé le livre saint, perpétuant ainsi la tradition éducative fondée par Maodo.",
+          "en": "Tivaouane became the heart of his religious and educational movement, with the construction of his zawiya (religious institution), now a listed historical site.\n\nHis influence endures through the Quranic schools that bear his name and continue to welcome learners in the tradition he established. The daara of the zawiya El Hadji Malick Sy in Tivaouane remains a beacon of Islamic education.\n\nEach year, graduation ceremonies (Quran celebrations) celebrate learners who have memorized the holy book, thus perpetuating the educational tradition founded by Maodo."
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "7507988c-e4c6-4378-b052-da5c89c0c8e1"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Disciplines Enseignées",
+          "en": "Subjects Taught",
+          "ar": "المواد التي يتم تدريسها"
+        },
+        "contenu": {
+          "fr": "• Mémorisation et récitation du Coran\n• Sciences islamiques (fiqh, tafsir, hadith)\n• Langue arabe et grammaire\n• Théologie (aqida)\n• Spiritualité et soufisme\n• Droit islamique (charia)\n• Calligraphie arabe\n• Poésie religieuse (khassaides)",
+          "en": "• Quran memorization and recitation\n• Islamic sciences (fiqh, tafsir, hadith)\n• Arabic language and grammar\n• Theology (aqida)\n• Spirituality and Sufism\n• Islamic law (sharia)\n• Arabic calligraphy\n• Religious poetry (khassaides)"
+        },
+        "image": null,
+        "order": 6,
+        "visible": true,
+        "metadata": {},
+        "id": "d4357ae6-128c-47ea-bd88-81ff962b895b"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "enseignements",
+    "menu_order": 2,
+    "id": "18e898b7-6588-4819-a02b-caf76a799a1a",
+    "created_at": "2026-02-14T22:36:00.498256+00:00",
+    "updated_at": "2026-02-22T14:22:08.306913+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f7c",
+    "slug": "evenements/gamou",
+    "titre": {
+      "fr": "Le Gamou de Tivaouane",
+      "en": "The Gamou of Tivaouane",
+      "ar": "المولد في تيفاوان"
+    },
+    "description": {
+      "fr": "La plus grande célébration de la naissance du Prophète Muhammad (PSL) au Sénégal",
+      "en": "The largest celebration of the birth of Prophet Muhammad (PBUH) in Senegal",
+      "ar": "أكبر احتفال بميلاد النبي محمد (ص) في السنغال"
+    },
+    "hero_image": null,
+    "hero_icon": "Calendar",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Un Événement Spirituel Majeur",
+          "en": "A Major Spiritual Event",
+          "ar": "حدث روحي كبير"
+        },
+        "contenu": {
+          "fr": "Le Gamou de Tivaouane est un pèlerinage annuel majeur au Sénégal célébrant le Mawlid, la naissance du Prophète Muhammad (PSL). Initié en 1902 par El Hadji Malick Sy à Tivaouane, il représente la plus grande commémoration religieuse du pays et est un jour férié national au Sénégal.\n\nCette célébration attire des millions de fidèles, principalement de la confrérie tidjane, venus du monde entier pour honorer la mémoire du Prophète et se recueillir sur les lieux saints de Tivaouane.",
+          "en": "The Gamou of Tivaouane is a major annual pilgrimage in Senegal celebrating the Mawlid, the birth of Prophet Muhammad (PBUH). Initiated in 1902 by El Hadji Malick Sy in Tivaouane, it represents the largest religious commemoration in the country and is a national holiday in Senegal.\n\nThis celebration attracts millions of faithful, mainly from the Tidjane brotherhood, from around the world to honor the memory of the Prophet and pray at the holy sites of Tivaouane."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "050221c3-3afe-47ad-a0ea-9f0040d8c29b"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Histoire du Gamou",
+          "en": "History of the Gamou",
+          "ar": "تاريخ المولد"
+        },
+        "contenu": {
+          "fr": "Le terme \"Gamou\" (ou Gàmmu) désignait à l'origine une fête profane wolof ou sérère impliquant danses, chants et festivités traditionnelles. En wolof, \"gamo\" signifiait \"voir l'invisible\".\n\nEn 1902, El Hadji Malick Sy (surnommé Maodo), leader tidjane installé à Tivaouane, islamise cette fête en la transformant en veillée pieuse centrée sur la récitation du Coran, les louanges au Prophète et les prières collectives.\n\nSes objectifs étaient de vulgariser l'islam, de résister pacifiquement au colonialisme français et de diffuser la doctrine tidjane auprès des masses. Après sa mort en 1922, ses successeurs (comme Ababacar Sy dans les années 1950) perpétuent cette tradition, en faisant un héritage spirituel familial et national.",
+          "en": "The term \"Gamou\" (or Gàmmu) originally referred to a secular Wolof or Serer celebration involving dances, songs and traditional festivities. In Wolof, \"gamo\" meant \"to see the invisible\".\n\nIn 1902, El Hadji Malick Sy (nicknamed Maodo), Tidjane leader established in Tivaouane, Islamized this celebration by transforming it into a pious vigil centered on Quran recitation, praises to the Prophet and collective prayers.\n\nHis objectives were to popularize Islam, peacefully resist French colonialism and spread Tidjane doctrine to the masses. After his death in 1922, his successors (like Ababacar Sy in the 1950s) perpetuate this tradition, making it a family and national spiritual heritage."
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "8de66914-5789-439d-a701-07d2a57429c0"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Déroulement de la Célébration",
+          "en": "Course of the Celebration",
+          "ar": "مجريات الاحتفال"
+        },
+        "contenu": {
+          "fr": "Le Gamou suit le calendrier lunaire musulman et a lieu la 12e nuit de Rabi' al-Awwal. La célébration dure souvent une nuit ou trois jours.\n\nLes activités principales comprennent :\n• Récitation collective du Coran à la Grande Mosquée de Tivaouane\n• Louanges au Prophète (qasidas et khassaides)\n• Prières et conférences spirituelles\n• Visites aux mausolées d'El Hadji Malick Sy et de ses successeurs\n• Nuits du Bourde (récitations de poèmes en l'honneur du Prophète)\n\nL'affluence est massive : jusqu'à 5 millions de pèlerins, multipliant par 50 la population locale de 100 000 habitants. Des tentes, repas partagés et actions caritatives caractérisent l'événement.",
+          "en": "The Gamou follows the Muslim lunar calendar and takes place on the 12th night of Rabi' al-Awwal. The celebration often lasts one night or three days.\n\nMain activities include:\n• Collective Quran recitation at the Grand Mosque of Tivaouane\n• Praises to the Prophet (qasidas and khassaides)\n• Prayers and spiritual conferences\n• Visits to the mausoleums of El Hadji Malick Sy and his successors\n• Bourde nights (recitations of poems in honor of the Prophet)\n\nAttendance is massive: up to 5 million pilgrims, multiplying the local population of 100,000 by 50. Tents, shared meals and charitable actions characterize the event."
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "b3d2f5ea-fda2-436c-a0f1-48eea753b8c2"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Importance Nationale",
+          "en": "National Importance",
+          "ar": "الأهمية الوطنية"
+        },
+        "contenu": {
+          "fr": "Premier événement religieux par affluence au Sénégal, le Gamou unit toutes les ethnies et classes sociales, renforçant l'unité nationale via la spiritualité, la culture et l'économie.\n\nL'effervescence populaire crée une convivialité interculturelle et un dialogue intergénérationnel. Les plus hautes autorités du pays (président, ministres, leaders de l'opposition) y participent pour des prières de paix.\n\nLe Gamou dépasse les frontières sénégalaises et attire des pèlerins de toute l'Afrique de l'Ouest, du Maghreb, d'Europe et d'Amérique. Bien que célébré également à Touba (pour les Mourides) et à Kaolack (Médina Baye), Tivaouane reste le berceau tidjane du Gamou.",
+          "en": "The leading religious event by attendance in Senegal, the Gamou unites all ethnicities and social classes, strengthening national unity through spirituality, culture and economy.\n\nPopular effervescence creates intercultural conviviality and intergenerational dialogue. The highest authorities of the country (president, ministers, opposition leaders) participate for prayers of peace.\n\nThe Gamou extends beyond Senegalese borders and attracts pilgrims from all of West Africa, the Maghreb, Europe and America. Although also celebrated in Touba (for Mourides) and Kaolack (Medina Baye), Tivaouane remains the Tidjane birthplace of the Gamou."
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "be7b929c-9098-4c5b-96aa-f14e93560e27"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Les Nuits du Bourde",
+          "en": "The Bourde Nights",
+          "ar": "ليالي البردة"
+        },
+        "contenu": {
+          "fr": "Les nuits du Bourde (ou Burd) sont des sessions prolongées de récitation de khassaides (qasidas), des poésies religieuses en arabe composées en l'honneur du Prophète Muhammad (PSL).\n\nCes veillées émouvantes et collectives se déroulent dans les zawiyas, notamment celles de Serigne Babacar Sy et de Seydil Hadji Malick Sy. Elles se clôturent par des wazifas (prières rituelles tijanes).\n\nParmi les chants les plus célèbres : \"Moulay saly salam daïman abadan\" (louanges au Prophète). Ces bourde transcendent les barrières confrériques et donnent une dimension nationale au Gamou, créant une atmosphère de recueillement et d'élévation spirituelle.",
+          "en": "The Bourde nights (or Burd) are extended sessions of khassaides (qasidas) recitation, religious poetry in Arabic composed in honor of Prophet Muhammad (PBUH).\n\nThese moving and collective vigils take place in the zawiyas, particularly those of Serigne Babacar Sy and Seydil Hadji Malick Sy. They conclude with wazifas (Tijane ritual prayers).\n\nAmong the most famous songs: \"Moulay saly salam daiman abadan\" (praises to the Prophet). These bourde transcend brotherhood barriers and give a national dimension to the Gamou, creating an atmosphere of contemplation and spiritual elevation."
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "9f32b4dd-52e7-42c3-81e5-a04b13cbb4ce"
+      },
+      {
+        "type": "timeline",
+        "titre": {
+          "fr": "Dates Clés",
+          "en": "Key Dates",
+          "ar": "التواريخ الرئيسية"
+        },
+        "contenu": {
+          "fr": "1902: Première édition du Gamou islamique à Tivaouane par El Hadji Malick Sy\n1922: Mort d'El Hadji Malick Sy, ses fils perpétuent la tradition\n1950s: Serigne Ababacar Sy développe l'envergure nationale du Gamou\n2003: Inscription des sites de Tivaouane aux Monuments historiques\n2020-2021: Suspension du Gamou en raison de la pandémie de Covid-19\n2025: Reprise du Gamou avec une affluence record",
+          "en": "1902: First edition of the Islamic Gamou in Tivaouane by El Hadji Malick Sy\n1922: Death of El Hadji Malick Sy, his sons perpetuate the tradition\n1950s: Serigne Ababacar Sy develops the national scope of the Gamou\n2003: Listing of Tivaouane sites as Historical Monuments\n2020-2021: Suspension of the Gamou due to the Covid-19 pandemic\n2025: Resumption of the Gamou with record attendance"
+        },
+        "image": null,
+        "order": 6,
+        "visible": true,
+        "metadata": {},
+        "id": "3ecc810b-9c99-4242-a376-bf8222965869"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "evenements",
+    "menu_order": 1,
+    "id": "5d58ae20-c19d-4a79-94ea-c612d80c1e16",
+    "created_at": "2026-02-14T22:36:00.633985+00:00",
+    "updated_at": "2026-02-22T14:22:58.326735+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f7d",
+    "slug": "evenements/ziarra",
+    "titre": {
+      "fr": "Les Ziarra Annuelles",
+      "en": "The Annual Ziarra",
+      "ar": "الزيارات السنوية"
+    },
+    "description": {
+      "fr": "Les pèlerinages annuels aux tombes des saints de Tivaouane",
+      "en": "The annual pilgrimages to the tombs of the saints of Tivaouane",
+      "ar": "الحج السنوي إلى أضرحة القديسين في تيفاوان"
+    },
+    "hero_image": null,
+    "hero_icon": "MapPin",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Qu'est-ce que la Ziarra ?",
+          "en": "What is Ziarra?",
+          "ar": "ما هي الزيارة؟"
+        },
+        "contenu": {
+          "fr": "La Ziarra (زيارة, \"visite\" en arabe) est un pèlerinage spirituel consistant à visiter les tombes des saints et des marabouts pour se recueillir, prier et renouveler son engagement spirituel.\n\nLa Ziarra Générale de Tivaouane est un événement annuel majeur pour la communauté tidjane, initié en 1930 par Serigne Babacar Sy, premier khalife de Cheikh El Hadj Malick Sy. Elle vise à renforcer l'allégeance (moubaya) et l'engagement (kolëré) des fidèles envers leurs guides spirituels.\n\nCet événement attire des milliers de pèlerins de tout le Sénégal et de la diaspora qui se recueillent aux mausolées de Tivaouane.",
+          "en": "Ziarra (زيارة, \"visit\" in Arabic) is a spiritual pilgrimage consisting of visiting the tombs of saints and marabouts to pray, meditate and renew one's spiritual commitment.\n\nThe General Ziarra of Tivaouane is a major annual event for the Tidjane community, initiated in 1930 by Serigne Babacar Sy, first khalifa of Sheikh El Hadj Malick Sy. It aims to strengthen the allegiance (moubaya) and commitment (kolëré) of the faithful to their spiritual guides.\n\nThis event attracts thousands of pilgrims from all over Senegal and the diaspora who gather at the mausoleums of Tivaouane."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "a8a8a823-9700-4956-8470-c8b6f0fb384f"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Les Mausolées Visités",
+          "en": "Mausoleums Visited",
+          "ar": "الأضرحة التي تتم زيارتها"
+        },
+        "contenu": {
+          "fr": "• Mausolée de Serigne Babacar Sy - Épicentre de la ferveur des pèlerins\n• Mausolée d'El Hadji Malick Sy - Le fondateur de la zawiya de Tivaouane\n• Mausolée de Serigne Mansour Sy - Deuxième khalife\n• Mausolée de Serigne Abdou Aziz Sy \"Dabakh\" - Quatrième khalife\n• Mausolée de Serigne Cheikh Tidiane Sy \"Al Makhtoum\" - Cinquième khalife\n• Mausolée de Serigne Abdou Aziz Sy \"Al Amine\" - Sixième khalife",
+          "en": "• Mausoleum of Serigne Babacar Sy - Epicenter of pilgrim fervor\n• Mausoleum of El Hadji Malick Sy - Founder of the Tivaouane zawiya\n• Mausoleum of Serigne Mansour Sy - Second khalifa\n• Mausoleum of Serigne Abdou Aziz Sy \"Dabakh\" - Fourth khalifa\n• Mausoleum of Serigne Cheikh Tidiane Sy \"Al Makhtoum\" - Fifth khalifa\n• Mausoleum of Serigne Abdou Aziz Sy \"Al Amine\" - Sixth khalifa"
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "c175f631-6ab9-41d6-88d7-708d58f96fd8"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Programme Typique",
+          "en": "Typical Program",
+          "ar": "البرنامج النموذجي"
+        },
+        "contenu": {
+          "fr": "La Ziarra Générale s'étend généralement sur plusieurs jours avec un programme riche :\n\nVendredi : Gamou en l'honneur de Sokhna Oumoul Khairy Sy (épouse d'El Hadji Malick Sy).\n\nSamedi : Panels et conférences sur des thèmes spirituels et sociaux. Par exemple, en 2025, un panel sur les opportunités de financement des dahiras (associations religieuses) avec des experts en finance islamique et waqf.\n\nDimanche (jour principal) : Cérémonie officielle avec lecture du Coran, prières collectives, louanges au Prophète Muhammad (PSL), renouvellement du pacte d'allégeance au khalife général, et visites massives aux tombes.\n\nLe comité d'organisation, soutenu par la Cellule Zawiya Tijaniyya, insiste sur la discipline, la prudence routière et l'unité religieuse.",
+          "en": "The General Ziarra typically extends over several days with a rich program:\n\nFriday: Gamou in honor of Sokhna Oumoul Khairy Sy (wife of El Hadji Malick Sy).\n\nSaturday: Panels and conferences on spiritual and social themes. For example, in 2025, a panel on funding opportunities for dahiras (religious associations) with experts in Islamic finance and waqf.\n\nSunday (main day): Official ceremony with Quran reading, collective prayers, praises to Prophet Muhammad (PBUH), renewal of the allegiance pact to the general khalifa, and massive visits to the tombs.\n\nThe organizing committee, supported by the Zawiya Tijaniyya Cell, emphasizes discipline, road safety and religious unity."
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "53569e39-8cf2-4881-95a2-a5e914e046e6"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Signification Spirituelle",
+          "en": "Spiritual Significance",
+          "ar": "المعنى الروحي"
+        },
+        "contenu": {
+          "fr": "La Ziarra est bien plus qu'une simple visite aux tombes. Elle représente :\n\n• Un renouvellement de l'engagement spirituel envers la tariqa\n• Une occasion de se ressourcer spirituellement\n• Un moment de communion fraternelle entre les fidèles\n• Une démonstration de fidélité aux enseignements des saints\n• Un temps de prière pour demander des bénédictions (baraka)\n\nLe recueillement aux mausolées permet aux fidèles de se connecter à l'héritage spirituel des grands maîtres de la Tijaniyya et de puiser dans leur sagesse pour affronter les défis de la vie quotidienne.",
+          "en": "Ziarra is much more than a simple visit to tombs. It represents:\n\n• A renewal of spiritual commitment to the tariqa\n• An opportunity for spiritual refreshment\n• A moment of fraternal communion among the faithful\n• A demonstration of fidelity to the teachings of the saints\n• A time of prayer to ask for blessings (baraka)\n\nContemplation at the mausoleums allows the faithful to connect with the spiritual heritage of the great masters of the Tijaniyya and to draw from their wisdom to face the challenges of daily life."
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "5d074b51-2887-40da-bb11-0da7a6c6c5e2"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Organisation et Logistique",
+          "en": "Organization and Logistics",
+          "ar": "التنظيم واللوجستيات"
+        },
+        "contenu": {
+          "fr": "L'organisation de la Ziarra mobilise d'importants moyens logistiques pour accueillir les pèlerins :\n\n• Rames de train spéciales mises en service pour le transport des pèlerins\n• Aménagement des espaces d'accueil et de prière\n• Dispositif de sécurité et services médicaux\n• Hébergement et restauration pour les visiteurs\n• Communication et information des fidèles\n\nLa Cellule Zawiya Tijaniyya (CEZAT) joue un rôle central dans la coordination de l'événement, veillant au bon déroulement des cérémonies et à l'accueil des pèlerins dans les meilleures conditions.",
+          "en": "The organization of the Ziarra mobilizes significant logistical resources to welcome pilgrims:\n\n• Special train services for pilgrim transportation\n• Arrangement of reception and prayer spaces\n• Security and medical services\n• Accommodation and catering for visitors\n• Communication and information for the faithful\n\nThe Zawiya Tijaniyya Cell (CEZAT) plays a central role in coordinating the event, ensuring the smooth running of ceremonies and welcoming pilgrims under the best conditions."
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "46bac933-7140-4d9f-8bb5-c365579b0475"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Distinction avec le Gamou",
+          "en": "Distinction from the Gamou",
+          "ar": "التمييز عن المولد"
+        },
+        "contenu": {
+          "fr": "Il est important de distinguer la Ziarra Générale du Gamou :\n\n• La Ziarra est un événement distinct, généralement organisé au printemps (avril)\n• Le Gamou célèbre la naissance du Prophète et suit le calendrier lunaire (12e nuit de Rabi' al-Awwal)\n• La Ziarra est centrée sur le renouvellement de l'allégeance au khalife\n• Le Gamou est axé sur les louanges au Prophète et les veillées spirituelles\n\nLes deux événements attirent des foules importantes et témoignent de la vitalité de la communauté tidjane de Tivaouane, mais ils ont des objectifs et des rituels distincts.",
+          "en": "It is important to distinguish the General Ziarra from the Gamou:\n\n• The Ziarra is a separate event, usually organized in spring (April)\n• The Gamou celebrates the birth of the Prophet and follows the lunar calendar (12th night of Rabi' al-Awwal)\n• The Ziarra focuses on renewing allegiance to the khalifa\n• The Gamou focuses on praises to the Prophet and spiritual vigils\n\nBoth events attract large crowds and testify to the vitality of the Tidjane community of Tivaouane, but they have distinct objectives and rituals."
+        },
+        "image": null,
+        "order": 6,
+        "visible": true,
+        "metadata": {},
+        "id": "7cfa7603-e675-4515-92f0-fe9b54cefc7a"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "evenements",
+    "menu_order": 2,
+    "id": "0c10b673-0881-4cd3-9deb-0b72f5dca889",
+    "created_at": "2026-02-14T22:36:00.767864+00:00",
+    "updated_at": "2026-02-22T14:23:43.876042+00:00"
+  },
+  {
+    "_id": "6990f8d02e8279088cee5f7e",
+    "slug": "evenements/ceremonies",
+    "titre": {
+      "fr": "Cérémonies Religieuses",
+      "en": "Religious Ceremonies",
+      "ar": "المناسبات الدينية"
+    },
+    "description": {
+      "fr": "Les pratiques rituelles et célébrations de la Tijaniyya",
+      "en": "The ritual practices and celebrations of the Tijaniyya",
+      "ar": "الممارسات الطقسية والاحتفالات للطريقة التجانية"
+    },
+    "hero_image": null,
+    "hero_icon": "Heart",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Les Cérémonies de la Tijaniyya",
+          "en": "Tijaniyya Ceremonies",
+          "ar": "احتفالات الطريقة التجانية"
+        },
+        "contenu": {
+          "fr": "Les cérémonies religieuses de la Tijaniyya à Tivaouane sont caractérisées par une riche tradition de pratiques spirituelles incluant le bourde (récitation de poèmes en l'honneur du Prophète), les khassaides (qasidas en arabe), le wird (récitations quotidiennes obligatoires), la wazifa (prières spécifiques tijanes) et la Hadratoul Jummah.\n\nCes cérémonies, ancrées dans le patrimoine fondé par El Hadji Malick Sy, rassemblent des milliers de fidèles dans une atmosphère de ferveur et de dévotion. Elles représentent le cœur vivant de la spiritualité tidjane.",
+          "en": "The religious ceremonies of the Tijaniyya in Tivaouane are characterized by a rich tradition of spiritual practices including bourde (recitation of poems in honor of the Prophet), khassaides (qasidas in Arabic), wird (obligatory daily recitations), wazifa (specific Tijane prayers) and Hadratoul Jummah.\n\nThese ceremonies, rooted in the heritage founded by El Hadji Malick Sy, gather thousands of faithful in an atmosphere of fervor and devotion. They represent the living heart of Tidjane spirituality."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "ab92e593-31e8-45f5-af6b-585acf567d7c"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Le Bourde (البُردة)",
+          "en": "The Bourde (البُردة)",
+          "ar": "البُردة"
+        },
+        "contenu": {
+          "fr": "Le Bourde (ou Burd) désigne les sessions prolongées de récitation de poèmes louant le Prophète Muhammad (PSL). Ces veillées émouvantes et collectives se déroulent principalement dans les zawiyas.\n\nPendant le Gamou, les nuits du Bourde s'enchaînent (3e nuit, 4e nuit, etc.), avec la récitation de différents chapitres. Les chants comme \"Moulay saly salam daïman abadan\" créent une atmosphère de recueillement intense.\n\nChaque session se clôture généralement par une wazifa collective. Les bourde transcendent les barrières confrériques et rassemblent des fidèles de toutes origines dans la célébration commune du Prophète.",
+          "en": "The Bourde (or Burd) refers to extended sessions of reciting poems praising Prophet Muhammad (PBUH). These moving and collective vigils take place mainly in the zawiyas.\n\nDuring the Gamou, Bourde nights follow one another (3rd night, 4th night, etc.), with recitation of different chapters. Songs like \"Moulay saly salam daiman abadan\" create an atmosphere of intense contemplation.\n\nEach session usually concludes with a collective wazifa. The bourde transcends brotherhood barriers and brings together faithful of all origins in the common celebration of the Prophet."
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "3a901c7e-7569-4c5c-ae9f-31c797c5a132"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Les Khassaides (القصائد)",
+          "en": "The Khassaides (القصائد)",
+          "ar": "القصائد"
+        },
+        "contenu": {
+          "fr": "Les khassaides sont des poèmes religieux composés en arabe classique, généralement en l'honneur du Prophète Muhammad (PSL) ou des saints de la Tijaniyya.\n\nEl Hadji Malick Sy est lui-même l'auteur de nombreux khassaides, dont le célèbre \"Qilâsu thahab\" (L'or décanté). Ces poèmes sont récités lors des cérémonies religieuses et transmis de génération en génération.\n\nLa récitation des khassaides est considérée comme un acte de dévotion qui apporte des bénédictions (baraka) au récitant et à l'assemblée. Elle permet de méditer sur les vertus du Prophète et des saints.",
+          "en": "Khassaides are religious poems composed in classical Arabic, usually in honor of Prophet Muhammad (PBUH) or the saints of the Tijaniyya.\n\nEl Hadji Malick Sy himself authored many khassaides, including the famous \"Qilasu thahab\" (The decanted gold). These poems are recited during religious ceremonies and passed down from generation to generation.\n\nReciting khassaides is considered an act of devotion that brings blessings (baraka) to the reciter and the assembly. It allows meditation on the virtues of the Prophet and the saints."
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "8feca6e4-99be-4421-b01a-a0eeb0cc5d97"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Hadratoul Jummah",
+          "en": "Hadratoul Jummah",
+          "ar": "حضرة الجمعة"
+        },
+        "contenu": {
+          "fr": "La Hadratoul Jummah (\"Présence du vendredi\") est une cérémonie hebdomadaire qui rassemble les fidèles pour une séance collective de dhikr et de prières.\n\nElle comprend :\n• La récitation collective du wird\n• Les invocations spécifiques à la Tijaniyya\n• La récitation de khassaides\n• Les prières pour la communauté et le pays\n\nCette cérémonie renforce les liens fraternels entre les disciples et permet de maintenir vivante la pratique spirituelle tout au long de l'année, en dehors des grands événements comme le Gamou ou la Ziarra.",
+          "en": "Hadratoul Jummah (\"Friday Presence\") is a weekly ceremony that gathers the faithful for a collective session of dhikr and prayers.\n\nIt includes:\n• Collective recitation of the wird\n• Invocations specific to the Tijaniyya\n• Recitation of khassaides\n• Prayers for the community and the country\n\nThis ceremony strengthens fraternal bonds between disciples and helps keep spiritual practice alive throughout the year, outside of major events like the Gamou or Ziarra."
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "ce6909ae-4029-4be1-beef-dcc8a4d03607"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Types de Cérémonies",
+          "en": "Types of Ceremonies",
+          "ar": "أنواع المناسبات"
+        },
+        "contenu": {
+          "fr": "• Wazifa quotidienne - Prières rituelles matin et soir\n• Hadratoul Jummah - Cérémonie hebdomadaire du vendredi\n• Bourde - Veillées de louanges au Prophète\n• Gamou - Célébration annuelle de la naissance du Prophète\n• Ziarra - Pèlerinage aux mausolées des saints\n• Fêtes du Coran - Célébration des mémorisateurs du Coran\n• Cérémonies funéraires - Prières pour les défunts\n• Initiations (wird) - Accueil des nouveaux disciples",
+          "en": "• Daily wazifa - Ritual prayers morning and evening\n• Hadratoul Jummah - Weekly Friday ceremony\n• Bourde - Vigils of praise to the Prophet\n• Gamou - Annual celebration of the Prophet's birth\n• Ziarra - Pilgrimage to the mausoleums of saints\n• Quran celebrations - Celebration of Quran memorizers\n• Funeral ceremonies - Prayers for the deceased\n• Initiations (wird) - Welcoming new disciples"
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "d39d28ca-ea0d-403a-a280-f124dc12d2b9"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "L'Atmosphère Spirituelle",
+          "en": "The Spiritual Atmosphere",
+          "ar": "الأجواء الروحية"
+        },
+        "contenu": {
+          "fr": "Les cérémonies de la Tijaniyya se caractérisent par une atmosphère de recueillement, de ferveur et de fraternité. Les fidèles, souvent vêtus de blanc (symbole de pureté), se rassemblent dans les zawiyas ou les mosquées pour vivre ensemble ces moments spirituels.\n\nL'ambiance mêle récitation, chants, applaudissements rythmés et moments de silence méditatif. La présence spirituelle des grands guides comme Serigne Abdoul Aziz Sy Al Amine est ressentie à travers leurs enseignements transmis par leurs représentants.\n\nCes événements, organisés par des cellules comme la Zawiya Tijaniyya, combinent spiritualité, littérature arabe et cohésion sociale, positionnant Tivaouane comme un centre ardent de la Tijaniyya sénégalaise.",
+          "en": "Tijaniyya ceremonies are characterized by an atmosphere of contemplation, fervor and fraternity. The faithful, often dressed in white (symbol of purity), gather in zawiyas or mosques to experience these spiritual moments together.\n\nThe atmosphere combines recitation, singing, rhythmic applause and moments of meditative silence. The spiritual presence of great guides like Serigne Abdoul Aziz Sy Al Amine is felt through their teachings transmitted by their representatives.\n\nThese events, organized by cells like the Zawiya Tijaniyya, combine spirituality, Arabic literature and social cohesion, positioning Tivaouane as an ardent center of Senegalese Tijaniyya."
+        },
+        "image": null,
+        "order": 6,
+        "visible": true,
+        "metadata": {},
+        "id": "7a03012a-bf88-44c9-8cea-8a9211e5e254"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "evenements",
+    "menu_order": 3,
+    "id": "4dfe5369-26c9-4b3d-97e4-eb93e7efa39f",
+    "created_at": "2026-02-14T22:36:00.897178+00:00",
+    "updated_at": "2026-02-22T14:24:28.151270+00:00"
+  },
+  {
+    "_id": "69911ee5f34b28eea07c88c1",
+    "slug": "histoire/el-hadji-malick-sy",
+    "titre": {
+      "fr": "El Hadji Malick Sy - Maodo",
+      "en": "El Hadji Malick Sy - Maodo",
+      "ar": "الحاج مالك سي - مودو"
+    },
+    "description": {
+      "fr": "Celui qui a fait de Tivaouane le phare de la science et de la spiritualité en Afrique de l'Ouest",
+      "en": "The one who made Tivaouane the beacon of science and spirituality in West Africa"
+    },
+    "hero_image": "https://customer-assets.emergentagent.com/job_tidiane-tariqa/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
+    "hero_icon": "Star",
+    "sections": [
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Introduction",
+          "en": "Introduction"
+        },
+        "contenu": {
+          "fr": "Seydi El Hadji Malick Sy (que la miséricorde d'Allah soit sur lui) est une figure monumentale de l'Islam ouest-africain. Érudit exceptionnel, guide spirituel éclairé et réformateur social, il a consacré sa vie à l'enseignement et à l'élévation spirituelle de ses disciples.\n\nSon nom complet : Seydi El Hadji Malick Sy ibn Oustaze Ousmane Sy\nSon titre : Maodo (Le Vénérable), Khalifatul Mashaïkh",
+          "en": "Seydi El Hadji Malick Sy is a monumental figure in West African Islam."
+        },
+        "image": null,
+        "order": 1,
+        "visible": true,
+        "metadata": {},
+        "id": "f3ab880f-650a-4589-9ce9-21339d44f9d2"
+      },
+      {
+        "type": "cards",
+        "titre": {
+          "fr": "Les Dimensions de sa Grandeur",
+          "en": "The Dimensions of His Greatness"
+        },
+        "contenu": {
+          "fr": "• L'Érudit : Maître incontesté des sciences islamiques : Fikh, Tafsir, Hadith, Logique et Grammaire arabe\n• Le Guide Spirituel : Éducateur de l'âme qui a formé des générations de disciples dans la voie soufie\n• Le Bâtisseur : Fondateur d'une université populaire accessible à tous, sans distinction\n• Le Visionnaire : Stratège qui a su implanter Tivaouane comme centre de résistance culturelle face au colonialisme",
+          "en": "• The Scholar\n• The Spiritual Guide\n• The Builder\n• The Visionary"
+        },
+        "image": null,
+        "order": 2,
+        "visible": true,
+        "metadata": {},
+        "id": "3c2c6121-ab64-4a3e-81a0-ebfa48981226"
+      },
+      {
+        "type": "timeline",
+        "titre": {
+          "fr": "L'Épopée d'une Vie",
+          "en": "The Epic of a Life"
+        },
+        "contenu": {
+          "fr": "1855: Naissance à Gaya (Sénégal) dans une famille de lettres et de saints\n1888: Pèlerinage à La Mecque - Voyage initiatique qui marque sa consécration spirituelle\n1902: Installation à Tivaouane - Fondation de la Zawiya qui deviendra le centre névralgique de la Tidjanidya\n1922: Rappel à Dieu - Décès à Tivaouane, laissant un héritage spirituel immense",
+          "en": "1855: Birth in Gaya\n1888: Pilgrimage to Mecca\n1902: Settlement in Tivaouane\n1922: Called back to God"
+        },
+        "image": null,
+        "order": 3,
+        "visible": true,
+        "metadata": {},
+        "id": "99bff136-74b0-426d-a979-632d0a163b23"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Le Récit de son Installation à Tivaouane",
+          "en": "The Story of His Settlement in Tivaouane"
+        },
+        "contenu": {
+          "fr": "Après un séjour à Saint-Louis, capitale coloniale où il enseignait déjà, El Hadji Malick Sy a pris la décision stratégique de s'installer à Tivaouane en 1902. Cette décision n'était pas fortuite.\n\nFace aux pressions de l'administration coloniale française qui tentait de contrôler les chefs religieux et d'instrumentaliser leur influence, Maodo a choisi la voie de l'indépendance spirituelle.\n\nIl y fonda une Zawiya (école coranique et centre spirituel) qui attira rapidement des milliers de disciples venus de tout le Sénégal et au-delà.",
+          "en": "After a stay in Saint-Louis, El Hadji Malick Sy made the strategic decision to settle in Tivaouane in 1902."
+        },
+        "image": null,
+        "order": 4,
+        "visible": true,
+        "metadata": {},
+        "id": "64433040-2e68-4398-936f-1b1481b7050d"
+      },
+      {
+        "type": "quote",
+        "titre": {
+          "fr": "Sa Vision",
+          "en": "His Vision"
+        },
+        "contenu": {
+          "fr": "Tivaouane n'était pas seulement un lieu géographique, c'était un projet : celui de bâtir une université populaire où le savoir islamique serait accessible à tous, du plus humble au plus instruit.",
+          "en": "Tivaouane was not just a geographical location, it was a project."
+        },
+        "image": null,
+        "order": 5,
+        "visible": true,
+        "metadata": {},
+        "id": "ea090b1e-412b-4b55-bc94-197420e06cee"
+      },
+      {
+        "type": "text",
+        "titre": {
+          "fr": "Un Héritage Immortel",
+          "en": "An Immortal Legacy"
+        },
+        "contenu": {
+          "fr": "À sa mort en 1922, El Hadji Malick Sy laissa derrière lui une œuvre colossale : des milliers de disciples formés, des dizaines d'ouvrages écrits, et surtout, une méthode d'éducation qui continue d'inspirer des générations entières.\n\nAujourd'hui encore, son enseignement résonne à travers les dahiras, les mosquées et les cœurs de millions de Tidiane à travers le monde.",
+          "en": "Upon his death in 1922, El Hadji Malick Sy left behind a colossal work."
+        },
+        "image": null,
+        "order": 6,
+        "visible": true,
+        "metadata": {},
+        "id": "6960516a-51c4-461c-8919-82b1d3300e95"
+      }
+    ],
+    "active": true,
+    "show_in_menu": true,
+    "parent_menu": "histoire",
+    "menu_order": 2,
+    "id": "2af40d20-c339-4a6d-819c-254601fd638f",
+    "created_at": "2026-02-15T01:18:29.159614+00:00",
+    "updated_at": "2026-02-15T01:18:29.159619+00:00"
+  }
+]

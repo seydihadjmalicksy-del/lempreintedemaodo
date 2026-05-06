@@ -1,0 +1,125 @@
+[
+  {
+    "_id": "698a204b95d24d5698babdbb",
+    "id": "e969908d-988e-4923-9849-7a58fd2fbad9",
+    "title": {
+      "fr": "L'Histoire de El Hadji Maodo Malick Sy - Documentaire Complet",
+      "en": "The History of El Hadji Maodo Malick Sy - Complete Documentary",
+      "ar": "تاريخ الحاج مودو مالك سي - وثائقي كامل",
+      "wo": "Taariix El Hadji Maodo Maalik Si - Documentaire bu mat"
+    },
+    "description": {
+      "fr": "Documentaire complet sur la vie d'El Hadji Malick Sy : son arrivée à l'islam, son instruction, son pèlerinage, son installation à Tivaouane.",
+      "en": "Complete documentary on the life of El Hadji Malick Sy: his arrival to Islam, his education, his pilgrimage, his establishment in Tivaouane.",
+      "ar": "وثائقي كامل عن حياة الحاج مالك سي: وصوله للإسلام، تعليمه، حجه، استقراره في تيفاوان.",
+      "wo": "Documentaire bu mat ci dund El Hadji Maalik Si: njëkk ci Lislaam, njàng bi, Hajj bi, taxaw ci Tiwaawaan."
+    },
+    "youtubeId": "NpOPd8AsV_c",
+    "duration": "45:00",
+    "views": 125000,
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdbc",
+    "id": "ae62303b-e700-4d6b-ace9-cdb231e590f6",
+    "title": {
+      "fr": "El Hadji Malick Sy - Documentaire RTS",
+      "en": "El Hadji Malick Sy - RTS Documentary",
+      "ar": "الحاج مالك سي - وثائقي RTS",
+      "wo": "El Hadji Maalik Si - Documentaire RTS"
+    },
+    "description": {
+      "fr": "Documentaire officiel de la RTS retraçant la vie et l'œuvre de Maodo (Septembre 2024).",
+      "en": "Official RTS documentary tracing the life and work of Maodo (September 2024).",
+      "ar": "وثائقي رسمي من RTS يروي حياة وأعمال مودو (سبتمبر 2024).",
+      "wo": "Documentaire sellal RTS di wax dund ak liggéey Maodo (Septembre 2024)."
+    },
+    "youtubeId": "CQJ5rPB4baM",
+    "duration": "35:00",
+    "views": 89000,
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdbd",
+    "id": "9547a1a6-cd87-4b79-a2a5-88291dde8ed7",
+    "title": {
+      "fr": "Documentaire Asfiyahi Television",
+      "en": "Asfiyahi Television Documentary",
+      "ar": "وثائقي تلفزيون أصفياحي",
+      "wo": "Documentaire Asfiyahi Television"
+    },
+    "description": {
+      "fr": "Documentaire de 29 minutes sur la vie et l'héritage spirituel de Seydil Hadji Malick Sy.",
+      "en": "29-minute documentary on the life and spiritual legacy of Seydil Hadji Malick Sy.",
+      "ar": "وثائقي مدته 29 دقيقة عن حياة وإرث السيدي الحاج مالك سي الروحي.",
+      "wo": "Documentaire 29 minutes ci dund ak njàmbaar bu sell Seydil Hadji Maalik Si."
+    },
+    "youtubeId": "Q0KxcWiBbXE",
+    "duration": "29:30",
+    "views": 67500,
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdbe",
+    "id": "88e20654-da00-4509-8114-058fa51e25ef",
+    "title": {
+      "fr": "Mame Maodo : Le Sénégal dans l'histoire",
+      "en": "Mame Maodo: Senegal in History",
+      "ar": "مام مودو: السنغال في التاريخ",
+      "wo": "Maam Maodo: Senegaal ci taariix"
+    },
+    "description": {
+      "fr": "Série documentaire présentant l'histoire de Maodo et son impact sur l'histoire du Sénégal.",
+      "en": "Documentary series presenting the history of Maodo and his impact on Senegal's history.",
+      "ar": "سلسلة وثائقية تعرض تاريخ مودو وأثره على تاريخ السنغال.",
+      "wo": "Série documentaire di won taariix Maodo ak njëkkit ci taariix Senegaal."
+    },
+    "youtubeId": "aviqRGqHnPo",
+    "duration": "40:00",
+    "views": 52000,
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdbf",
+    "id": "a5ff6d8e-fbe1-4f3b-adf1-dd097797d1da",
+    "title": {
+      "fr": "Khassida Lā Tarkanan - Traduction",
+      "en": "Khassida Lā Tarkanan - Translation",
+      "ar": "قصيدة لا تركنن - ترجمة",
+      "wo": "Khassida Lā Tarkanan - Tekki"
+    },
+    "description": {
+      "fr": "Récitation de la Khassida avec traduction en wolof et explications spirituelles en français.",
+      "en": "Recitation of the Khassida with Wolof translation and spiritual explanations in French.",
+      "ar": "تلاوة القصيدة مع ترجمة بالولوف وشروحات روحية بالفرنسية.",
+      "wo": "Jàng Khassida ak tekki wolof ak biral bu sell ci français."
+    },
+    "youtubeId": "JWwRxPQPsCE",
+    "duration": "45:00",
+    "views": 34000,
+    "order": 5,
+    "active": true
+  },
+  {
+    "_id": "69a5d817e55d153ea921225a",
+    "id": "a7bb8b6f-5936-46e4-ada3-f1e72404b18a",
+    "title": {
+      "fr": "Test Vidéo",
+      "en": "Test Video"
+    },
+    "description": {
+      "fr": "Description vidéo",
+      "en": "Video description"
+    },
+    "youtubeId": "dQw4w9WgXcQ",
+    "duration": "3:32",
+    "views": "1M",
+    "order": 0,
+    "active": true,
+    "created_at": "2026-03-02T18:33:59.689337+00:00"
+  }
+]

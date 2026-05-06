@@ -1,0 +1,175 @@
+[
+  {
+    "_id": "698a204b95d24d5698babda8",
+    "id": "ea4969a0-7918-4063-9d9f-c7293a41a30f",
+    "title": {
+      "fr": "Khilassou Dhahab - Chapitres Essentiels",
+      "en": "Khilassou Dhahab - Essential Chapters",
+      "ar": "خلاص الذهب - الفصول الأساسية",
+      "wo": "Khilassou Dhahab - Chapitre yu gën mag"
+    },
+    "description": {
+      "fr": "Biographie poétique du Prophète (PSL) composée par El Hadji Malick Sy, récitée lors des Gamou. Texte arabe avec traduction française.",
+      "en": "Poetic biography of the Prophet (PBUH) composed by El Hadji Malick Sy, recited during Gamou celebrations. Arabic text with French translation.",
+      "ar": "سيرة شعرية للنبي (ص) ألفها الحاج مالك سي، تُتلى في احتفالات المولد. نص عربي مع ترجمة فرنسية.",
+      "wo": "Taariix woy bu Yonent bi (YWS) bu El Hadji Maalik Si bind, di ko jàng ci Gamou yi. Téere arab ak tekki français."
+    },
+    "date": "XIXe siècle",
+    "langue": "Arabe + Français",
+    "lien": "https://fr.scribd.com/document/669838264/khilass-zahab",
+    "type": "PDF Scribd",
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babda9",
+    "id": "c5a9ac29-d6a8-4308-94b4-5f1f4037e19e",
+    "title": {
+      "fr": "Khilassou Zahab - Chapitre 1",
+      "en": "Khilassou Zahab - Chapter 1",
+      "ar": "خلاص الذهب - الفصل الأول",
+      "wo": "Khilassou Zahab - Chapitre 1"
+    },
+    "description": {
+      "fr": "Premier chapitre louant Dieu, la création et l'âme du Prophète comme miroir de toute existence.",
+      "en": "First chapter praising God, creation and the Prophet's soul as mirror of all existence.",
+      "ar": "الفصل الأول في حمد الله والخلق وروح النبي كمرآة لكل الوجود.",
+      "wo": "Njëkk chapitre ci sant Yàlla, création ak ruu Yonent bi ci miroir bu àdduna bi yépp."
+    },
+    "date": "XIXe siècle",
+    "langue": "Arabe",
+    "lien": "https://www.scribd.com/document/832319484/khilassou-Zahab-Chapitre-1",
+    "type": "PDF Scribd",
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdaa",
+    "id": "dbf61b4e-86ba-4363-ab62-088c02d8a4fc",
+    "title": {
+      "fr": "Khilassou Zahab - Chapitre 3",
+      "en": "Khilassou Zahab - Chapter 3",
+      "ar": "خلاص الذهب - الفصل الثالث",
+      "wo": "Khilassou Zahab - Chapitre 3"
+    },
+    "description": {
+      "fr": "Sections sur les événements mecquois, prières et lignées ancestrales incluant Kinana, Khuzayma et Mudar.",
+      "en": "Sections on Meccan events, prayers and ancestral lineages including Kinana, Khuzayma and Mudar.",
+      "ar": "أقسام عن أحداث مكة والصلوات والأنساب بما في ذلك كنانة وخزيمة ومضر.",
+      "wo": "Xétu ci mbir Makka yi, julli yi ak njàmbaar yi di Kinana, Khuzayma ak Mudar."
+    },
+    "date": "XIXe siècle",
+    "langue": "Arabe",
+    "lien": "https://www.scribd.com/document/740233380/khilass-zahab-Chap-3",
+    "type": "PDF Scribd",
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdab",
+    "id": "f7d95f3a-9fd5-4503-a4a7-833fac437387",
+    "title": {
+      "fr": "Tayssir (Wassilatoul Mouna) - Complet",
+      "en": "Tayssir (Wassilatoul Mouna) - Complete",
+      "ar": "التيسير (وسيلة المنى) - كامل",
+      "wo": "Tayssir (Wassilatoul Mouna) - Bu mat"
+    },
+    "description": {
+      "fr": "Ouvrage majeur d'El Hadji Malick Sy sur la voie spirituelle soufie. Transcription complète et traduction.",
+      "en": "Major work by El Hadji Malick Sy on the Sufi spiritual path. Complete transcription and translation.",
+      "ar": "عمل رئيسي للحاج مالك سي عن الطريق الروحي الصوفي. نسخ وترجمة كاملة.",
+      "wo": "Téere bu mag bu El Hadji Maalik Si ci yoon bu sell soufi. Tekki bu mat."
+    },
+    "date": "Début XXe siècle",
+    "langue": "Arabe + Français",
+    "lien": "https://ssmasenegal.com/wp-content/uploads/2024/07/WASSILATOUL-MOUNA-TAYSSIR-transcription-complete-et-traduction.pdf",
+    "type": "PDF Direct",
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdac",
+    "id": "48816ddd-2518-4bdc-b545-42a29dda56dc",
+    "title": {
+      "fr": "Tayssir - Version Scribd",
+      "en": "Tayssir - Scribd Version",
+      "ar": "التيسير - نسخة Scribd",
+      "wo": "Tayssir - Version Scribd"
+    },
+    "description": {
+      "fr": "Version alternative numérisée du Tayssir disponible sur Scribd.",
+      "en": "Alternative digitized version of Tayssir available on Scribd.",
+      "ar": "نسخة رقمية بديلة من التيسير متوفرة على Scribd.",
+      "wo": "Version numérique bu yeneen bu Tayssir ci Scribd."
+    },
+    "date": "Début XXe siècle",
+    "langue": "Arabe",
+    "lien": "https://fr.scribd.com/document/481857110/Tayssir-El-Hadj-Malick-Sy-pdf",
+    "type": "PDF Scribd",
+    "order": 5,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdad",
+    "id": "28b97367-c2fd-49da-8613-a7d7a9a2480e",
+    "title": {
+      "fr": "Fâkihatou Toullâb (فاكهة الطلاب)",
+      "en": "Fâkihatou Toullâb (فاكهة الطلاب)",
+      "ar": "فاكهة الطلاب",
+      "wo": "Fâkihatou Toullâb (فاكهة الطلاب)"
+    },
+    "description": {
+      "fr": "Le Fruit des Étudiants - Texte sur les principes généraux de la Tijaniyya et la discipline spirituelle des disciples.",
+      "en": "The Fruit of Students - Text on general principles of Tijaniyya and spiritual discipline of disciples.",
+      "ar": "ثمرة الطلاب - نص عن المبادئ العامة للتجانية والانضباط الروحي للمريدين.",
+      "wo": "Màggal Taalibe yi - Téere ci principe Tijaniyya ak dicipline bu sell taalibe yi."
+    },
+    "date": "Début XXe siècle",
+    "langue": "Arabe",
+    "lien": "https://archive.org/details/20240423_20240423_0141",
+    "type": "Archive.org Audio",
+    "order": 6,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdae",
+    "id": "b5fdb095-378d-4f3c-9138-d7311cf0e006",
+    "title": {
+      "fr": "Ifhâm al-Munkir - Thèse Rawane Mbaye",
+      "en": "Ifhâm al-Munkir - Rawane Mbaye Thesis",
+      "ar": "إفحام المنكر - أطروحة روان مباي",
+      "wo": "Ifhâm al-Munkir - Thèse Rawane Mbaye"
+    },
+    "description": {
+      "fr": "Thèse universitaire du Pr. Rawane Mbaye sur l'œuvre apologétique d'El Hadji Malick Sy.",
+      "en": "University thesis by Pr. Rawane Mbaye on the apologetic work of El Hadji Malick Sy.",
+      "ar": "أطروحة جامعية للبروفيسور روان مباي عن العمل الدفاعي للحاج مالك سي.",
+      "wo": "Thèse université bu Pr. Rawane Mbaye ci liggéey bu El Hadji Maalik Si."
+    },
+    "date": "XXe siècle",
+    "langue": "Arabe + Français",
+    "lien": "https://fr.scribd.com/document/684807738/Ifham-Munkir-Al-Jaani-These-3-Rawane-Mbaye",
+    "type": "PDF Scribd",
+    "order": 7,
+    "active": true
+  },
+  {
+    "_id": "69a5d817e55d153ea9212258",
+    "id": "a63f8550-7c75-4b77-93d3-2acee67b12c0",
+    "title": {
+      "fr": "Test Manuscrit",
+      "en": "Test Manuscript"
+    },
+    "description": {
+      "fr": "Description test",
+      "en": "Test description"
+    },
+    "date": "2025",
+    "langue": "Arabe",
+    "lien": "https://example.com/test.pdf",
+    "type": "manuscript",
+    "order": 0,
+    "active": true,
+    "created_at": "2026-03-02T18:33:59.365842+00:00"
+  }
+]

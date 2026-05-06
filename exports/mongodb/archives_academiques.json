@@ -1,0 +1,122 @@
+[
+  {
+    "_id": "698cc9238c67443bf5af1135",
+    "id": "3d48d72b-951d-4836-803f-b461e5f81f1f",
+    "titre": {
+      "fr": "BnF - Fiche d'autorité Malick Sy",
+      "en": "BnF - Authority Record Malick Sy",
+      "ar": "المكتبة الوطنية الفرنسية - سجل مالك سي",
+      "wo": "BnF - Fiche d'autorité Malick Sy"
+    },
+    "description": {
+      "fr": "Page officielle de la Bibliothèque nationale de France sur Malick Sy avec bibliographie complète",
+      "en": "Official page of the National Library of France on Malick Sy with complete bibliography",
+      "ar": "الصفحة الرسمية للمكتبة الوطنية الفرنسية عن مالك سي مع ببليوغرافيا كاملة",
+      "wo": "Page officiel bi Bibliothèque nationale de France ci Malick Sy ak bibliographie bu mat"
+    },
+    "lien": "https://data.bnf.fr/fr/14528700/malick_sy/",
+    "source": "Bibliothèque nationale de France",
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1136",
+    "id": "419155d8-6bca-4223-bd8b-9edfee79eed8",
+    "titre": {
+      "fr": "Les Cahiers de l'Islam - Islamisation du Sénégal",
+      "en": "Les Cahiers de l'Islam - Islamization of Senegal",
+      "ar": "دفاتر الإسلام - أسلمة السنغال",
+      "wo": "Les Cahiers de l'Islam - Islaamiyaasu Sénégal"
+    },
+    "description": {
+      "fr": "Article académique sur le rôle de la Tijaniyya dans l'islamisation du Sénégal",
+      "en": "Academic article on the role of Tijaniyya in the Islamization of Senegal",
+      "ar": "مقال أكاديمي عن دور التيجانية في أسلمة السنغال",
+      "wo": "Article académique ci rôle Tijaniyya ci Islaamiyaasu Sénégal"
+    },
+    "lien": "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html",
+    "source": "Les Cahiers de l'Islam",
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1137",
+    "id": "4394f728-8af9-4b88-bdcc-77558b284994",
+    "titre": {
+      "fr": "OpenEdition - Revue des Mondes Musulmans",
+      "en": "OpenEdition - Review of Muslim Worlds",
+      "ar": "OpenEdition - مجلة العوالم الإسلامية",
+      "wo": "OpenEdition - Revue des Mondes Musulmans"
+    },
+    "description": {
+      "fr": "Article de recherche sur El Hadji Malick Sy dans la Revue des mondes musulmans et de la Méditerranée",
+      "en": "Research article on El Hadji Malick Sy in the Review of Muslim and Mediterranean Worlds",
+      "ar": "مقال بحثي عن الحاج مالك سي في مجلة العوالم الإسلامية والمتوسطية",
+      "wo": "Article recherche ci El Hadji Malick Sy ci Revue des mondes musulmans et de la Méditerranée"
+    },
+    "lien": "https://journals.openedition.org/remmm/21127",
+    "source": "OpenEdition Journals",
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1138",
+    "id": "77d9ce70-1ce3-45ad-b4ed-34ad139243b9",
+    "titre": {
+      "fr": "Timbuktu Institute - Rôle diplomatique de Tivaouane",
+      "en": "Timbuktu Institute - Diplomatic Role of Tivaouane",
+      "ar": "معهد تمبكتو - الدور الدبلوماسي لتيفاوان",
+      "wo": "Timbuktu Institute - Rôle diplomatique bi Tivaouane"
+    },
+    "description": {
+      "fr": "Analyse du rôle diplomatique pionnier de la zawiya de Tivaouane",
+      "en": "Analysis of the pioneering diplomatic role of the Tivaouane zawiya",
+      "ar": "تحليل الدور الدبلوماسي الريادي لزاوية تيفاوان",
+      "wo": "Analyse bi rôle diplomatique pionnier zawiya Tivaouane"
+    },
+    "lien": "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe",
+    "source": "Timbuktu Institute",
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1139",
+    "id": "afc5c310-6249-4dd3-9134-5b03bb7ac5ab",
+    "titre": {
+      "fr": "Éditions UCAD - El Hadji Malick Sy",
+      "en": "UCAD Editions - El Hadji Malick Sy",
+      "ar": "منشورات جامعة الشيخ أنتا ديوب - الحاج مالك سي",
+      "wo": "Éditions UCAD - El Hadji Malick Sy"
+    },
+    "description": {
+      "fr": "Publication universitaire de l'Université Cheikh Anta Diop de Dakar",
+      "en": "University publication from Cheikh Anta Diop University of Dakar",
+      "ar": "منشور جامعي من جامعة الشيخ أنتا ديوب بداكار",
+      "wo": "Publication universitaire bi Université Cheikh Anta Diop de Dakar"
+    },
+    "lien": "https://editions.ucad.sn/ouvrages/65",
+    "source": "UCAD Dakar",
+    "order": 5,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af113a",
+    "id": "b221addb-a6c5-49eb-8993-64be025555fd",
+    "titre": {
+      "fr": "Bibliothèque numérique UCAD - Thèses",
+      "en": "UCAD Digital Library - Theses",
+      "ar": "المكتبة الرقمية لجامعة الشيخ أنتا ديوب - الأطروحات",
+      "wo": "Bibliothèque numérique UCAD - Thèses"
+    },
+    "description": {
+      "fr": "Collection de thèses et mémoires sur El Hadji Malick Sy",
+      "en": "Collection of theses and dissertations on El Hadji Malick Sy",
+      "ar": "مجموعة من الأطروحات والرسائل عن الحاج مالك سي",
+      "wo": "Collection thèses ak mémoires ci El Hadji Malick Sy"
+    },
+    "lien": "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses",
+    "source": "UCAD Bibliothèque",
+    "order": 6,
+    "active": true
+  }
+]

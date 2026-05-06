@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "698566ecfaf5ae66e6a1bc99",
+    "id": "ee8d9ff6-901f-4c62-a0fa-72897ddfe8e5",
+    "text_fr": "La science sans la pratique est comme un arbre sans fruit.",
+    "text_en": "Knowledge without practice is like a tree without fruit.",
+    "text_ar": "العلم بلا عمل كالشجرة بلا ثمر.",
+    "text_wo": "Xam-xam te liggéeyul dafa ni garab bu amul xob.",
+    "author": "El Hadji Malick Sy",
+    "context_fr": "Test de mise à jour",
+    "context_en": "On the importance of action",
+    "active": true,
+    "order": 1
+  },
+  {
+    "_id": "698566ecfaf5ae66e6a1bc9a",
+    "id": "54a7d1f5-d1b1-41b3-abe7-b54c5a0df11e",
+    "text_fr": "Celui qui connaît Dieu, son cœur trouve la paix.",
+    "text_en": "He who knows God, his heart finds peace.",
+    "text_ar": "من عرف الله سكن قلبه.",
+    "text_wo": "Ku xam Yàlla, xol am mu dal.",
+    "author": "El Hadji Malick Sy",
+    "context_fr": "Sur la connaissance divine",
+    "context_en": "On divine knowledge",
+    "active": true,
+    "order": 2
+  },
+  {
+    "_id": "698566ecfaf5ae66e6a1bc9b",
+    "id": "997bc446-7110-4974-9943-0a7558737a48",
+    "text_fr": "L'amour du Prophète (PSL) est la clé de tout bien.",
+    "text_en": "Love for the Prophet (PBUH) is the key to all goodness.",
+    "text_ar": "حب النبي (ص) مفتاح كل خير.",
+    "text_wo": "Sopp Yonent bi (YWS) mooy caabi bu nekk baax.",
+    "author": "El Hadji Malick Sy",
+    "context_fr": "Sur l'amour prophétique",
+    "context_en": "On prophetic love",
+    "active": true,
+    "order": 3
+  },
+  {
+    "_id": "698566ecfaf5ae66e6a1bc9c",
+    "id": "34d31054-a729-48a7-90dd-080ace1d3aae",
+    "text_fr": "Le savoir est une lumière qui illumine le cœur du croyant.",
+    "text_en": "Knowledge is a light that illuminates the heart of the believer.",
+    "text_ar": "العلم نور يضيء قلب المؤمن.",
+    "text_wo": "Xam-xam dafa nekk leer buy leer xol mu gëm.",
+    "author": "El Hadji Malick Sy",
+    "context_fr": "Sur la quête du savoir",
+    "context_en": "On seeking knowledge",
+    "active": true,
+    "order": 4
+  },
+  {
+    "_id": "698566ecfaf5ae66e6a1bc9d",
+    "id": "fa7be3ba-e8ff-4570-9957-99f14d493e25",
+    "text_fr": "La patience dans l'épreuve est le signe de la foi sincère.",
+    "text_en": "Patience in trial is the sign of sincere faith.",
+    "text_ar": "الصبر على البلاء علامة الإيمان الصادق.",
+    "text_wo": "Muñ ci épreuve mooy xàmme gëm bu dëgg.",
+    "author": "El Hadji Malick Sy",
+    "context_fr": "Sur la patience",
+    "context_en": "On patience",
+    "active": true,
+    "order": 5
+  }
+]

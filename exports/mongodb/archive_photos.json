@@ -1,0 +1,158 @@
+[
+  {
+    "_id": "698a204b95d24d5698babdb0",
+    "id": "d2cf66ad-acf1-4f5a-bcc7-7195ae8515a1",
+    "title": {
+      "fr": "El Hadji Malick Sy - Portrait officiel",
+      "en": "El Hadji Malick Sy - Official Portrait",
+      "ar": "الحاج مالك سي - صورة رسمية",
+      "wo": "El Hadji Maalik Si - Nataal bu sellal"
+    },
+    "description": {
+      "fr": "Portrait historique de Seydi El Hadji Malick Sy (1855-1922), fondateur de la Zawiya de Tivaouane.",
+      "en": "Historical portrait of Seydi El Hadji Malick Sy (1855-1922), founder of the Zawiya of Tivaouane.",
+      "ar": "صورة تاريخية للسيدي الحاج مالك سي (1855-1922)، مؤسس زاوية تيفاوان.",
+      "wo": "Nataal taariix bu Seydi El Hadji Maalik Si (1855-1922), tëkkikat Zawiya Tiwaawaan."
+    },
+    "date": "Début XXe siècle",
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
+    "source": {
+      "fr": "Archives familiales",
+      "en": "Family Archives",
+      "ar": "أرشيف العائلة",
+      "wo": "Dëgg kër gi"
+    },
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb1",
+    "id": "99fb76e1-9a4e-4742-9236-2ccff2af0a63",
+    "title": {
+      "fr": "El Hadji Malick Sy avec chapelet",
+      "en": "El Hadji Malick Sy with prayer beads",
+      "ar": "الحاج مالك سي مع السبحة",
+      "wo": "El Hadji Maalik Si ak chapelet"
+    },
+    "description": {
+      "fr": "Photo historique montrant El Hadji Malick Sy tenant son chapelet.",
+      "en": "Historical photo showing El Hadji Malick Sy holding his prayer beads.",
+      "ar": "صورة تاريخية تظهر الحاج مالك سي ممسكاً بسبحته.",
+      "wo": "Nataal taariix di won El Hadji Maalik Si di moom sa chapelet."
+    },
+    "date": "Début XXe siècle",
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/d5prlzpy_FB_IMG_1770343515975.jpg",
+    "source": {
+      "fr": "Archives familiales",
+      "en": "Family Archives",
+      "ar": "أرشيف العائلة",
+      "wo": "Dëgg kër gi"
+    },
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb2",
+    "id": "5c8ffbe4-27e1-4520-bb76-d4a91da11f14",
+    "title": {
+      "fr": "Maodo et ses disciples",
+      "en": "Maodo and his disciples",
+      "ar": "مودو وتلاميذه",
+      "wo": "Maodo ak taalibe yi"
+    },
+    "description": {
+      "fr": "El Hadji Malick Sy accompagné de ses disciples à Tivaouane.",
+      "en": "El Hadji Malick Sy accompanied by his disciples in Tivaouane.",
+      "ar": "الحاج مالك سي برفقة تلاميذه في تيفاوان.",
+      "wo": "El Hadji Maalik Si ak taalibe yi ci Tiwaawaan."
+    },
+    "date": "Début XXe siècle",
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/4jvj34rl_FB_IMG_1770343569579.jpg",
+    "source": {
+      "fr": "Archives Zawiya",
+      "en": "Zawiya Archives",
+      "ar": "أرشيف الزاوية",
+      "wo": "Dëgg Zawiya"
+    },
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb3",
+    "id": "b064519d-9684-43f3-81b5-e27d74c0638a",
+    "title": {
+      "fr": "Portrait sépia de Maodo",
+      "en": "Sepia portrait of Maodo",
+      "ar": "صورة بني داكن لمودو",
+      "wo": "Nataal sépia Maodo"
+    },
+    "description": {
+      "fr": "Portrait en sépia d'El Hadji Malick Sy.",
+      "en": "Sepia portrait of El Hadji Malick Sy.",
+      "ar": "صورة بني داكن للحاج مالك سي.",
+      "wo": "Nataal sépia El Hadji Maalik Si."
+    },
+    "date": "Début XXe siècle",
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ov0hfotv_FB_IMG_1770343528749.jpg",
+    "source": {
+      "fr": "Archives historiques",
+      "en": "Historical Archives",
+      "ar": "الأرشيف التاريخي",
+      "wo": "Dëgg taariix"
+    },
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb4",
+    "id": "e9cedc43-4d9e-4c76-96d5-654cf669b32d",
+    "title": {
+      "fr": "La Grande Mosquée de Tivaouane",
+      "en": "The Great Mosque of Tivaouane",
+      "ar": "المسجد الكبير في تيفاوان",
+      "wo": "Jammi bu Mag bi Tiwaawaan"
+    },
+    "description": {
+      "fr": "Vue de la Grande Mosquée de Tivaouane, site classé monument historique depuis 1902.",
+      "en": "View of the Great Mosque of Tivaouane, classified as a historical monument since 1902.",
+      "ar": "منظر المسجد الكبير في تيفاوان، المصنف كمعلم تاريخي منذ 1902.",
+      "wo": "Xool Jammi bu Mag bi Tiwaawaan, paxas taariix dale 1902."
+    },
+    "date": "XXe siècle",
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/q42z1ms8_FB_IMG_1770323089322.jpg",
+    "source": {
+      "fr": "Archives Zawiya",
+      "en": "Zawiya Archives",
+      "ar": "أرشيف الزاوية",
+      "wo": "Dëgg Zawiya"
+    },
+    "order": 5,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb5",
+    "id": "42bda683-a2cd-4744-9a9d-5b45675951d7",
+    "title": {
+      "fr": "Serigne Babacar Sy (1er Khalife)",
+      "en": "Serigne Babacar Sy (1st Khalife)",
+      "ar": "سرين باباكار سي (الخليفة الأول)",
+      "wo": "Serigne Babacar Sy (Njëkk Xaliifa)"
+    },
+    "description": {
+      "fr": "Serigne Khalifa Ababacar Sy (1885-1957), premier successeur de Maodo, fondateur des dahiras et initiateur de la ziarra générale en 1930.",
+      "en": "Serigne Khalifa Ababacar Sy (1885-1957), first successor of Maodo, founder of dahiras and initiator of the general ziarra in 1930.",
+      "ar": "سرين خليفة أباباكار سي (1885-1957)، أول خليفة لمودو، مؤسس الدوائر ومبتكر الزيارة العامة في 1930.",
+      "wo": "Serigne Khalifa Ababacar Sy (1885-1957), njëkk ki topp Maodo, tëkkikat dahira yi ak ziarra générale ci 1930."
+    },
+    "date": "1922-1957",
+    "image": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/1b6zos47_FB_IMG_1770232308810.jpg",
+    "source": {
+      "fr": "Archives Khalifat",
+      "en": "Khalifat Archives",
+      "ar": "أرشيف الخلافة",
+      "wo": "Dëgg Xalifa"
+    },
+    "order": 6,
+    "active": true
+  }
+]

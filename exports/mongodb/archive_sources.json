@@ -1,0 +1,152 @@
+[
+  {
+    "_id": "698a204b95d24d5698babdc1",
+    "id": "ada5f075-6c0f-49fb-8fb7-c6df8b1e73b6",
+    "title": {
+      "fr": "BnF - Fiche d'autorité Malick Sy",
+      "en": "BnF - Malick Sy Authority Record",
+      "ar": "BnF - سجل سلطة مالك سي",
+      "wo": "BnF - Dossier Maalik Si"
+    },
+    "description": {
+      "fr": "Page officielle de la Bibliothèque nationale de France avec bibliographie complète.",
+      "en": "Official page of the National Library of France with complete bibliography.",
+      "ar": "الصفحة الرسمية للمكتبة الوطنية الفرنسية مع ببليوغرافيا كاملة.",
+      "wo": "Xët sellal bu Bibliothèque nationale France ak bibliographie bu mat."
+    },
+    "lien": "https://data.bnf.fr/fr/14528700/malick_sy/",
+    "source": {
+      "fr": "Bibliothèque nationale de France",
+      "en": "National Library of France",
+      "ar": "المكتبة الوطنية الفرنسية",
+      "wo": "Bibliothèque nationale France"
+    },
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdc2",
+    "id": "4e6f2e7c-6016-4610-a4ba-85ac072342e0",
+    "title": {
+      "fr": "Les Cahiers de l'Islam",
+      "en": "Les Cahiers de l'Islam",
+      "ar": "دفاتر الإسلام",
+      "wo": "Cahiers de l'Islam yi"
+    },
+    "description": {
+      "fr": "Article académique sur le rôle de la Tijaniyya dans l'islamisation du Sénégal.",
+      "en": "Academic article on the role of Tijaniyya in the Islamization of Senegal.",
+      "ar": "مقال أكاديمي عن دور التجانية في أسلمة السنغال.",
+      "wo": "Jëf académique ci solo Tijaniyya ci Islamisation Senegaal."
+    },
+    "lien": "https://www.lescahiersdelislam.fr/Elhadji-Malick-Sy-et-l-islamisation-du-Senegal-le-role-de-la-Tijaniyya-une-confrerie-soufie-d-origine-maghrebine_a1821.html",
+    "source": {
+      "fr": "Recherche Académique",
+      "en": "Academic Research",
+      "ar": "بحث أكاديمي",
+      "wo": "Seet Académique"
+    },
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdc3",
+    "id": "19b29f8d-a51c-4e9c-bb0a-e4ca48dda701",
+    "title": {
+      "fr": "OpenEdition Journals",
+      "en": "OpenEdition Journals",
+      "ar": "مجلات OpenEdition",
+      "wo": "OpenEdition Journals"
+    },
+    "description": {
+      "fr": "Article de recherche dans la Revue des mondes musulmans et de la Méditerranée.",
+      "en": "Research article in the Review of Muslim Worlds and the Mediterranean.",
+      "ar": "مقال بحثي في مجلة العوالم الإسلامية والمتوسط.",
+      "wo": "Jëf seet ci Revue bi àdduna musulman yi ak Méditerranée."
+    },
+    "lien": "https://journals.openedition.org/remmm/21127",
+    "source": {
+      "fr": "OpenEdition",
+      "en": "OpenEdition",
+      "ar": "OpenEdition",
+      "wo": "OpenEdition"
+    },
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdc4",
+    "id": "0a423fec-c133-475d-b96d-3886afe669f8",
+    "title": {
+      "fr": "Archive.org - Collection Audio",
+      "en": "Archive.org - Audio Collection",
+      "ar": "Archive.org - مجموعة صوتية",
+      "wo": "Archive.org - Collection Audio"
+    },
+    "description": {
+      "fr": "Collection audio 'Sidi El Hadj Malick SY Rta' disponible en streaming et téléchargement.",
+      "en": "Audio collection 'Sidi El Hadj Malick SY Rta' available for streaming and download.",
+      "ar": "مجموعة صوتية 'سيدي الحاج مالك سي' متاحة للبث والتحميل.",
+      "wo": "Collection audio 'Sidi El Hadj Maalik SY Rta' am na ci streaming ak download."
+    },
+    "lien": "https://archive.org/details/sidi-el-hadj-malick-sy-rta",
+    "source": {
+      "fr": "Internet Archive",
+      "en": "Internet Archive",
+      "ar": "أرشيف الإنترنت",
+      "wo": "Internet Archive"
+    },
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdc5",
+    "id": "b16e6a96-fd71-4403-b572-f30dc09a62a3",
+    "title": {
+      "fr": "Thèses UCAD",
+      "en": "UCAD Theses",
+      "ar": "أطروحات UCAD",
+      "wo": "Thèse UCAD yi"
+    },
+    "description": {
+      "fr": "Collection de thèses et mémoires de l'Université Cheikh Anta Diop sur El Hadji Malick Sy.",
+      "en": "Collection of theses and dissertations from Cheikh Anta Diop University on El Hadji Malick Sy.",
+      "ar": "مجموعة أطروحات ورسائل من جامعة الشيخ أنتا ديوب عن الحاج مالك سي.",
+      "wo": "Collection thèse ak mémoire bu Université Cheikh Anta Diop ci El Hadji Maalik Si."
+    },
+    "lien": "http://bibnum.ucad.sn/greenstone/cgi-bin/library.cgi?e=q-00000-00---off-0theses",
+    "source": {
+      "fr": "UCAD Dakar",
+      "en": "UCAD Dakar",
+      "ar": "UCAD داكار",
+      "wo": "UCAD Dakar"
+    },
+    "order": 5,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdc6",
+    "id": "cc98c974-60fe-4955-9925-d3bf4f8911f6",
+    "title": {
+      "fr": "Timbuktu Institute",
+      "en": "Timbuktu Institute",
+      "ar": "معهد تمبكتو",
+      "wo": "Timbuktu Institute"
+    },
+    "description": {
+      "fr": "Analyse du rôle diplomatique pionnier de la zawiya de Tivaouane.",
+      "en": "Analysis of the pioneering diplomatic role of the Zawiya of Tivaouane.",
+      "ar": "تحليل الدور الدبلوماسي الرائد لزاوية تيفاوان.",
+      "wo": "Xellu ci solo diplomatique bu njëkk bu zawiya Tiwaawaan."
+    },
+    "lien": "https://timbuktu-institute.org/index.php/toutes-l-actualites/item/289-tivaouane-le-role-diplomatique-pionnier-d-une-zawiya-rayonnante-par-dr-bakary-sambe",
+    "source": {
+      "fr": "Think Tank",
+      "en": "Think Tank",
+      "ar": "مركز أبحاث",
+      "wo": "Think Tank"
+    },
+    "order": 6,
+    "active": true
+  }
+]

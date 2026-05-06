@@ -1,0 +1,76 @@
+[
+  {
+    "_id": "6991ef4fee95d812f3be8607",
+    "id": "wattu_promo",
+    "section_type": "wattu_promo",
+    "title": {
+      "fr": "Wattu - Opinions & Réflexions",
+      "en": "Wattu - Opinions & Reflections",
+      "ar": "واتو - آراء وتأملات",
+      "wo": "Wattu - Xalaat ak Xibaar"
+    },
+    "description": {
+      "fr": "Découvrez des articles, des analyses et des réflexions sur la tradition tidiane et la spiritualité.",
+      "en": "Discover articles, analyses, and reflections on the Tidiane tradition and spirituality.",
+      "ar": "اكتشف المقالات والتحليلات والتأملات حول التقليد التجاني والروحانية.",
+      "wo": "Gis bindu yi, nataal yi ak xalaat yi ci tariqa Tijaan ak ruu."
+    },
+    "content": {
+      "button_text": {
+        "fr": "Accéder à Wattu",
+        "en": "Access Wattu",
+        "ar": "الوصول إلى واتو",
+        "wo": "Jël Wattu"
+      },
+      "link": "/wattu"
+    },
+    "is_active": true,
+    "display_order": 1,
+    "background_style": "gradient",
+    "created_at": "2026-02-15T16:07:43.029130+00:00",
+    "updated_at": "2026-03-02T17:01:48.827100+00:00"
+  },
+  {
+    "_id": "6991ef4fee95d812f3be8608",
+    "id": "donations",
+    "section_type": "donations",
+    "title": {
+      "fr": "Dons (Hadiya)",
+      "en": "Donations (Hadiya)",
+      "ar": "التبرعات (الهدية)",
+      "wo": "Ndimbal (Hadiya)"
+    },
+    "description": {
+      "fr": "Vos généreuses contributions nous aident à préserver et partager l'héritage spirituel de Maodo. Chaque don est une bénédiction.",
+      "en": "Your generous contributions help us preserve and share the spiritual heritage of Maodo. Every donation is a blessing.",
+      "ar": "تساعدنا مساهماتكم السخية في الحفاظ على التراث الروحي لمودو ونشره. كل تبرع هو بركة.",
+      "wo": "Sa ndimbal yi dañu nu dimbali ngir wattu ak yóbbu njàng bu Maodo. Bépp hadiya barke la."
+    },
+    "content": {
+      "how_to_donate_title": {
+        "fr": "Comment faire un don",
+        "en": "How to Donate",
+        "ar": "كيفية التبرع",
+        "wo": "Nan ngay jox"
+      },
+      "payment_methods": [
+        {
+          "type": "mobile_money",
+          "label": "Wave / Orange Money",
+          "value": "77 338 90 95"
+        }
+      ],
+      "quote": {
+        "fr": "\"Les meilleurs des gens sont ceux qui sont les plus bénéfiques pour les autres.\" - Hadith",
+        "en": "\"The best of people are those who are most beneficial to others.\" - Hadith",
+        "ar": "\"خير الناس أنفعهم للناس\" - حديث",
+        "wo": "\"Ñi gën ci nit ñi, mooy ñi gën a am njariñ ci ñeneen ñi.\" - Hadiis"
+      }
+    },
+    "is_active": true,
+    "display_order": 2,
+    "background_style": "green",
+    "created_at": "2026-02-15T16:07:43.040600+00:00",
+    "updated_at": "2026-02-15T16:07:43.040609+00:00"
+  }
+]

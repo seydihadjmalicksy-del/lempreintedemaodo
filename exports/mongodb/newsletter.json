@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "69855c172dcfe7e391e2252d",
+    "id": "ccffce5b-55e6-4800-8240-36207ab10d53",
+    "email": "test@example.com",
+    "language": "fr",
+    "subscribed_at": "2026-02-06T03:12:23.301453+00:00",
+    "active": true
+  },
+  {
+    "_id": "69855dc9ed63675baa368db2",
+    "id": "3e1b9d5a-8827-4b9c-8fa2-eea778e992ae",
+    "email": "testuser4196@example.com",
+    "language": "fr",
+    "subscribed_at": "2026-02-06T03:19:37.866386+00:00",
+    "active": true
+  },
+  {
+    "_id": "69856101ed63675baa368db4",
+    "id": "62ae3820-837a-4d5a-b76f-e2dce1895051",
+    "email": "test_newsletter@example.com",
+    "language": "fr",
+    "subscribed_at": "2026-02-06T03:33:21.455047+00:00",
+    "active": true
+  },
+  {
+    "_id": "6985612a66543db26061c44c",
+    "id": "ecf083b0-8352-46c8-91bf-68c2b3f7e528",
+    "email": "test_eacc49a5@example.com",
+    "language": "fr",
+    "subscribed_at": "2026-02-06T03:34:02.738985+00:00",
+    "active": true
+  },
+  {
+    "_id": "6985612a66543db26061c44d",
+    "id": "b02410df-9fbc-41f3-9c84-523cabd75504",
+    "email": "test_en_66d72647@example.com",
+    "language": "en",
+    "subscribed_at": "2026-02-06T03:34:02.777580+00:00",
+    "active": true
+  },
+  {
+    "_id": "6985612a66543db26061c44e",
+    "id": "a8d0f7af-c837-455e-9ab4-3732ff6f9295",
+    "email": "test_ar_29fca3f9@example.com",
+    "language": "ar",
+    "subscribed_at": "2026-02-06T03:34:02.816392+00:00",
+    "active": true
+  },
+  {
+    "_id": "6985612a66543db26061c44f",
+    "id": "19ef169a-b047-4515-b726-493844ea2bee",
+    "email": "test_wo_08c6136c@example.com",
+    "language": "wo",
+    "subscribed_at": "2026-02-06T03:34:02.856224+00:00",
+    "active": true
+  },
+  {
+    "_id": "6985612a66543db26061c450",
+    "id": "adacde78-b258-42ac-9e42-165b6a4c6ebd",
+    "email": "test_dup_38aaef09@example.com",
+    "language": "fr",
+    "subscribed_at": "2026-02-06T03:34:02.938194+00:00",
+    "active": true
+  },
+  {
+    "_id": "6985613e66543db26061c452",
+    "id": "ae4e1c59-86fb-4a50-9a50-1542a098df90",
+    "email": "playwright_test_1770348862@example.com",
+    "language": "fr",
+    "subscribed_at": "2026-02-06T03:34:22.566765+00:00",
+    "active": true
+  }
+]

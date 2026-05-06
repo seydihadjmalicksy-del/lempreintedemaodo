@@ -1,0 +1,63 @@
+[
+  {
+    "_id": "698a204b95d24d5698babdb6",
+    "id": "7a76993e-1bc6-466d-8911-1fb1c01b5867",
+    "title": "Tayssîr (Wassîlatul Munâ)",
+    "author": "El Hadji Malick Sy",
+    "duration": "20:54",
+    "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Tayssir.mp3",
+    "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/",
+    "coverImage": "https://customer-assets.emergentagent.com/job_tariqa-tidiane/artifacts/ypec6ou8_FB_IMG_1770343497173.jpg",
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb7",
+    "id": "c146e3df-4dee-49c6-8111-59418c544fea",
+    "title": "Zajrul Qulûb (زَجْرُ الْقُلُوبْ)",
+    "author": "El Hadji Malick Sy",
+    "duration": "15:30",
+    "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Zadjroul-khouloub.mp3",
+    "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/",
+    "coverImage": null,
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb8",
+    "id": "15721296-a161-49d5-9ccb-4d839ed9233e",
+    "title": "Yâ Kâchifad-Dâ-i",
+    "author": "El Hadji Malick Sy",
+    "duration": "12:45",
+    "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Ya-kachifdaddahi.mp3",
+    "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/",
+    "coverImage": null,
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698a204b95d24d5698babdb9",
+    "id": "05afc679-8697-417d-a53f-fc542eda8f4e",
+    "title": "Fanâdjînâ",
+    "author": "El Hadji Malick Sy",
+    "duration": "08:20",
+    "audioUrl": "https://sopnabyfrance.com/wp-content/uploads/2023/01/Fanadjina.mp3",
+    "source": "https://sopnabyfrance.com/bibliotheque-seydil-hadji-malick-sy/",
+    "coverImage": null,
+    "order": 4,
+    "active": true
+  },
+  {
+    "_id": "69a5d817e55d153ea9212259",
+    "id": "fc818e26-140b-4fb1-9171-81b93c7d32b1",
+    "title": "Test Audio",
+    "author": "Réciteur Test",
+    "duration": "10:30",
+    "audioUrl": "https://example.com/audio.mp3",
+    "source": "Test Source",
+    "coverImage": null,
+    "order": 0,
+    "active": true,
+    "created_at": "2026-03-02T18:33:59.504340+00:00"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "698cc9238c67443bf5af1127",
+    "id": "15bd991c-77d9-44b3-82da-ea6bdc9b35fa",
+    "titre": {
+      "fr": "Dîwân El Hadji Malick Sy",
+      "en": "Dîwân El Hadji Malick Sy",
+      "ar": "ديوان الحاج مالك سي",
+      "wo": "Dîwân El Hadji Malick Sy"
+    },
+    "description": {
+      "fr": "Recueil complet des poésies de Maodo, incluant des poèmes sur le Prophète, Cheikh Ahmed Tijani et El Hadji Oumar Foutiyou Tall. Nouvelle édition en sept tomes publiée au Maroc en 2022 pour le centenaire de sa disparition.",
+      "en": "Complete collection of Maodo's poetry, including poems about the Prophet, Sheikh Ahmed Tijani and El Hadji Oumar Foutiyou Tall. New seven-volume edition published in Morocco in 2022 for the centenary of his passing.",
+      "ar": "مجموعة كاملة لشعر مودو، تشمل قصائد عن النبي والشيخ أحمد التيجاني والحاج عمر فوتيو تال. طبعة جديدة في سبعة مجلدات نُشرت في المغرب عام 2022 بمناسبة مئوية وفاته.",
+      "wo": "Téere bu ëpp ci poésie Maodo, am na téere ci Yonent, Cheikh Ahmed Tijani ak El Hadji Oumar Foutiyou Tall. Édition bu bees ci juróom ñaar tome publié ci Maroc ci 2022."
+    },
+    "order": 1,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1128",
+    "id": "06377f05-1e5c-4aa7-b0ba-a129a41a5032",
+    "titre": {
+      "fr": "Abada Buruq",
+      "en": "Abada Buruq",
+      "ar": "أبدى بروق",
+      "wo": "Abada Buruq"
+    },
+    "description": {
+      "fr": "Ouvrage disponible en traduction française, faisant partie du corpus littéraire de Maodo.",
+      "en": "Work available in French translation, part of Maodo's literary corpus.",
+      "ar": "عمل متوفر بترجمة فرنسية، جزء من المجموعة الأدبية لمودو.",
+      "wo": "Téere bu am ci yëngal Français, ci biir téere yi Maodo."
+    },
+    "order": 2,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af1129",
+    "id": "2f349489-e083-42af-b35a-190dda2bccb3",
+    "titre": {
+      "fr": "Khutbatul Jumu'a",
+      "en": "Khutbatul Jumu'a",
+      "ar": "خطبة الجمعة",
+      "wo": "Khutbatul Jumu'a"
+    },
+    "description": {
+      "fr": "Sermons du vendredi prononcés par Maodo, préservés et transmis à travers les générations.",
+      "en": "Friday sermons delivered by Maodo, preserved and transmitted through generations.",
+      "ar": "خطب الجمعة التي ألقاها مودو، حُفظت ونُقلت عبر الأجيال.",
+      "wo": "Khutba Jumu'a yi Maodo waxee, dañu ko téeg te yëgale ci at yi."
+    },
+    "order": 3,
+    "active": true
+  },
+  {
+    "_id": "698cc9238c67443bf5af112a",
+    "id": "11de87ee-1c45-406f-ae0e-8ca1200d97e8",
+    "titre": {
+      "fr": "Doua-oul Wazifa",
+      "en": "Doua-oul Wazifa",
+      "ar": "دعاء الوظيفة",
+      "wo": "Doua-oul Wazifa"
+    },
+    "description": {
+      "fr": "Invocations et prières de la Wazifa, pratique quotidienne des disciples tidjanes.",
+      "en": "Invocations and prayers of the Wazifa, daily practice of Tijani disciples.",
+      "ar": "أدعية وصلوات الوظيفة، الممارسة اليومية لتلاميذ التيجانية.",
+      "wo": "Ñaan yi ak Wazifa, jëf bu bés bu bés ci talibé Tijaan yi."
+    },
+    "order": 4,
+    "active": true
+  }
+]
