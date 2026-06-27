@@ -258,7 +258,7 @@ const ExternalLibrary = ({ language = 'fr' }) => {
                   <button
                     onClick={() => handlePreview(file)}
                     className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 border-2 border-[#004D33] text-[#004D33] rounded-lg hover:bg-[#004D33] hover:text-white transition-colors font-medium"
-                    data-testid={`preview-btn-${index}`}
+                    data-testid={`ext-lib-preview-btn-${index}`}
                   >
                     <Eye className="w-4 h-4" />
                     {txt.preview}
@@ -267,7 +267,7 @@ const ExternalLibrary = ({ language = 'fr' }) => {
                 <button
                   onClick={() => handleDownload(file)}
                   className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-[#D4AF37] text-[#004D33] rounded-lg hover:bg-[#b8952e] transition-colors font-medium"
-                  data-testid={`download-btn-${index}`}
+                  data-testid={`ext-lib-download-btn-${index}`}
                 >
                   <Download className="w-4 h-4" />
                   {txt.download}

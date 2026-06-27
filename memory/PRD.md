@@ -386,7 +386,26 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ```
 
 ## Last Updated
-March 4, 2026 - Bug fix: Media display on production site
+June 27, 2026 - Bug fix: External Library file download/preview
+
+### Phase 17 - External Library Bug Fix ✅ (June 27, 2026)
+- **Bug corrigé**: Erreur au clic sur les fichiers dans la "Bibliothèque Numérique" dynamique
+- **Cause identifiée**: Les URLs des fichiers PDF dans la collection `external_library_files` pointaient vers des fichiers inexistants (`/uploads/fakhiya.pdf`, etc.) qui retournaient des pages HTML au lieu de vrais PDFs
+- **Solution implémentée**:
+  1. Mise à jour des URLs dans MongoDB pour pointer vers de vrais fichiers PDF existants dans `/ouvrages/`
+  2. Cache vidé pour rafraîchir les données
+  3. Test confirmé : les fichiers PDF se téléchargent et s'affichent correctement
+- **Data-testid corrigés**: Renommés en `ext-lib-preview-btn-{n}` et `ext-lib-download-btn-{n}` pour éviter les conflits avec l'autre section Bibliothèque
+
+### Phase 16 - Admin Panel Extensions ✅ (May-June 2026)
+- **MessagesTab.jsx**: Onglet admin pour voir les messages de contact
+- **NewsletterTab.jsx**: Onglet admin pour gérer les inscriptions newsletter
+- **VideosTab.jsx**: Onglet admin pour gérer les vidéos
+- **ExternalLibraryTab.jsx**: Onglet admin pour gérer la bibliothèque numérique externe dynamique
+- **ImagePicker.jsx**: Composant réutilisable pour sélectionner des images de la médiathèque
+- **WattuTab.js**: Mis à jour pour utiliser ImagePicker au lieu d'un champ URL
+- **ExternalLibrary.jsx**: Composant frontend dynamique pour afficher les fichiers sans rebuild
+- **Backend `/api/ouvrages/external-library/*`**: Endpoints avec cache pour la bibliothèque externe
 
 ### Phase 15 - Media Display Bug Fix ✅ (March 4, 2026)
 - **Bug corrigé**: Les médias (PDF, images) ne s'affichaient pas sur le site de production
@@ -407,6 +426,7 @@ March 4, 2026 - Bug fix: Media display on production site
 
 ### P0 - Haute Priorité
 - [x] ~~Bug affichage médias en production~~ (March 4, 2026)
+- [x] ~~Bug téléchargement Bibliothèque Numérique dynamique~~ (June 27, 2026)
 - [ ] Gestion de l'ordre d'affichage des médias (drag-and-drop)
 - [ ] Bannière "Bismillah" sur la page d'accueil
 
