@@ -19,7 +19,8 @@ import {
   MediaManagerTab,
   MessagesTab,
   NewsletterTab,
-  VideosTab
+  VideosTab,
+  ExternalLibraryTab
 } from "./admin";
 import DynamicPagesTab from "./admin/DynamicPagesTab";
 
@@ -273,6 +274,7 @@ const AdminPanel = () => {
     { id: "newsletter", icon: Users, label: "Newsletter", count: stats.newsletter || 0, color: "gold" },
     { id: "videos", icon: Video, label: "Vidéos", count: stats.videos || 0, color: "blue" },
     { id: "media", icon: FolderOpen, label: "Médias", count: mediaStats.total || 0 },
+    { id: "externalLibrary", icon: Book, label: "Bibliothèque", count: null, color: "green" },
     { id: "quotes", icon: Quote, label: t.quotes, count: quotes.length },
     { id: "events", icon: Calendar, label: t.events, count: events.length },
     { id: "heritiers", icon: Users, label: t.heritiers, count: khalifes.length },
@@ -416,6 +418,12 @@ const AdminPanel = () => {
 
               {activeTab === "media" && (
                 <MediaManagerTab
+                  getAuthHeaders={getAuthHeaders}
+                />
+              )}
+
+              {activeTab === "externalLibrary" && (
+                <ExternalLibraryTab
                   getAuthHeaders={getAuthHeaders}
                 />
               )}

@@ -288,3 +288,241 @@ async def download_pdf(item_id: str):
         raise HTTPException(status_code=500, detail=f"Erreur lors du téléchargement: {str(e)}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erreur lors du traitement: {str(e)}")
+
+
+# ============== BIBLIOTHÈQUE DYNAMIQUE EXTERNE ==============
+# Configuration de la source externe
+EXTERNAL_LIBRARY_BASE_URL = "https://static-assets-fix-2.preview.emergentagent.com"
+EXTERNAL_LIBRARY_PATH = "/enseignements/ouvrages"
+
+# Cache simple en mémoire avec TTL
+import time
+_library_cache = {"data": None, "timestamp": 0}
+CACHE_TTL = 300  # 5 minutes en secondes
+
+def get_file_info(filename: str) -> dict:
+    """Extract file information from filename"""
+    import os
+    name, ext = os.path.splitext(filename)
+    ext = ext.lower().lstrip('.')
+    
+    # Map extensions to formats
+    format_map = {
+        'pdf': 'PDF',
+        'doc': 'Word',
+        'docx': 'Word',
+        'txt': 'Texte',
+        'jpg': 'Image',
+        'jpeg': 'Image',
+        'png': 'Image',
+        'gif': 'Image',
+        'mp3': 'Audio',
+        'mp4': 'Vidéo',
+        'zip': 'Archive'
+    }
+    
+    return {
+        "filename": filename,
+        "title": name.replace('_', ' ').replace('-', ' ').title(),
+        "format": format_map.get(ext, ext.upper()),
+        "extension": ext,
+        "is_previewable": ext in ['pdf', 'jpg', 'jpeg', 'png', 'gif', 'txt']
+    }
+
+
+@router.get("/external-library")
+async def get_external_library():
+    """
+    Récupère dynamiquement la liste des fichiers depuis une source externe.
+    Utilise un cache pour limiter les appels.
+    """
+    global _library_cache
+    
+    current_time = time.time()
+    
+    # Vérifier le cache
+    if _library_cache["data"] and (current_time - _library_cache["timestamp"]) < CACHE_TTL:
+        return _library_cache["data"]
+    
+    try:
+        # Récupérer la liste des fichiers depuis la base de données
+        # (configurée via admin ou stockée en DB)
+        files_from_db = await db.external_library_files.find(
+            {"active": True}, 
+            {"_id": 0}
+        ).sort("order", 1).to_list(500)
+        
+        if files_from_db:
+            result = {
+                "source": "database",
+                "base_url": EXTERNAL_LIBRARY_BASE_URL,
+                "files": files_from_db,
+                "total": len(files_from_db),
+                "cache_ttl": CACHE_TTL
+            }
+        else:
+            # Si pas de fichiers en DB, retourner un résultat vide avec instructions
+            result = {
+                "source": "database",
+                "base_url": EXTERNAL_LIBRARY_BASE_URL,
+                "files": [],
+                "total": 0,
+                "message": "Aucun fichier configuré. Utilisez l'admin pour ajouter des fichiers.",
+                "cache_ttl": CACHE_TTL
+            }
+        
+        # Mettre en cache
+        _library_cache = {"data": result, "timestamp": current_time}
+        
+        return result
+        
+    except Exception as e:
+        # En cas d'erreur, retourner les données en cache si disponibles
+        if _library_cache["data"]:
+            return _library_cache["data"]
+        
+        raise HTTPException(
+            status_code=503, 
+            detail=f"Service temporairement indisponible: {str(e)}"
+        )
+
+
+@router.post("/external-library/files")
+async def add_external_library_file(
+    file_data: dict,
+    admin: bool = Depends(verify_admin_token)
+):
+    """Ajouter un fichier à la bibliothèque externe (admin)"""
+    file_id = str(uuid.uuid4())
+    
+    file_doc = {
+        "id": file_id,
+        "filename": file_data.get("filename"),
+        "title": file_data.get("title", file_data.get("filename", "").replace('_', ' ').replace('-', ' ').title()),
+        "description": file_data.get("description", ""),
+        "url": file_data.get("url"),
+        "format": file_data.get("format", "PDF"),
+        "extension": file_data.get("extension", "pdf"),
+        "size": file_data.get("size", ""),
+        "language": file_data.get("language", "Arabe"),
+        "is_previewable": file_data.get("is_previewable", True),
+        "order": file_data.get("order", 0),
+        "active": True
+    }
+    
+    await db.external_library_files.insert_one(file_doc)
+    
+    # Invalider le cache
+    global _library_cache
+    _library_cache = {"data": None, "timestamp": 0}
+    
+    file_doc.pop("_id", None)
+    return file_doc
+
+
+@router.put("/external-library/files/{file_id}")
+async def update_external_library_file(
+    file_id: str,
+    file_data: dict,
+    admin: bool = Depends(verify_admin_token)
+):
+    """Mettre à jour un fichier de la bibliothèque externe (admin)"""
+    update_data = {k: v for k, v in file_data.items() if v is not None}
+    
+    if update_data:
+        result = await db.external_library_files.update_one(
+            {"id": file_id}, 
+            {"$set": update_data}
+        )
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Fichier non trouvé")
+    
+    # Invalider le cache
+    global _library_cache
+    _library_cache = {"data": None, "timestamp": 0}
+    
+    updated = await db.external_library_files.find_one({"id": file_id}, {"_id": 0})
+    return updated
+
+
+@router.delete("/external-library/files/{file_id}")
+async def delete_external_library_file(
+    file_id: str,
+    admin: bool = Depends(verify_admin_token)
+):
+    """Supprimer un fichier de la bibliothèque externe (admin)"""
+    result = await db.external_library_files.delete_one({"id": file_id})
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Fichier non trouvé")
+    
+    # Invalider le cache
+    global _library_cache
+    _library_cache = {"data": None, "timestamp": 0}
+    
+    return {"message": "Fichier supprimé"}
+
+
+@router.get("/external-library/proxy/{file_id}")
+async def proxy_external_file(file_id: str):
+    """
+    Proxy pour télécharger un fichier depuis la source externe.
+    Permet de sécuriser les URLs et d'ajouter des headers appropriés.
+    """
+    # Récupérer les infos du fichier depuis la DB
+    file_doc = await db.external_library_files.find_one({"id": file_id}, {"_id": 0})
+    
+    if not file_doc:
+        raise HTTPException(status_code=404, detail="Fichier non trouvé")
+    
+    file_url = file_doc.get("url")
+    if not file_url:
+        raise HTTPException(status_code=404, detail="URL du fichier non configurée")
+    
+    try:
+        async with httpx.AsyncClient(timeout=60.0, follow_redirects=True) as client:
+            response = await client.get(file_url)
+            response.raise_for_status()
+            
+            content = response.content
+            
+            # Déterminer le content-type
+            extension = file_doc.get("extension", "pdf").lower()
+            content_type_map = {
+                'pdf': 'application/pdf',
+                'doc': 'application/msword',
+                'docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'txt': 'text/plain',
+                'jpg': 'image/jpeg',
+                'jpeg': 'image/jpeg',
+                'png': 'image/png',
+                'gif': 'image/gif',
+                'mp3': 'audio/mpeg',
+                'mp4': 'video/mp4'
+            }
+            content_type = content_type_map.get(extension, 'application/octet-stream')
+            
+            filename = file_doc.get("filename", f"document.{extension}")
+            
+            return StreamingResponse(
+                io.BytesIO(content),
+                media_type=content_type,
+                headers={
+                    "Content-Disposition": f'inline; filename="{filename}"',
+                    "Content-Type": content_type,
+                    "Content-Length": str(len(content))
+                }
+            )
+            
+    except httpx.HTTPStatusError as e:
+        raise HTTPException(status_code=e.response.status_code, detail="Fichier non accessible")
+    except httpx.RequestError as e:
+        raise HTTPException(status_code=503, detail=f"Erreur de connexion: {str(e)}")
+
+
+@router.post("/external-library/clear-cache")
+async def clear_external_library_cache(admin: bool = Depends(verify_admin_token)):
+    """Vider le cache de la bibliothèque externe (admin)"""
+    global _library_cache
+    _library_cache = {"data": None, "timestamp": 0}
+    return {"message": "Cache vidé"}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Book, FileText, Scroll, Download, ExternalLink, Loader2 } from "lucide-react";
 import { useLanguage } from "../../contexts/LanguageContext";
 import PageMediaDisplay from "../../components/PageMediaDisplay";
+import ExternalLibrary from "../../components/ExternalLibrary";
 
 const API_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -403,6 +404,13 @@ const OuvragesReference = () => {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Bibliothèque Numérique Externe (Dynamique) */}
+      <section className="py-16 bg-[#F9F7F2]" id="bibliotheque-dynamique">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ExternalLibrary language={language} />
         </div>
       </section>
 

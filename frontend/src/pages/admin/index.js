@@ -13,3 +13,4 @@ export { default as MediaManagerTab } from './MediaManagerTab';
 export { default as MessagesTab } from './MessagesTab';
 export { default as NewsletterTab } from './NewsletterTab';
 export { default as VideosTab } from './VideosTab';
+export { default as ExternalLibraryTab } from './ExternalLibraryTab';
