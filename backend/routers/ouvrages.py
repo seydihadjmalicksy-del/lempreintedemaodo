@@ -688,8 +688,32 @@ async def download_library_file(file_id: str):
     
     stored_filename = file_doc.get("stored_filename")
     if not stored_filename:
-        # Fallback to proxy for old external URLs
-        return await proxy_external_file(file_id)
+        # Fallback for URL-based files - fetch and serve with attachment disposition
+        file_url = file_doc.get("url")
+        if not file_url:
+            raise HTTPException(status_code=404, detail="URL du fichier non configurée")
+        
+        try:
+            async with httpx.AsyncClient(timeout=60.0, follow_redirects=True) as client:
+                response = await client.get(file_url)
+                response.raise_for_status()
+                content = response.content
+                
+                filename = file_doc.get("filename", "document.pdf")
+                
+                return StreamingResponse(
+                    io.BytesIO(content),
+                    media_type="application/pdf",
+                    headers={
+                        "Content-Disposition": get_safe_filename_header(filename, "attachment"),
+                        "Content-Type": "application/pdf",
+                        "Content-Length": str(len(content))
+                    }
+                )
+        except httpx.HTTPStatusError as e:
+            raise HTTPException(status_code=e.response.status_code, detail="Fichier non accessible")
+        except httpx.RequestError as e:
+            raise HTTPException(status_code=503, detail=f"Erreur de connexion: {str(e)}")
     
     file_path = LIBRARY_UPLOAD_DIR / stored_filename
     
