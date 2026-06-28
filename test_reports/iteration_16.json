@@ -1,0 +1,79 @@
+{
+  "summary": "Verified the Unicode-filename Content-Disposition bug fix for the Digital Library (Bibliothèque Numérique). All three target endpoints (proxy/serve/download) return 200 with HTTP-safe headers, and the original 'latin-1 codec can't encode characters' error is gone. Backend unit + integration tests (17/17) and UI verification on /enseignements/ouvrages all pass.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "/api/ouvrages/external-library/download/{file_id}",
+        "issue": "When the file has no stored_filename (URL-based entries, as in the seeded Risâla/Burda/Wazifa), the endpoint falls back to proxy_external_file() which sets Content-Disposition: inline instead of attachment. Result: clicking 'Download' may render the PDF in-browser rather than forcing a save. Suggested fix: in download_library_file fallback, build the response inline with get_safe_filename_header(filename, 'attachment')."
+      },
+      {
+        "endpoint": "/api/ouvrages/external-library/proxy/{file_id}",
+        "issue": "Proxy loads the full remote file into memory before streaming (io.BytesIO(response.content)) – the Risâla file is reported as 189 MB which will cause backend memory pressure and slow first-byte time. Consider switching to client.stream() and yielding chunks."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verified_endpoints": {
+    "/api/ouvrages/external-library": "200 - lists 3 seeded files",
+    "/api/ouvrages/external-library/proxy/{id}": "200, application/pdf, CD inline; filename=\"*.pdf\" (latin-1 safe) for all 3 ids",
+    "/api/ouvrages/external-library/serve/{id}": "200, application/pdf, CD inline; filename=\"*.pdf\" (latin-1 safe) for all 3 ids",
+    "/api/ouvrages/external-library/download/{id}": "200, application/pdf, CD inline (fallback) – see minor issue above",
+    "Negative cases": "404 returned for non-existent ids on all 3 endpoints"
+  },
+  "helper_function_verification": {
+    "function": "get_safe_filename_header in /app/backend/routers/ouvrages.py",
+    "ascii_input": "inline; filename=\"document.pdf\"",
+    "arabic_input": "inline; filename=\"document.pdf\"; filename*=UTF-8''%D8%A7%D9%84%D8%B1%D8%B3%D8%A7%D9%84%D8%A9.pdf",
+    "mixed_input": "attachment; filename=\"Risla - .pdf\"; filename*=UTF-8''Ris%C3%A2la%20-%20%D8%A7%D9%84%D8%B1%D8%B3%D8%A7%D9%84%D8%A9.pdf",
+    "all_headers_latin1_safe": true
+  },
+  "ui_verification": {
+    "page": "/enseignements/ouvrages (Digital Library section)",
+    "files_rendered": 3,
+    "preview_buttons": "All 3 generate correct proxy URLs (window.open intercepted, URLs verified)",
+    "preview_response": "200, application/pdf, valid Content-Disposition for all 3 files",
+    "download_buttons": "All 3 buttons present with data-testid",
+    "js_errors": "None",
+    "original_bug_reproduced": false
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_external_library_unicode.py",
+    "/app/test_reports/pytest/external_library_unicode_results.xml"
+  ],
+  "action_items": [
+    "MINOR: Fix download_library_file fallback to force 'attachment' disposition even when delegating to proxy_external_file (currently inherits 'inline').",
+    "MINOR (performance): Stream upstream PDF in proxy_external_file instead of buffering 189 MB in memory.",
+    "Optional: Add an end-to-end Cypress/Playwright check that the Download button actually triggers a browser download for URL-based files."
+  ],
+  "critical_code_review_comments": [
+    "get_safe_filename_header correctly implements RFC 5987 (ASCII fallback + filename*=UTF-8''<percent-encoded>). The encode('ascii','ignore') fallback can produce a confusing pure-punctuation name (e.g., 'Risla - .pdf') – functional but UX could be improved by using unicodedata transliteration.",
+    "proxy_external_file uses response.content (whole file in memory). For the Risâla file (189 MB) this is risky in a multi-worker container.",
+    "download_library_file does not honor 'attachment' when falling back to proxy – breaks the semantic of a Download button for non-uploaded files."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_external_library_unicode.py (new)"
+  ],
+  "success_rate": {
+    "backend": "100% (17/17 pytest tests passed)",
+    "frontend": "100% (Digital Library renders 3 files, Preview URLs return valid PDFs, no JS errors)"
+  },
+  "test_credentials": {
+    "admin_username": "admin",
+    "admin_password": "tivaouane2025"
+  },
+  "seed_data_creation": "No new seed data. Existing seeded files used: Risâla (ea09d162…), Qaṣīdat al-Burda (ad993f92…), Dou'a wa Wazîfa (027608af…).",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "The Unicode-encoding bug is fully fixed. If revisiting: (1) the seeded test files have ASCII filenames stored in DB ('Fakhiatul_Tullab.pdf' etc.), so the production HTTP response Content-Disposition values are pure ASCII; the actual Arabic-in-filename scenario was validated via direct unit tests of get_safe_filename_header. (2) Download endpoint falls back to inline for URL-based items – see minor issue. (3) Proxy loads entire remote file in memory – consider streaming.",
+  "rca_of_the_issue": {
+    "root_cause": "FastAPI/Starlette encodes response headers as latin-1. Filenames containing Arabic or other non-Latin-1 characters cannot be placed directly into the Content-Disposition value, raising UnicodeEncodeError ('latin-1' codec can't encode characters in position 31-34: ordinal not in range(256)).",
+    "fix_applied": "Added get_safe_filename_header() helper that detects non-ASCII filenames and emits RFC 5987 compliant headers: an ASCII-only filename= fallback plus filename*=UTF-8''<percent-encoded>. Helper is used in proxy_external_file, serve_library_file, download_library_file, and download_pdf.",
+    "reproduction_blocked_because": "Verified via direct unit tests that get_safe_filename_header('الرسالة.pdf', ...) and ('Risâla - الرسالة.pdf', ...) produce latin-1-encodable headers (header.encode('latin-1') succeeds).",
+    "mitigation": "No further changes required for the reported bug. Address the minor items above for hardening."
+  }
+}

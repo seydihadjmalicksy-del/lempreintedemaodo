@@ -3,10 +3,12 @@ Ouvrages (Reference Works) routes
 """
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.responses import StreamingResponse
+from urllib.parse import quote
 import uuid
 import os
 import io
 import httpx
+import time
 
 from database import db
 from models import (
@@ -18,6 +20,28 @@ from models import (
 from auth import verify_admin_token
 
 router = APIRouter(prefix="/ouvrages", tags=["ouvrages"])
+
+
+# ============== HELPER FUNCTIONS ==============
+def get_safe_filename_header(filename: str, disposition: str = "inline") -> str:
+    """
+    Generate a safe Content-Disposition header that handles Unicode filenames.
+    Uses RFC 5987 encoding for non-ASCII characters.
+    """
+    # Create ASCII-safe version for basic filename
+    ascii_filename = filename.encode('ascii', 'ignore').decode('ascii')
+    if not ascii_filename or ascii_filename == '.pdf':
+        ascii_filename = 'document.pdf'
+    
+    # Check if filename has non-ASCII characters
+    try:
+        filename.encode('ascii')
+        # Pure ASCII - simple header
+        return f'{disposition}; filename="{filename}"'
+    except UnicodeEncodeError:
+        # Has Unicode - use RFC 5987 encoding
+        encoded_filename = quote(filename, safe='')
+        return f"{disposition}; filename=\"{ascii_filename}\"; filename*=UTF-8''{encoded_filename}"
 
 
 # ============== OUVRAGES MAJEURS ==============
@@ -280,7 +304,7 @@ async def download_pdf(item_id: str):
             io.BytesIO(pdf_content),
             media_type="application/pdf",
             headers={
-                "Content-Disposition": f'attachment; filename="{filename}.pdf"',
+                "Content-Disposition": get_safe_filename_header(f"{filename}.pdf", "attachment"),
                 "Content-Type": "application/pdf"
             }
         )
@@ -296,13 +320,11 @@ EXTERNAL_LIBRARY_BASE_URL = "https://static-assets-fix-2.preview.emergentagent.c
 EXTERNAL_LIBRARY_PATH = "/enseignements/ouvrages"
 
 # Cache simple en mémoire avec TTL
-import time
 _library_cache = {"data": None, "timestamp": 0}
 CACHE_TTL = 300  # 5 minutes en secondes
 
 def get_file_info(filename: str) -> dict:
     """Extract file information from filename"""
-    import os
     name, ext = os.path.splitext(filename)
     ext = ext.lower().lstrip('.')
     
@@ -522,7 +544,7 @@ async def proxy_external_file(file_id: str):
                 io.BytesIO(content),
                 media_type=content_type,
                 headers={
-                    "Content-Disposition": f'inline; filename="{filename}"',
+                    "Content-Disposition": get_safe_filename_header(filename, "inline"),
                     "Content-Type": content_type,
                     "Content-Length": str(len(content))
                 }
@@ -649,7 +671,7 @@ async def serve_library_file(file_id: str):
         io.BytesIO(content),
         media_type="application/pdf",
         headers={
-            "Content-Disposition": f'inline; filename="{filename}"',
+            "Content-Disposition": get_safe_filename_header(filename, "inline"),
             "Content-Type": "application/pdf",
             "Content-Length": str(len(content))
         }
@@ -684,7 +706,7 @@ async def download_library_file(file_id: str):
         io.BytesIO(content),
         media_type="application/pdf",
         headers={
-            "Content-Disposition": f'attachment; filename="{filename}"',
+            "Content-Disposition": get_safe_filename_header(filename, "attachment"),
             "Content-Type": "application/pdf",
             "Content-Length": str(len(content))
         }
