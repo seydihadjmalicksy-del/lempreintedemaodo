@@ -125,13 +125,15 @@ const ExternalLibrary = ({ language = 'fr' }) => {
 
   // Handle download
   const handleDownload = (file) => {
-    // Use proxy endpoint for secure download
-    const downloadUrl = `${API_URL}/api/ouvrages/external-library/proxy/${file.id}`;
+    // Use serve endpoint for uploaded files or proxy for external URLs
+    const downloadUrl = file.stored_filename 
+      ? `${API_URL}/api/ouvrages/external-library/download/${file.id}`
+      : `${API_URL}/api/ouvrages/external-library/proxy/${file.id}`;
     
     // Create temporary link and trigger download
     const link = document.createElement('a');
     link.href = downloadUrl;
-    link.download = file.filename || 'document';
+    link.download = file.filename || 'document.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
@@ -140,8 +142,10 @@ const ExternalLibrary = ({ language = 'fr' }) => {
 
   // Handle preview
   const handlePreview = (file) => {
-    // Open in new tab for preview
-    const previewUrl = `${API_URL}/api/ouvrages/external-library/proxy/${file.id}`;
+    // Use serve endpoint for uploaded files or proxy for external URLs
+    const previewUrl = file.stored_filename
+      ? `${API_URL}/api/ouvrages/external-library/serve/${file.id}`
+      : `${API_URL}/api/ouvrages/external-library/proxy/${file.id}`;
     window.open(previewUrl, '_blank', 'noopener,noreferrer');
   };
 

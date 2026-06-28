@@ -386,7 +386,28 @@ Création d'un portail web pour la Tariqa Tidiane de Tivaouane, nommé "L'emprei
 ```
 
 ## Last Updated
-June 27, 2026 - Bug fix: External Library file download/preview
+June 28, 2026 - Bibliothèque Numérique administrable avec upload PDF
+
+### Phase 18 - Bibliothèque Numérique Administrable ✅ (June 28, 2026)
+- **Fonctionnalité** : Les administrateurs peuvent maintenant importer des fichiers PDF directement depuis l'interface admin
+- **Côté Admin** :
+  - Nouveau formulaire d'import avec zone de glisser-déposer pour fichiers PDF
+  - Champs : titre, description (optionnel), langue, ordre d'affichage
+  - Validation : fichiers PDF uniquement, max 50 MB
+  - Actions : Visualiser, Télécharger, Modifier, Supprimer
+- **Côté Visiteur** :
+  - Affichage automatique des nouveaux documents
+  - Bouton "Preview" (PDF dans nouvel onglet)
+  - Bouton "Download" (téléchargement forcé)
+- **Backend** :
+  - `POST /api/ouvrages/external-library/upload` - Upload PDF
+  - `GET /api/ouvrages/external-library/serve/{id}` - Visualisation inline
+  - `GET /api/ouvrages/external-library/download/{id}` - Téléchargement forcé
+  - Stockage dans `/tmp/library_uploads` avec suppression physique à la deletion
+- **Fichiers modifiés** :
+  - `frontend/src/pages/admin/ExternalLibraryTab.jsx` - Interface d'upload
+  - `backend/routers/ouvrages.py` - Nouveaux endpoints
+  - `frontend/src/components/ExternalLibrary.jsx` - Adaptation URLs
 
 ### Phase 17 - External Library Bug Fix ✅ (June 27, 2026)
 - **Bug corrigé**: Erreur au clic sur les fichiers dans la "Bibliothèque Numérique" dynamique

@@ -451,12 +451,26 @@ async def delete_external_library_file(
     admin: bool = Depends(verify_admin_token)
 ):
     """Supprimer un fichier de la bibliothèque externe (admin)"""
+    # Find the file first
+    file_doc = await db.external_library_files.find_one({"id": file_id}, {"_id": 0})
+    
+    if not file_doc:
+        raise HTTPException(status_code=404, detail="Fichier non trouvé")
+    
+    # Delete physical file if it exists
+    stored_filename = file_doc.get("stored_filename")
+    if stored_filename:
+        file_path = LIBRARY_UPLOAD_DIR / stored_filename
+        if file_path.exists():
+            file_path.unlink()
+    
+    # Delete from database
     result = await db.external_library_files.delete_one({"id": file_id})
     
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Fichier non trouvé")
     
-    # Invalider le cache
+    # Invalidate cache
     global _library_cache
     _library_cache = {"data": None, "timestamp": 0}
     
@@ -526,3 +540,152 @@ async def clear_external_library_cache(admin: bool = Depends(verify_admin_token)
     global _library_cache
     _library_cache = {"data": None, "timestamp": 0}
     return {"message": "Cache vidé"}
+
+
+# ============== PDF UPLOAD FOR EXTERNAL LIBRARY ==============
+from fastapi import UploadFile, File, Form
+from pathlib import Path
+
+LIBRARY_UPLOAD_DIR = Path("/tmp/library_uploads")
+LIBRARY_UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+
+
+@router.post("/external-library/upload")
+async def upload_library_pdf(
+    file: UploadFile = File(...),
+    title: str = Form(...),
+    description: str = Form(""),
+    language: str = Form("Arabe"),
+    order: int = Form(0),
+    admin: bool = Depends(verify_admin_token)
+):
+    """Upload a PDF file to the digital library"""
+    # Validate file type
+    if not file.filename.lower().endswith('.pdf'):
+        raise HTTPException(status_code=400, detail="Seuls les fichiers PDF sont acceptés")
+    
+    if file.content_type and file.content_type != 'application/pdf':
+        raise HTTPException(status_code=400, detail="Type de fichier invalide")
+    
+    # Read and validate content
+    content = await file.read()
+    file_size = len(content)
+    
+    # Max 50MB
+    if file_size > 50 * 1024 * 1024:
+        raise HTTPException(status_code=400, detail="Fichier trop volumineux (max 50 MB)")
+    
+    # Validate PDF magic bytes
+    if not content[:5].startswith(b'%PDF-'):
+        raise HTTPException(status_code=400, detail="Le fichier n'est pas un PDF valide")
+    
+    # Generate unique filename
+    file_id = str(uuid.uuid4())
+    stored_filename = f"{file_id}.pdf"
+    file_path = LIBRARY_UPLOAD_DIR / stored_filename
+    
+    # Save file
+    with open(file_path, "wb") as f:
+        f.write(content)
+    
+    # Calculate size string
+    size_mb = file_size / (1024 * 1024)
+    size_str = f"{size_mb:.1f} MB" if size_mb >= 1 else f"{file_size / 1024:.0f} KB"
+    
+    # Create database record
+    file_doc = {
+        "id": file_id,
+        "filename": file.filename,
+        "stored_filename": stored_filename,
+        "title": title,
+        "description": description,
+        "url": f"/api/ouvrages/external-library/serve/{file_id}",  # Internal URL
+        "format": "PDF",
+        "extension": "pdf",
+        "size": size_str,
+        "file_size_bytes": file_size,
+        "language": language,
+        "is_previewable": True,
+        "order": order,
+        "active": True,
+        "uploaded_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    }
+    
+    await db.external_library_files.insert_one(file_doc)
+    
+    # Invalidate cache
+    global _library_cache
+    _library_cache = {"data": None, "timestamp": 0}
+    
+    file_doc.pop("_id", None)
+    return file_doc
+
+
+@router.get("/external-library/serve/{file_id}")
+async def serve_library_file(file_id: str):
+    """Serve a PDF file from the library (for viewing)"""
+    file_doc = await db.external_library_files.find_one({"id": file_id}, {"_id": 0})
+    
+    if not file_doc:
+        raise HTTPException(status_code=404, detail="Fichier non trouvé")
+    
+    stored_filename = file_doc.get("stored_filename")
+    if not stored_filename:
+        # Fallback to proxy for old external URLs
+        return await proxy_external_file(file_id)
+    
+    file_path = LIBRARY_UPLOAD_DIR / stored_filename
+    
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Fichier non trouvé sur le serveur")
+    
+    # Read file content
+    with open(file_path, "rb") as f:
+        content = f.read()
+    
+    filename = file_doc.get("filename", "document.pdf")
+    
+    return StreamingResponse(
+        io.BytesIO(content),
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'inline; filename="{filename}"',
+            "Content-Type": "application/pdf",
+            "Content-Length": str(len(content))
+        }
+    )
+
+
+@router.get("/external-library/download/{file_id}")
+async def download_library_file(file_id: str):
+    """Download a PDF file from the library (forces download)"""
+    file_doc = await db.external_library_files.find_one({"id": file_id}, {"_id": 0})
+    
+    if not file_doc:
+        raise HTTPException(status_code=404, detail="Fichier non trouvé")
+    
+    stored_filename = file_doc.get("stored_filename")
+    if not stored_filename:
+        # Fallback to proxy for old external URLs
+        return await proxy_external_file(file_id)
+    
+    file_path = LIBRARY_UPLOAD_DIR / stored_filename
+    
+    if not file_path.exists():
+        raise HTTPException(status_code=404, detail="Fichier non trouvé sur le serveur")
+    
+    # Read file content
+    with open(file_path, "rb") as f:
+        content = f.read()
+    
+    filename = file_doc.get("filename", "document.pdf")
+    
+    return StreamingResponse(
+        io.BytesIO(content),
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'attachment; filename="{filename}"',
+            "Content-Type": "application/pdf",
+            "Content-Length": str(len(content))
+        }
+    )
