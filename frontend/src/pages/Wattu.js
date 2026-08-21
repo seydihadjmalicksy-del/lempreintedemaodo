@@ -194,11 +194,11 @@ const Wattu = () => {
                   data-testid={`wattu-article-${index}`}
                 >
                   {(article.image || article.image_url) && (
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#F5F5F0]">
                       <img
                         src={article.image || article.image_url}
                         alt={getLocalizedText(article.titre || article.title)}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute top-4 left-4">
                         <span className="px-3 py-1 bg-[#D4AF37] text-[#004D33] text-xs font-bold rounded-full">
