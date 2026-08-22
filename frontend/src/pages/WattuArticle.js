@@ -129,13 +129,14 @@ const WattuArticle = () => {
     <div className="min-h-screen bg-[#F9F7F2]" data-testid="wattu-article-page">
       {/* Hero Image */}
       {article.image && (
-        <div className="relative h-64 md:h-96 overflow-hidden">
-          <img
-            src={article.image}
-            alt={getLocalizedText(article.titre)}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div className="relative w-full bg-[#F5F5F0]">
+          <div className="max-w-4xl mx-auto">
+            <img
+              src={article.image}
+              alt={getLocalizedText(article.titre)}
+              className="w-full h-auto object-contain max-h-[70vh]"
+            />
+          </div>
         </div>
       )}
 
